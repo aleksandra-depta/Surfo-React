@@ -1,0 +1,125 @@
+.myAccount{
+  &__nav {
+    background-color: $color-light-shades;
+    display: flex;
+  }
+  &__link{
+    position: relative;
+    padding: 30px 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    width: 100%;
+
+    @media only screen and (max-width: $bp-831) {
+      padding: 15px 10px;
+      font-size: 0.8rem;
+    }
+
+    &:after{
+      content: "";
+      width: 2px;
+      background-color: $color-white;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__content{
+    padding: 50px 70px;
+    width: 100%;
+    box-shadow: 0 0.4rem 2rem rgba(22, 22, 22, 0.1);
+
+    @media only screen and (max-width: $bp-831) {
+      padding: 50px 30px;
+    }
+  }
+
+  &__logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__row{
+    position: relative;
+
+    &::after{
+      content: "";
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($color-dark-text, 0.075);
+    }
+  }
+
+  &__rowMain{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0px;
+
+    @media only screen and (max-width: $bp-831) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__rowUpdate{
+    display: flex;
+    padding-left: 100px;
+    padding-bottom: 30px;
+
+    @media only screen and (max-width: $bp-831) {
+      padding-left: 0px;
+    }
+  }
+  
+  &__rowOptions{
+    display: flex;
+    gap: 50px
+  }
+
+  &__icon{
+    height: 50px;
+    width: 50px;
+    color: black;
+  }
+
+  &__editIcon{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    left: 55px;
+  }
+
+  &__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__emptyBooking{
+    padding-top: 80px;
+    padding-bottom: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  &__emptyBookingBtn{
+    padding: 20px;
+  }
+
+  &__myBooking{
+    @media only screen and (max-width: $bp-831) {
+      margin: 0px !important;
+    }
+  }
+}

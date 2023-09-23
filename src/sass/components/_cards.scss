@@ -1,0 +1,67 @@
+.cards {
+  grid-column: 2/-2;
+
+  @media only screen and (max-width: $bp-831) {
+    grid-column: 1/-1;
+  }
+
+  &__large {
+    padding-top: 4rem;
+    margin: 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap: 6rem;
+
+    @media only screen and (max-width: $bp-831) {
+      justify-items: center;
+      gap: 0;
+    }
+  }
+
+  &__section {
+    display: grid;
+    grid-row: max-content max-content;
+    grid-column: 1fr;
+    margin-bottom: 5rem;
+  }
+
+  &__heading {
+    grid-row: 1/2;
+    margin: 0 6rem;
+  }
+
+  &__small {
+    grid-row: 2/3;
+    margin: 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 5rem;
+
+    &--searched {
+      grid-row: 2/3;
+      margin: 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5rem;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__medium {
+    grid-row: 2/3;
+    margin: 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+    gap: 5rem;
+
+    @media only screen and (max-width: $bp-320) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

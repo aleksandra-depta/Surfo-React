@@ -1,0 +1,32 @@
+.cardMedium {
+  box-shadow: 0 0.4rem 2rem rgba($color-dark-text, 0.1);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+
+  &__details {
+    padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr max-content;
+
+    &--description,
+    &--opinion {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+    }
+    &--btn {
+      grid-column: 1/-1;
+      grid-row: 2/3;
+    }
+    &--stars {
+      display: flex;
+    }
+  }
+}

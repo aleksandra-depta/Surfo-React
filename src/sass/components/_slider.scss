@@ -1,0 +1,54 @@
+.slider {
+  max-width: 50rem;
+  height: 72rem;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+
+  @media only screen and (max-width: $bp-831) {
+    grid-column: 2/3;
+    align-items: center;
+  }
+  @media only screen and (max-width: $bp-565) {
+    max-width: 35rem;
+    height: 65rem;
+  }
+  @media only screen and (max-width: $bp-320) {
+    border-radius: 35px;
+  }
+}
+
+.swiperReviews {
+  width: 90rem;
+  height: 45rem;
+
+  @media only screen and (max-width: $bp-1000) {
+    width: 75rem;
+  }
+  @media only screen and (max-width: $bp-831) {
+    width: 65rem;
+  }
+  @media only screen and (max-width: $bp-700) {
+    width: 43rem;
+    height: 50rem;
+  }
+  @media only screen and (max-width: $bp-565) {
+    width: 33rem;
+    height: 44rem;
+  }
+  @media only screen and (max-width: $bp-390) {
+    width: 27rem;
+  }
+  @media only screen and (max-width: $bp-320) {
+    width: 30rem;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-theme-color: #ffffff;
+}
+
+.swiper-pagination-bullet {
+  --swiper-theme-color: #3a9696;
+}

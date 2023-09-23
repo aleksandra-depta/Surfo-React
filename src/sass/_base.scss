@@ -1,0 +1,80 @@
+// COLOR VARIABLES
+$color-primary: #3a9696;
+$color-secondary: #f9bd24;
+$color-secondary-light: #e9bf55;
+$color-white: #ffffff;
+
+$color-white-text: #eee;
+
+$color-dark-text: rgb(22, 22, 22);
+$color-light-text: #5b5a5a;
+
+$color-grey-shades: #aaa;
+$color-light-shades: rgb(245, 244, 244);
+
+$bp-1440: 90em;
+$bp-1260: 78.75em;
+$bp-1000: 62.5em;
+$bp-831: 51.95em;
+$bp-700: 43.75em;
+$bp-565: 35.31em;
+$bp-390: 24.375em;
+$bp-320: 20em;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-1440) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-390) {
+    font-size: 40%;
+  }
+  @media only screen and (max-width: $bp-320) {
+    font-size: 30%;
+  }
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  color: $color-white-text;
+  position: relative;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+  supported by Chrome, Edge, Opera and Firefox */
+
+  ::selection {
+    background: $color-white-text;
+  }
+}
+
+.root{
+  position: relative;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.red{
+  background-color: red !important;
+}
+
+.blue{
+  background-color: blue !important;
+}

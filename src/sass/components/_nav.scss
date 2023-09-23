@@ -1,0 +1,113 @@
+.nav {
+  height: 5rem;
+  width: 100%;
+  padding: 5rem 13rem 3.5rem 13rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: $bp-1260) {
+    padding: 5rem 7rem 3.5rem 7rem;
+  }
+  @media only screen and (max-width: $bp-565) {
+    padding: 5rem 1.2rem 3.5rem 1.2rem;
+  }
+
+  &__left {
+    height: 2.2rem;
+    align-self: center;
+    display: flex;
+    align-items: end;
+    gap: 5rem;
+
+    @media only screen and (max-width: $bp-565) {
+      gap: 2rem;
+    }
+  }
+
+  &__right {
+    align-self: center;
+    padding-left: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+    @media only screen and (max-width: $bp-565) {
+      gap: 2rem;
+    }
+  }
+
+  &__userPhoto{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+  }
+
+  &__user{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 2.2rem;
+    align-self: center;
+  }
+
+  &__link:link,
+  &__link:visited {
+    align-self: center;
+    width: max-content;
+    text-decoration: none;
+    color: $color-white;
+    font-weight: 300;
+    font-size: 1.8rem;
+    transition: all 0.2s;
+  }
+
+  &__link:hover,
+  &__link:active {
+    color: $color-secondary;
+  }
+
+  &__btn {
+    margin-top: 15px;
+    border: none;
+    background-color: transparent;
+    color: $color-white-text;
+    cursor: pointer;
+  }
+}
+
+.nav.sticky {
+  position: fixed;
+  background-color: rgba($color-white, 0.9);
+}
+
+.nav__link.sticky,
+.nav__btn.sticky {
+  color: $color-dark-text;
+}
+
+.nav__link:hover,
+.nav__link:active {
+  color: $color-secondary;
+}
+
+.nav__offer.active,
+.nav__right--links.active {
+  color: $color-white;
+  background-color: $color-secondary;
+  padding: 0.5rem 2rem;
+  border-radius: 12rem;
+
+  @media only screen and (max-width: $bp-565) {
+    padding: 0;
+    background-color: transparent;
+    color: $color-secondary;
+    border-radius: 0rem;
+  }
+}

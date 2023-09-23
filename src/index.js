@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+
+import { UserProvider } from './contexts/user.context';
+import { OfferProvider } from './contexts/offerSelected.context';
+import { AddRemoveProvider } from './contexts/controlAddRemoveCarts.context';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.scss';
+import { LinksNavMyAccountProvider } from './contexts/linksMyAcount.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <UserProvider>
+        <OfferProvider>
+          <AddRemoveProvider>
+            <LinksNavMyAccountProvider>
+              <App />
+            </LinksNavMyAccountProvider>
+          </AddRemoveProvider>
+        </OfferProvider>
+      </UserProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

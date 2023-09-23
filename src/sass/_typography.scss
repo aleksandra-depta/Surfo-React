@@ -1,0 +1,183 @@
+.heading {
+  &__1 {
+    font-size: 7rem;
+    line-height: 1;
+    justify-self: center;
+    font-weight: 700;
+
+    @media only screen and (max-width: $bp-565) {
+      font-size: 6rem;
+    }
+
+    &--dark {
+      color: $color-dark-text;
+    }
+  }
+
+  &__2 {
+    font-size: 3rem;
+    line-height: 1;
+    justify-self: center;
+    font-weight: 500;
+  }
+
+  &__3 {
+    justify-self: center;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 3rem;
+    letter-spacing: 0.75px;
+  }
+
+  &__4 {
+    justify-self: start;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $color-dark-text;
+  }
+}
+
+.title {
+  &__main {
+    font-size: 2.1rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    &--white {
+      color: $color-white-text;
+    }
+
+    &--dark {
+      color: $color-dark-text;
+    }
+  }
+
+  &__second {
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    &--white {
+      color: $color-white-text;
+    }
+
+    &--dark {
+      color: $color-dark-text;
+    }
+  }
+
+  &__icon--white {
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color-white-text;
+  }
+  &__icon2--white {
+    font-size: 1.7rem;
+    font-weight: 200;
+    color: $color-white-text;
+  }
+}
+
+.text {
+  &__description {
+    font-size: 1.7rem;
+    font-weight: 200;
+    line-height: 2.5rem;
+    letter-spacing: 0.75px;
+    text-decoration: none;
+
+    &--white {
+      color: $color-white-text;
+    }
+
+    &--dark {
+      color: $color-dark-text;
+    }
+    &--grey {
+      color: $color-light-text;
+    }
+  }
+
+  &__small {
+    font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 2.5rem;
+    letter-spacing: 0.75px;
+    color: $color-dark-text;
+  }
+
+  &--grey {
+    color: $color-light-text;
+  }
+}
+
+.link {
+  color: rgba($color-light-text, 0.8);
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &__opinions {
+    font-size: 1.2rem;
+    color: $color-primary;
+  }
+  &__bookNow {
+    text-decoration: none;
+    color: $color-white;
+  }
+}
+
+.input {
+  width: 30rem;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: $color-light-text;
+  border: none;
+  background-color: rgba($color-white, 0.7);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba($color-dark-text, 0.2);
+
+  @media only screen and (max-width: $bp-831) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: $bp-565) {
+    border: 1px solid rgba($color-dark-text, 0.2) !important;
+  }
+
+  &::placeholder {
+    color: rgba($color-light-text, 0.8);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: rgba($color-white, 0.9);
+    border-bottom: 4px solid $color-primary;
+
+    @media only screen and (max-width: $bp-565) {
+      border: 1px solid rgba($color-dark-text, 0.4) !important;
+    }
+  }
+}
+
+.input__cta {
+  width: 30rem;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: $color-light-text;
+  border: none;
+  background-color: rgba($color-white, 0.7);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba($color-dark-text, 0.2);
+
+  &::placeholder {
+    color: rgba($color-light-text, 0.8);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: rgba($color-white, 0.9);
+  }
+}

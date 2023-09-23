@@ -1,0 +1,81 @@
+.tour{
+  &__reviews {
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+
+    @media only screen and (max-width: $bp-700) {
+      padding-top: 4rem;
+    }
+  }
+
+  &__slider {
+    margin-top: 6rem;
+    max-width: 70vw;
+    height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__slides {
+    padding: 0 7rem;
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 4rem;
+    transition: transform 1s;
+    pointer-events: none;
+
+    @media only screen and (max-width: $bp-700) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: $bp-565) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__testimonial {
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    &--img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    &--description {
+      padding: 0 1.3rem;
+    }
+  }
+
+  &__btns{
+    position: relative;
+  }
+
+  &__next,
+  &__prev {
+    position: absolute;
+    top: 40%;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__prev {
+    left: 0;
+  }
+
+  &__next {
+    right: 0;
+  }
+}

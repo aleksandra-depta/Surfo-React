@@ -1,0 +1,345 @@
+.search {
+  margin: 0rem 6rem;
+  background-color: rgba($color-white, 0.6);
+  border-radius: 30px;
+  box-shadow: 0 2.4rem 4.8rem rgba($color-dark-text, 0.075);
+
+  @media only screen and (max-width: $bp-1260) {
+    margin: 0rem 4rem;
+  }
+  @media only screen and (max-width: $bp-700) {
+    margin: 0rem;
+    padding: 0;
+  }
+
+  &__formOffer{
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem;
+  }
+  
+  &__form {
+    z-index: 300;
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.5fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media only screen and (max-width: $bp-1260) {
+      grid-template-columns: repeat(4, minmax(23rem, 1fr));
+      margin: 2rem;
+    }
+    @media only screen and (max-width: $bp-1000) {
+      grid-template-columns: repeat(2, 23rem) minmax(28rem, 1.5fr);
+      grid-template-rows: repeat(2, 1fr);
+      margin: 2rem;
+    }
+    @media only screen and (max-width: $bp-831) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      margin: 1rem;
+      gap: 0.8rem;
+    }
+  }
+
+  &__item input,
+  &__depart,
+  &__return {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: $color-dark-text;
+    border: none;
+    border-bottom: 4px solid $color-white;
+    background-color: rgba($color-white, 0.7);
+    border-radius: 4px;
+    transition: border-bottom 0.2s;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      outline: none;
+    }
+  }
+
+  &__item input::placeholder,
+  &__depart span,
+  &__return span {
+    color: $color-dark-text;
+    font-weight: 500;
+  }
+
+  &__item {
+    display: flex;
+
+    &--traveler {
+      grid-row: 1/2;
+      grid-column: 1/2;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-row: 1/2;
+        grid-column: 1/2;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-row: 1/2;
+        grid-column: 1/-1;
+      }
+    }
+
+    &--type {
+      grid-row: 1/2;
+      grid-column: 2/4;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-row: 1/2;
+        grid-column: 3/4;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-row: 3/4;
+        grid-column: 1/-1;
+      }
+    }
+
+    &--to {
+      grid-row: 2/3;
+      grid-column: 1/2;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-row: 1/2;
+        grid-column: 2/3;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+      }
+    }
+
+    &--depart {
+      grid-row: 2/3;
+      grid-column: 2/3;
+      width: 100%;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-row: 2/3;
+        grid-column: 1/2;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-row: 4/5;
+        grid-column: 1/2;
+        width: 100%;
+      }
+    }
+
+    &--return {
+      grid-row: 2/3;
+      grid-column: 3/4;
+      width: 100%;
+
+      @media only screen and (max-width: $bp-1000) {
+        grid-row: 2/3;
+        grid-column: 2/3;
+      }
+      @media only screen and (max-width: $bp-831) {
+        grid-row: 4/5;
+        grid-column: 2/3;
+        width: 100%;
+      }
+    }
+  }
+
+  &__btn {
+    grid-row: 2/3;
+    grid-column: 4/5;
+
+    @media only screen and (max-width: $bp-1000) {
+      grid-row: 2/3;
+      grid-column: 3/4;
+    }
+    @media only screen and (max-width: $bp-831) {
+      grid-row: 5/6;
+      grid-column: 1/-1;
+    }
+  }
+
+  &__offerPage{
+    margin-top: 20px;
+    background-color: rgba($color-primary, 0.1);
+    border-radius: 30px;
+    box-shadow: 0 0.5rem 1rem rgba($color-dark-text, 0.2);
+    z-index: 1000;
+  }
+}
+
+/* Select options */
+.select {
+  &__bar {
+    position: relative;
+    font-family: inherit;
+    width: 100%;
+    padding: 1rem;
+    padding-bottom: 0px;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: $color-dark-text;
+    border: none;
+    border-bottom: 4px solid $color-white;
+    background-color: rgba($color-white, 0.9);
+    border-radius: 4px;
+    box-shadow: 0 0.5rem 1rem rgba($color-dark-text, 0.2);
+
+    &:hover {
+      border-bottom: 4px solid $color-primary;
+    }
+  }
+  
+  &__type {
+    width: 100%;
+  }
+  
+  &__where {
+    width: 100%;
+  }
+  
+  &__logo {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.select2.select2-container .select2-selection {
+  border: 1px solid transparent;
+  background-color: transparent;
+  outline: none !important;
+  transition: all 0.15s ease-in-out;
+}
+
+.select2.select2-container .select2-selection .select2-selection__rendered {
+  color: $color-dark-text;
+  line-height: 32px;
+}
+
+.select2.select2-container .select2-selection .select2-selection__arrow {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0px 13px 13px 0;
+  height: 100%;
+  width: 4rem;
+}
+
+.select2.select2-container.select2-container--open
+  .select2-selection.select2-selection--single {
+  background: transparent;
+  font-size: 1.4rem;
+  color: $color-dark-text;
+}
+
+.select2.select2-container
+  .select2-selection--multiple
+  .select2-search--inline
+  .select2-search__field {
+  margin-top: 0;
+  height: 50rem;
+}
+
+.select2.select2-container
+  .select2-selection--multiple
+  .select2-selection__rendered {
+  display: block;
+  padding: 0 4px;
+  line-height: 29px;
+  font-size: 0.4rem;
+}
+
+.select2-container .select2-dropdown {
+  border: none;
+  margin-top: -5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $color-dark-text;
+}
+
+.select2-container .select2-dropdown .select2-search input {
+  outline: none !important;
+  border: 1px solid $color-primary !important;
+  border-bottom: none !important;
+  padding: 4px 6px !important;
+}
+
+.select2-container .select2-dropdown .select2-results {
+  padding: 0;
+}
+
+.select2-container
+  .select2-dropdown
+  .select2-results
+  ul
+  .select2-results__option--highlighted[aria-selected] {
+  background-color: $color-light-shades;
+  color: $color-dark-text;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+  margin-top: 5px;
+  margin-right: 35px !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: $color-dark-text;
+  opacity: 1;
+  background-image: url(../../img/icon_calendar.png);
+  background-size: cover;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  border-width: thin;
+  cursor: pointer;
+
+  @media only screen and (max-width: $bp-565) {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    padding-right: 1rem;
+    margin: 0;
+  }
+}
+
+.search__item--depart,
+.search__item--return {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.css-13cymwt-control{
+  border-style: none !important;
+  background-color: transparent !important;
+}
+
+.css-t3ipsp-control {
+  border-style: none !important;
+  border-color: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.css-153hvpt-control {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+.css-153hvpt-control:hover {
+  box-shadow: none !important
+}
