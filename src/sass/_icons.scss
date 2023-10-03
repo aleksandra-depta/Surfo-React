@@ -1,28 +1,27 @@
 .icon {
-
-  &__counter{
+  &__counter {
     color: rgba($color-primary, 0.9);
     transition: all 0.2s;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       color: $color-primary;
       background-color: transparent !important;
       scale: 1.02;
     }
   }
   &__save {
-    height: 2.5rem;
-    width: 2.5rem;
-    color: rgba($color-secondary, 1);
-    transition: all 0.2s;
+    // height: 2.5rem;
+    // width: 2.5rem;
+    // color: rgba($color-secondary, 1);
+    // transition: all 0.2s;
 
-    &:hover{
-      color: $color-secondary;
-      background-color: transparent !important;
-      scale: 1.02;
-      
-    }
+    // &:hover{
+    //   color: $color-secondary;
+    //   background-color: transparent !important;
+    //   scale: 1.02;
+
+    // }
 
     &--nav {
       height: 5rem;
@@ -35,15 +34,15 @@
       }
     }
 
-    &--active{
+    &--active {
       color: $color-secondary;
     }
   }
 
-  &__shoppingCart{
-    &--active{
+  &__shoppingCart {
+    &--active {
       position: relative;
-      &::after{
+      &::after {
         content: "";
         width: 12px;
         height: 12px;
@@ -53,7 +52,6 @@
         background-color: $color-secondary;
         bottom: 16px;
         right: -10px;
-
       }
     }
   }

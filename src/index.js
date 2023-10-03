@@ -1,34 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-import { UserProvider } from './contexts/user.context';
-import { OfferProvider } from './contexts/offerSelected.context';
-import { AddRemoveProvider } from './contexts/controlAddRemoveCarts.context';
+import { UserProvider } from "./contexts/user.context";
+import { OfferProvider } from "./contexts/offerSelected.context";
+import { AddRemoveProvider } from "./contexts/controlAddRemoveCarts.context";
+import { LinksNavMyAccountProvider } from "./contexts/linksMyAcount.context";
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import './index.scss';
-import { LinksNavMyAccountProvider } from './contexts/linksMyAcount.context';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.scss";
+
+import Container from "react-bootstrap/Container";
+
+import { ThemeProvider } from "styled-components";
+import { COLORS } from "./styled/themeColors";
+
+const theme = {
+  colors: COLORS,
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <OfferProvider>
-          <AddRemoveProvider>
-            <LinksNavMyAccountProvider>
-              <App />
-            </LinksNavMyAccountProvider>
-          </AddRemoveProvider>
-        </OfferProvider>
-      </UserProvider>
+      <ThemeProvider theme={theme}>
+        <UserProvider>
+          <OfferProvider>
+            <AddRemoveProvider>
+              <LinksNavMyAccountProvider>
+                <Container>
+                  <App />
+                </Container>
+              </LinksNavMyAccountProvider>
+            </AddRemoveProvider>
+          </OfferProvider>
+        </UserProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

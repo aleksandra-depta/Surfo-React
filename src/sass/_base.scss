@@ -47,7 +47,7 @@ html {
 body {
   font-family: "Rubik", sans-serif;
   line-height: 1;
-  color: $color-white-text;
+  // color: $color-white-text;
   position: relative;
 
   -webkit-touch-callout: none; /* iOS Safari */
@@ -63,18 +63,10 @@ body {
   }
 }
 
-.root{
+.root {
   position: relative;
 }
 
 .pointer {
   cursor: pointer;
-}
-
-.red{
-  background-color: red !important;
-}
-
-.blue{
-  background-color: blue !important;
 }

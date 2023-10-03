@@ -1,21 +1,21 @@
 .slider {
-  max-width: 50rem;
-  height: 72rem;
-  border-radius: 50px;
-  overflow: hidden;
-  position: relative;
+  // max-width: 50rem;
+  // height: 72rem;
+  // border-radius: 50px;
+  // overflow: hidden;
+  // position: relative;
 
-  @media only screen and (max-width: $bp-831) {
-    grid-column: 2/3;
-    align-items: center;
-  }
-  @media only screen and (max-width: $bp-565) {
-    max-width: 35rem;
-    height: 65rem;
-  }
-  @media only screen and (max-width: $bp-320) {
-    border-radius: 35px;
-  }
+  // @media only screen and (max-width: $bp-831) {
+  //   grid-column: 2/3;
+  //   align-items: center;
+  // }
+  // @media only screen and (max-width: $bp-565) {
+  //   max-width: 35rem;
+  //   height: 65rem;
+  // }
+  // @media only screen and (max-width: $bp-320) {
+  //   border-radius: 35px;
+  // }
 }
 
 .swiperReviews {
