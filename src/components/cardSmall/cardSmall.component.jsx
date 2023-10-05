@@ -16,7 +16,7 @@ const CardSmall = ({ tour }) => {
     <Content>
       <ImageCard src={require(`../../img/${tour.imageCover}`)} alt="tour" />
       {currentUser && (
-        <button onClick={controlBookmark}>
+        <div onClick={controlBookmark}>
           {bookmarks.length === 0 ? (
             <BookmarkIcon>
               <ion-icon size="large" name="bookmark-outline"></ion-icon>
@@ -34,7 +34,7 @@ const CardSmall = ({ tour }) => {
               )
             )
           )}
-        </button>
+        </div>
       )}
       <Details>
         <HeadingH3>{tour.name}</HeadingH3>

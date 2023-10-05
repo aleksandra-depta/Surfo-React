@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 
 import { HeadingH1, HeadingH2, TextMedium } from "../../styled/typography";
+import { ButtonSecondary } from "../../styled/buttons";
+import { Input } from "../../styled/inputs";
+import {
+  FormNewsletter,
+  ImageBackground,
+  Newsletter,
+} from "./newsletter.styles";
 
 import Logo from "../../img/logo.png";
-import { FormNewsletter, Newsletter } from "./newsletter.styles";
+import Background from "../../img/cta-1400.jpg";
 
 const Newsletters = () => {
   return (
     <Newsletter>
+      <ImageBackground src={Background} />
       <Link to="/">
         <img className="cta__logo" alt="Surfo" src={Logo} />
       </Link>
@@ -17,15 +25,8 @@ const Newsletters = () => {
       </TextMedium>
       <HeadingH2>Newsletters</HeadingH2>
       <FormNewsletter>
-        <input
-          className="input__cta"
-          type="email"
-          placeholder="me@example.com"
-          required
-        />
-        <button className="cta__btn btn btn__main btn__main--add">
-          Sign me up
-        </button>
+        <Input type="email" placeholder="me@example.com" required />
+        <ButtonSecondary>Sign me up</ButtonSecondary>
       </FormNewsletter>
     </Newsletter>
   );

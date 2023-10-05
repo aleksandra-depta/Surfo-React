@@ -17,7 +17,6 @@ import {
 } from "./cardMedium.styled";
 
 const CardMedium = ({ tour }) => {
-  
   const { currentUser } = useContext(UserContext);
   const { bookmarks, controlItemToBookmarks } = useContext(AddRemoveContext);
   const controlBookmark = () => controlItemToBookmarks(tour);
@@ -26,7 +25,7 @@ const CardMedium = ({ tour }) => {
     <Content>
       <ImageCard src={require(`../../img/${tour.imageCover}`)} alt="tour" />
       {currentUser && (
-        <button onClick={controlBookmark}>
+        <div onClick={controlBookmark}>
           {bookmarks.length === 0 ? (
             <BookmarkIcon>
               <ion-icon size="large" name="bookmark-outline"></ion-icon>
@@ -44,7 +43,7 @@ const CardMedium = ({ tour }) => {
               )
             )
           )}
-        </button>
+        </div>
       )}
       <Details>
         <Description>

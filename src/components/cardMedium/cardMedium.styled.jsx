@@ -3,7 +3,8 @@ import { IconBookmark } from "../../styled/icons";
 
 export const Content = styled.div`
   border-radius: 4px;
-  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.lightShades};
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+
   display: flex;
   flex-direction: column;
   position: relative;

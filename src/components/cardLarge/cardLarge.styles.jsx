@@ -2,34 +2,23 @@ import styled from "styled-components";
 import { IconBookmark } from "../../styled/icons";
 
 export const SliderCardLarge = styled.div`
-  max-width: 50rem;
+  width: 41rem;
   height: 72rem;
   border-radius: 50px;
   overflow: hidden;
   position: relative;
-
-  /* @media only screen and (max-width: $bp-831) {
-    grid-column: 2/3;
-    align-items: center;
-  }
-  @media only screen and (max-width: $bp-565) {
-    max-width: 35rem;
-    height: 65rem;
-  }
-  @media only screen and (max-width: $bp-320) {
-    border-radius: 35px;
-  } */
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
 `;
 
 export const Details = styled.div`
   margin: 1.2rem;
-  padding: 3rem;
-  background-color: rgba(58, 150, 150, 0.8);
+  padding: 2rem;
+  background-color: ${(props) => props.theme.colors.primaryHalf};
   color: ${(props) => props.theme.colors.whiteText};
   border-radius: 50px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.6rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -46,6 +35,7 @@ export const BookmarkIcon = styled(IconBookmark)`
 export const ImageCard = styled.img`
   width: auto;
   height: 100%;
+  overflow: hidden;
 `;
 
 export const Row = styled.div`
@@ -53,8 +43,8 @@ export const Row = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 6px;
+  padding-top: 6px;
 
   &:before {
     content: "";
@@ -65,6 +55,12 @@ export const Row = styled.div`
     top: 0;
     background-color: ${(props) => props.theme.colors.whiteText};
   }
+`;
+
+export const RowItem = styled.div`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 `;
 
 export const ImageDifficulty = styled.img`

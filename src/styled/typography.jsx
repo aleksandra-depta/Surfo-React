@@ -4,19 +4,16 @@ import { Link } from "react-router-dom";
 export const HeadingH1 = styled.h1`
   font-size: 7rem;
   font-weight: 700;
-  line-height: 1;
 `;
 
 export const HeadingH2 = styled.h2`
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1;
 `;
 
 export const HeadingH3 = styled.h3`
   font-size: 2.3rem;
   font-weight: 600;
-  line-height: 3rem;
   letter-spacing: 0.75px;
 `;
 
@@ -28,7 +25,6 @@ export const HeadingH4 = styled.h4`
 //Text
 export const Text = styled.p`
   font-weight: 200;
-  line-height: 2.5rem;
   letter-spacing: 0.75px;
   text-decoration: none;
 `;
@@ -42,27 +38,41 @@ export const TextLargePrimary = styled(TextLarge)`
 `;
 
 export const TextMedium = styled.p`
-  font-size: 1.9rem;
-  line-height: 2.5rem;
+  font-size: 2.1rem;
 `;
 
 export const TextSmall = styled(Text)`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 `;
 
 // Links
 export const LinkPrimary = styled(Link)`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: ${(props) => props.theme.colors.primary};
+
+  &:hover {
+    transform: scale(102%);
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 export const LinkGrey = styled(Link)`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: ${(props) => props.theme.colors.lightText};
+
+  &:hover {
+    transform: scale(102%);
+    color: ${(props) => props.theme.colors.darkText};
+  }
 `;
 
 export const LinkWhite = styled(Link)`
-  font-size: 2.1rem;
+  font-size: 2.6rem;
   font-weight: 400;
   color: ${(props) => props.theme.colors.whiteText};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.whiteText};
+    transform: translateY(-1px);
+  }
 `;

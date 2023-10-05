@@ -1,0 +1,66 @@
+import styled from "styled-components";
+import { ButtonSecondary, ButtonSecondaryInactive } from "../../styled/buttons";
+import { IconBookmark } from "../../styled/icons";
+
+export const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+`;
+
+export const ImageTour = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+  position: relative;
+`;
+
+export const BookmarkIcon = styled(IconBookmark)`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const RowStars = styled(Row)`
+  gap: 8rem;
+`;
+
+export const Description = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+`;
+
+export const PriceContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  text-align: center;
+`;
+
+export const Price = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ButtonInactive = styled(ButtonSecondaryInactive)`
+  border-radius: 2px;
+  min-width: 20rem;
+`;
+
+export const ButtonActive = styled(ButtonSecondary)`
+  border-radius: 2px;
+  min-width: 20rem;
+`;

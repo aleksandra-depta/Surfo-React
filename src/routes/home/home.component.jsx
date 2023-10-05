@@ -3,44 +3,45 @@ import CardMedium from "../../components/cardMedium/cardMedium.component";
 import CardLarge from "../../components/cardLarge/cardLarge.component";
 import Footer from "../../components/footer/footer.component";
 import Header from "../../components/header/header.component";
-import Navigation from "../../components/nav/nav.component";
 import Newsletters from "../../components/newsletter/newsletter.component";
-import { BackgroundImage } from "./home.styles";
+
+import { HeadingH2 } from "../../styled/typography";
+import { BackgroundImage, Cards, Row, Section } from "./home.styles";
+
 import BackgroundHeaderImg from "../../img/hero-1400.jpg";
 
 const HomePage = ({ tours }) => {
   return (
     <>
-      <Navigation />
       <BackgroundImage src={BackgroundHeaderImg} />
       <Header />
-      <section className="cards cards__large">
+      <Row>
         {tours
           .filter((item) => item.cardLarge === "ok")
           .map((tour) => (
             <CardLarge key={tour._id} tour={tour} />
           ))}
-      </section>
-      <section className="cards cards__section">
-        <h3 className="cards__heading heading__4">Places you can not missed</h3>
-        <div className="cards__small">
+      </Row>
+      <Section>
+        <HeadingH2>Places you can not missed</HeadingH2>
+        <Cards>
           {tours
             .filter((item) => item.cardSmall === "ok")
             .map((tour) => (
               <CardSmall key={tour._id} tour={tour} />
             ))}
-        </div>
-      </section>
-      <section className="cards cards__section">
-        <h3 className="cards__heading heading__4">The most Popular</h3>
-        <div className="cards__medium">
+        </Cards>
+      </Section>
+      <Section>
+        <HeadingH2>The most Popular</HeadingH2>
+        <Cards>
           {tours
             .filter((item) => item.cardMedium === "ok")
             .map((tour) => (
               <CardMedium key={tour._id} tour={tour} />
             ))}
-        </div>
-      </section>
+        </Cards>
+      </Section>
       <Newsletters />
       <Footer />
     </>

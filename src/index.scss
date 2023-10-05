@@ -1,35 +1,5 @@
 @import "./sass/base";
-@import "./sass/btns";
-@import "./sass/icons";
-@import "./sass/typography";
-@import "./sass//datapicker";
-
-//routes
-@import "./sass/routes/home";
-@import "./sass/routes/myAccount";
-@import "./sass/routes/offer";
-@import "./sass/routes/shoppingCart";
-@import "./sass/routes/tours";
-
-//components
-@import "./sass/components/header";
-@import "./sass/components/cards";
-@import "./sass/components/cardLarge";
-@import "./sass/components/cardMedium";
-@import "./sass/components/cardSmall";
-@import "./sass/components/slider";
-@import "./sass/components/cta";
-@import "./sass/components/footer";
-@import "./sass/components/nav";
-@import "./sass/components/searchBar";
-@import "./sass/components/login";
-@import "./sass/components/form";
-@import "./sass/components/container";
-@import "./sass/components/review";
-@import "./sass/components/comment";
-@import "./sass/components/map";
-
-a {
-  text-decoration: none;
-  color: #161616;
-}
+@import "./sass/datapicker";
+@import "./sass/map";
+@import "./sass/searchTab";
+@import "./sass/slider";

@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
+
 import Counter from "../counter/counter.component";
 
 import {
@@ -6,54 +9,49 @@ import {
   TextLargePrimary,
   TextMedium,
 } from "../../styled/typography";
+import { IconGrey } from "../../styled/icons";
 import {
-  Item,
   ItemContent,
   DescriptionContent,
   ImageItem,
   Content,
+  IconTrash,
+  LinkContent,
+  PriceContent,
 } from "./shoppingCartItem.styles";
 
 const ShoppingCartItem = (tour) => {
   tour = tour.tour;
 
+  const { controlItemToShoppingCart } = useContext(AddRemoveContext);
+
   return (
     <Content>
-      {/* <button
-        onClick={() => controlItemToShoppingCart(tour)}
-        className="btn icon__counter shoppingCart__counter"
-      >
-        <div>
+      <IconTrash onClick={() => controlItemToShoppingCart(tour)}>
+        <IconGrey>
           <ion-icon size="large" name="trash-outline"></ion-icon>
-        </div>
-      </button> */}
-
-      <Link to={`/tour/${tour._id}`}>
-        <Item>
-          <ItemContent>
-            <ImageItem
-              src={require(`../../img/${tour.imageCover}`)}
-              alt="Tour image"
-            />
-            <DescriptionContent>
-              <HeadingH2>{tour.name}</HeadingH2>
-              <TextMedium>{tour.days} days</TextMedium>
-              <TextMedium>
-                Start & end: <b>{tour.startAndEndPoint}</b>
-              </TextMedium>
-            </DescriptionContent>
-          </ItemContent>
-          <TextLargePrimary>
-            €{tour.price}
+        </IconGrey>
+      </IconTrash>
+      <LinkContent to={`/tour/${tour._id}`}>
+        <ItemContent>
+          <ImageItem
+            src={require(`../../img/${tour.imageCover}`)}
+            alt="Tour image"
+          />
+          <DescriptionContent>
+            <HeadingH2>{tour.name}</HeadingH2>
+            <TextMedium>{tour.days} days</TextMedium>
             <TextMedium>
-              <br />
-              /per person
+              Start & end: <b>{tour.startAndEndPoint}</b>
             </TextMedium>
-          </TextLargePrimary>
-        </Item>
-      </Link>
-
-      <Counter />
+          </DescriptionContent>
+        </ItemContent>
+        <PriceContent>
+          <TextLargePrimary>€{tour.price}</TextLargePrimary>
+          <TextMedium>/per person</TextMedium>
+        </PriceContent>
+        <Counter />
+      </LinkContent>
     </Content>
   );
 };

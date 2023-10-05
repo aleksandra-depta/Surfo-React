@@ -9,7 +9,12 @@ import "swiper/css/pagination";
 import { UserContext } from "../../contexts/user.context";
 import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
 
-import { HeadingH3, HeadingH4, TextMedium } from "../../styled/typography";
+import {
+  HeadingH3,
+  HeadingH4,
+  TextMedium,
+  TextSmall,
+} from "../../styled/typography";
 import { ButtonWhite } from "../../styled/buttons";
 import {
   BookmarkIcon,
@@ -17,6 +22,7 @@ import {
   ImageCard,
   ImageDifficulty,
   Row,
+  RowItem,
   SliderCardLarge,
 } from "./cardLarge.styles";
 
@@ -63,17 +69,21 @@ const CardLarge = ({ tour }) => {
           />
           <Details>
             <HeadingH3>{tour.name}</HeadingH3>
-            <HeadingH4>{tour.island}, Canaries </HeadingH4>
+            <TextMedium>{tour.island}, Canaries </TextMedium>
             <Row>
-              <ion-icon size="small" name="star-outline"></ion-icon>
-              <TextMedium>{tour.ratingAverage}</TextMedium>
-              <TextMedium>Difficulty</TextMedium>
-              <ImageDifficulty
-                src={require(`../../img/cardLarge_${tour.cardDifficultyImageUrl}`)}
-                alt="Difficulty"
-              />
+              <RowItem>
+                <ion-icon size="small" name="star-outline"></ion-icon>
+                <TextMedium>{tour.ratingAverage}</TextMedium>
+              </RowItem>
+              <RowItem>
+                <TextMedium>Difficulty</TextMedium>
+                <ImageDifficulty
+                  src={require(`../../img/cardLarge_${tour.cardDifficultyImageUrl}`)}
+                  alt="Difficulty"
+                />
+              </RowItem>
             </Row>
-            <TextMedium>{tour.cardLargeDescription}</TextMedium>
+            <TextSmall>{tour.cardLargeDescription}</TextSmall>
             <ButtonWhite to={`/tour/${tour.id}`}>Book Now</ButtonWhite>
           </Details>
         </SwiperSlide>

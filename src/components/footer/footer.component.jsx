@@ -124,17 +124,12 @@ const Footer = () => {
         <LinkGrey to="tel:215-23331-6120">215-23331-6120</LinkGrey>
         <LinkGrey to="mailto:arch.depta@gmail.com">hello@surfo.com</LinkGrey>
       </Column>
-
       {linksGroup.map((group) => (
         <Column>
           <HeadingH3>{group.name}</HeadingH3>
-          <ul className="footer__nav">
-            {group.array.map((el) => (
-              <li>
-                <LinkGrey to="/login">{el.name}</LinkGrey>
-              </li>
-            ))}
-          </ul>
+          {group.array.map((el) => (
+            <LinkGrey to="/login">{el.name}</LinkGrey>
+          ))}
         </Column>
       ))}
     </Row>

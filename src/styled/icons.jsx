@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const IconBookmark = styled.div`
-  height: 2.5rem;
-  width: 2.5rem;
   color: ${(props) => props.theme.colors.secondary};
   cursor: pointer;
   transition: all 0.2s;
@@ -27,7 +25,29 @@ export const IconCounter = styled.div`
 `;
 
 export const IconSocialMedia = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
+  color: ${(props) => props.theme.colors.greyShades};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.darkText};
+  }
+`;
+
+export const IconCheckmark = styled.div`
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+export const IconPin = styled.div`
+  color: ${(props) => props.theme.colors.secondary};
+`;
+
+export const IconForm = styled.div`
+  color: ${(props) => props.theme.colors.darkText};
+`;
+
+export const IconClose = styled.div`
+  color: ${(props) => props.theme.colors.greyShades};
+`;
+
+export const IconGrey = styled.div`
   color: ${(props) => props.theme.colors.greyShades};
 `;

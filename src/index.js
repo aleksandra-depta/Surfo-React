@@ -30,7 +30,7 @@ root.render(
           <OfferProvider>
             <AddRemoveProvider>
               <LinksNavMyAccountProvider>
-                <Container>
+                <Container md>
                   <App />
                 </Container>
               </LinksNavMyAccountProvider>
