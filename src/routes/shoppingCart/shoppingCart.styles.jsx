@@ -25,7 +25,7 @@ export const ShopingCartContainer = styled.div`
 
 export const TotalsContainer = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   gap: 4rem;
 `;

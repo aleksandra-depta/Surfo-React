@@ -27,7 +27,8 @@ export const InputTab = styled.div`
   ${() =>
     window.location.pathname === "/offer" &&
     `
-    box-shadow: 0 0.4rem 0.5rem #aaa ;
+    box-shadow: 0 0.4rem 0.5rem ##3a9696 ;
+    border-bottom: 4px solid #3a9696
   `}
 `;
 
@@ -57,6 +58,8 @@ export const CenterContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.colors.darkText};
+  text-align: center;
 `;
 
 export const LogoTab = styled.img`

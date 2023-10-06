@@ -1,11 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, calcTotals } from "../../features/cartSlice";
+
 import { useContext } from "react";
 import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
 import { UserContext } from "../../contexts/user.context";
 
-import { IconBookmark, IconStar } from "../../styled/icons";
+import { Col } from "react-bootstrap";
+import { IconStar } from "../../styled/icons";
 import { ButtonSmallPrimary, ButtonSmallWhite } from "../../styled/buttons";
 import {
   HeadingH2,
+  HeadingH4,
   LinkGrey,
   TextLargePrimary,
   TextMedium,
@@ -26,22 +31,13 @@ import {
 } from "./cardTour.styles";
 
 const CardTour = ({ tour }) => {
-  const { currentUser } = useContext(UserContext);
-  const {
-    bookmarks,
-    controlItemToBookmarks,
-    shoppingCart,
-    controlItemToShoppingCart,
-    addItemToCart,
-  } = useContext(AddRemoveContext);
+  const dispatch = useDispatch();
+  const { cart } = useSelector((store) => store.cart);
 
-  const shoppingCartFiltered = shoppingCart.filter((item) => item !== "");
+  const { currentUser } = useContext(UserContext);
+  const { bookmarks, controlItemToBookmarks } = useContext(AddRemoveContext);
 
   const controlBookmark = () => controlItemToBookmarks(tour);
-  const controlShoppingCart = () => {
-    controlItemToShoppingCart(tour);
-    addItemToCart(tour);
-  };
 
   const detailsDescription = [
     {
@@ -67,7 +63,7 @@ const CardTour = ({ tour }) => {
     {
       name: "Stops:",
       content: tour.stops.map((stop) => {
-        return <p>{stop}</p>;
+        return <span key={stop}>{stop}</span>;
       }),
     },
   ];
@@ -116,17 +112,18 @@ const CardTour = ({ tour }) => {
           Start & end: <b>{tour.startAndEndPoint}</b>
         </TextMedium>
         <Row>
-          {tour.keywords.map((word) => {
-            return <ButtonSmallWhite to="">{word}</ButtonSmallWhite>;
-          })}
+          {tour.keywords.map((word) => (
+            <ButtonSmallWhite to="" key={word}>
+              {word}
+            </ButtonSmallWhite>
+          ))}
         </Row>
         <Description>
           {detailsDescription.map((el) => (
-            <TextSmall>
-              <b>{el.name}</b>
-              <br />
-              {el.content}
-            </TextSmall>
+            <Col key={el.name}>
+              <HeadingH4>{el.name}</HeadingH4>
+              <TextSmall>{el.content}</TextSmall>
+            </Col>
           ))}
         </Description>
         <PriceContainer>
@@ -134,12 +131,16 @@ const CardTour = ({ tour }) => {
             <TextLargePrimary>€{tour.price}</TextLargePrimary>
             <TextSmall>/per person</TextSmall>
           </Price>
-          {shoppingCartFiltered.find((el) => el._id === tour._id) ? (
-            <ButtonInactive onClick={controlShoppingCart}>
-              in cart
-            </ButtonInactive>
+          {cart.find((el) => el._id === tour._id) ? (
+            <ButtonInactive to="/shoppingCart">in cart</ButtonInactive>
           ) : (
-            <ButtonActive to="/shoppingCart" onClick={controlShoppingCart}>
+            <ButtonActive
+              to="/shoppingCart"
+              onClick={() => {
+                dispatch(addToCart(tour._id));
+                dispatch(calcTotals());
+              }}
+            >
               book now
             </ButtonActive>
           )}

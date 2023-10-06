@@ -17,6 +17,7 @@ export const InfoContainer = styled.div`
   align-items: center;
   gap: 4rem;
   background-color: ${(props) => props.theme.colors.primaryDark};
+  color: ${(props) => props.theme.colors.white};
   padding: 5rem;
   border-radius: 100px;
 `;

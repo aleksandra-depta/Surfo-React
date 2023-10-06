@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { OfferContext } from "../../contexts/offerSelected.context";
+import { useSelector } from "react-redux";
 
 import CardSmall from "../../components/cardSmall/cardSmall.component";
 import SelectTab from "../../components/selectTab/selectTab.component";
@@ -9,18 +8,19 @@ import { HeadingH2 } from "../../styled/typography";
 import { CardContainer, SectionContainer } from "./offer.styles";
 
 const OfferPage = ({ tours }) => {
-  const { selectedOptionType } = useContext(OfferContext);
-  const { selectedOptionLocation } = useContext(OfferContext);
+  const { selectedOptionType, selectedOptionLocation } = useSelector(
+    (store) => store.searchTab
+  );
 
   return (
     <>
       <SelectTab />
       {selectedOptionType && (
         <SectionContainer>
-          <HeadingH2>{selectedOptionType.value}</HeadingH2>
+          <HeadingH2>{selectedOptionType}</HeadingH2>
           <CardContainer>
             {tours
-              .filter((item) => item.type === selectedOptionType.value)
+              .filter((item) => item.type === selectedOptionType)
               .map((tour) => (
                 <CardSmall key={tour._id} tour={tour} />
               ))}
@@ -29,10 +29,10 @@ const OfferPage = ({ tours }) => {
       )}
       {selectedOptionLocation && (
         <SectionContainer>
-          <HeadingH2>{selectedOptionLocation.value}</HeadingH2>
+          <HeadingH2>{selectedOptionLocation}</HeadingH2>
           <CardContainer>
             {tours
-              .filter((item) => item.island === selectedOptionLocation.value)
+              .filter((item) => item.island === selectedOptionLocation)
               .map((tour) => (
                 <CardSmall key={tour._id} tour={tour} />
               ))}
@@ -46,8 +46,8 @@ const OfferPage = ({ tours }) => {
             {tours
               .filter(
                 (item) =>
-                  item.type !== selectedOptionType.value &&
-                  item.island !== selectedOptionLocation.value
+                  item.type !== selectedOptionType &&
+                  item.island !== selectedOptionLocation
               )
               .map((tour) => (
                 <CardSmall key={tour._id} tour={tour} />
@@ -55,31 +55,31 @@ const OfferPage = ({ tours }) => {
           </CardContainer>
         </SectionContainer>
       )}
-      {selectedOptionLocation && selectedOptionType === null && (
+      {selectedOptionLocation && selectedOptionType === "" && (
         <SectionContainer>
           <HeadingH2>See more</HeadingH2>
           <CardContainer>
             {tours
-              .filter((item) => item.island !== selectedOptionLocation.value)
+              .filter((item) => item.island !== selectedOptionLocation)
               .map((tour) => (
                 <CardSmall key={tour._id} tour={tour} />
               ))}
           </CardContainer>
         </SectionContainer>
       )}
-      {selectedOptionType && selectedOptionLocation === null && (
+      {selectedOptionType && selectedOptionLocation === "" && (
         <SectionContainer>
           <HeadingH2>See more</HeadingH2>
           <CardContainer>
             {tours
-              .filter((item) => item.type !== selectedOptionType.value)
+              .filter((item) => item.type !== selectedOptionType)
               .map((tour) => (
                 <CardSmall key={tour._id} tour={tour} />
               ))}
           </CardContainer>
         </SectionContainer>
       )}
-      {selectedOptionType === null && selectedOptionLocation === null && (
+      {selectedOptionType === "" && selectedOptionLocation === "" && (
         <CardContainer>
           {tours
             .filter((item) => item)

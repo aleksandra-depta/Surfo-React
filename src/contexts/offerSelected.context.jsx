@@ -12,14 +12,20 @@ export const OfferProvider = ({ children }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-
-  const value = { 
-    selectedOptionType, setSelectedOptionType, 
-    selectedOptionLocation, setSelectedOptionLocation,  
-    selectedTravelers, setselectedTravelers,
-    startDate, setStartDate,
-    endDate, setEndDate
+  const value = {
+    selectedOptionType,
+    setSelectedOptionType,
+    selectedOptionLocation,
+    setSelectedOptionLocation,
+    selectedTravelers,
+    setselectedTravelers,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
   };
 
-  return <OfferContext.Provider value={value}>{children}</OfferContext.Provider>;
+  return (
+    <OfferContext.Provider value={value}>{children}</OfferContext.Provider>
+  );
 };

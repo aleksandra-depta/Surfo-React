@@ -19,15 +19,15 @@ import {
   LinkContent,
   PriceContent,
 } from "./shoppingCartItem.styles";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../features/cartSlice";
 
-const ShoppingCartItem = (tour) => {
-  tour = tour.tour;
-
-  const { controlItemToShoppingCart } = useContext(AddRemoveContext);
+const ShoppingCartItem = ({ tour }) => {
+  const dispatch = useDispatch();
 
   return (
     <Content>
-      <IconTrash onClick={() => controlItemToShoppingCart(tour)}>
+      <IconTrash onClick={() => dispatch(removeFromCart(tour._id))}>
         <IconGrey>
           <ion-icon size="large" name="trash-outline"></ion-icon>
         </IconGrey>
@@ -50,7 +50,7 @@ const ShoppingCartItem = (tour) => {
           <TextLargePrimary>€{tour.price}</TextLargePrimary>
           <TextMedium>/per person</TextMedium>
         </PriceContent>
-        <Counter />
+        <Counter tour={tour} />
       </LinkContent>
     </Content>
   );

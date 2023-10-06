@@ -1,11 +1,22 @@
-import { useContext } from "react";
-import { OfferContext } from "../../contexts/offerSelected.context";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  optionsLocation,
+  optionsTravelers,
+  optionsType,
+} from "../../services/dataSelectTab";
+import {
+  selectEndDate,
+  selectLocation,
+  selectStartDate,
+  selectTravelers,
+  selectType,
+} from "../../features/searchTabSlice";
 
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { HeadingH3, LinkGrey } from "../../styled/typography";
+import { HeadingH2, LinkPrimary } from "../../styled/typography";
 import {
   ButtonTab,
   CenterContainer,
@@ -19,41 +30,10 @@ import {
 
 import Logo from "../../img/logo.png";
 
-const optionsType = [
-  { value: "Water Sports", label: "sailing" },
-  { value: "Water Sports", label: "surfing" },
-  { value: "Water Sports", label: "diving" },
-  { value: "Water Sports", label: "windsurfing" },
-  { value: "Hiking Time", label: "hiking" },
-  { value: "Day Trip", label: "day trip" },
-];
-
-const optionsLocation = [
-  { value: "Tenerife", label: "Tenerife" },
-  { value: "Lanzarote", label: "Lanzarote" },
-  { value: "Fuerteventura", label: "Fuerteventura" },
-  { value: "Gran Canaria", label: "Gran Canaria" },
-  { value: "La Palma", label: "La Palma" },
-  { value: "La Gomera", label: "La Gomera" },
-  { value: "El Hierro", label: "El Hierro" },
-];
-const optionsTravelers = [];
-(function () {
-  let i = 1;
-  while (i <= 8) {
-    optionsTravelers.push({ value: `${i}`, label: `${i}` });
-    i++;
-  }
-})();
-
 const SelectTab = () => {
-  const { selectedOptionType, setSelectedOptionType } =
-    useContext(OfferContext);
-  const { selectedOptionLocation, setSelectedOptionLocation } =
-    useContext(OfferContext);
-  const { selectedTravelers, setselectedTravelers } = useContext(OfferContext);
-  const { startDate, setStartDate } = useContext(OfferContext);
-  const { endDate, setEndDate } = useContext(OfferContext);
+  const dispatch = useDispatch();
+  const { selectedOptionType, selectedOptionLocation, startDate, endDate } =
+    useSelector((store) => store.searchTab);
 
   return (
     <div>
@@ -64,8 +44,9 @@ const SelectTab = () => {
               <InputTab>
                 <Select
                   className="select__type"
-                  defaultValue={selectedTravelers}
-                  onChange={setselectedTravelers}
+                  onChange={(e) => {
+                    dispatch(selectTravelers(e.value));
+                  }}
                   options={optionsTravelers}
                   placeholder="1 Traveler"
                   theme={(theme) => ({
@@ -81,11 +62,12 @@ const SelectTab = () => {
               <InputTab>
                 <Select
                   className="select__type"
+                  onChange={(e) => {
+                    dispatch(selectType(e.value));
+                  }}
                   defaultValue={selectedOptionType}
-                  onChange={setSelectedOptionType}
                   options={optionsType}
                   placeholder="Type/Activity"
-                  selectedOptionType={selectedOptionType}
                   theme={(theme) => ({
                     ...theme,
                     colors: {
@@ -101,8 +83,10 @@ const SelectTab = () => {
               <InputTab>
                 <Select
                   className="select__where"
+                  onChange={(e) => {
+                    dispatch(selectLocation(e.value));
+                  }}
                   defaultValue={selectedOptionLocation}
-                  onChange={setSelectedOptionLocation}
                   options={optionsLocation}
                   placeholder="Island"
                   theme={(theme) => ({
@@ -118,28 +102,29 @@ const SelectTab = () => {
               <InputTab>
                 <DatePicker
                   selected={startDate}
-                  onChange={(date) => setStartDate(date)}
+                  onChange={(e) => {
+                    dispatch(selectStartDate(e));
+                  }}
                 />
               </InputTab>
               <InputTab>
                 <DatePicker
                   selected={endDate}
-                  onChange={(date) => setEndDate(date)}
+                  onChange={(e) => dispatch(selectEndDate(e))}
                 />
               </InputTab>
             </Row>
           </Column>
-
           <Column>
             <CenterContainer>
               <LogoTab src={Logo} alt="logo" />
             </CenterContainer>
             {window.location.pathname === "/offer" ? (
               <CenterContainer>
-                <HeadingH3>Adventures with us</HeadingH3>
-                <LinkGrey to="/login">
-                  Join us and get discount on your first adventure!{" "}
-                </LinkGrey>
+                <HeadingH2>Adventures with us</HeadingH2>
+                <LinkPrimary to="/login">
+                  Join us and get discount on your first adventure!
+                </LinkPrimary>
               </CenterContainer>
             ) : (
               <ButtonTab to="/offer">Let's Go</ButtonTab>

@@ -1,21 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
-import { UserProvider } from "./contexts/user.context";
-import { OfferProvider } from "./contexts/offerSelected.context";
-import { AddRemoveProvider } from "./contexts/controlAddRemoveCarts.context";
-import { LinksNavMyAccountProvider } from "./contexts/linksMyAcount.context";
-
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-import "./index.scss";
-
-import Container from "react-bootstrap/Container";
-
+import { Provider } from "react-redux";
+import { store } from "./store";
 import { ThemeProvider } from "styled-components";
 import { COLORS } from "./styled/themeColors";
+import Container from "react-bootstrap/Container";
+import "./index.scss";
 
 const theme = {
   colors: COLORS,
@@ -24,21 +17,15 @@ const theme = {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <UserProvider>
-          <OfferProvider>
-            <AddRemoveProvider>
-              <LinksNavMyAccountProvider>
-                <Container md>
-                  <App />
-                </Container>
-              </LinksNavMyAccountProvider>
-            </AddRemoveProvider>
-          </OfferProvider>
-        </UserProvider>
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <App />
+          </Container>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

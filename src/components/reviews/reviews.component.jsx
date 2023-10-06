@@ -41,7 +41,7 @@ const Reviews = ({ tour }) => {
         >
           {reviews.map((review) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={review._id}>
                 <FigureReview>
                   <picture>
                     <ImageReview

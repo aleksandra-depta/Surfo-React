@@ -16,6 +16,7 @@ import {
   Links,
   Row,
 } from "./auth.styles";
+import { ButtonSecondary } from "../../styled/buttons";
 
 const cookies = new Cookies();
 
@@ -102,9 +103,9 @@ const LoginPage = () => {
                 required
               />
             </Row>
-            <Button type="submit" onClick={(e) => handleSubmit(e)}>
+            <ButtonSecondary type="submit" onClick={(e) => handleSubmit(e)}>
               Log in
-            </Button>
+            </ButtonSecondary>
           </Form>
           <TextSmall>
             Forgot your password?
@@ -116,7 +117,7 @@ const LoginPage = () => {
             </IconForm>
             <InputFrom type="email" placeholder="Email@example.com" required />
           </Row>
-          <Button>Send Email</Button>
+          <ButtonSecondary>Send Email</ButtonSecondary>
         </>
       )}
     </Content>

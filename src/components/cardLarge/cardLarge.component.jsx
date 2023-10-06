@@ -43,11 +43,11 @@ const CardLarge = ({ tour }) => {
           ) : (
             bookmarks.map((el) =>
               el._id === tour._id ? (
-                <BookmarkIcon>
+                <BookmarkIcon key={tour._id}>
                   <ion-icon size="large" name="bookmark"></ion-icon>
                 </BookmarkIcon>
               ) : (
-                <BookmarkIcon>
+                <BookmarkIcon key={tour._id}>
                   <ion-icon size="large" name="bookmark-outline"></ion-icon>
                 </BookmarkIcon>
               )
@@ -89,7 +89,7 @@ const CardLarge = ({ tour }) => {
         </SwiperSlide>
 
         {[1, 2].map((el) => (
-          <SwiperSlide>
+          <SwiperSlide key={el}>
             <ImageCard
               src={require(`../../img/${tour.cardLargeImgUr800[el]}`)}
               alt="tour image"

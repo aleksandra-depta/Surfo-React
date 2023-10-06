@@ -65,12 +65,17 @@ export const ButtonSmallPrimary = styled(Link)`
 
   &:hover {
     transform: scale(102%);
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 
 export const ButtonSmallWhite = styled(ButtonSmallPrimary)`
   background-color: ${(props) => props.theme.colors.whiteText};
   color: ${(props) => props.theme.colors.darkText};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.darkText};
+  }
 `;
 
 export const ButtonWhiteBasic = styled.button`

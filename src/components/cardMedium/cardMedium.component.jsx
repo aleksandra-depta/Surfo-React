@@ -33,11 +33,11 @@ const CardMedium = ({ tour }) => {
           ) : (
             bookmarks.map((el) =>
               el._id === tour._id ? (
-                <BookmarkIcon>
+                <BookmarkIcon key={tour._id}>
                   <ion-icon size="large" name="bookmark"></ion-icon>
                 </BookmarkIcon>
               ) : (
-                <BookmarkIcon>
+                <BookmarkIcon key={tour._id}>
                   <ion-icon size="large" name="bookmark-outline"></ion-icon>
                 </BookmarkIcon>
               )
@@ -57,7 +57,7 @@ const CardMedium = ({ tour }) => {
           <Row>
             <IconStarsContainer>
               {[...Array(5)].map((el) => (
-                <IconStar>
+                <IconStar key={el}>
                   <ion-icon size="small" name="star"></ion-icon>
                 </IconStar>
               ))}

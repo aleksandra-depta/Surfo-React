@@ -5,7 +5,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 
 import UserDefault from "../../img/user.png";
-import { TextMedium, TextSmall } from "../../styled/typography";
+import { HeadingH3, TextMedium } from "../../styled/typography";
 import { ButtonPrimary } from "../../styled/buttons";
 import {
   ButtonComment,
@@ -97,16 +97,16 @@ const Comments = ({ tour }) => {
         </FormComment>
       ) : (
         <InfoContainer>
-          <TextMedium>
+          <HeadingH3>
             Log in or Sign up if you want to send us review or add comment!
-          </TextMedium>
+          </HeadingH3>
           <ButtonPrimary to="/login">Click here</ButtonPrimary>
         </InfoContainer>
       )}
       <List>
         {comments.map((comment) => {
           return (
-            <CommentContainer>
+            <CommentContainer key={comment._id}>
               <ImageUser
                 src={require(`../../img/u/${comment.user.photo}`)}
                 alt="user"

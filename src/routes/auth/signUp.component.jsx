@@ -11,7 +11,6 @@ import { LinkPrimary, TextSmall } from "../../styled/typography";
 import { IconForm } from "../../styled/icons";
 import { InputFrom } from "../../styled/inputs";
 import {
-  Button,
   Content,
   Form,
   LinkActive,
@@ -19,6 +18,7 @@ import {
   Links,
   Row,
 } from "./auth.styles";
+import { ButtonSecondary } from "../../styled/buttons";
 
 const cookies = new Cookies();
 
@@ -141,9 +141,9 @@ const SignUpPage = () => {
                 <LinkPrimary> Terms & Conditions</LinkPrimary>
               </TextSmall>
             </Row>
-            <Button type="submit" onClick={(e) => handleSubmit(e)}>
+            <ButtonSecondary type="submit" onClick={(e) => handleSubmit(e)}>
               Sign up
-            </Button>
+            </ButtonSecondary>
           </Form>
           <TextSmall>
             Already have an account?

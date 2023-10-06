@@ -23,10 +23,17 @@ import {
   TotalsContainer,
 } from "./shoppingCart.styles";
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
+import { useDispatch, useSelector } from "react-redux";
+import { IconGrey } from "../../styled/icons";
+import { Row } from "react-bootstrap";
+import { clearCart } from "../../features/cartSlice";
 
 const cookies = new Cookies();
 
-const ShoppingCart = ({ tours }) => {
+const ShoppingCart = () => {
+  const { cart, totalPrice } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
+
   const [payment, setPayment] = useState(false);
   const {
     shoppingCart,
@@ -70,10 +77,10 @@ const ShoppingCart = ({ tours }) => {
         })
     );
   };
-  const totals = items
-    .map((item) => item.price * item.quantity)
-    .reduce((acc, cur) => acc + cur, 0);
-  const bookingCode = Math.floor(Math.random() * 1000000) + 10000;
+  // const totals = items
+  //   .map((item) => item.price * item.quantity)
+  //   .reduce((acc, cur) => acc + cur, 0);
+  // const bookingCode = Math.floor(Math.random() * 1000000) + 10000;
 
   return (
     <>
@@ -82,19 +89,23 @@ const ShoppingCart = ({ tours }) => {
           <LogoCart src={require(`../../img/logo.png`)} alt="Surfo logo" />
         </LogoContainer>
         <HeadingH2> Shopping Cart </HeadingH2>
-        {shoppingCartFiltered.length === 0 ? (
+        {cart.length === 0 ? (
           <EmptyMessage message={"Your shopping cart is empty"} />
         ) : (
           <>
             <ShopingCartContainer>
-              {shoppingCartFiltered.map((tour) => (
+              {cart.map((tour) => (
                 <ShoppingCartItem tour={tour} />
               ))}
             </ShopingCartContainer>
-
             <TotalsContainer>
-              <HeadingH2> Totals: </HeadingH2>
-              <TextLargePrimary>€{totals}</TextLargePrimary>
+              <IconGrey onClick={() => dispatch(clearCart())}>
+                <ion-icon size="large" name="trash-outline"></ion-icon>
+              </IconGrey>
+              <TotalsContainer>
+                <HeadingH2> Totals: </HeadingH2>
+                <TextLargePrimary>€{totalPrice}</TextLargePrimary>
+              </TotalsContainer>
             </TotalsContainer>
             <HeadingH2> Payment details </HeadingH2>
             <TextSmall>Complete your payment details</TextSmall>

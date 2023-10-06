@@ -40,7 +40,7 @@ const TourPage = ({ tour }) => {
         <DescriptionRow>
           {tour.descriptionCheckPoints.map((point) => {
             return (
-              <ItemRow>
+              <ItemRow key={point}>
                 <IconCheckmark>
                   <ion-icon size="large" name="checkmark-outline"></ion-icon>
                 </IconCheckmark>
@@ -61,7 +61,7 @@ const TourPage = ({ tour }) => {
           <TextMedium>Stops: </TextMedium>
           {tour.stopPoints.map((point) => {
             return (
-              <ItemRow>
+              <ItemRow key={point}>
                 <IconPin>
                   <ion-icon size="small" name="pin"></ion-icon>
                 </IconPin>

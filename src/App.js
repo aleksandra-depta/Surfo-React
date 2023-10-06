@@ -16,45 +16,58 @@ import AuthPage from "./routes/auth/auth.component";
 import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 
+import { useGetToursQuery } from "./services/toursApi";
+
 const App = () => {
-  const [tours, setTours] = useState([]);
+  // const [tours, setTours] = useState([]);
   const { currentUser } = useContext(UserContext);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:4000/api/v1/tours")
-      .then((response) => response.json())
-      .then((tours) => setTours(tours.data.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:4000/api/v1/tours")
+  //     .then((response) => response.json())
+  //     .then((tours) => setTours(tours.data.data));
+  // }, []);
+
+  const { data, isLoading, isSuccess, isError, error } = useGetToursQuery();
+
+  let tours;
+  if (isSuccess) {
+    tours = data.data.data;
+  }
 
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
-        <Route index element={<HomePage tours={tours} />} />
-        <Route path="/offer" element={<OfferPage tours={tours} />} />
+        {isSuccess && (
+          <>
+            <Route index element={<HomePage tours={tours} />} />
+            <Route path="/offer" element={<OfferPage tours={tours} />} />
 
-        <Route path="/" element={<AuthPage />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-        </Route>
+            <Route path="/" element={<AuthPage />}>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+            </Route>
 
-        {tours.map((tour) => (
-          <Route
-            key={`tour${tour._id}`}
-            path={`/tour/${tour._id}`}
-            element={<TourPage tour={tour} />}
-          />
-        ))}
+            {tours.map((tour) => (
+              <Route
+                key={`tour${tour._id}`}
+                path={`/tour/${tour._id}`}
+                element={<TourPage tour={tour} />}
+              />
+            ))}
 
-        <Route path="/shoppingCart" element={<ShoppingCart tours={tours} />} />
+            <Route path="/shoppingCart" element={<ShoppingCart />} />
 
-        <Route path="/confirmation" element={<Confirmation />} />
+            <Route path="/confirmation" element={<Confirmation />} />
 
-        {currentUser && (
-          <Route path="/" element={<UserProfile />}>
-            <Route path="/myAccount" element={<MyAccount />} />
-            <Route path="/myAccount/booking" element={<MyBooking />} />
-            <Route path="/myAccount/favorites" element={<MyFavorites />} />
-          </Route>
+            {currentUser && (
+              <Route path="/" element={<UserProfile />}>
+                <Route path="/myAccount" element={<MyAccount />} />
+                <Route path="/myAccount/booking" element={<MyBooking />} />
+                <Route path="/myAccount/favorites" element={<MyFavorites />} />
+              </Route>
+            )}
+          </>
         )}
       </Route>
     </Routes>

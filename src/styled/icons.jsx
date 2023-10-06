@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+const Button = styled.button`
+  border: none;
+  background-color: transparent;
+
+  &:focus-visible,
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
 export const IconBookmark = styled.div`
   color: ${(props) => props.theme.colors.secondary};
   cursor: pointer;
@@ -14,7 +24,7 @@ export const IconStar = styled.div`
   color: ${(props) => props.theme.colors.secondary};
 `;
 
-export const IconCounter = styled.div`
+export const IconCounter = styled(Button)`
   color: ${(props) => props.theme.colors.primary};
   transition: all 0.2s;
   cursor: pointer;
@@ -48,6 +58,6 @@ export const IconClose = styled.div`
   color: ${(props) => props.theme.colors.greyShades};
 `;
 
-export const IconGrey = styled.div`
+export const IconGrey = styled(Button)`
   color: ${(props) => props.theme.colors.greyShades};
 `;

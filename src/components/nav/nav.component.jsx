@@ -23,11 +23,15 @@ import {
 } from "./nav.styles";
 
 import Logo from "../../img/logo.png";
+import { useDispatch } from "react-redux";
+import { calcTotals } from "../../features/cartSlice";
 
 const cookies = new Cookies();
 
 const Navigation = () => {
   const [openNav, setOpenNav] = useState();
+  const dispatch = useDispatch();
+  ///////////////////////////////////////
   const { currentUser } = useContext(UserContext);
   const { bookmarks, shoppingCart } = useContext(AddRemoveContext);
   const { activeLink } = useContext(LinksNavMyAccountContext);

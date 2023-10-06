@@ -102,7 +102,7 @@ const Footer = () => {
         </Link>
         <Icons>
           {socialMediaIcons.map((el) => (
-            <Link to={el.link} target="_blank">
+            <Link to={el.link} target="_blank" key={el.name}>
               <IconSocialMedia>
                 <ion-icon size="large" name={el.name}></ion-icon>
               </IconSocialMedia>
@@ -125,10 +125,12 @@ const Footer = () => {
         <LinkGrey to="mailto:arch.depta@gmail.com">hello@surfo.com</LinkGrey>
       </Column>
       {linksGroup.map((group) => (
-        <Column>
+        <Column key={group.name}>
           <HeadingH3>{group.name}</HeadingH3>
           {group.array.map((el) => (
-            <LinkGrey to="/login">{el.name}</LinkGrey>
+            <LinkGrey to="/login" key={el.name}>
+              {el.name}
+            </LinkGrey>
           ))}
         </Column>
       ))}

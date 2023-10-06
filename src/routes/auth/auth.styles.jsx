@@ -36,10 +36,6 @@ export const Form = styled.div`
   gap: 2rem;
 `;
 
-export const Button = styled(ButtonSecondary)`
-  border-radius: 2px;
-`;
-
 export const LinkActive = styled(Link)`
   font-size: 3rem;
   font-weight: 600;

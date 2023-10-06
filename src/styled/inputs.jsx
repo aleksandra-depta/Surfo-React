@@ -10,5 +10,5 @@ export const Input = styled.input`
 export const InputFrom = styled(Input)`
   border: 1px solid ${(props) => props.theme.colors.greyShades};
   width: 100%;
-  border-radius: 2px;
+  border-radius: 40px;
 `;
