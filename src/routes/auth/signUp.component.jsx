@@ -1,15 +1,13 @@
 import { useState, useContext } from "react";
-
-import { UserContext } from "../../contexts/user.context";
+import { useSelector } from "react-redux";
+import { useSignUpMutation } from "../../services/toursApi";
 
 import LoggedIn from "./loggedIn.component";
-
-import Cookies from "universal-cookie";
-import axios from "axios";
 
 import { LinkPrimary, TextSmall } from "../../styled/typography";
 import { IconForm } from "../../styled/icons";
 import { InputFrom } from "../../styled/inputs";
+import { ButtonSecondary } from "../../styled/buttons";
 import {
   Content,
   Form,
@@ -18,54 +16,23 @@ import {
   Links,
   Row,
 } from "./auth.styles";
-import { ButtonSecondary } from "../../styled/buttons";
-
-const cookies = new Cookies();
 
 const SignUpPage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const configuration = {
-      method: "post",
-      url: "http://127.0.0.1:4000/api/v1/users/signup",
-      data: {
-        name,
-        email,
-        password,
-        passwordConfirm,
-      },
-    };
-    await axios(configuration)
-      .then((res) => {
-        cookies.set("jwt", res.data.token, {
-          path: "/",
-        });
-      })
-      .catch((error) => {
-        // error = new Error();
-      });
+  const [signUp, { isLoading }] = useSignUpMutation();
 
-    const token = cookies.get("jwt");
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    };
-    axios
-      .get(`http://127.0.0.1:4000/api/v1/users/me`, { headers })
-      .then((response) => {
-        const currentUser = response.data.data.data;
-        setCurrentUser(currentUser);
-      })
-      .catch((error) => {
-        // error = new Error();
-      });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value }));
   };
+
+  const { currentUser } = useSelector((store) => store.auth);
 
   return (
     <Content>
@@ -77,20 +44,15 @@ const SignUpPage = () => {
             <LinkInactive to="/login">Log In </LinkInactive>
             <LinkActive to="/signup">Sign Up</LinkActive>
           </Links>
-          <Form
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-          >
+          <Form>
             <Row>
               <IconForm>
                 <ion-icon size="large" name="person-outline"></ion-icon>
               </IconForm>
               <InputFrom
                 type="text"
-                onChange={(e) => setName(e.target.value)}
+                onChange={handleChange}
                 name="name"
-                value={name}
                 placeholder="User Name"
                 required
               />
@@ -101,9 +63,8 @@ const SignUpPage = () => {
               </IconForm>
               <InputFrom
                 type="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
                 name="email"
-                value={email}
                 placeholder="Email@example.com"
                 required
               />
@@ -114,9 +75,8 @@ const SignUpPage = () => {
               </IconForm>
               <InputFrom
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handleChange}
                 name="password"
-                value={password}
                 placeholder="Password"
                 required
               />
@@ -127,9 +87,8 @@ const SignUpPage = () => {
               </IconForm>
               <InputFrom
                 type="password"
-                onChange={(e) => setPasswordConfirm(e.target.value)}
-                name="confirmPassword"
-                value={passwordConfirm}
+                onChange={handleChange}
+                name="passwordConfirm"
                 placeholder="Confirm Password"
                 required
               />
@@ -141,7 +100,16 @@ const SignUpPage = () => {
                 <LinkPrimary> Terms & Conditions</LinkPrimary>
               </TextSmall>
             </Row>
-            <ButtonSecondary type="submit" onClick={(e) => handleSubmit(e)}>
+            <ButtonSecondary
+              type="submit"
+              onClick={async () => {
+                try {
+                  await signUp(formState).unwrap();
+                } catch (err) {
+                  console.log(err);
+                }
+              }}
+            >
               Sign up
             </ButtonSecondary>
           </Form>

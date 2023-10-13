@@ -14,22 +14,22 @@ import { IconCheckmark, IconPin } from "../../styled/icons";
 import { DescriptionRow, ItemRow, RowPin, RowTour } from "./tour.styles";
 
 const TourPage = ({ tour }) => {
-  const { currentUser } = useContext(UserContext);
-  const {
-    bookmarks,
-    controlItemToBookmarks,
-    shoppingCart,
-    controlItemToShoppingCart,
-    addItemToCart,
-  } = useContext(AddRemoveContext);
+  // const { currentUser } = useContext(UserContext);
+  // const {
+  //   bookmarks,
+  //   controlItemToBookmarks,
+  //   shoppingCart,
+  //   controlItemToShoppingCart,
+  //   addItemToCart,
+  // } = useContext(AddRemoveContext);
 
-  const shoppingCartFiltered = shoppingCart.filter((item) => item !== "");
+  // const shoppingCartFiltered = shoppingCart.filter((item) => item !== "");
 
-  const controlBookmark = () => controlItemToBookmarks(tour);
-  const controlShoppingCart = () => {
-    controlItemToShoppingCart(tour);
-    addItemToCart(tour);
-  };
+  // const controlBookmark = () => controlItemToBookmarks(tour);
+  // const controlShoppingCart = () => {
+  //   controlItemToShoppingCart(tour);
+  //   addItemToCart(tour);
+  // };
 
   return (
     <>

@@ -20,98 +20,101 @@ import {
   Row,
   RowItem,
 } from "./userProfile.styles";
+import { useSelector } from "react-redux";
 
 const cookies = new Cookies();
 
 const MyAccount = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordNew, setPasswordNew] = useState("");
-  const [passwordNewConfirm, setPasswordNewConfirm] = useState("");
+  const { currentUser } = useSelector((store) => store.auth);
 
-  const [openEditUserName, setOpenEditUserName] = useState(false);
-  const [openEditEmail, setOpenEditEmail] = useState(false);
-  const [openEditPassword, setOpenEditPassword] = useState(false);
-  const [openEditImage, setOpenEditImage] = useState(false);
+  // const { currentUser, setCurrentUser } = useContext(UserContext);
+  // const [userName, setUserName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [passwordNew, setPasswordNew] = useState("");
+  // const [passwordNewConfirm, setPasswordNewConfirm] = useState("");
 
-  const handleSubmitUpdateMe = async (e) => {
-    e.preventDefault();
-    fetch("http://127.0.0.1:4000/api/v1/users/updateMe", {
-      method: "PATCH",
-      body: JSON.stringify({
-        name: userName || currentUser.name,
-        email: email || currentUser.email,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${cookies.get("jwt")}`,
-      },
-    });
-    const token = cookies.get("jwt");
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    };
-    axios
-      .get(`http://127.0.0.1:4000/api/v1/users/me`, { headers })
-      .then((response) => {
-        const currentUser = response.data.data.data;
-        setCurrentUser(currentUser);
-      })
-      .catch((error) => {
-        // error = new Error();
-      });
-  };
+  // const [openEditUserName, setOpenEditUserName] = useState(false);
+  // const [openEditEmail, setOpenEditEmail] = useState(false);
+  // const [openEditPassword, setOpenEditPassword] = useState(false);
+  // const [openEditImage, setOpenEditImage] = useState(false);
 
-  const handleSubmitPassword = async (e) => {
-    e.preventDefault();
-    fetch("http://127.0.0.1:4000/api/v1/users/updateMyPassword", {
-      method: "PATCH",
-      body: JSON.stringify({
-        passwordCurrent: password,
-        password: passwordNew,
-        passwordConfirm: passwordNewConfirm,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${cookies.get("jwt")}`,
-      },
-    });
-    cookies.remove("jwt", { path: "/" });
-    window.location.reload();
-    window.location.pathname = "/login";
-  };
+  // const handleSubmitUpdateMe = async (e) => {
+  //   e.preventDefault();
+  //   fetch("http://127.0.0.1:4000/api/v1/users/updateMe", {
+  //     method: "PATCH",
+  //     body: JSON.stringify({
+  //       name: userName || currentUser.name,
+  //       email: email || currentUser.email,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${cookies.get("jwt")}`,
+  //     },
+  //   });
+  //   const token = cookies.get("jwt");
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${token}`,
+  //   };
+  //   axios
+  //     .get(`http://127.0.0.1:4000/api/v1/users/me`, { headers })
+  //     .then((response) => {
+  //       const currentUser = response.data.data.data;
+  //       setCurrentUser(currentUser);
+  //     })
+  //     .catch((error) => {
+  //       // error = new Error();
+  //     });
+  // };
 
-  const [image, setImage] = useState({ preview: "", data: "" });
-  const [status, setStatus] = useState("");
-  const handleSubmitImage = async (e) => {
-    e.preventDefault();
-    let formData = new FormData();
-    formData.append("file", image.data);
+  // const handleSubmitPassword = async (e) => {
+  //   e.preventDefault();
+  //   fetch("http://127.0.0.1:4000/api/v1/users/updateMyPassword", {
+  //     method: "PATCH",
+  //     body: JSON.stringify({
+  //       passwordCurrent: password,
+  //       password: passwordNew,
+  //       passwordConfirm: passwordNewConfirm,
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${cookies.get("jwt")}`,
+  //     },
+  //   });
+  //   cookies.remove("jwt", { path: "/" });
+  //   window.location.reload();
+  //   window.location.pathname = "/login";
+  // };
 
-    const response = await fetch(
-      "http://127.0.0.1:4000/api/v1/users/updateMe",
-      {
-        method: "PATCH",
-        body: formData,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${cookies.get("jwt")}`,
-        },
-      }
-    );
-    if (response) setStatus(response.statusText);
-  };
+  // const [image, setImage] = useState({ preview: "", data: "" });
+  // const [status, setStatus] = useState("");
+  // const handleSubmitImage = async (e) => {
+  //   e.preventDefault();
+  //   let formData = new FormData();
+  //   formData.append("file", image.data);
 
-  const handleFileChange = async (e) => {
-    const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    };
-    setImage(img);
-  };
+  //   const response = await fetch(
+  //     "http://127.0.0.1:4000/api/v1/users/updateMe",
+  //     {
+  //       method: "PATCH",
+  //       body: formData,
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${cookies.get("jwt")}`,
+  //       },
+  //     }
+  //   );
+  //   if (response) setStatus(response.statusText);
+  // };
+
+  // const handleFileChange = async (e) => {
+  //   const img = {
+  //     preview: URL.createObjectURL(e.target.files[0]),
+  //     data: e.target.files[0],
+  //   };
+  //   setImage(img);
+  // };
 
   return (
     <Container>
@@ -136,14 +139,16 @@ const MyAccount = () => {
               </Column>
             </RowItem>
             <ButtonWhiteBasic
-              onClick={() => setOpenEditUserName(!openEditUserName)}
+            // onClick={() => setOpenEditUserName(!openEditUserName)}
             >
               Edit
             </ButtonWhiteBasic>
           </Row>
           <Item>
-            {openEditUserName && (
-              <Form onSubmit={(e) => handleSubmitUpdateMe(e)}>
+            {/* {openEditUserName && (
+              <Form
+              // onSubmit={(e) => handleSubmitUpdateMe(e)}
+              >
                 <RowItem>
                   <IconGrey>
                     <ion-icon size="large" name="person-outline"></ion-icon>
@@ -151,16 +156,20 @@ const MyAccount = () => {
                   <InputFrom
                     type="text"
                     value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
+                    // onChange={(e) => setUserName(e.target.value)}
                     placeholder="New User Name"
                     required
                   />
                 </RowItem>
-                <Button type="submit" onClick={(e) => handleSubmitUpdateMe(e)}>
+                <Button
+                  type="submit"
+                  // onClick={(e) =>
+                  // handleSubmitUpdateMe(e)}
+                >
                   Update
                 </Button>
               </Form>
-            )}
+            )} */}
           </Item>
         </>
 
@@ -175,13 +184,17 @@ const MyAccount = () => {
                 <HeadingH2>{currentUser.email}</HeadingH2>
               </Column>
             </RowItem>
-            <ButtonWhiteBasic onClick={() => setOpenEditEmail(!openEditEmail)}>
+            <ButtonWhiteBasic
+            // onClick={() => setOpenEditEmail(!openEditEmail)}
+            >
               Edit
             </ButtonWhiteBasic>
           </Row>
           <Item>
-            {openEditEmail && (
-              <Form onSubmit={(e) => handleSubmitUpdateMe(e)}>
+            {/* {openEditEmail && (
+              <Form 
+              // onSubmit={(e) => handleSubmitUpdateMe(e)}
+              >
                 <RowItem>
                   <IconGrey>
                     <ion-icon size="large" name="mail-outline"></ion-icon>
@@ -194,11 +207,13 @@ const MyAccount = () => {
                     required
                   />
                 </RowItem>
-                <Button type="submit" onClick={(e) => handleSubmitUpdateMe(e)}>
+                <Button type="submit" 
+                // onClick={(e) => handleSubmitUpdateMe(e)}
+                >
                   Update
                 </Button>
               </Form>
-            )}
+            )} */}
           </Item>
         </>
 
@@ -214,13 +229,13 @@ const MyAccount = () => {
               </Column>
             </RowItem>
             <ButtonWhiteBasic
-              onClick={() => setOpenEditPassword(!openEditPassword)}
+            // onClick={() => setOpenEditPassword(!openEditPassword)}
             >
               Edit
             </ButtonWhiteBasic>
           </Row>
           <Item>
-            {openEditPassword && (
+            {/* {openEditPassword && (
               <Form onSubmit={(e) => handleSubmitUpdateMe(e)}>
                 <RowItem>
                   <IconGrey>
@@ -271,7 +286,7 @@ const MyAccount = () => {
                   Update
                 </Button>
               </Form>
-            )}
+            )} */}
           </Item>
         </>
 
@@ -289,12 +304,14 @@ const MyAccount = () => {
                 />
               </Column>
             </RowItem>
-            <ButtonWhiteBasic onClick={() => setOpenEditImage(!openEditImage)}>
+            <ButtonWhiteBasic
+            // onClick={() => setOpenEditImage(!openEditImage)}
+            >
               Edit
             </ButtonWhiteBasic>
           </Row>
           <Item>
-            {openEditImage && (
+            {/* {openEditImage && (
               <Form onSubmit={(e) => handleSubmitImage(e)}>
                 <RowItem>
                   <IconGrey>
@@ -311,7 +328,7 @@ const MyAccount = () => {
                   Update
                 </Button>
               </Form>
-            )}
+            )} */}
           </Item>
         </>
       </Content>

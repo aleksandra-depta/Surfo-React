@@ -1,7 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 
-import { UserContext } from "../../contexts/user.context";
 import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
 import { LinksNavMyAccountContext } from "../../contexts/linksMyAcount.context";
 
@@ -23,16 +22,16 @@ import {
 } from "./nav.styles";
 
 import Logo from "../../img/logo.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { calcTotals } from "../../features/cartSlice";
 
 const cookies = new Cookies();
 
 const Navigation = () => {
+  const { currentUser } = useSelector((store) => store.auth);
   const [openNav, setOpenNav] = useState();
-  const dispatch = useDispatch();
+
   ///////////////////////////////////////
-  const { currentUser } = useContext(UserContext);
   const { bookmarks, shoppingCart } = useContext(AddRemoveContext);
   const { activeLink } = useContext(LinksNavMyAccountContext);
 
@@ -60,7 +59,7 @@ const Navigation = () => {
                 <LinksUser
                   onClick={() => {
                     setOpenNav(!openNav);
-                    activeLink("/myAccount");
+                    // activeLink("/myAccount");
                   }}
                 >
                   <ImageUser
@@ -80,7 +79,7 @@ const Navigation = () => {
               </NavMenu>
               <LinkNav
                 to="/myAccount/favorites"
-                onClick={() => activeLink("/myAccount/favorites")}
+                // onClick={() => activeLink("/myAccount/favorites")}
               >
                 <Icon>
                   {bookmarksFiltered.length === 0 ? (

@@ -1,7 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 
-import axios from "axios";
+import { useSelector } from "react-redux";
+import {
+  useAddCommentMutation,
+  useDeleteCommentMutation,
+  useGetCommentsQuery,
+} from "../../services/toursApi";
 import Cookies from "universal-cookie";
 
 import UserDefault from "../../img/user.png";
@@ -23,63 +28,43 @@ import {
 const cookies = new Cookies();
 
 const Comments = ({ tour }) => {
-  const [comments, setComments] = useState([]);
-  const [sendComment, setSendComment] = useState([]);
-  const { currentUser } = useContext(UserContext);
+  const {
+    data: commentsOnTour,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetCommentsQuery(tour._id);
 
-  const fetchComments = () => {
-    fetch(`http://127.0.0.1:4000/api/v1/tours/${tour._id}/comments`)
-      .then((response) => response.json())
-      .then((comment) => setComments(comment.data.comments));
+  const { currentUser } = useSelector((store) => store.auth);
+
+  let comments;
+  if (isSuccess) {
+    comments = commentsOnTour.data.comments;
+  }
+
+  const [addComment] = useAddCommentMutation();
+
+  const [formState, setFormState] = useState({
+    comment: "",
+    user: currentUser._id,
+    tour: tour._id,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = cookies.get("jwt");
-
-    await axios
-      .post(
-        `http://127.0.0.1:4000/api/v1/comments`,
-        {
-          comment: `${sendComment}`,
-          user: `${currentUser._id}`,
-          tour: `${tour._id}`,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then(() => {
-        setSendComment("");
-        fetchComments();
-      });
-  };
-
-  const handleRemoveBtn = async (e) => {
-    const commentClickedId = e.target.id;
-    const token = cookies.get("jwt");
-
-    await axios
-      .delete(`http://127.0.0.1:4000/api/v1/comments/${commentClickedId}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => fetchComments());
-  };
+  const [deletePost, { isLoading: isDeleting }] = useDeleteCommentMutation();
 
   return (
     <>
       {currentUser ? (
-        <FormComment onSubmit={(e) => handleSubmit(e)}>
+        <FormComment>
           <ImageUser src={UserDefault} alt="user default" />
           <TextareaComment
             type="text"
@@ -87,11 +72,19 @@ const Comments = ({ tour }) => {
             maxLength="350"
             placeholder="Your comment"
             name="comment"
-            value={sendComment}
-            onChange={(e) => setSendComment(e.target.value)}
+            onChange={handleChange}
             required
           ></TextareaComment>
-          <ButtonComment type="submit" onClick={(e) => handleSubmit(e)}>
+          <ButtonComment
+            type="submit"
+            onClick={async () => {
+              try {
+                await addComment(formState).unwrap();
+              } catch (err) {
+                console.log(err);
+              }
+            }}
+          >
             Post it!
           </ButtonComment>
         </FormComment>
@@ -103,29 +96,33 @@ const Comments = ({ tour }) => {
           <ButtonPrimary to="/login">Click here</ButtonPrimary>
         </InfoContainer>
       )}
-      <List>
-        {comments.map((comment) => {
-          return (
-            <CommentContainer key={comment._id}>
-              <ImageUser
-                src={require(`../../img/u/${comment.user.photo}`)}
-                alt="user"
-              />
-              <Content>
-                <UserName>{comment.user.name.split(" ")[0]}</UserName>
-                <TextMedium>{comment.comment}</TextMedium>
-                {currentUser && comment.user._id === currentUser._id && (
-                  <>
-                    <CloseIcon onClick={(e) => handleRemoveBtn(e)}>
+      {isSuccess && (
+        <List id={1}>
+          {comments.map((comment) => {
+            return (
+              <CommentContainer key={comment._id}>
+                <ImageUser
+                  src={require(`../../img/u/${comment.user.photo}`)}
+                  alt="user"
+                />
+                <Content>
+                  <UserName>{comment.user.name.split(" ")[0]}</UserName>
+                  <TextMedium>{comment.comment}</TextMedium>
+                  {currentUser && comment.user._id === currentUser._id && (
+                    <CloseIcon
+                      onClick={() => {
+                        deletePost(comment._id);
+                      }}
+                    >
                       <ion-icon size="large" name="trash-outline"></ion-icon>
                     </CloseIcon>
-                  </>
-                )}
-              </Content>
-            </CommentContainer>
-          );
-        })}
-      </List>
+                  )}
+                </Content>
+              </CommentContainer>
+            );
+          })}
+        </List>
+      )}
     </>
   );
 };

@@ -25,7 +25,6 @@ import {
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
 import { useDispatch, useSelector } from "react-redux";
 import { IconGrey } from "../../styled/icons";
-import { Row } from "react-bootstrap";
 import { clearCart } from "../../features/cartSlice";
 
 const cookies = new Cookies();
@@ -34,49 +33,50 @@ const ShoppingCart = () => {
   const { cart, totalPrice } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
 
-  const [payment, setPayment] = useState(false);
-  const {
-    shoppingCart,
-    setShoppingCart,
-    controlItemToShoppingCart,
-    addItemToCart,
-    removeItemToCart,
-    items,
-    setItems,
-  } = useContext(AddRemoveContext);
-  const { currentUser } = useContext(UserContext);
+  // const [payment, setPayment] = useState(false);
 
-  let shoppingCartFiltered = shoppingCart.filter(
-    (shoppingCart) => shoppingCart !== ""
-  );
+  // const {
+  //   shoppingCart,
+  //   setShoppingCart,
+  //   controlItemToShoppingCart,
+  //   addItemToCart,
+  //   removeItemToCart,
+  //   items,
+  //   setItems,
+  // } = useContext(AddRemoveContext);
+  // const { currentUser } = useContext(UserContext);
 
-  const controlPaymentPage = () => {
-    setShoppingCart([]);
-    setItems([]);
-    const token = cookies.get("jwt");
+  // let shoppingCartFiltered = shoppingCart.filter(
+  //   (shoppingCart) => shoppingCart !== ""
+  // );
 
-    items.map((el) =>
-      axios
-        .post(
-          `http://127.0.0.1:4000/api/v1/booking`,
-          {
-            travelers: `${el.quantity}`,
-            tour: `${el._id}`,
-            user: `${currentUser._id}`,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then(() => {
-          console.log("success");
-          setPayment(true);
-        })
-    );
-  };
+  // const controlPaymentPage = () => {
+  //   setShoppingCart([]);
+  //   setItems([]);
+  //   const token = cookies.get("jwt");
+
+  //   items.map((el) =>
+  //     axios
+  //       .post(
+  //         `http://127.0.0.1:4000/api/v1/booking`,
+  //         {
+  //           travelers: `${el.quantity}`,
+  //           tour: `${el._id}`,
+  //           user: `${currentUser._id}`,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       )
+  //       .then(() => {
+  //         console.log("success");
+  //         setPayment(true);
+  //       })
+  //   );
+  // };
   // const totals = items
   //   .map((item) => item.price * item.quantity)
   //   .reduce((acc, cur) => acc + cur, 0);
@@ -112,7 +112,10 @@ const ShoppingCart = () => {
             <form>
               <TextSmall> ... </TextSmall>
             </form>
-            <Button to="/confirmation" onClick={controlPaymentPage}>
+            <Button
+              to="/confirmation"
+              // onClick={controlPaymentPage}
+            >
               Confirm payment
             </Button>
           </>

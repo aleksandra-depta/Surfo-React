@@ -10,53 +10,40 @@ import { BackgroundImage, Cards, Row, Section } from "./home.styles";
 
 import BackgroundHeaderImg from "../../img/hero-1400.jpg";
 
-import { useGetToursQuery } from "../../services/toursApi";
-
 const HomePage = ({ tours }) => {
-  // const { data, isLoading, isSuccess, isError, error } = useGetToursQuery();
-
-  // let tours;
-  // if (isSuccess) {
-  //   tours = data.data.data;
-  // }
-
   return (
     <>
-      {/* {isSuccess && ( */}
-      <>
-        <BackgroundImage src={BackgroundHeaderImg} />
-        <Header />
-        <Row>
+      <BackgroundImage src={BackgroundHeaderImg} />
+      <Header />
+      <Row>
+        {tours
+          .filter((item) => item.cardLarge === "ok")
+          .map((tour) => (
+            <CardLarge key={tour._id} tour={tour} />
+          ))}
+      </Row>
+      <Section>
+        <HeadingH2>Places you can not missed</HeadingH2>
+        <Cards>
           {tours
-            .filter((item) => item.cardLarge === "ok")
+            .filter((item) => item.cardSmall === "ok")
             .map((tour) => (
-              <CardLarge key={tour._id} tour={tour} />
+              <CardSmall key={tour._id} tour={tour} />
             ))}
-        </Row>
-        <Section>
-          <HeadingH2>Places you can not missed</HeadingH2>
-          <Cards>
-            {tours
-              .filter((item) => item.cardSmall === "ok")
-              .map((tour) => (
-                <CardSmall key={tour._id} tour={tour} />
-              ))}
-          </Cards>
-        </Section>
-        <Section>
-          <HeadingH2>The most Popular</HeadingH2>
-          <Cards>
-            {tours
-              .filter((item) => item.cardMedium === "ok")
-              .map((tour) => (
-                <CardMedium key={tour._id} tour={tour} />
-              ))}
-          </Cards>
-        </Section>
-        <Newsletters />
-        <Footer />
-      </>
-      {/* )} */}
+        </Cards>
+      </Section>
+      <Section>
+        <HeadingH2>The most Popular</HeadingH2>
+        <Cards>
+          {tours
+            .filter((item) => item.cardMedium === "ok")
+            .map((tour) => (
+              <CardMedium key={tour._id} tour={tour} />
+            ))}
+        </Cards>
+      </Section>
+      <Newsletters />
+      <Footer />
     </>
   );
 };
