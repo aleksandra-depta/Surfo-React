@@ -28,4 +28,5 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  text-align: start;
 `;

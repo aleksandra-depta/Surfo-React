@@ -6,6 +6,8 @@ import { toursApi } from "./services/toursApi";
 import searchTabReducer from "./features/searchTabSlice";
 import cartReducer from "./features/cartSlice";
 import authReducer from "./features/authSlice";
+import navReducer from "./features/navSlice";
+import bookmarkReducer from "./features/bookmarksSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ export const store = configureStore({
     searchTab: searchTabReducer,
     cart: cartReducer,
     auth: authReducer,
+    nav: navReducer,
+    bookmark: bookmarkReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

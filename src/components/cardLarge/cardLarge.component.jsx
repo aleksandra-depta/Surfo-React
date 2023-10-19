@@ -1,13 +1,12 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { navHomeInactive } from "../../features/navSlice";
+import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import { UserContext } from "../../contexts/user.context";
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
 
 import {
   HeadingH3,
@@ -27,33 +26,20 @@ import {
 } from "./cardLarge.styles";
 
 const CardLarge = ({ tour }) => {
-  const { currentUser } = useContext(UserContext);
-  const { bookmarks, controlItemToBookmarks } = useContext(AddRemoveContext);
-
-  const controlBookmark = () => controlItemToBookmarks(tour);
+  const { currentUser } = useSelector((store) => store.auth);
+  const { bookmarks } = useSelector((store) => store.bookmark);
+  const dispatch = useDispatch();
 
   return (
     <SliderCardLarge>
       {currentUser && (
-        <div onClick={controlBookmark}>
-          {bookmarks.length === 0 ? (
-            <BookmarkIcon>
-              <ion-icon size="large" name="bookmark-outline"></ion-icon>
-            </BookmarkIcon>
+        <BookmarkIcon onClick={() => dispatch(controlBookmark(tour._id))}>
+          {bookmarks.find((el) => el._id === tour._id) ? (
+            <ion-icon size="large" name="bookmark"></ion-icon>
           ) : (
-            bookmarks.map((el) =>
-              el._id === tour._id ? (
-                <BookmarkIcon key={tour._id}>
-                  <ion-icon size="large" name="bookmark"></ion-icon>
-                </BookmarkIcon>
-              ) : (
-                <BookmarkIcon key={tour._id}>
-                  <ion-icon size="large" name="bookmark-outline"></ion-icon>
-                </BookmarkIcon>
-              )
-            )
+            <ion-icon size="large" name="bookmark-outline"></ion-icon>
           )}
-        </div>
+        </BookmarkIcon>
       )}
       <Swiper
         className="swiper-wrapper"
@@ -84,7 +70,15 @@ const CardLarge = ({ tour }) => {
               </RowItem>
             </Row>
             <TextSmall>{tour.cardLargeDescription}</TextSmall>
-            <ButtonWhite to={`/tour/${tour.id}`}>Book Now</ButtonWhite>
+            <ButtonWhite
+              to={`/tour/${tour.id}`}
+              onClick={() => {
+                dispatch(navHomeInactive());
+                window.scrollTo({ top: 0, left: 0 });
+              }}
+            >
+              Book Now
+            </ButtonWhite>
           </Details>
         </SwiperSlide>
 

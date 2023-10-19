@@ -1,15 +1,14 @@
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
-
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
-import { LinksNavMyAccountContext } from "../../contexts/linksMyAcount.context";
-
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/authSlice";
+import { navHomeActive, navHomeInactive } from "../../features/navSlice";
 import Cookies from "universal-cookie";
 
-import { LinkWhite } from "../../styled/typography";
-import { IconBookmark } from "../../styled/icons";
 import {
+  CartIcon,
   Icon,
+  IconFav,
   ImageLogo,
   ImageUser,
   LinkNav,
@@ -22,56 +21,79 @@ import {
 } from "./nav.styles";
 
 import Logo from "../../img/logo.png";
-import { useDispatch, useSelector } from "react-redux";
-import { calcTotals } from "../../features/cartSlice";
 
 const cookies = new Cookies();
 
 const Navigation = () => {
   const { currentUser } = useSelector((store) => store.auth);
-  const [openNav, setOpenNav] = useState();
+  const { navHome } = useSelector((store) => store.nav);
+  const { cart } = useSelector((store) => store.cart);
+  const { bookmarks } = useSelector((store) => store.bookmark);
 
-  ///////////////////////////////////////
-  const { bookmarks, shoppingCart } = useContext(AddRemoveContext);
-  const { activeLink } = useContext(LinksNavMyAccountContext);
+  const [openNav, setOpenNav] = useState(false);
 
-  const bookmarksFiltered = bookmarks.filter((bookmark) => bookmark !== "");
-  const shoppingCartFiltered = shoppingCart.filter((item) => item !== "");
+  const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     cookies.remove("jwt", { path: "/" });
-    window.location.reload();
+    dispatch(logout());
   };
 
   return (
     <>
       <Nav>
         <NavContent>
-          <Link to="/">
+          <Link to="/" onClick={() => dispatch(navHomeActive())} home={navHome}>
             <ImageLogo src={`${Logo}`} alt="Surfo logo" />
           </Link>
-          <LinkNav to="/offer">Our offer</LinkNav>
+          <LinkNav
+            to="/offer"
+            onClick={() => dispatch(navHomeInactive())}
+            home={navHome}
+          >
+            Our offer
+          </LinkNav>
         </NavContent>
         <NavContent>
           {currentUser ? (
             <NavContent>
-              <NavMenu active={openNav}>
+              <NavMenu
+                active={openNav}
+                onMouseEnter={() => setOpenNav(true)}
+                onMouseLeave={() => setOpenNav(false)}
+              >
                 <LinksUser
                   onClick={() => {
-                    setOpenNav(!openNav);
-                    // activeLink("/myAccount");
+                    setOpenNav(true);
                   }}
                 >
                   <ImageUser
                     src={require(`../../img/${currentUser.photo}`)}
                     alt="User_photo"
                   />
-                  <LinkNav>{currentUser.name}</LinkNav>
+                  <LinkNav
+                    home={navHome}
+                    onClick={() => dispatch(navHomeInactive())}
+                  >
+                    {currentUser.name.split(" ")[0]}
+                  </LinkNav>
                 </LinksUser>
                 {openNav && (
                   <NavMenuContent>
-                    <LinkNavMenu to="/myAccount"> My Account</LinkNavMenu>
-                    <LinkNavMenu onClick={(e) => handleSubmit(e)}>
+                    <LinkNavMenu
+                      to="/myAccount/user"
+                      home={navHome}
+                      onClick={() => dispatch(navHomeInactive())}
+                    >
+                      My Account
+                    </LinkNavMenu>
+                    <LinkNavMenu
+                      to="/"
+                      onClick={(e) => {
+                        handleSubmit(e);
+                        dispatch(navHomeActive());
+                      }}
+                    >
                       Log out
                     </LinkNavMenu>
                   </NavMenuContent>
@@ -79,32 +101,48 @@ const Navigation = () => {
               </NavMenu>
               <LinkNav
                 to="/myAccount/favorites"
-                // onClick={() => activeLink("/myAccount/favorites")}
+                home={navHome}
+                onClick={() => dispatch(navHomeInactive())}
               >
-                <Icon>
-                  {bookmarksFiltered.length === 0 ? (
-                    <IconBookmark>
-                      <ion-icon size="large" name="bookmark-outline"></ion-icon>
-                    </IconBookmark>
-                  ) : (
-                    <IconBookmark>
-                      <ion-icon size="large" name="bookmark"></ion-icon>
-                    </IconBookmark>
-                  )}
-                </Icon>
+                {bookmarks.length === 0 ? (
+                  <Icon>
+                    <ion-icon size="large" name="bookmark-outline"></ion-icon>
+                  </Icon>
+                ) : (
+                  <IconFav>
+                    <ion-icon size="large" name="bookmark"></ion-icon>
+                  </IconFav>
+                )}
               </LinkNav>
             </NavContent>
           ) : (
             <NavContent>
-              <LinkNav to="/login">Log In</LinkNav>
-              <LinkNav to="/signup">Sign Up</LinkNav>
+              <LinkNav
+                to="/login"
+                home={navHome}
+                onClick={() => dispatch(navHomeInactive())}
+              >
+                Log In
+              </LinkNav>
+              <LinkNav
+                to="/signup"
+                home={navHome}
+                onClick={() => dispatch(navHomeInactive())}
+              >
+                Sign Up
+              </LinkNav>
             </NavContent>
           )}
-          <Icon>
-            <LinkWhite to="/shoppingCart">
+          <LinkNav
+            to="/shoppingCart"
+            home={navHome}
+            onClick={() => dispatch(navHomeInactive())}
+          >
+            <Icon>
               <ion-icon size="large" name="cart-outline"></ion-icon>
-            </LinkWhite>
-          </Icon>
+            </Icon>
+            {cart.length !== 0 && <CartIcon />}
+          </LinkNav>
         </NavContent>
       </Nav>
       <Outlet />

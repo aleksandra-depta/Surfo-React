@@ -18,6 +18,8 @@ import {
 } from "./auth.styles";
 
 const LoginPage = () => {
+  const { currentUser } = useSelector((store) => store.auth);
+
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -28,8 +30,6 @@ const LoginPage = () => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
-
-  const { currentUser } = useSelector((store) => store.auth);
 
   return (
     <Content>

@@ -12,7 +12,12 @@ const initialState = {
 const userSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state, action) => {
+      state.currentUser = null;
+      state.token = null;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       toursApi.endpoints.login.matchFulfilled,
@@ -43,6 +48,6 @@ const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;

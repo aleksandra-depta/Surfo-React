@@ -13,6 +13,7 @@ export const toursApi = createApi({
     getTours: build.query({
       query: () => `tours`,
     }),
+    //auth
     login: build.mutation({
       query: (body) => ({
         url: `users/login`,
@@ -36,8 +37,34 @@ export const toursApi = createApi({
           Authorization: `Bearer ${token}`,
         },
       }),
-      providesTags: ["User"],
+      providesTags: (result, error, id) => [{ type: "User", id }],
     }),
+    //update User
+    updateUser: build.mutation({
+      query: (body) => ({
+        url: `users/updateMe`,
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["User"],
+    }),
+    updatePassword: build.mutation({
+      query: (body) => ({
+        url: `users/updateMyPassword`,
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["User"],
+    }),
+    //comments
     getComments: build.query({
       query: (id) => `/tours/${id}/comments`,
       providesTags: (result, error, id) => [{ type: "Posts", id }],
@@ -65,15 +92,40 @@ export const toursApi = createApi({
       }),
       invalidatesTags: ["Posts"],
     }),
+    //booking
+    getBookingsOnUser: build.query({
+      query: (id) => `/users/${id}/booking`,
+      providesTags: (result, error, id) => [{ type: "Posts", id }],
+    }),
+    addBooking: build.mutation({
+      query: (body) => ({
+        url: `booking`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body,
+      }),
+      invalidatesTags: ["Posts"],
+    }),
   }),
 });
 
 export const {
   useGetToursQuery,
+  //Auth
   useLoginMutation,
   useSignUpMutation,
   useAuthQuery,
+  //Update User
+  useUpdateUserMutation,
+  useUpdatePasswordMutation,
+  // Comments
   useGetCommentsQuery,
   useAddCommentMutation,
   useDeleteCommentMutation,
+  // Bookings
+  useGetBookingsOnUserQuery,
+  useAddBookingMutation,
 } = toursApi;

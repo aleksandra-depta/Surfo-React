@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ButtonSecondary } from "../../styled/buttons";
 import { Link } from "react-router-dom";
 
 export const AuthContainer = styled.div`

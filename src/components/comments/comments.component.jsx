@@ -1,15 +1,11 @@
-import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
-
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
   useAddCommentMutation,
   useDeleteCommentMutation,
   useGetCommentsQuery,
 } from "../../services/toursApi";
-import Cookies from "universal-cookie";
 
-import UserDefault from "../../img/user.png";
 import { HeadingH3, TextMedium } from "../../styled/typography";
 import { ButtonPrimary } from "../../styled/buttons";
 import {
@@ -25,9 +21,11 @@ import {
   UserName,
 } from "./comments.styles";
 
-const cookies = new Cookies();
+import UserDefault from "../../img/user.png";
 
 const Comments = ({ tour }) => {
+  const { currentUser } = useSelector((store) => store.auth);
+
   const {
     data: commentsOnTour,
     isLoading,
@@ -35,8 +33,6 @@ const Comments = ({ tour }) => {
     isError,
     error,
   } = useGetCommentsQuery(tour._id);
-
-  const { currentUser } = useSelector((store) => store.auth);
 
   let comments;
   if (isSuccess) {
@@ -47,7 +43,7 @@ const Comments = ({ tour }) => {
 
   const [formState, setFormState] = useState({
     comment: "",
-    user: currentUser._id,
+    user: currentUser !== null ? currentUser._id : null,
     tour: tour._id,
   });
 
@@ -63,7 +59,7 @@ const Comments = ({ tour }) => {
 
   return (
     <>
-      {currentUser ? (
+      {currentUser !== null ? (
         <FormComment>
           <ImageUser src={UserDefault} alt="user default" />
           <TextareaComment
@@ -96,7 +92,7 @@ const Comments = ({ tour }) => {
           <ButtonPrimary to="/login">Click here</ButtonPrimary>
         </InfoContainer>
       )}
-      {isSuccess && (
+      {currentUser !== null && isSuccess && (
         <List id={1}>
           {comments.map((comment) => {
             return (

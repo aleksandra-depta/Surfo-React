@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, calcTotals } from "../../features/cartSlice";
-
-import { useContext } from "react";
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
-import { UserContext } from "../../contexts/user.context";
+import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { Col } from "react-bootstrap";
 import { IconStar } from "../../styled/icons";
@@ -31,13 +28,10 @@ import {
 } from "./cardTour.styles";
 
 const CardTour = ({ tour }) => {
-  const dispatch = useDispatch();
+  const { currentUser } = useSelector((store) => store.auth);
+  const { bookmarks } = useSelector((store) => store.bookmark);
   const { cart } = useSelector((store) => store.cart);
-
-  const { currentUser } = useContext(UserContext);
-  const { bookmarks, controlItemToBookmarks } = useContext(AddRemoveContext);
-
-  const controlBookmark = () => controlItemToBookmarks(tour);
+  const dispatch = useDispatch();
 
   const detailsDescription = [
     {
@@ -73,25 +67,13 @@ const CardTour = ({ tour }) => {
       <ImageTour src={require(`../../img/${tour.imageCover}`)} alt="tour" />
       <Details>
         {currentUser && (
-          <div onClick={controlBookmark}>
-            {bookmarks.length === 0 ? (
-              <BookmarkIcon>
-                <ion-icon size="large" name="bookmark-outline"></ion-icon>
-              </BookmarkIcon>
+          <BookmarkIcon onClick={() => dispatch(controlBookmark(tour._id))}>
+            {bookmarks.find((el) => el._id === tour._id) ? (
+              <ion-icon size="large" name="bookmark"></ion-icon>
             ) : (
-              bookmarks.map((el) =>
-                el._id === tour._id ? (
-                  <BookmarkIcon>
-                    <ion-icon size="large" name="bookmark"></ion-icon>
-                  </BookmarkIcon>
-                ) : (
-                  <BookmarkIcon>
-                    <ion-icon size="large" name="bookmark-outline"></ion-icon>
-                  </BookmarkIcon>
-                )
-              )
+              <ion-icon size="large" name="bookmark-outline"></ion-icon>
             )}
-          </div>
+          </BookmarkIcon>
         )}
         <Row>
           <ButtonSmallPrimary to="">Book with flexibility</ButtonSmallPrimary>
@@ -139,6 +121,7 @@ const CardTour = ({ tour }) => {
               onClick={() => {
                 dispatch(addToCart(tour._id));
                 dispatch(calcTotals());
+                window.scrollTo({ top: 0, left: 0 });
               }}
             >
               book now

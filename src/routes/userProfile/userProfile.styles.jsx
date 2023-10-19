@@ -1,5 +1,46 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { ButtonSecondary, ButtonSecondaryInactive } from "../../styled/buttons";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonSecondaryInactive,
+} from "../../styled/buttons";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+  padding: 4rem 10rem 10rem 10rem;
+`;
+
+export const NavLinkMyAccount = styled(NavLink)`
+  font-size: 2.4rem;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s;
+
+  background-color: ${(props) => props.theme.colors.whiteText};
+  color: ${(props) => props.theme.colors.darkText};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.darkText};
+  }
+
+  &.active {
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.white};
+
+    &:hover {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
+  }
+`;
 
 export const Nav = styled.div`
   display: grid;
@@ -13,13 +54,6 @@ export const LinkActive = styled(ButtonSecondary)`
 
 export const LinkInactive = styled(ButtonSecondaryInactive)`
   border-radius: 2px;
-`;
-
-export const Container = styled.div`
-  margin: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
 `;
 
 export const Content = styled.div`
@@ -99,4 +133,9 @@ export const ImageUser = styled.img`
 
 export const Button = styled(ButtonSecondary)`
   margin-bottom: 4rem;
+`;
+
+export const ButtonEdit = styled(ButtonPrimary)`
+  width: 24rem;
+  height: max-content;
 `;

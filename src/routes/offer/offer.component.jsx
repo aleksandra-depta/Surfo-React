@@ -5,7 +5,12 @@ import SelectTab from "../../components/selectTab/selectTab.component";
 import Footer from "../../components/footer/footer.component";
 
 import { HeadingH2 } from "../../styled/typography";
-import { CardContainer, SectionContainer } from "./offer.styles";
+import {
+  CardContainer,
+  Content,
+  Heading,
+  SectionContainer,
+} from "./offer.styles";
 
 const OfferPage = ({ tours }) => {
   const { selectedOptionType, selectedOptionLocation } = useSelector(

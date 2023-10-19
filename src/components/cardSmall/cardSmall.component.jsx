@@ -1,40 +1,27 @@
-import { useContext } from "react";
-
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
-import { UserContext } from "../../contexts/user.context";
+import { useDispatch, useSelector } from "react-redux";
+import { navHomeInactive } from "../../features/navSlice";
+import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { ButtonPrimary } from "../../styled/buttons";
 import { HeadingH3, TextMedium } from "../../styled/typography";
 import { BookmarkIcon, Content, Details, ImageCard } from "./cardSmall.styles";
 
 const CardSmall = ({ tour }) => {
-  const { currentUser } = useContext(UserContext);
-  const { bookmarks, controlItemToBookmarks } = useContext(AddRemoveContext);
-  const controlBookmark = () => controlItemToBookmarks(tour);
+  const { currentUser } = useSelector((store) => store.auth);
+  const { bookmarks } = useSelector((store) => store.bookmark);
+  const dispatch = useDispatch();
 
   return (
     <Content>
       <ImageCard src={require(`../../img/${tour.imageCover}`)} alt="tour" />
       {currentUser && (
-        <div onClick={controlBookmark}>
-          {bookmarks.length === 0 ? (
-            <BookmarkIcon>
-              <ion-icon size="large" name="bookmark-outline"></ion-icon>
-            </BookmarkIcon>
+        <BookmarkIcon onClick={() => dispatch(controlBookmark(tour._id))}>
+          {bookmarks.find((el) => el._id === tour._id) ? (
+            <ion-icon size="large" name="bookmark"></ion-icon>
           ) : (
-            bookmarks.map((el) =>
-              el._id === tour._id ? (
-                <BookmarkIcon>
-                  <ion-icon size="large" name="bookmark"></ion-icon>
-                </BookmarkIcon>
-              ) : (
-                <BookmarkIcon>
-                  <ion-icon size="large" name="bookmark-outline"></ion-icon>
-                </BookmarkIcon>
-              )
-            )
+            <ion-icon size="large" name="bookmark-outline"></ion-icon>
           )}
-        </div>
+        </BookmarkIcon>
       )}
       <Details>
         <HeadingH3>{tour.name}</HeadingH3>
@@ -46,6 +33,7 @@ const CardSmall = ({ tour }) => {
           to={`/tour/${tour._id}`}
           onClick={() => {
             window.scrollTo({ top: 0, left: 0 });
+            dispatch(navHomeInactive());
           }}
         >
           See more

@@ -1,31 +1,44 @@
-import { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
-
-import CardSmall from "../../components/cardSmall/cardSmall.component";
+import { useSelector } from "react-redux";
+import { useGetBookingsOnUserQuery } from "../../services/toursApi";
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
+import CardBooking from "../../components/cardBooking/cardBooking.component";
 
+import { Col } from "react-bootstrap";
 import { HeadingH2, TextSmall } from "../../styled/typography";
-import { CardContainer, Container, LogoContainer } from "./userProfile.styles";
+import { Container, LogoContainer } from "./userProfile.styles";
 
 const MyBooking = () => {
-  const { booking } = useContext(UserContext);
+  const { currentUser } = useSelector((store) => store.auth);
+
+  const {
+    data: bookingsOnTour,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetBookingsOnUserQuery(currentUser._id);
+
+  let bookings;
+  if (isSuccess) {
+    bookings = bookingsOnTour.data.bookings;
+  }
 
   return (
     <Container>
       <LogoContainer>
         <img src={require(`../../img/logo.png`)} alt="Surfo logo" />
       </LogoContainer>
-      <HeadingH2> My booking </HeadingH2>
-      <TextSmall>Here you can view all your booked tours.</TextSmall>
-
-      {booking.length === 0 ? (
+      <Col>
+        <HeadingH2> My bookings </HeadingH2>
+        <TextSmall>Here you can view all your booked tours.</TextSmall>
+      </Col>
+      {isSuccess && bookings.length === 0 ? (
         <EmptyMessage message={"You do not have any booked tours yet!"} />
       ) : (
-        <CardContainer>
-          {booking.map((tour) => (
-            <CardSmall tour={tour.tour} />
-          ))}
-        </CardContainer>
+        <div>
+          {isSuccess &&
+            bookings.map((booking) => <CardBooking booking={booking} />)}
+        </div>
       )}
     </Container>
   );

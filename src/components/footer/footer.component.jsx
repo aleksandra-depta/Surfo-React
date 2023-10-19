@@ -1,4 +1,7 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { linksGroup, socialMediaIcons } from "../../services/dataFooter";
+import { navHomeActive, navHomeInactive } from "../../features/navSlice";
 
 import { HeadingH3, LinkGrey, TextSmall } from "../../styled/typography";
 import { IconSocialMedia } from "../../styled/icons";
@@ -7,102 +10,31 @@ import { Column, Icons, ImageLogo, Row } from "./footer.styles";
 import Logo from "../../img/logo.png";
 
 const Footer = () => {
-  const socialMediaIcons = [
-    {
-      link: "https://www.instagram.com/",
-      name: "logo-instagram",
-    },
-    {
-      link: "https://www.facebook.com/",
-      name: "logo-facebook",
-    },
-    {
-      link: "https://www.twitter.com/",
-      name: "logo-twitter",
-    },
-  ];
-
-  const linksAccount = [
-    {
-      link: "",
-      name: "Log in",
-    },
-    {
-      link: "",
-      name: " Sign up",
-    },
-    {
-      link: "",
-      name: "iOS app",
-    },
-    {
-      link: "",
-      name: "Android app",
-    },
-  ];
-
-  const linksCompany = [
-    {
-      link: "",
-      name: "About Surfo",
-    },
-    {
-      link: "",
-      name: "How we work",
-    },
-    {
-      link: "",
-      name: "Our team",
-    },
-    {
-      link: "",
-      name: "Careers",
-    },
-  ];
-
-  const linksMore = [
-    {
-      link: "",
-      name: "For Business",
-    },
-    {
-      link: "",
-      name: "Partners",
-    },
-    {
-      link: "",
-      name: "Press",
-    },
-    {
-      link: "",
-      name: "Certificates",
-    },
-  ];
-
-  const linksGroup = [
-    {
-      name: "Account",
-      array: [...linksAccount],
-    },
-    {
-      name: "Company",
-      array: [...linksCompany],
-    },
-    {
-      name: "More",
-      array: [...linksMore],
-    },
-  ];
+  const dispatch = useDispatch();
 
   return (
     <Row>
       <Column>
-        <Link to="/" className="footer__logo">
+        <Link
+          to="/"
+          onClick={() => {
+            dispatch(navHomeActive());
+            window.scrollTo({ top: 0, left: 0 });
+          }}
+        >
           <ImageLogo alt="Surfo" src={`${Logo}`} />
         </Link>
         <Icons>
           {socialMediaIcons.map((el) => (
-            <Link to={el.link} target="_blank" key={el.name}>
+            <Link
+              to={el.link}
+              target="_blank"
+              key={el.name}
+              onClick={() => {
+                dispatch(navHomeInactive());
+                window.scrollTo({ top: 0, left: 0 });
+              }}
+            >
               <IconSocialMedia>
                 <ion-icon size="large" name={el.name}></ion-icon>
               </IconSocialMedia>
@@ -128,7 +60,14 @@ const Footer = () => {
         <Column key={group.name}>
           <HeadingH3>{group.name}</HeadingH3>
           {group.array.map((el) => (
-            <LinkGrey to="/login" key={el.name}>
+            <LinkGrey
+              to="/login"
+              key={el.name}
+              onClick={() => {
+                dispatch(navHomeInactive());
+                window.scrollTo({ top: 0, left: 0 });
+              }}
+            >
               {el.name}
             </LinkGrey>
           ))}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { LinkGrey, LinkWhite } from "../../styled/typography";
 
 export const Nav = styled.div`
@@ -32,8 +33,33 @@ export const LinksUser = styled(LinkWhite)`
   gap: 2rem;
 `;
 
-export const LinkNav = styled(LinkWhite)`
+export const LinkNav = styled(Link)`
+  position: relative;
+
   font-weight: 600;
+  font-size: 2.6rem;
+  ${(props) => props.theme.colors.lightText};
+
+  ${() =>
+    window.location.pathname !== "/" &&
+    `
+  color: #151414;
+  &:hover {
+    color: #151414;
+    transform: translateY(-1px);
+    }
+  `};
+
+  ${({ home }) =>
+    home === true &&
+    window.location.pathname === "/" &&
+    `
+  color: #ffffff;
+  &:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+  `}
 `;
 
 export const NavMenu = styled.div`
@@ -83,4 +109,18 @@ export const LinkNavMenu = styled(LinkGrey)`
 
 export const Icon = styled.div`
   margin-bottom: -10px;
+`;
+
+export const IconFav = styled(Icon)`
+  color: ${(props) => props.theme.colors.secondary};
+`;
+
+export const CartIcon = styled.div`
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 100%;
+  background-color: ${(props) => props.theme.colors.secondary};
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
 `;

@@ -1,8 +1,3 @@
-import { useContext } from "react";
-
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
-import { UserContext } from "../../contexts/user.context";
-
 import Map from "../../components/map/map.component";
 import Reviews from "../../components/reviews/reviews.component";
 import Comments from "../../components/comments/comments.component";
@@ -14,23 +9,6 @@ import { IconCheckmark, IconPin } from "../../styled/icons";
 import { DescriptionRow, ItemRow, RowPin, RowTour } from "./tour.styles";
 
 const TourPage = ({ tour }) => {
-  // const { currentUser } = useContext(UserContext);
-  // const {
-  //   bookmarks,
-  //   controlItemToBookmarks,
-  //   shoppingCart,
-  //   controlItemToShoppingCart,
-  //   addItemToCart,
-  // } = useContext(AddRemoveContext);
-
-  // const shoppingCartFiltered = shoppingCart.filter((item) => item !== "");
-
-  // const controlBookmark = () => controlItemToBookmarks(tour);
-  // const controlShoppingCart = () => {
-  //   controlItemToShoppingCart(tour);
-  //   addItemToCart(tour);
-  // };
-
   return (
     <>
       <CardTour tour={tour} />

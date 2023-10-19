@@ -1,7 +1,5 @@
-import { useContext } from "react";
-
-import { AddRemoveContext } from "../../contexts/controlAddRemoveCarts.context";
-
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../features/cartSlice";
 import Counter from "../counter/counter.component";
 
 import {
@@ -19,8 +17,6 @@ import {
   LinkContent,
   PriceContent,
 } from "./shoppingCartItem.styles";
-import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../features/cartSlice";
 
 const ShoppingCartItem = ({ tour }) => {
   const dispatch = useDispatch();

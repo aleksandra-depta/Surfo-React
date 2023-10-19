@@ -17,6 +17,7 @@ import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 
 import Cookies from "universal-cookie";
+import { useEffect } from "react";
 
 const cookies = new Cookies();
 const token = cookies.get("jwt");
@@ -54,7 +55,7 @@ const App = () => {
             <Route path="/confirmation" element={<Confirmation />} />
             {currentUser !== null && (
               <Route path="/" element={<UserProfile />}>
-                <Route path="/myAccount" element={<MyAccount />} />
+                <Route path="/myAccount/user" element={<MyAccount />} />
                 <Route path="/myAccount/booking" element={<MyBooking />} />
                 <Route path="/myAccount/favorites" element={<MyFavorites />} />
               </Route>

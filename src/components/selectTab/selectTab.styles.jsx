@@ -5,7 +5,7 @@ export const SearchTabContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryLight};
   border-radius: 1rem;
   padding: 4rem;
-  margin-bottom: 14rem;
+  margin-bottom: 6rem;
 
   ${() =>
     window.location.pathname === "/offer" &&
