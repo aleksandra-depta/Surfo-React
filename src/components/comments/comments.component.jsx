@@ -102,7 +102,7 @@ const Comments = ({ tour }) => {
                   alt="user"
                 />
                 <Content>
-                  <UserName>{comment.user.name.split(" ")[0]}</UserName>
+                  <UserName>{comment.user.name?.split(" ")[0]}</UserName>
                   <TextMedium>{comment.comment}</TextMedium>
                   {currentUser && comment.user._id === currentUser._id && (
                     <CloseIcon

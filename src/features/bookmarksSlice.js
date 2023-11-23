@@ -22,6 +22,7 @@ const bookmarkSlice = createSlice({
         state.bookmarks = [...state.bookmarks, itemToAdd];
       }
     },
+    // localStorage.setItem('isAuthenticated', 'true');
   },
   extraReducers: (builder) => {
     builder.addMatcher(

@@ -4,6 +4,8 @@ import { useAuthQuery, useGetToursQuery } from "./services/toursApi";
 
 import HomePage from "./routes/home/home.component";
 import OfferPage from "./routes/offer/offer.component";
+import OfferType from "./routes/offer/offerType.component";
+import OfferLocation from "./routes/offer/offerLocation.component";
 import LoginPage from "./routes/auth/login.component";
 import SignUpPage from "./routes/auth/signUp.component";
 import TourPage from "./routes/tour/tour.component";
@@ -17,7 +19,6 @@ import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 
 import Cookies from "universal-cookie";
-import { useEffect } from "react";
 
 const cookies = new Cookies();
 const token = cookies.get("jwt");
@@ -39,7 +40,13 @@ const App = () => {
         {isSuccess && (
           <>
             <Route index element={<HomePage tours={tours} />} />
-            <Route path="/offer" element={<OfferPage tours={tours} />} />
+            <Route path="/offer" element={<OfferPage tours={tours} />}>
+              <Route path="/offer/type" element={<OfferType tours={tours} />} />
+              <Route
+                path="/offer/location"
+                element={<OfferLocation tours={tours} />}
+              />
+            </Route>
             <Route path="/" element={<AuthPage />}>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />

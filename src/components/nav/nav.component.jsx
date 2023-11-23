@@ -6,6 +6,7 @@ import { navHomeActive, navHomeInactive } from "../../features/navSlice";
 import Cookies from "universal-cookie";
 
 import {
+  BackgroundImage,
   CartIcon,
   Icon,
   IconFav,
@@ -21,6 +22,7 @@ import {
 } from "./nav.styles";
 
 import Logo from "../../img/logo.png";
+import BackgroundHeaderImgHalf from "../../img/hero-2000-half.jpg";
 
 const cookies = new Cookies();
 
@@ -41,6 +43,7 @@ const Navigation = () => {
 
   return (
     <>
+      <BackgroundImage src={BackgroundHeaderImgHalf} />
       <Nav>
         <NavContent>
           <Link to="/" onClick={() => dispatch(navHomeActive())} home={navHome}>
@@ -51,7 +54,7 @@ const Navigation = () => {
             onClick={() => dispatch(navHomeInactive())}
             home={navHome}
           >
-            Our offer
+            offer
           </LinkNav>
         </NavContent>
         <NavContent>
@@ -62,31 +65,8 @@ const Navigation = () => {
                 onMouseEnter={() => setOpenNav(true)}
                 onMouseLeave={() => setOpenNav(false)}
               >
-                <LinksUser
-                  onClick={() => {
-                    setOpenNav(true);
-                  }}
-                >
-                  <ImageUser
-                    src={require(`../../img/${currentUser.photo}`)}
-                    alt="User_photo"
-                  />
-                  <LinkNav
-                    home={navHome}
-                    onClick={() => dispatch(navHomeInactive())}
-                  >
-                    {currentUser.name.split(" ")[0]}
-                  </LinkNav>
-                </LinksUser>
                 {openNav && (
                   <NavMenuContent>
-                    <LinkNavMenu
-                      to="/myAccount/user"
-                      home={navHome}
-                      onClick={() => dispatch(navHomeInactive())}
-                    >
-                      My Account
-                    </LinkNavMenu>
                     <LinkNavMenu
                       to="/"
                       onClick={(e) => {
@@ -98,6 +78,24 @@ const Navigation = () => {
                     </LinkNavMenu>
                   </NavMenuContent>
                 )}
+                <LinksUser
+                  onClick={() => {
+                    setOpenNav(true);
+                  }}
+                  to="/myAccount/user"
+                >
+                  <ImageUser
+                    src={require(`../../img/${currentUser.photo}`)}
+                    alt="User_photo"
+                  />
+                  <LinkNav
+                    home={navHome}
+                    onClick={() => dispatch(navHomeInactive())}
+                    to="/myAccount/user"
+                  >
+                    {currentUser.name.split(" ")[0]}
+                  </LinkNav>
+                </LinksUser>
               </NavMenu>
               <LinkNav
                 to="/myAccount/favorites"

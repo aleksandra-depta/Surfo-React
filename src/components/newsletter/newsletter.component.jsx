@@ -4,6 +4,7 @@ import { HeadingH1, HeadingH2, TextMedium } from "../../styled/typography";
 import { ButtonSecondary } from "../../styled/buttons";
 import { Input } from "../../styled/inputs";
 import {
+  Content,
   FormNewsletter,
   ImageBackground,
   Newsletter,
@@ -16,18 +17,20 @@ const Newsletters = () => {
   return (
     <Newsletter>
       <ImageBackground src={Background} />
-      <Link to="/">
-        <img className="cta__logo" alt="Surfo" src={Logo} />
-      </Link>
-      <HeadingH1>Join us</HeadingH1>
-      <TextMedium>
-        Get special discount on your <br /> first adventure with us
-      </TextMedium>
-      <HeadingH2>Newsletters</HeadingH2>
-      <FormNewsletter>
-        <Input type="email" placeholder="me@example.com" required />
-        <ButtonSecondary>Sign me up</ButtonSecondary>
-      </FormNewsletter>
+      <Content>
+        <Link to="/">
+          <img className="cta__logo" alt="Surfo" src={Logo} />
+        </Link>
+        <HeadingH1>Join us</HeadingH1>
+        <TextMedium>
+          Get special discount on your <br /> first adventure with us
+        </TextMedium>
+        <HeadingH2>Newsletters</HeadingH2>
+        <FormNewsletter>
+          <Input type="email" placeholder="me@example.com" required />
+          <ButtonSecondary>Sign me up</ButtonSecondary>
+        </FormNewsletter>
+      </Content>
     </Newsletter>
   );
 };

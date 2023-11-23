@@ -10,7 +10,7 @@ export const SearchTabContainer = styled.div`
   ${() =>
     window.location.pathname === "/offer" &&
     `
-    background: #eee;
+    background: #d2e1e1da;
   `}
 `;
 
@@ -23,13 +23,6 @@ export const InputTab = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-
-  ${() =>
-    window.location.pathname === "/offer" &&
-    `
-    box-shadow: 0 0.4rem 0.5rem ##3a9696 ;
-    border-bottom: 4px solid #3a9696
-  `}
 `;
 
 export const Content = styled.div`

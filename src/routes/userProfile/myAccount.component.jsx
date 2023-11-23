@@ -4,8 +4,12 @@ import MyAccountPassword from "./myAccountPassword.compoent";
 import MyAccountImage from "./myAccountImage.compoennt";
 
 import { HeadingH2, TextSmall } from "../../styled/typography";
-import { Container, Content, LogoContainer } from "./userProfile.styles";
-import { Col } from "react-bootstrap";
+import {
+  Container,
+  Content,
+  Headings,
+  LogoContainer,
+} from "./userProfile.styles";
 
 const MyAccount = () => {
   return (
@@ -13,13 +17,13 @@ const MyAccount = () => {
       <LogoContainer>
         <img src={require(`../../img/logo.png`)} alt="Surfo logo" />
       </LogoContainer>
-      <Col>
+      <Headings>
         <HeadingH2> My account </HeadingH2>
         <TextSmall>
           Here you can view and update your user account. You can also manage
           your login options and password.
         </TextSmall>
-      </Col>
+      </Headings>
       <Content>
         <MyAccountUserName />
         <MyAccountEmail />

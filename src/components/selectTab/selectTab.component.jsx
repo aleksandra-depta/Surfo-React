@@ -5,18 +5,23 @@ import {
   optionsType,
 } from "../../services/dataSelectTab";
 import {
+  hideAllOffer,
+  hideLocation,
+  hideType,
   selectEndDate,
   selectLocation,
   selectStartDate,
   selectTravelers,
   selectType,
+  showLocation,
+  showType,
 } from "../../features/searchTabSlice";
 
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { HeadingH2, LinkPrimary } from "../../styled/typography";
+import { HeadingH2 } from "../../styled/typography";
 import {
   ButtonTab,
   CenterContainer,
@@ -32,8 +37,13 @@ import Logo from "../../img/logo.png";
 
 const SelectTab = () => {
   const dispatch = useDispatch();
-  const { selectedOptionType, selectedOptionLocation, startDate, endDate } =
-    useSelector((store) => store.searchTab);
+  const {
+    selectedOptionType,
+    selectedOptionLocation,
+    startDate,
+    endDate,
+    showOffer,
+  } = useSelector((store) => store.searchTab);
 
   return (
     <div>
@@ -64,6 +74,9 @@ const SelectTab = () => {
                   className="select__type"
                   onChange={(e) => {
                     dispatch(selectType(e.value));
+                    dispatch(hideAllOffer());
+                    dispatch(showType());
+                    dispatch(hideLocation());
                   }}
                   defaultValue={selectedOptionType}
                   options={optionsType}
@@ -85,6 +98,9 @@ const SelectTab = () => {
                   className="select__where"
                   onChange={(e) => {
                     dispatch(selectLocation(e.value));
+                    dispatch(hideAllOffer());
+                    dispatch(hideType());
+                    dispatch(showLocation());
                   }}
                   defaultValue={selectedOptionLocation}
                   options={optionsLocation}
@@ -121,10 +137,7 @@ const SelectTab = () => {
             </CenterContainer>
             {window.location.pathname === "/offer" ? (
               <CenterContainer>
-                <HeadingH2>Adventures with us</HeadingH2>
-                <LinkPrimary to="/login">
-                  Join us and get discount on your first adventure!
-                </LinkPrimary>
+                <HeadingH2>Adventures with us!</HeadingH2>
               </CenterContainer>
             ) : (
               <ButtonTab to="/offer">Let's Go</ButtonTab>

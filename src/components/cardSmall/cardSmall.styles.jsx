@@ -6,7 +6,7 @@ export const Content = styled.div`
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 400px;
   position: relative;
   overflow: hidden;
 `;

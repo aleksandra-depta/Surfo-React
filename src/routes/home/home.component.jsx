@@ -8,7 +8,7 @@ import Newsletters from "../../components/newsletter/newsletter.component";
 import { HeadingH2 } from "../../styled/typography";
 import { BackgroundImage, Cards, Row, Section } from "./home.styles";
 
-import BackgroundHeaderImg from "../../img/hero-1400.jpg";
+import BackgroundHeaderImg from "../../img/hero-2000.jpg";
 
 const HomePage = ({ tours }) => {
   return (

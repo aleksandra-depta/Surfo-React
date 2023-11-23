@@ -27,6 +27,7 @@ export const Details = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const Description = styled.div`

@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const ImageTour = styled.img`

@@ -4,9 +4,12 @@ import { ButtonSecondary } from "../../styled/buttons";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 4rem;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  padding: 10rem;
+  background-color: ${(props) => props.theme.colors.white};
+  padding: 6rem 10rem 10rem 10rem;
+  width: 100%;
+  min-height: 75vh;
 `;
 
 export const LogoContainer = styled.div`

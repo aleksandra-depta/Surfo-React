@@ -11,6 +11,9 @@ const initialState = {
   selectedTravelers: 1,
   startDate: calStartDate,
   endDate: calEndDate,
+  showOffer: true,
+  showTypeOffer: false,
+  showLocationOffer: false,
 };
 
 const searchTabSlice = createSlice({
@@ -32,6 +35,26 @@ const searchTabSlice = createSlice({
     selectEndDate: (state, { payload }) => {
       state.endDate = payload;
     },
+    showAllOffer: (state, action) => {
+      state.showOffer = true;
+      state.selectedOptionType = "";
+      state.selectedOptionLocation = "";
+    },
+    hideAllOffer: (state, action) => {
+      state.showOffer = false;
+    },
+    showType: (state, action) => {
+      state.showTypeOffer = true;
+    },
+    hideType: (state, action) => {
+      state.showTypeOffer = false;
+    },
+    showLocation: (state, action) => {
+      state.showLocationOffer = true;
+    },
+    hideLocation: (state, action) => {
+      state.showLocationOffer = false;
+    },
   },
 });
 
@@ -41,6 +64,12 @@ export const {
   selectTravelers,
   selectStartDate,
   selectEndDate,
+  showAllOffer,
+  hideAllOffer,
+  showType,
+  hideType,
+  showLocation,
+  hideLocation,
 } = searchTabSlice.actions;
 
 export default searchTabSlice.reducer;

@@ -2,6 +2,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { LinkGrey, LinkWhite } from "../../styled/typography";
 
+export const BackgroundImage = styled.img`
+  width: 100%;
+  z-index: -1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 export const Nav = styled.div`
   height: 5rem;
   width: 100%;
@@ -31,79 +39,54 @@ export const LinksUser = styled(LinkWhite)`
   display: flex;
   align-items: center;
   gap: 2rem;
+  padding-right: 1rem;
 `;
 
 export const LinkNav = styled(Link)`
   position: relative;
-
   font-weight: 600;
-  font-size: 2.6rem;
-  ${(props) => props.theme.colors.lightText};
+  font-size: 2.2rem;
+  letter-spacing: 0.1rem;
+  color: ${(props) => props.theme.colors.white};
 
-  ${() =>
-    window.location.pathname !== "/" &&
-    `
-  color: #151414;
   &:hover {
-    color: #151414;
-    transform: translateY(-1px);
-    }
-  `};
-
-  ${({ home }) =>
-    home === true &&
-    window.location.pathname === "/" &&
-    `
-  color: #ffffff;
-  &:hover {
-    color: #ffffff;
+    color: ${(props) => props.theme.colors.white};
     transform: translateY(-1px);
   }
-  `}
 `;
 
 export const NavMenu = styled.div`
-  position: relative;
   z-index: 1000;
+  display: flex;
 
   ${({ active }) =>
     active === true &&
     `
   background: #f9bd24;
-  width: 30rem;
-  padding: 1rem 3rem;
-  border-radius: 40px 40px 0 0;
-  box-shadow: 0 1rem 2rem #f5f4f4; 
+  padding: 10px;
+  border-radius: 40px;
+  display: flex;
+  gap: 2rem;
   `}
 `;
 
 export const NavMenuContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   padding: 1rem;
-  position: absolute;
-  right: 0;
-  top: 6rem;
-  width: 30rem;
-  border-radius: 0 0 40px 40px;
-  background: ${(props) => props.theme.colors.lightShades};
-  border: 1px solid ${(props) => props.theme.colors.greyLightShades};
 `;
 
 export const LinkNavMenu = styled(LinkGrey)`
-  font-size: 2.3rem;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 2rem;
   font-weight: 600;
-  padding: 2rem;
   text-align: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.greyShades};
-  border-radius: 40px;
-  background-color: ${(props) => props.theme.colors.primaryHalf};
-  color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.lightShades};
+  color: ${(props) => props.theme.colors.greyShades};
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.greyShades};
   }
 `;
 

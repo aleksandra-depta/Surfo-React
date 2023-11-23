@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 
-import {
-  HeadingH1,
-  LinkPrimary,
-  TextMedium,
-} from "../../styled/typography";
+import { HeadingH1, LinkPrimary, TextMedium } from "../../styled/typography";
 import { ButtonPrimary } from "../../styled/buttons";
 import { Content } from "./auth.styles";
 
@@ -19,7 +15,7 @@ const LoggedIn = () => {
       <HeadingH1>Welcome</HeadingH1>
       <TextMedium>Adventure with us</TextMedium>
       <LinkPrimary to="/offer">Our offer</LinkPrimary>
-      <ButtonPrimary to="/myAccount">My account</ButtonPrimary>
+      <ButtonPrimary to="/myAccount/user">My account</ButtonPrimary>
     </Content>
   );
 };

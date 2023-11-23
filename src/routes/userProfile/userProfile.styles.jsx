@@ -1,29 +1,34 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import {
-  ButtonPrimary,
-  ButtonSecondary,
-  ButtonSecondaryInactive,
-} from "../../styled/buttons";
+import { ButtonPrimary, ButtonSecondary } from "../../styled/buttons";
+
+export const MainContainer = styled.div`
+  display: flex;
+`;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  padding: 4rem 10rem 10rem 10rem;
+  background-color: ${(props) => props.theme.colors.white};
+  padding: 6rem 10rem 10rem 10rem;
+  width: 100%;
+  min-height: 75vh;
 `;
 
 export const NavLinkMyAccount = styled(NavLink)`
   font-size: 2.4rem;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   padding: 2rem;
   text-align: center;
   transition: all 0.2s;
+  margin-bottom: 4px;
+  z-index: 100;
 
   background-color: ${(props) => props.theme.colors.whiteText};
   color: ${(props) => props.theme.colors.darkText};
@@ -43,17 +48,10 @@ export const NavLinkMyAccount = styled(NavLink)`
 `;
 
 export const Nav = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 5px;
-`;
-
-export const LinkActive = styled(ButtonSecondary)`
-  border-radius: 2px;
-`;
-
-export const LinkInactive = styled(ButtonSecondaryInactive)`
-  border-radius: 2px;
+  width: 16rem;
 `;
 
 export const Content = styled.div`
@@ -99,6 +97,12 @@ export const Item = styled.div`
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const Headings = styled.div`
+  height: max-content;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const RowItem = styled.div`

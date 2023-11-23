@@ -5,7 +5,11 @@ export const AuthContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  border-radius: 70px;
+  border-radius: 90px;
+  border: 30px solid ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
+  overflow: hidden;
+  z-index: 10;
 `;
 
 export const Content = styled.div`
@@ -14,6 +18,7 @@ export const Content = styled.div`
   flex-direction: column;
   gap: 3rem;
   text-align: center;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const Links = styled.div`
