@@ -8,6 +8,7 @@ import {
   Container,
   Content,
   Headings,
+  Logo,
   LogoContainer,
 } from "./userProfile.styles";
 
@@ -15,7 +16,7 @@ const MyAccount = () => {
   return (
     <Container>
       <LogoContainer>
-        <img src={require(`../../img/logo.png`)} alt="Surfo logo" />
+        <Logo src={require(`../../img/logo.png`)} alt="Surfo logo" />
       </LogoContainer>
       <Headings>
         <HeadingH2> My account </HeadingH2>

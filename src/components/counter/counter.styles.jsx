@@ -12,5 +12,4 @@ export const CounterInput = styled.div`
   text-align: center;
   outline: none;
   font-size: 3rem;
-  width: 36px;
 `;

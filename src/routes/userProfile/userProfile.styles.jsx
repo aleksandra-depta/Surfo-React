@@ -15,6 +15,10 @@ export const Container = styled.div`
   padding: 6rem 10rem 10rem 10rem;
   width: 100%;
   min-height: 75vh;
+
+  @media only screen and (max-width: 992px) {
+    padding: 3rem;
+  }
 `;
 
 export const NavLinkMyAccount = styled(NavLink)`
@@ -75,6 +79,18 @@ export const Content = styled.div`
 
 export const LogoContainer = styled.div`
   text-align: center;
+  width: 20rem;
+  margin-left: -1.8rem;
+
+  @media only screen and (max-width: 768px) {
+    width: 8rem;
+    margin-left: -0.8rem;
+  }
+`;
+
+export const Logo = styled.img`
+  width: 100%;
+  height: auto;
 `;
 
 export const Item = styled.div`
@@ -109,12 +125,20 @@ export const RowItem = styled.div`
   display: flex;
   gap: 4rem;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @media only screen and (max-width: 768px) {
+    gap: 0;
+  }
 `;
 
 export const Form = styled.form`
@@ -122,6 +146,10 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 5rem;
   width: max-content;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -142,4 +170,8 @@ export const Button = styled(ButtonSecondary)`
 export const ButtonEdit = styled(ButtonPrimary)`
   width: 24rem;
   height: max-content;
+
+  @media only screen and (max-width: 768px) {
+    width: 10rem;
+  }
 `;

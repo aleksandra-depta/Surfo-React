@@ -10,6 +10,10 @@ export const Container = styled.div`
   padding: 6rem 10rem 10rem 10rem;
   width: 100%;
   min-height: 75vh;
+
+  @media only screen and (max-width: 992px) {
+    padding: 6rem 3rem;
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -24,6 +28,10 @@ export const LogoCart = styled.img`
 export const ShopingCartContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 992px) {
+    gap: 4rem;
+  }
 `;
 
 export const TotalsContainer = styled.div`

@@ -37,16 +37,18 @@ const TourPage = ({ tour }) => {
         </ItemRow>
         <ItemRow>
           <TextMedium>Stops: </TextMedium>
-          {tour.stopPoints.map((point) => {
-            return (
-              <ItemRow key={point}>
-                <IconPin>
-                  <ion-icon size="small" name="pin"></ion-icon>
-                </IconPin>
-                <TextMedium>{point} </TextMedium>
-              </ItemRow>
-            );
-          })}
+          <ItemRow>
+            {tour.stopPoints.map((point) => {
+              return (
+                <ItemRow key={point}>
+                  <IconPin>
+                    <ion-icon size="small" name="pin"></ion-icon>
+                  </IconPin>
+                  <TextMedium>{point} </TextMedium>
+                </ItemRow>
+              );
+            })}
+          </ItemRow>
         </ItemRow>
       </RowPin>
       <Map tour={tour} />

@@ -10,18 +10,50 @@ import { BackgroundImage, Cards, Row, Section } from "./home.styles";
 
 import BackgroundHeaderImg from "../../img/hero-2000.jpg";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
 const HomePage = ({ tours }) => {
   return (
     <>
       <BackgroundImage src={BackgroundHeaderImg} />
       <Header />
-      <Row>
-        {tours
-          .filter((item) => item.cardLarge === "ok")
-          .map((tour) => (
-            <CardLarge key={tour._id} tour={tour} />
-          ))}
-      </Row>
+
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        breakpoints={{
+          0: {
+            spaceBetween: 10,
+            slidesPerView: 1,
+          },
+          768: {
+            spaceBetween: 20,
+            slidesPerView: 2,
+          },
+          992: {
+            spaceBetween: 30,
+            slidesPerView: 3,
+          },
+        }}
+      >
+        <Row>
+          {tours
+            .filter((item) => item.cardLarge === "ok")
+            .map((tour) => (
+              <SwiperSlide key={tour._id}>
+                <CardLarge key={tour._id} tour={tour} />
+              </SwiperSlide>
+            ))}
+        </Row>
+      </Swiper>
+
       <Section>
         <HeadingH2>Places you can not missed</HeadingH2>
         <Cards>

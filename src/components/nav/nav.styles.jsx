@@ -23,6 +23,10 @@ export const NavContent = styled.div`
   display: flex;
   align-items: center;
   gap: 5rem;
+
+  @media only screen and (max-width: 576px) {
+    gap: 3rem;
+  }
 `;
 
 export const ImageLogo = styled.img`

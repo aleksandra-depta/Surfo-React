@@ -5,4 +5,9 @@
 
 .swiper-pagination-bullet {
   --swiper-theme-color: #3a9696;
+
+  @media only screen and (max-width: 576px) {
+    width: 6px;
+    height: 6px;
+  }
 }

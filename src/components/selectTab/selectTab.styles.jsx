@@ -12,6 +12,10 @@ export const SearchTabContainer = styled.div`
     `
     background: #d2e1e1da;
   `}
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const InputTab = styled.div`
@@ -29,17 +33,29 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 3rem;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Row = styled.div`
   display: flex;
   gap: 3rem;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Column = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
   gap: 3rem;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-rows: 1fr;
+  }
 `;
 
 export const ButtonTab = styled(ButtonSecondary)`

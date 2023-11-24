@@ -15,4 +15,15 @@ export const Content = styled.div`
   justify-content: center;
   grid-row-gap: 1.7rem;
   text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const Headings = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 2rem;
 `;

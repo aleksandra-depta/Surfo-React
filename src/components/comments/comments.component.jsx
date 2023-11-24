@@ -13,6 +13,7 @@ import {
   CloseIcon,
   CommentContainer,
   Content,
+  ContentDetails,
   FormComment,
   ImageUser,
   InfoContainer,
@@ -62,27 +63,29 @@ const Comments = ({ tour }) => {
       {currentUser !== null ? (
         <FormComment>
           <ImageUser src={UserDefault} alt="user default" />
-          <TextareaComment
-            type="text"
-            cols="10"
-            maxLength="350"
-            placeholder="Your comment"
-            name="comment"
-            onChange={handleChange}
-            required
-          ></TextareaComment>
-          <ButtonComment
-            type="submit"
-            onClick={async () => {
-              try {
-                await addComment(formState).unwrap();
-              } catch (err) {
-                console.log(err);
-              }
-            }}
-          >
-            Post it!
-          </ButtonComment>
+          <ContentDetails>
+            <TextareaComment
+              type="text"
+              cols="10"
+              maxLength="350"
+              placeholder="Your comment"
+              name="comment"
+              onChange={handleChange}
+              required
+            ></TextareaComment>
+            <ButtonComment
+              type="submit"
+              onClick={async () => {
+                try {
+                  await addComment(formState).unwrap();
+                } catch (err) {
+                  console.log(err);
+                }
+              }}
+            >
+              Post it!
+            </ButtonComment>
+          </ContentDetails>
         </FormComment>
       ) : (
         <InfoContainer>

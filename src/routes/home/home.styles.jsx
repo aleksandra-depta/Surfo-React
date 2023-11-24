@@ -14,8 +14,9 @@ export const Row = styled.div`
 `;
 
 export const Cards = styled.div`
-  display: flex;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: 5rem;
 `;
 
 export const Section = styled.div`

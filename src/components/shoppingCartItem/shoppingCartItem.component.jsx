@@ -9,13 +9,14 @@ import {
 } from "../../styled/typography";
 import { IconGrey } from "../../styled/icons";
 import {
-  ItemContent,
   DescriptionContent,
   ImageItem,
   Content,
   IconTrash,
   LinkContent,
   PriceContent,
+  Details,
+  Price,
 } from "./shoppingCartItem.styles";
 
 const ShoppingCartItem = ({ tour }) => {
@@ -29,24 +30,28 @@ const ShoppingCartItem = ({ tour }) => {
         </IconGrey>
       </IconTrash>
       <LinkContent to={`/tour/${tour._id}`}>
-        <ItemContent>
-          <ImageItem
-            src={require(`../../img/${tour.imageCover}`)}
-            alt="Tour image"
-          />
+        <ImageItem
+          src={require(`../../img/${tour.imageCover}`)}
+          alt="Tour image"
+        />
+        <Details>
           <DescriptionContent>
             <HeadingH2>{tour.name}</HeadingH2>
-            <TextMedium>{tour.days} days</TextMedium>
-            <TextMedium>
-              Start & end: <b>{tour.startAndEndPoint}</b>
-            </TextMedium>
+            <div>
+              <TextMedium>{tour.days} days</TextMedium>
+              <TextMedium>
+                Start & end: <b>{tour.startAndEndPoint}</b>
+              </TextMedium>
+            </div>
           </DescriptionContent>
-        </ItemContent>
-        <PriceContent>
-          <TextLargePrimary>€{tour.price}</TextLargePrimary>
-          <TextMedium>/per person</TextMedium>
-        </PriceContent>
-        <Counter tour={tour} />
+          <PriceContent>
+            <Price>
+              <TextLargePrimary>€{tour.price}</TextLargePrimary>
+              <TextMedium>/per person</TextMedium>
+            </Price>
+            <Counter tour={tour} />
+          </PriceContent>
+        </Details>
       </LinkContent>
     </Content>
   );

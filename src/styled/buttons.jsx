@@ -13,6 +13,7 @@ export const ButtonPrimary = styled(Link)`
   padding: 2rem;
   text-align: center;
   transition: all 0.2s;
+  white-space: nowrap;
 
   &:hover {
     transform: scale(102%);
@@ -62,6 +63,7 @@ export const ButtonSmallPrimary = styled(Link)`
   padding: 1rem 2rem;
   text-align: center;
   transition: all 0.2s;
+  white-space: nowrap;
 
   &:hover {
     transform: scale(102%);

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { navHomeInactive } from "../../features/navSlice";
 import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { IconStar } from "../../styled/icons";
@@ -58,7 +57,6 @@ const CardMedium = ({ tour }) => {
         <ButtonPrimary
           to={`/tour/${tour._id}`}
           onClick={() => {
-            dispatch(navHomeInactive());
             window.scrollTo({ top: 0, left: 0 });
           }}
         >

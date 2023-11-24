@@ -4,7 +4,7 @@ import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
 import CardBooking from "../../components/cardBooking/cardBooking.component";
 
 import { HeadingH2, TextSmall } from "../../styled/typography";
-import { Container, Headings, LogoContainer } from "./userProfile.styles";
+import { Container, Headings, Logo, LogoContainer } from "./userProfile.styles";
 
 const MyBooking = () => {
   const { currentUser } = useSelector((store) => store.auth);
@@ -25,7 +25,7 @@ const MyBooking = () => {
   return (
     <Container>
       <LogoContainer>
-        <img src={require(`../../img/logo.png`)} alt="Surfo logo" />
+        <Logo src={require(`../../img/logo.png`)} alt="Surfo logo" />
       </LogoContainer>
       <Headings>
         <HeadingH2> My bookings </HeadingH2>

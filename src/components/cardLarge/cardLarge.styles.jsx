@@ -3,16 +3,27 @@ import { IconBookmark } from "../../styled/icons";
 
 export const SliderCardLarge = styled.div`
   width: 41rem;
-  height: 72rem;
+  height: 74rem;
   border-radius: 50px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+  margin-bottom: 10rem;
+
+  @media only screen and (max-width: 768px) {
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media only screen and (max-width: 992px) {
+    width: 50rem;
+  }
 `;
 
 export const Details = styled.div`
   margin: 1.2rem;
-  padding: 2rem;
+  padding: 24px 24px 10px 24px;
   background-color: ${(props) => props.theme.colors.primaryHalf};
   color: ${(props) => props.theme.colors.whiteText};
   border-radius: 50px;
@@ -36,6 +47,11 @@ export const ImageCard = styled.img`
   width: auto;
   height: 100%;
   overflow: hidden;
+
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Row = styled.div`
@@ -64,5 +80,5 @@ export const RowItem = styled.div`
 `;
 
 export const ImageDifficulty = styled.img`
-  height: 12px;
+  height: 8px;
 `;

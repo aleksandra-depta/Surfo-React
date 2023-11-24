@@ -7,6 +7,11 @@ export const CardContainer = styled.div`
   grid-template-columns: 1.3fr 1fr;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   background-color: ${(props) => props.theme.colors.white};
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ImageTour = styled.img`
@@ -32,6 +37,7 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 `;
 
 export const RowStars = styled(Row)`

@@ -43,6 +43,7 @@ export const Heading = styled(Link)`
 
 export const ClearLink = styled(Link)`
   display: flex;
+  align-items: center;
   font-size: 2rem;
   font-weight: 600;
   transition: all 0.1;

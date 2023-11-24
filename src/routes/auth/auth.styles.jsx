@@ -10,6 +10,16 @@ export const AuthContainer = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   overflow: hidden;
   z-index: 10;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    border-radius: 50px;
+  }
 `;
 
 export const Content = styled.div`

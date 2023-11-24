@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { navHomeInactive } from "../../features/navSlice";
 import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -73,7 +72,6 @@ const CardLarge = ({ tour }) => {
             <ButtonWhite
               to={`/tour/${tour.id}`}
               onClick={() => {
-                dispatch(navHomeInactive());
                 window.scrollTo({ top: 0, left: 0 });
               }}
             >

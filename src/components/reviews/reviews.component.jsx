@@ -38,6 +38,14 @@ const Reviews = ({ tour }) => {
             clickable: true,
           }}
           modules={[Pagination]}
+          breakpoints={{
+            0: {
+              spaceBetween: 10,
+            },
+            768: {
+              spaceBetween: 30,
+            },
+          }}
         >
           {reviews.map((review) => {
             return (
@@ -51,9 +59,9 @@ const Reviews = ({ tour }) => {
                   </picture>
                   <TextContent>
                     <BlockquoteReview>{review.review}</BlockquoteReview>
-                    <TextSmall>
+                    <BlockquoteReview>
                       &mdash; {review.user.name.split(" ")[0]}{" "}
-                    </TextSmall>
+                    </BlockquoteReview>
                   </TextContent>
                 </FigureReview>
               </SwiperSlide>

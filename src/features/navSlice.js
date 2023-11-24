@@ -1,22 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  navHome: true,
+  mobileNav: window.innerWidth <= 760 ? true : false,
+  mobileNavContent: false,
 };
 
 const navSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    navHomeActive: (state, action) => {
-      state.navHome = true;
+    openMobileMenu: (state, action) => {
+      state.mobileNavContent = true;
     },
-    navHomeInactive: (state, action) => {
-      state.navHome = false;
+    closeMobileMenu: (state, action) => {
+      state.mobileNavContent = false;
     },
   },
 });
 
-export const { navHomeActive, navHomeInactive } = navSlice.actions;
+export const { openMobileMenu, closeMobileMenu } = navSlice.actions;
 
 export default navSlice.reducer;
