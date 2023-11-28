@@ -24,7 +24,7 @@ import {
 } from "./nav.styles";
 
 import Logo from "../../img/logo.png";
-import BackgroundHeaderImgHalf from "../../img/hero-2000-half.jpg";
+import BackgroundHeaderImgHalf from "../../img/hero-2000-half.png";
 
 const cookies = new Cookies();
 
@@ -35,7 +35,6 @@ const Navigation = () => {
   const { mobileNav, mobileNavContent } = useSelector((store) => store.nav);
 
   const [openNav, setOpenNav] = useState(false);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {

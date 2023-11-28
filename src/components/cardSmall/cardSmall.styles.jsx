@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { IconBookmark } from "../../styled/icons";
+import { ButtonPrimary } from "../../styled/buttons";
 
 export const Content = styled.div`
   border-radius: 4px;
@@ -9,6 +10,18 @@ export const Content = styled.div`
   max-width: 400px;
   position: relative;
   overflow: hidden;
+  margin: 5px;
+
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+
+export const ContentDetails = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ImageCard = styled.img`
@@ -29,4 +42,9 @@ export const Details = styled.div`
   flex-direction: column;
   gap: 1rem;
   text-align: start;
+  height: 100%;
+`;
+
+export const Button = styled(ButtonPrimary)`
+  margin-top: 1rem;
 `;

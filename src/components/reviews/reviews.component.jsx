@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+
 import { HeadingH2, TextSmall } from "../../styled/typography";
 import {
   BlockquoteReview,
@@ -41,9 +42,15 @@ const Reviews = ({ tour }) => {
           breakpoints={{
             0: {
               spaceBetween: 10,
+              slidesPerView: 1,
             },
             768: {
+              spaceBetween: 20,
+              slidesPerView: 2,
+            },
+            992: {
               spaceBetween: 30,
+              slidesPerView: 3,
             },
           }}
         >

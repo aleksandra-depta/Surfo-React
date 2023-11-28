@@ -19,16 +19,26 @@ export const AuthContainer = styled.div`
 
   @media only screen and (max-width: 768px) {
     border-radius: 50px;
+    border: 15px solid ${(props) => props.theme.colors.white};
   }
 `;
 
 export const Content = styled.div`
-  padding: 4rem;
+  padding: 1rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   text-align: center;
   background-color: ${(props) => props.theme.colors.white};
+  height: 100%;
+`;
+
+export const LoggedInContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  height: 100%;
 `;
 
 export const Links = styled.div`
@@ -47,7 +57,7 @@ export const Row = styled.div`
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 export const LinkActive = styled(Link)`

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { ButtonPrimary, ButtonSecondary } from "../../styled/buttons";
+import { ButtonPrimary } from "../../styled/buttons";
 
 export const MainContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 4rem;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white20};
   padding: 6rem 10rem 10rem 10rem;
   width: 100%;
   min-height: 75vh;
@@ -34,19 +34,20 @@ export const NavLinkMyAccount = styled(NavLink)`
   margin-bottom: 4px;
   z-index: 100;
 
-  background-color: ${(props) => props.theme.colors.whiteText};
-  color: ${(props) => props.theme.colors.darkText};
+  color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.primary20};
 
   &:hover {
+    background-color: ${(props) => props.theme.colors.lightShades};
     color: ${(props) => props.theme.colors.darkText};
   }
 
   &.active {
-    background-color: ${(props) => props.theme.colors.secondary};
-    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.whiteText};
+    color: ${(props) => props.theme.colors.darkText};
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.secondary};
+      /* background-color: ${(props) => props.theme.colors.secondary}; */
     }
   }
 `;
@@ -97,7 +98,7 @@ export const Item = styled.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  gap: 4rem;
+  gap: 2rem;
 
   &::after {
     content: "";
@@ -123,7 +124,7 @@ export const Headings = styled.div`
 
 export const RowItem = styled.div`
   display: flex;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 
   @media only screen and (max-width: 768px) {
@@ -134,7 +135,7 @@ export const RowItem = styled.div`
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 0.2rem;
 
   @media only screen and (max-width: 768px) {
     gap: 0;
@@ -144,8 +145,13 @@ export const Column = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  width: max-content;
+  gap: 1rem;
+  width: 100%;
+
+  background-color: ${(props) => props.theme.colors.whiteText};
+  padding: 2rem;
+  margin: 0 2rem 2rem 2rem;
+  border-radius: 40px;
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -161,10 +167,7 @@ export const CardContainer = styled.div`
 
 export const ImageUser = styled.img`
   width: 13rem;
-`;
-
-export const Button = styled(ButtonSecondary)`
-  margin-bottom: 4rem;
+  border-radius: 100%;
 `;
 
 export const ButtonEdit = styled(ButtonPrimary)`
@@ -174,4 +177,20 @@ export const ButtonEdit = styled(ButtonPrimary)`
   @media only screen and (max-width: 768px) {
     width: 10rem;
   }
+
+  ${({ button }) =>
+    button &&
+    `
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center
+
+  `}
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 `;

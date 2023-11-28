@@ -8,7 +8,7 @@ export const SliderCardLarge = styled.div`
   overflow: hidden;
   position: relative;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
 
   @media only screen and (max-width: 768px) {
     width: 50rem;

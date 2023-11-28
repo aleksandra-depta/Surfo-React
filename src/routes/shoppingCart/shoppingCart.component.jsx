@@ -26,6 +26,7 @@ import {
   Nav,
   NavLinkMyAccount,
 } from "../userProfile/userProfile.styles";
+import LoginMessage from "../../components/loginMessage/loginMessage.component";
 
 const ShoppingCart = () => {
   const { cart, totalPrice } = useSelector((store) => store.cart);
@@ -84,25 +85,36 @@ const ShoppingCart = () => {
                   <TextLargePrimary>€{totalPrice}</TextLargePrimary>
                 </TotalsContainer>
               </TotalsContainer>
-              <HeadingH2> Payment details </HeadingH2>
-              <TextSmall>Complete your payment details</TextSmall>
-              <form>
-                <TextSmall> ... </TextSmall>
-              </form>
-              <Button
-                to="/confirmation"
-                type="submit"
-                onClick={async () => {
-                  try {
-                    await handleSubmit();
-                    dispatch(clearCart());
-                  } catch (err) {
-                    console.log(err);
+
+              {currentUser ? (
+                <>
+                  <HeadingH2> Payment details </HeadingH2>
+                  <TextSmall>Complete your payment details</TextSmall>
+                  <form>
+                    <TextSmall> ... </TextSmall>
+                  </form>
+                  <Button
+                    to="/confirmation"
+                    type="submit"
+                    onClick={async () => {
+                      try {
+                        await handleSubmit();
+                        dispatch(clearCart());
+                      } catch (err) {
+                        console.log(err);
+                      }
+                    }}
+                  >
+                    Confirm payment
+                  </Button>
+                </>
+              ) : (
+                <LoginMessage
+                  message={
+                    "Log in or sign up to complete your reservation and payment"
                   }
-                }}
-              >
-                Confirm payment
-              </Button>
+                />
+              )}
             </>
           )}
         </Container>

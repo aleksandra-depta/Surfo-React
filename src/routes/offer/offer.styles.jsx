@@ -6,11 +6,15 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
   gap: 5rem;
+
+  @media only screen and (max-width: 768px) {
+    gap: 2rem;
+  }
 `;
 
 export const SectionContainer = styled.div`
-  margin: 8rem 0;
   text-align: center;
+  padding: 6rem 0;
 `;
 
 export const HeadingContainer = styled.div`
@@ -21,7 +25,7 @@ export const HeadingContainer = styled.div`
 
 export const Heading = styled(Link)`
   color: ${(props) => props.theme.colors.darkGrey};
-  background-color: #d2e1e1da;
+  background-color: ${(props) => props.theme.colors.primary20};
   font-size: 2rem;
   font-weight: 600;
   padding: 1rem 3rem;
@@ -52,4 +56,40 @@ export const ClearLink = styled(Link)`
     color: ${(props) => props.theme.colors.darkText};
     transform: scale(1.05);
   }
+`;
+
+export const IconArrow = styled.div`
+  cursor: pointer;
+  scale: 1.6;
+  transition: 0.1s all;
+  text-align: center;
+  margin-top: 20vh;
+
+  &:hover {
+    scale: 1.8;
+  }
+`;
+
+export const SelectContainer = styled.div`
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    height: max-content;
+  }
+`;
+
+export const OfferContainer = styled.div`
+  padding-top: 10rem;
+`;
+
+export const SeeMoreContainer = styled.div`
+  padding-top: 4rem;
+`;
+
+export const Content = styled.div`
+  margin-bottom: 10rem;
 `;

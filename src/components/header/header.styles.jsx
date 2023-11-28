@@ -8,6 +8,7 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   color: ${(props) => props.theme.colors.whiteText};
+  position: relative;
 `;
 
 export const Content = styled.div`
@@ -15,6 +16,7 @@ export const Content = styled.div`
   justify-content: center;
   grid-row-gap: 1.7rem;
   text-align: center;
+  overflow: hidden;
 
   @media only screen and (max-width: 768px) {
     display: block;
@@ -26,4 +28,15 @@ export const Headings = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding-bottom: 2rem;
+`;
+
+export const IconArrow = styled.div`
+  cursor: pointer;
+  scale: 1.6;
+  transition: 0.1s all;
+  text-align: center;
+
+  &:hover {
+    scale: 1.8;
+  }
 `;

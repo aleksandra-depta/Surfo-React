@@ -66,7 +66,7 @@ export const NavMenu = styled.div`
   ${({ active }) =>
     active === true &&
     `
-  background: #f9bd24;
+  background: #d2e1e1da;
   padding: 10px;
   border-radius: 40px;
   display: flex;

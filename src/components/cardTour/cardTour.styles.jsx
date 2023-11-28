@@ -8,15 +8,29 @@ export const CardContainer = styled.div`
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   background-color: ${(props) => props.theme.colors.white};
 
+  border-radius: 80px;
+  border: 30px solid ${(props) => props.theme.colors.white};
+
   @media only screen and (max-width: 992px) {
     display: flex;
     flex-direction: column;
+  }
+
+  @media only screen and (max-width: 768px) {
+    border-radius: 50px;
+    border: 15px solid ${(props) => props.theme.colors.white};
   }
 `;
 
 export const ImageTour = styled.img`
   width: 100%;
   height: 100%;
+  border-radius: 70px;
+  overflow: hidden;
+
+  @media only screen and (max-width: 768px) {
+    border-radius: 40px;
+  }
 `;
 
 export const Details = styled.div`

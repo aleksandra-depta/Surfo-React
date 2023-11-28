@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerReview = styled.div`
-  margin: 14rem 0;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
+  width: 100%;
 
   @media only screen and (max-width: 992px) {
-    margin: 8rem 0;
     gap: 2rem;
   }
 `;
@@ -45,5 +44,6 @@ export const ImageReview = styled.img`
 `;
 
 export const TextContent = styled.div`
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
+  padding-left: 40px;
 `;

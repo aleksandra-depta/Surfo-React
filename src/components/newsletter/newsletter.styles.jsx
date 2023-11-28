@@ -10,6 +10,7 @@ export const Newsletter = styled.div`
   gap: 2rem;
   border-radius: 80px;
   overflow: hidden;
+  width: 100%;
 
   @media only screen and (max-width: 768px) {
     border-radius: 50px;

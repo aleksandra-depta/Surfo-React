@@ -16,13 +16,13 @@ import {
   ContentDetails,
   FormComment,
   ImageUser,
-  InfoContainer,
   List,
   TextareaComment,
   UserName,
 } from "./comments.styles";
 
 import UserDefault from "../../img/user.png";
+import LoginMessage from "../loginMessage/loginMessage.component";
 
 const Comments = ({ tour }) => {
   const { currentUser } = useSelector((store) => store.auth);
@@ -88,12 +88,11 @@ const Comments = ({ tour }) => {
           </ContentDetails>
         </FormComment>
       ) : (
-        <InfoContainer>
-          <HeadingH3>
-            Log in or Sign up if you want to send us review or add comment!
-          </HeadingH3>
-          <ButtonPrimary to="/login">Click here</ButtonPrimary>
-        </InfoContainer>
+        <LoginMessage
+          message={
+            "Log in or Sign up if you want to send us review or add comment!"
+          }
+        />
       )}
       {currentUser !== null && isSuccess && (
         <List id={1}>

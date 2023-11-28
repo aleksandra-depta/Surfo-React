@@ -3,6 +3,7 @@ import { ButtonSecondary } from "../../styled/buttons";
 
 export const Container = styled.div`
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+  background-color: ${(props) => props.theme.colors.white};
   padding: 10rem;
 `;
 

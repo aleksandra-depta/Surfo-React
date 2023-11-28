@@ -6,6 +6,7 @@ export const SearchTabContainer = styled.div`
   border-radius: 1rem;
   padding: 4rem;
   margin-bottom: 6rem;
+  width: 100%;
 
   ${() =>
     window.location.pathname === "/offer" &&

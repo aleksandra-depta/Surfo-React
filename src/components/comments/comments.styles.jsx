@@ -4,6 +4,7 @@ import { IconClose } from "../../styled/icons";
 import { HeadingH3 } from "../../styled/typography";
 
 export const FormComment = styled.form`
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -36,6 +37,7 @@ export const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  width: 100%;
 `;
 
 export const CommentContainer = styled.div`

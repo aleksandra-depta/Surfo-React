@@ -9,7 +9,7 @@ import {
 
 import { ClearLink, Heading, HeadingContainer } from "./offer.styles";
 
-const OfferNav = () => {
+const OfferNav = ({ refName }) => {
   const {
     selectedOptionType,
     selectedOptionLocation,
@@ -48,6 +48,9 @@ const OfferNav = () => {
           <ClearLink
             onClick={(e) => {
               dispatch(showAllOffer());
+              refName.current.scrollIntoView({
+                behavior: "smooth",
+              });
             }}
           >
             <ion-icon size="large" name="close-outline"></ion-icon>

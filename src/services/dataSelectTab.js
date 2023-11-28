@@ -1,8 +1,8 @@
 export const optionsType = [
-  { value: "Water Sports", label: "sailing" },
-  { value: "Water Sports", label: "surfing" },
-  { value: "Water Sports", label: "diving" },
-  { value: "Water Sports", label: "windsurfing" },
+  { value: "Water Sport", label: "sailing" },
+  { value: "Water Sport", label: "surfing" },
+  { value: "Water Sport", label: "diving" },
+  { value: "Water Sport", label: "windsurfing" },
   { value: "Hiking Time", label: "hiking" },
   { value: "Day Trip", label: "day trip" },
 ];

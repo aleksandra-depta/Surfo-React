@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { useSignUpMutation } from "../../services/toursApi";
 
 import LoggedIn from "./loggedIn.component";
+import ErrorMessageInput from "../../components/input/errorMessage.component";
 
 import { LinkPrimary, TextSmall } from "../../styled/typography";
 import { IconForm } from "../../styled/icons";
-import { InputFrom } from "../../styled/inputs";
+import { InputFrom, InputRow, Label } from "../../styled/inputs";
 import { ButtonSecondary } from "../../styled/buttons";
 import {
   Content,
@@ -25,7 +26,7 @@ const SignUpPage = () => {
     passwordConfirm: "",
   });
 
-  const [signUp, { isLoading }] = useSignUpMutation();
+  const [signUp, { isSuccess, isLoading, error }] = useSignUpMutation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,49 +50,73 @@ const SignUpPage = () => {
               <IconForm>
                 <ion-icon size="large" name="person-outline"></ion-icon>
               </IconForm>
-              <InputFrom
-                type="text"
-                onChange={handleChange}
-                name="name"
-                placeholder="User Name"
-                required
-              />
+              <InputRow>
+                <Label>
+                  User Name
+                  <InputFrom
+                    type="text"
+                    onChange={handleChange}
+                    name="name"
+                    placeholder="User Name"
+                    required
+                  />
+                </Label>
+                {error && <ErrorMessageInput />}
+              </InputRow>
             </Row>
             <Row>
               <IconForm>
                 <ion-icon size="large" name="mail-outline"></ion-icon>
               </IconForm>
-              <InputFrom
-                type="email"
-                onChange={handleChange}
-                name="email"
-                placeholder="Email@example.com"
-                required
-              />
+              <InputRow>
+                <Label>
+                  Email
+                  <InputFrom
+                    type="email"
+                    onChange={handleChange}
+                    name="email"
+                    placeholder="Email@example.com"
+                    required
+                  />
+                </Label>
+                {error && <ErrorMessageInput />}
+              </InputRow>
             </Row>
             <Row>
               <IconForm>
                 <ion-icon size="large" name="lock-closed-outline"></ion-icon>
               </IconForm>
-              <InputFrom
-                type="password"
-                onChange={handleChange}
-                name="password"
-                placeholder="Password"
-                required
-              />
+              <InputRow>
+                <Label>
+                  Password
+                  <InputFrom
+                    type="password"
+                    onChange={handleChange}
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                </Label>
+                {error && <ErrorMessageInput />}
+              </InputRow>
             </Row>
             <Row>
               <IconForm>
                 <ion-icon size="large" name="lock-closed-outline"></ion-icon>
               </IconForm>
-              <InputFrom
-                type="password"
-                onChange={handleChange}
-                name="passwordConfirm"
-                placeholder="Confirm Password"
-                required
-              />
+              <InputRow>
+                <Label>
+                  Confirm Password
+                  <InputFrom
+                    type="password"
+                    onChange={handleChange}
+                    name="passwordConfirm"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </Label>
+                {error && <ErrorMessageInput />}
+              </InputRow>
             </Row>
             <Row>
               <input type="checkbox" name="terms" required />

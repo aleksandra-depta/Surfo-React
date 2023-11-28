@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import InfoMessageInput from "../input/infoMessage.component";
 
 import { HeadingH1, HeadingH2, TextMedium } from "../../styled/typography";
 import { ButtonSecondary } from "../../styled/buttons";
@@ -14,6 +16,8 @@ import Logo from "../../img/logo.png";
 import Background from "../../img/cta-1400.jpg";
 
 const Newsletters = () => {
+  const [infoMessage, setInfoMessage] = useState(false);
+
   return (
     <Newsletter>
       <ImageBackground src={Background} />
@@ -28,7 +32,10 @@ const Newsletters = () => {
         <HeadingH2>Newsletters</HeadingH2>
         <FormNewsletter>
           <Input type="email" placeholder="me@example.com" required />
-          <ButtonSecondary>Sign me up</ButtonSecondary>
+          {infoMessage && <InfoMessageInput />}
+          <ButtonSecondary type="submit" onClick={() => setInfoMessage(true)}>
+            Sign me up
+          </ButtonSecondary>
         </FormNewsletter>
       </Content>
     </Newsletter>

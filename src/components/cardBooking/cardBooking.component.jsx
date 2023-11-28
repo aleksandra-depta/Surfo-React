@@ -12,6 +12,7 @@ import {
   Col,
   Row,
   HeadingContent,
+  PriceContent,
 } from "./cardBooking.styles";
 
 const CardBooking = ({ booking }) => {
@@ -23,22 +24,20 @@ const CardBooking = ({ booking }) => {
         </HeadingContent>
 
         <ItemContent>
-          <Row>
-            <ImageItem
-              src={require(`../../img/${booking.tour.imageCover}`)}
-              alt="Tour image"
-            />
-            <DescriptionContent>
-              <TextMedium>{booking.tour.days} days</TextMedium>
-              <TextMedium>
-                Start & end: <b>{booking.tour.startAndEndPoint}</b>
-              </TextMedium>
-              <TextMedium>
-                Date: <b>mm/dd/rrrr</b>
-              </TextMedium>
-            </DescriptionContent>
-          </Row>
-          <Col>
+          <ImageItem
+            src={require(`../../img/${booking.tour.imageCover}`)}
+            alt="Tour image"
+          />
+          <DescriptionContent>
+            <TextMedium>{booking.tour.days} days</TextMedium>
+            <TextMedium>
+              Start & end: <b>{booking.tour.startAndEndPoint}</b>
+            </TextMedium>
+            <TextMedium>
+              Date: <b>mm/dd/rrrr</b>
+            </TextMedium>
+          </DescriptionContent>
+          <PriceContent>
             <Row>
               <TextMedium>
                 <b>{booking.travelers}</b>
@@ -57,7 +56,7 @@ const CardBooking = ({ booking }) => {
                 €{booking.travelers * booking.tour.price}
               </TextLargePrimary>
             </Row>
-          </Col>
+          </PriceContent>
         </ItemContent>
       </LinkContent>
     </Content>

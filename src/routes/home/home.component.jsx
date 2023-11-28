@@ -1,14 +1,27 @@
+import { useRef } from "react";
+
 import CardSmall from "../../components/cardSmall/cardSmall.component";
 import CardMedium from "../../components/cardMedium/cardMedium.component";
 import CardLarge from "../../components/cardLarge/cardLarge.component";
 import Footer from "../../components/footer/footer.component";
 import Header from "../../components/header/header.component";
 import Newsletters from "../../components/newsletter/newsletter.component";
+import IconArrowC from "../../components/iconArrow/iconArrow.component";
 
-import { HeadingH2 } from "../../styled/typography";
-import { BackgroundImage, Cards, Row, Section } from "./home.styles";
+import {
+  BackgroundImage,
+  Cards,
+  Heading,
+  Row,
+  Section,
+  SliderSection,
+  IconArrowHeader,
+  HeaderSection,
+  SectionNewsletter,
+  Content,
+} from "./home.styles";
 
-import BackgroundHeaderImg from "../../img/hero-2000.jpg";
+import BackgroundHeaderImg from "../../img/hero-2000.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -16,65 +29,145 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 const HomePage = ({ tours }) => {
+  const sectionLargeCards = useRef(null);
+  const sectionSmallCards = useRef(null);
+  const sectionMediumCards = useRef(null);
+  const sectionNewsletter = useRef(null);
+
   return (
     <>
       <BackgroundImage src={BackgroundHeaderImg} />
-      <Header />
+      <HeaderSection>
+        <Header />
+        <IconArrowHeader
+          onClick={() => {
+            sectionLargeCards.current.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+        >
+          <ion-icon size="large" name="chevron-down-outline"></ion-icon>
+        </IconArrowHeader>
+      </HeaderSection>
 
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={3}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        breakpoints={{
-          0: {
-            spaceBetween: 10,
-            slidesPerView: 1,
-          },
-          768: {
-            spaceBetween: 20,
-            slidesPerView: 2,
-          },
-          992: {
-            spaceBetween: 30,
-            slidesPerView: 3,
-          },
-        }}
-      >
-        <Row>
-          {tours
-            .filter((item) => item.cardLarge === "ok")
-            .map((tour) => (
-              <SwiperSlide key={tour._id}>
-                <CardLarge key={tour._id} tour={tour} />
-              </SwiperSlide>
-            ))}
-        </Row>
-      </Swiper>
+      <SliderSection ref={sectionLargeCards}>
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={3}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          breakpoints={{
+            0: {
+              spaceBetween: 10,
+              slidesPerView: 1,
+            },
+            768: {
+              spaceBetween: 20,
+              slidesPerView: 2,
+            },
+            992: {
+              spaceBetween: 30,
+              slidesPerView: 3,
+            },
+          }}
+        >
+          <Row>
+            {tours
+              .filter((item) => item.cardLarge === "ok")
+              .map((tour) => (
+                <SwiperSlide key={tour._id}>
+                  <CardLarge tour={tour} />
+                </SwiperSlide>
+              ))}
+          </Row>
+        </Swiper>
+        <IconArrowC refName={sectionSmallCards} />
+      </SliderSection>
 
-      <Section>
-        <HeadingH2>Places you can not missed</HeadingH2>
+      <Section ref={sectionSmallCards}>
+        <Heading>Places you can not missed</Heading>
         <Cards>
-          {tours
-            .filter((item) => item.cardSmall === "ok")
-            .map((tour) => (
-              <CardSmall key={tour._id} tour={tour} />
-            ))}
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={4}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            breakpoints={{
+              0: {
+                spaceBetween: 10,
+                slidesPerView: 1,
+              },
+              768: {
+                spaceBetween: 20,
+                slidesPerView: 2,
+              },
+              992: {
+                spaceBetween: 30,
+                slidesPerView: 4,
+              },
+            }}
+          >
+            {tours
+              .filter((item) => item.cardSmall === "ok")
+              .map((tour) => (
+                <SwiperSlide key={tour._id}>
+                  <Content>
+                    <CardSmall slider={true} tour={tour} />
+                  </Content>
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </Cards>
+        <IconArrowC refName={sectionMediumCards} />
       </Section>
-      <Section>
-        <HeadingH2>The most Popular</HeadingH2>
+
+      <Section ref={sectionMediumCards}>
+        <Heading>The most Popular</Heading>
         <Cards>
-          {tours
-            .filter((item) => item.cardMedium === "ok")
-            .map((tour) => (
-              <CardMedium key={tour._id} tour={tour} />
-            ))}
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={3}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            breakpoints={{
+              0: {
+                spaceBetween: 10,
+                slidesPerView: 1,
+              },
+              768: {
+                spaceBetween: 20,
+                slidesPerView: 2,
+              },
+              992: {
+                spaceBetween: 30,
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {tours
+              .filter((item) => item.cardMedium === "ok")
+              .map((tour) => (
+                <SwiperSlide key={tour._id}>
+                  <Content>
+                    <CardMedium slider={true} tour={tour} />
+                  </Content>
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </Cards>
+        <IconArrowC refName={sectionNewsletter} />
       </Section>
-      <Newsletters />
+
+      <SectionNewsletter ref={sectionNewsletter}>
+        <Newsletters />
+      </SectionNewsletter>
+
       <Footer />
     </>
   );

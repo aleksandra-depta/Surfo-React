@@ -3,7 +3,14 @@ import { controlBookmark } from "../../features/bookmarksSlice";
 
 import { ButtonPrimary } from "../../styled/buttons";
 import { HeadingH3, TextMedium } from "../../styled/typography";
-import { BookmarkIcon, Content, Details, ImageCard } from "./cardSmall.styles";
+import {
+  BookmarkIcon,
+  Button,
+  Content,
+  ContentDetails,
+  Details,
+  ImageCard,
+} from "./cardSmall.styles";
 
 const CardSmall = ({ tour }) => {
   const { currentUser } = useSelector((store) => store.auth);
@@ -24,18 +31,20 @@ const CardSmall = ({ tour }) => {
       )}
       <Details>
         <HeadingH3>{tour.name}</HeadingH3>
-        <TextMedium>
-          {tour.island}, Canaries <br />
-          {tour.days}-day trip
-        </TextMedium>
-        <ButtonPrimary
-          to={`/tour/${tour._id}`}
-          onClick={() => {
-            window.scrollTo({ top: 0, left: 0 });
-          }}
-        >
-          See more
-        </ButtonPrimary>
+        <ContentDetails>
+          <TextMedium>
+            {tour.island}, Canaries <br />
+            {tour.days}-day trip
+          </TextMedium>
+          <Button
+            to={`/tour/${tour._id}`}
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0 });
+            }}
+          >
+            See more
+          </Button>
+        </ContentDetails>
       </Details>
     </Content>
   );

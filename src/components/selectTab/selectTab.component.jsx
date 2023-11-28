@@ -21,7 +21,6 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { HeadingH2 } from "../../styled/typography";
 import {
   ButtonTab,
   CenterContainer,
@@ -35,18 +34,13 @@ import {
 
 import Logo from "../../img/logo.png";
 
-const SelectTab = () => {
+const SelectTab = ({ refName }) => {
   const dispatch = useDispatch();
-  const {
-    selectedOptionType,
-    selectedOptionLocation,
-    startDate,
-    endDate,
-    showOffer,
-  } = useSelector((store) => store.searchTab);
+  const { selectedOptionType, selectedOptionLocation, startDate, endDate } =
+    useSelector((store) => store.searchTab);
 
   return (
-    <div>
+    <>
       <SearchTabContainer>
         <Content>
           <Column>
@@ -136,16 +130,22 @@ const SelectTab = () => {
               <LogoTab src={Logo} alt="logo" />
             </CenterContainer>
             {window.location.pathname === "/offer" ? (
-              <CenterContainer>
-                <HeadingH2>Adventures with us!</HeadingH2>
-              </CenterContainer>
+              <ButtonTab
+                onClick={() => {
+                  refName.current.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Let's Go
+              </ButtonTab>
             ) : (
               <ButtonTab to="/offer">Let's Go</ButtonTab>
             )}
           </Column>
         </Content>
       </SearchTabContainer>
-    </div>
+    </>
   );
 };
 
