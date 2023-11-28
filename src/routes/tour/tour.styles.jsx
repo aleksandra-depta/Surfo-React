@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardSection = styled.div`
-  height: 84vh;
+  height: 100vh;
   position: relative;
 
   @media only screen and (max-width: 992px) {
@@ -106,5 +106,27 @@ export const ItemRow = styled.div`
 
 export const ReviewSection = styled.div`
   height: 100vh;
-  position: re;
+  position: relative;
+`;
+
+export const IconArrow = styled.div`
+  cursor: pointer;
+  scale: 1.6;
+  transition: 0.1s all;
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:hover {
+    scale: 1.8;
+  }
+`;
+
+export const IconArrowHeader = styled(IconArrow)`
+  bottom: 16vh;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;

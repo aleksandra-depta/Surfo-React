@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../features/authSlice";
@@ -7,9 +7,11 @@ import Cookies from "universal-cookie";
 
 import MobileNav from "../navMobile/mobileNav.component";
 
+import Container from "react-bootstrap/Container";
 import {
   BackgroundImage,
   CartIcon,
+  Content,
   Icon,
   IconFav,
   ImageLogo,
@@ -18,6 +20,7 @@ import {
   LinkNavMenu,
   LinksUser,
   Nav,
+  NavContainer,
   NavContent,
   NavMenu,
   NavMenuContent,
@@ -42,115 +45,137 @@ const Navigation = () => {
     dispatch(logout());
   };
 
+  const [show, handleShow] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 800) {
+        handleShow(true);
+      } else handleShow(false);
+    });
+  }, []);
+
   return (
     <>
       <BackgroundImage src={BackgroundHeaderImgHalf} />
-      <Nav>
-        <NavContent>
-          <Link to="/">
-            <ImageLogo src={`${Logo}`} alt="Surfo logo" />
-          </Link>
-          <LinkNav to="/offer">offer</LinkNav>
-        </NavContent>
-        <NavContent>
-          {currentUser ? (
-            <NavContent>
-              {mobileNav ? (
-                <>
-                  <LinksUser
-                    onClick={() => {
-                      dispatch(openMobileMenu());
-                    }}
-                  >
-                    <ImageUser
-                      src={require(`../../img/${currentUser.photo}`)}
-                      alt="User_photo"
-                    />
-                    {/* <LinkNav to="/myAccount/user"> */}
-                    <LinkNav>{currentUser.name.split(" ")[0]}</LinkNav>
-                  </LinksUser>
-                  <LinkNav to="/myAccount/favorites">
-                    {bookmarks.length === 0 ? (
-                      <Icon>
-                        <ion-icon
-                          size="large"
-                          name="bookmark-outline"
-                        ></ion-icon>
-                      </Icon>
-                    ) : (
-                      <IconFav>
-                        <ion-icon size="large" name="bookmark"></ion-icon>
-                      </IconFav>
-                    )}
-                  </LinkNav>
-                </>
-              ) : (
-                <>
-                  <NavMenu
-                    active={openNav}
-                    onMouseEnter={() => setOpenNav(true)}
-                    onMouseLeave={() => setOpenNav(false)}
-                  >
-                    {openNav && (
-                      <NavMenuContent>
-                        <LinkNavMenu
-                          to="/"
-                          onClick={(e) => {
-                            handleSubmit(e);
+      <NavContainer>
+        <Nav stickyNav={show}>
+          <Container>
+            <Content>
+              <NavContent>
+                <Link to="/">
+                  <ImageLogo src={`${Logo}`} alt="Surfo logo" />
+                </Link>
+                <LinkNav stickyNav={show} to="/offer">
+                  offer
+                </LinkNav>
+              </NavContent>
+              <NavContent>
+                {currentUser ? (
+                  <NavContent>
+                    {mobileNav ? (
+                      <>
+                        <LinksUser
+                          onClick={() => {
+                            dispatch(openMobileMenu());
                           }}
                         >
-                          Log out
-                        </LinkNavMenu>
-                      </NavMenuContent>
-                    )}
-                    <LinksUser
-                      onClick={() => {
-                        setOpenNav(true);
-                      }}
-                      to="/myAccount/user"
-                    >
-                      <ImageUser
-                        src={require(`../../img/${currentUser.photo}`)}
-                        alt="User_photo"
-                      />
-                      <LinkNav to="/myAccount/user">
-                        {currentUser.name.split(" ")[0]}
-                      </LinkNav>
-                    </LinksUser>
-                  </NavMenu>
-                  <LinkNav to="/myAccount/favorites">
-                    {bookmarks.length === 0 ? (
-                      <Icon>
-                        <ion-icon
-                          size="large"
-                          name="bookmark-outline"
-                        ></ion-icon>
-                      </Icon>
+                          <ImageUser
+                            src={require(`../../img/${currentUser.photo}`)}
+                            alt="User_photo"
+                          />
+                          <LinkNav stickyNav={show}>
+                            {currentUser.name.split(" ")[0]}
+                          </LinkNav>
+                        </LinksUser>
+                        <LinkNav to="/myAccount/favorites" stickyNav={show}>
+                          {bookmarks.length === 0 ? (
+                            <Icon>
+                              <ion-icon
+                                size="large"
+                                name="bookmark-outline"
+                              ></ion-icon>
+                            </Icon>
+                          ) : (
+                            <IconFav>
+                              <ion-icon size="large" name="bookmark"></ion-icon>
+                            </IconFav>
+                          )}
+                        </LinkNav>
+                      </>
                     ) : (
-                      <IconFav>
-                        <ion-icon size="large" name="bookmark"></ion-icon>
-                      </IconFav>
+                      <>
+                        <NavMenu
+                          active={openNav}
+                          onMouseEnter={() => setOpenNav(true)}
+                          onMouseLeave={() => setOpenNav(false)}
+                        >
+                          {openNav && (
+                            <NavMenuContent>
+                              <LinkNavMenu
+                                to="/"
+                                onClick={(e) => {
+                                  handleSubmit(e);
+                                }}
+                              >
+                                Log out
+                              </LinkNavMenu>
+                            </NavMenuContent>
+                          )}
+                          <LinksUser
+                            onClick={() => {
+                              setOpenNav(true);
+                            }}
+                            to="/myAccount/user"
+                          >
+                            <ImageUser
+                              src={require(`../../img/${currentUser.photo}`)}
+                              alt="User_photo"
+                            />
+                            <LinkNav stickyNav={show} to="/myAccount/user">
+                              {currentUser.name.split(" ")[0]}
+                            </LinkNav>
+                          </LinksUser>
+                        </NavMenu>
+                        <LinkNav stickyNav={show} to="/myAccount/favorites">
+                          {bookmarks.length === 0 ? (
+                            <Icon>
+                              <ion-icon
+                                size="large"
+                                name="bookmark-outline"
+                              ></ion-icon>
+                            </Icon>
+                          ) : (
+                            <IconFav>
+                              <ion-icon size="large" name="bookmark"></ion-icon>
+                            </IconFav>
+                          )}
+                        </LinkNav>
+                      </>
                     )}
-                  </LinkNav>
-                </>
-              )}
-            </NavContent>
-          ) : (
-            <NavContent>
-              <LinkNav to="/login">Log In</LinkNav>
-              <LinkNav to="/signup">Sign Up</LinkNav>
-            </NavContent>
-          )}
-          <LinkNav to="/shoppingCart">
-            <Icon>
-              <ion-icon size="large" name="cart-outline"></ion-icon>
-            </Icon>
-            {cart.length !== 0 && <CartIcon />}
-          </LinkNav>
-        </NavContent>
-      </Nav>
-
-      {mobileNavContent && <MobileNav />}
+                  </NavContent>
+                ) : (
+                  <NavContent>
+                    <LinkNav stickyNav={show} to="/login">
+                      Log In
+                    </LinkNav>
+                    <LinkNav stickyNav={show} to="/signup">
+                      Sign Up
+                    </LinkNav>
+                  </NavContent>
+                )}
+                <LinkNav stickyNav={show} to="/shoppingCart">
+                  <Icon>
+                    <ion-icon size="large" name="cart-outline"></ion-icon>
+                  </Icon>
+                  {cart.length !== 0 && <CartIcon />}
+                </LinkNav>
+              </NavContent>
+            </Content>
+          </Container>
+        </Nav>
+        {mobileNavContent && <MobileNav />}
+      </NavContainer>
       <Outlet />
     </>
   );

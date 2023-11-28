@@ -15,6 +15,7 @@ import {
   DescriptionContainer,
   DescriptionContent,
   DescriptionRow,
+  IconArrowHeader,
   ItemRow,
   MapContent,
   MapDescription,
@@ -31,7 +32,15 @@ const TourPage = ({ tour }) => {
     <>
       <CardSection>
         <CardTour tour={tour} />
-        <IconArrowC refName={sectionDescription} />
+        <IconArrowHeader
+          onClick={() => {
+            sectionDescription.current.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
+        >
+          <ion-icon size="large" name="chevron-down-outline"></ion-icon>
+        </IconArrowHeader>
       </CardSection>
 
       <Section ref={sectionDescription}>

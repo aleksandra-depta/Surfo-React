@@ -10,11 +10,31 @@ export const BackgroundImage = styled.img`
   left: 0;
 `;
 
+export const NavContainer = styled.div`
+  height: 12rem;
+`;
+
 export const Nav = styled.div`
   height: 5rem;
   width: 100%;
-  padding: 8rem 0;
-  z-index: 1000;
+  padding: 6rem 0rem;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+
+  ${({ stickyNav }) =>
+    stickyNav &&
+    `
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 4rem 0rem;
+    background-color: #f5f4f4;
+    box-shadow: 0 1px 1rem #d3cece30;
+  `}
+`;
+
+export const Content = styled.div`
   display: flex;
   justify-content: space-between;
 `;
@@ -53,9 +73,21 @@ export const LinkNav = styled(Link)`
   letter-spacing: 0.1rem;
   color: ${(props) => props.theme.colors.white};
 
+  ${({ stickyNav }) =>
+    stickyNav &&
+    `
+    color: #060606;
+  `}
+
   &:hover {
     color: ${(props) => props.theme.colors.white};
     transform: translateY(-1px);
+
+    ${({ stickyNav }) =>
+      stickyNav &&
+      `
+    color: #060606;
+  `}
   }
 `;
 

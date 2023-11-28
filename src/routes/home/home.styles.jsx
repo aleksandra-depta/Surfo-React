@@ -11,6 +11,7 @@ export const BackgroundImage = styled.img`
 
 export const HeaderSection = styled.div`
   position: relative;
+  height: 100vh;
 `;
 
 export const SliderSection = styled.div`
@@ -80,8 +81,8 @@ export const IconArrow = styled.div`
 `;
 
 export const IconArrowHeader = styled(IconArrow)`
-  bottom: 20vh;
   color: ${(props) => props.theme.colors.white};
+  bottom: 16vh;
 
   @media only screen and (max-width: 768px) {
     display: none;
