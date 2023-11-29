@@ -11,6 +11,7 @@ import Footer from "../../components/footer/footer.component";
 import IconArrowC from "../../components/iconArrow/iconArrow.component";
 
 import { CardContainer, OfferContainer, SelectContainer } from "./offer.styles";
+import { HeadingYellow } from "../../styled/typography";
 
 const OfferPage = ({ tours }) => {
   const sectionSearchTab = useRef(null);

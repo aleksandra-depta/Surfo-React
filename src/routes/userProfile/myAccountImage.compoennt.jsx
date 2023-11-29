@@ -15,6 +15,7 @@ import {
   Row,
   RowItem,
 } from "./userProfile.styles";
+import InfoMessageInput from "../../components/input/infoMessage.component";
 
 const MyAccountImage = () => {
   const { currentUser } = useSelector((store) => store.auth);
@@ -25,27 +26,16 @@ const MyAccountImage = () => {
   });
   const [updateUserPhoto, { isLoading }] = useUpdateUserMutation();
 
-  // const handleChange = (e) => {
-  //   const { name, files } = e.target;
-
-  //   const form = new FormData();
-  //   form.append("photo", document.getElementById("photo").files[0]);
-
-  //   setFormState((prev) => ({ ...prev, [name]: form }));
-  // };
-
+  /////////////
   const [image, setImage] = useState({ preview: "", data: "" });
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, files } = e.target;
-
     let formData = new FormData();
     formData.append("file", image.data);
 
-    setFormState({ photo: formData });
-
-    console.log("1", formData);
+    await updateUserPhoto(formData).parse;
   };
 
   const handleFileChange = (e) => {
@@ -54,13 +44,6 @@ const MyAccountImage = () => {
       data: e.target.files[0],
     };
     setImage(img);
-
-    let formData = new FormData();
-    formData.append("file", image.data);
-    setFormState({ photo: formData });
-
-    // handleSubmit(e);
-    console.log("2", img);
   };
 
   return (
@@ -99,22 +82,25 @@ const MyAccountImage = () => {
               <InputFrom
                 id="photo"
                 type="file"
-                accept="image/*"
-                name="photo"
+                name="file"
+                // accept="image/*"
                 onChange={handleFileChange}
                 placeholder="Upload photo"
                 required
               />
             </RowItem>
+            <InfoMessageInput />
+
             <ButtonSecondary
               type="submit"
-              onClick={async () => {
-                try {
-                  await updateUserPhoto(formState).unwrap();
-                } catch (err) {
-                  console.log(err);
-                }
-              }}
+              onClick={handleSubmit}
+              // onClick={async () => {
+              //   try {
+              //     await updateUserPhoto(formState).unwrap();
+              //   } catch (err) {
+              //     console.log(err);
+              //   }
+              // }}
             >
               Update
             </ButtonSecondary>

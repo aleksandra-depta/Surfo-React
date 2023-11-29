@@ -46,6 +46,7 @@ export const toursApi = createApi({
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          // "Content-Type": "form-data",
           Authorization: `Bearer ${token}`,
         },
         body,

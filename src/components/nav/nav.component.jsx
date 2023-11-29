@@ -45,6 +45,10 @@ const Navigation = () => {
     dispatch(logout());
   };
 
+  const scrollToTop = (e) => {
+    window.scrollTo({ top: 0, left: 0 });
+  };
+
   const [show, handleShow] = useState(false);
 
   useEffect(() => {
@@ -66,7 +70,7 @@ const Navigation = () => {
                 <Link to="/">
                   <ImageLogo src={`${Logo}`} alt="Surfo logo" />
                 </Link>
-                <LinkNav stickyNav={show} to="/offer">
+                <LinkNav stickyNav={show} to="/offer" onClick={scrollToTop}>
                   offer
                 </LinkNav>
               </NavContent>
@@ -88,7 +92,11 @@ const Navigation = () => {
                             {currentUser.name.split(" ")[0]}
                           </LinkNav>
                         </LinksUser>
-                        <LinkNav to="/myAccount/favorites" stickyNav={show}>
+                        <LinkNav
+                          to="/myAccount/favorites"
+                          stickyNav={show}
+                          onClick={scrollToTop}
+                        >
                           {bookmarks.length === 0 ? (
                             <Icon>
                               <ion-icon
@@ -125,6 +133,7 @@ const Navigation = () => {
                           <LinksUser
                             onClick={() => {
                               setOpenNav(true);
+                              scrollToTop();
                             }}
                             to="/myAccount/user"
                           >
@@ -132,12 +141,20 @@ const Navigation = () => {
                               src={require(`../../img/${currentUser.photo}`)}
                               alt="User_photo"
                             />
-                            <LinkNav stickyNav={show} to="/myAccount/user">
+                            <LinkNav
+                              stickyNav={show}
+                              to="/myAccount/user"
+                              onClick={scrollToTop}
+                            >
                               {currentUser.name.split(" ")[0]}
                             </LinkNav>
                           </LinksUser>
                         </NavMenu>
-                        <LinkNav stickyNav={show} to="/myAccount/favorites">
+                        <LinkNav
+                          stickyNav={show}
+                          to="/myAccount/favorites"
+                          onClick={scrollToTop}
+                        >
                           {bookmarks.length === 0 ? (
                             <Icon>
                               <ion-icon
@@ -156,15 +173,23 @@ const Navigation = () => {
                   </NavContent>
                 ) : (
                   <NavContent>
-                    <LinkNav stickyNav={show} to="/login">
+                    <LinkNav stickyNav={show} to="/login" onClick={scrollToTop}>
                       Log In
                     </LinkNav>
-                    <LinkNav stickyNav={show} to="/signup">
+                    <LinkNav
+                      stickyNav={show}
+                      to="/signup"
+                      onClick={scrollToTop}
+                    >
                       Sign Up
                     </LinkNav>
                   </NavContent>
                 )}
-                <LinkNav stickyNav={show} to="/shoppingCart">
+                <LinkNav
+                  stickyNav={show}
+                  to="/shoppingCart"
+                  onClick={scrollToTop}
+                >
                   <Icon>
                     <ion-icon size="large" name="cart-outline"></ion-icon>
                   </Icon>

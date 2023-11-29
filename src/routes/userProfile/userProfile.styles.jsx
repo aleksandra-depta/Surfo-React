@@ -45,10 +45,6 @@ export const NavLinkMyAccount = styled(NavLink)`
   &.active {
     background-color: ${(props) => props.theme.colors.whiteText};
     color: ${(props) => props.theme.colors.darkText};
-
-    &:hover {
-      /* background-color: ${(props) => props.theme.colors.secondary}; */
-    }
   }
 `;
 
@@ -146,7 +142,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
+  width: 45%;
 
   background-color: ${(props) => props.theme.colors.whiteText};
   padding: 2rem;
