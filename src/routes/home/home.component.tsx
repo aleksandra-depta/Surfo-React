@@ -1,7 +1,5 @@
 import type { Tours } from "../../models/tours";
-import { useRef } from "react";
 
-import IonIcon from "@reacticons/ionicons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,7 +10,6 @@ import CardMedium from "../../components/cardMedium/cardMedium.component";
 import CardLarge from "../../components/cardLarge/cardLarge.component";
 import Footer from "../../components/footer/footer.component";
 import Header from "../../components/header/header.component";
-import IconArrowC from "../../components/iconArrow/iconArrow.component";
 import Newsletters from "../../components/newsletter/newsletter.component";
 
 import {
@@ -21,7 +18,6 @@ import {
   Content,
   HeaderSection,
   Heading,
-  IconArrowHeader,
   Row,
   Section,
   SectionNewsletter,
@@ -31,28 +27,14 @@ import {
 import BackgroundHeaderImg from "../../img/hero-2000.png";
 
 const HomePage = ({ tours }: { tours: Tours }) => {
-  const sectionLargeCards = useRef<HTMLDivElement>(null);
-  const sectionSmallCards = useRef<HTMLDivElement>(null);
-  const sectionMediumCards = useRef<HTMLDivElement>(null);
-  const sectionNewsletter = useRef<HTMLDivElement>(null);
-
   return (
     <>
       <BackgroundImage src={BackgroundHeaderImg} />
       <HeaderSection>
         <Header />
-        <IconArrowHeader
-          onClick={() => {
-            sectionLargeCards.current?.scrollIntoView({
-              behavior: "smooth",
-            });
-          }}
-        >
-          <IonIcon size="large" name="chevron-down-outline" />
-        </IconArrowHeader>
       </HeaderSection>
 
-      <SliderSection ref={sectionLargeCards}>
+      <SliderSection>
         <Swiper
           spaceBetween={30}
           slidesPerView={3}
@@ -85,10 +67,9 @@ const HomePage = ({ tours }: { tours: Tours }) => {
               ))}
           </Row>
         </Swiper>
-        <IconArrowC refName={sectionSmallCards} />
       </SliderSection>
 
-      <Section ref={sectionSmallCards}>
+      <Section>
         <Heading>Places you can not missed</Heading>
         <Cards>
           <Swiper
@@ -124,10 +105,9 @@ const HomePage = ({ tours }: { tours: Tours }) => {
               ))}
           </Swiper>
         </Cards>
-        <IconArrowC refName={sectionMediumCards} />
       </Section>
 
-      <Section ref={sectionMediumCards}>
+      <Section>
         <Heading>The most Popular</Heading>
         <Cards>
           <Swiper
@@ -163,10 +143,9 @@ const HomePage = ({ tours }: { tours: Tours }) => {
               ))}
           </Swiper>
         </Cards>
-        <IconArrowC refName={sectionNewsletter} />
       </Section>
 
-      <SectionNewsletter ref={sectionNewsletter}>
+      <SectionNewsletter>
         <Newsletters />
       </SectionNewsletter>
 
