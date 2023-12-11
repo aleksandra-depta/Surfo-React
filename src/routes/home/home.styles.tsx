@@ -11,11 +11,14 @@ export const BackgroundImage = styled.img`
 
 export const HeaderSection = styled.div`
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: max-content;
 `;
 
 export const SliderSection = styled.div`
-  height: 100vh;
+  padding: 4rem 0;
+  min-height: 100vh;
+  max-height: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +31,9 @@ export const SliderSection = styled.div`
 `;
 
 export const Section = styled.div`
-  height: 100vh;
+  padding: 4rem 0;
+  min-height: 100vh;
+  max-height: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +48,9 @@ export const Section = styled.div`
 `;
 
 export const SectionNewsletter = styled.div`
-  height: 100vh;
+  padding: 4rem 0;
+  min-height: 100vh;
+  max-height: max-content;
   display: flex;
   align-items: center;
   width: 100%;

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const CardSection = styled.div`
-  height: 100vh;
   position: relative;
+  min-height: 100vh;
+  max-height: max-content;
 
   @media only screen and (max-width: 992px) {
     height: max-content;
@@ -11,7 +12,9 @@ export const CardSection = styled.div`
 `;
 
 export const Section = styled.div`
-  height: 100vh;
+  padding: 4rem 0;
+  min-height: 100vh;
+  max-height: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
