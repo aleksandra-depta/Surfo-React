@@ -12,7 +12,9 @@ const token = cookies.get("jwt");
 
 export const toursApi = createApi({
   reducerPath: "toursApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:4000/api/v1/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://surfo-api.onrender.com/api/v1/",
+  }),
   tagTypes: ["Posts", "Post", "User"],
   endpoints: (build) => ({
     getTours: build.query<Tours, void>({
