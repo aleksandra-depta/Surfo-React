@@ -31,7 +31,7 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
-  const [login, { isSuccess, isLoading, error }] = useLoginMutation();
+  const [login, { error }] = useLoginMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

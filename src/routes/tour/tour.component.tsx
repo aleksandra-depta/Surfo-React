@@ -12,7 +12,6 @@ import { CardSection, IconArrowHeader, Section } from "./tour.styles";
 import CardTourDescription from "../../components/cardTourDescription/cardTourDescription.component";
 
 const TourPage = ({ tour }: { tour: Tour }) => {
-  const sectionCard = useRef<HTMLDivElement>(null);
   const sectionDescription = useRef<HTMLDivElement>(null);
   const sectionReview = useRef<HTMLDivElement>(null);
   const sectionComment = useRef<HTMLDivElement>(null);

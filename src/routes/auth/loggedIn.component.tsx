@@ -10,7 +10,7 @@ const LoggedIn = () => {
   return (
     <Content>
       <Link to="/">
-        <img src={Logo} />
+        <img src={Logo} alt="Logo" />
       </Link>
       <LoggedInContent>
         <HeadingH1>Welcome</HeadingH1>

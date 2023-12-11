@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import {
-  Options,
   optionsLocation,
   optionsTravelers,
   optionsType,

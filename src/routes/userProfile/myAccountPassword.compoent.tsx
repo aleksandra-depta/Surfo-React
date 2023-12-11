@@ -34,8 +34,7 @@ const MyAccountPassword = () => {
     password: "",
     passwordConfirm: "",
   });
-  const [updatePassword, { isSuccess, isLoading, error }] =
-    useUpdatePasswordMutation();
+  const [updatePassword, { isSuccess, error }] = useUpdatePasswordMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

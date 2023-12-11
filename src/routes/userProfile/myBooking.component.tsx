@@ -9,13 +9,9 @@ import { Container, Headings, Logo, LogoContainer } from "./userProfile.styles";
 const MyBooking = () => {
   const { currentUser } = useAppSelector((store) => store.auth);
 
-  const {
-    data: bookings,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetBookingsOnUserQuery(currentUser === null ? null : currentUser._id);
+  const { data: bookings, isSuccess } = useGetBookingsOnUserQuery(
+    currentUser === null ? null : currentUser._id
+  );
 
   return (
     <Container>

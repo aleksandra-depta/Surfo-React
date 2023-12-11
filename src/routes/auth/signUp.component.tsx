@@ -36,7 +36,7 @@ const SignUpPage = () => {
     passwordConfirm: "",
   });
 
-  const [signUp, { isSuccess, isLoading, error }] = useSignUpMutation();
+  const [signUp, { error }] = useSignUpMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

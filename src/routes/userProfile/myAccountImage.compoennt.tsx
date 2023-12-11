@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppSelector } from "../../hooks";
-import { useUpdateUserMutation } from "../../services/toursApi";
+// import { useUpdateUserMutation } from "../../services/toursApi";
 import IonIcon from "@reacticons/ionicons";
 import InfoMessageInput from "../../components/input/infoMessage.component";
 
@@ -22,16 +22,16 @@ const MyAccountImage = () => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const [openEditImage, setOpenEditImage] = useState<boolean>(false);
 
-  const [formState, setFormState] = useState<{ photo: string }>({
-    photo: "",
-  });
-  const [updateUserPhoto, { isLoading }] = useUpdateUserMutation();
+  // const [formState, setFormState] = useState<{ photo: string }>({
+  //   photo: "",
+  // });
+  // const [updateUserPhoto, { isLoading }] = useUpdateUserMutation();
 
-  const [image, setImage] = useState<{ preview: string; data: string }>({
-    preview: "",
-    data: "",
-  });
-  const [status, setStatus] = useState("");
+  // const [image, setImage] = useState<{ preview: string; data: string }>({
+  //   preview: "",
+  //   data: "",
+  // });
+  // const [status, setStatus] = useState("");
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

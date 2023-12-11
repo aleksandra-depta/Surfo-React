@@ -28,13 +28,7 @@ import LoginMessage from "../loginMessage/loginMessage.component";
 const Comments = ({ tour }: { tour: Tour }) => {
   const { currentUser } = useAppSelector((store) => store.auth);
 
-  const {
-    data: commentsOnTour,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetCommentsQuery(tour._id);
+  const { data: commentsOnTour, isSuccess } = useGetCommentsQuery(tour._id);
 
   const [addComment] = useAddCommentMutation();
 
@@ -54,7 +48,7 @@ const Comments = ({ tour }: { tour: Tour }) => {
     setText(e.target.value);
   };
 
-  const [deletePost, { isLoading: isDeleting }] = useDeleteCommentMutation();
+  const [deletePost] = useDeleteCommentMutation();
 
   return (
     <>

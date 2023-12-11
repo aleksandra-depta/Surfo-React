@@ -26,7 +26,7 @@ import {
   RowItem,
   SliderCardLarge,
 } from "./cardLarge.styles";
-import { IconSocialMedia, IconStar, IconWhite } from "../../styled/icons";
+import { IconWhite } from "../../styled/icons";
 
 const CardLarge = ({ tour }: { tour: Tour }) => {
   const { currentUser } = useAppSelector((store) => store.auth);

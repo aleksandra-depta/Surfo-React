@@ -45,7 +45,7 @@ const ShoppingCart = () => {
         user: currentUser?._id,
         tour: tour._id,
       };
-      addBooking(formState);
+      return addBooking(formState);
     });
   };
 

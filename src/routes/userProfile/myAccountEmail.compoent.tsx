@@ -25,8 +25,7 @@ const MyAccountEmail = () => {
   const [formState, setFormState] = useState<{ email: string }>({
     email: "",
   });
-  const [updateEmail, { isSuccess, isLoading, error }] =
-    useUpdateUserMutation();
+  const [updateEmail, { isSuccess, error }] = useUpdateUserMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

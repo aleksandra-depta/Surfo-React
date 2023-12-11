@@ -17,13 +17,7 @@ import {
 import { useGetReviewsQuery } from "../../services/toursApi";
 
 const Reviews = ({ tour }: { tour: Tour }) => {
-  const {
-    data: reviews,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetReviewsQuery(tour._id);
+  const { data: reviews } = useGetReviewsQuery(tour._id);
 
   return (
     <ContainerReview>
