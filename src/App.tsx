@@ -19,54 +19,64 @@ import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 
 import Cookies from "universal-cookie";
+import Loading from "./components/loading/loading.component";
 
 const cookies = new Cookies();
 const token = cookies.get("jwt");
 
 const App = () => {
-  const { data: tours, isSuccess } = useGetToursQuery();
+  const { data: tours, isSuccess, isLoading } = useGetToursQuery();
 
   useAuthQuery(token);
 
   const { currentUser } = useAppSelector((store) => store.auth);
 
   return (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
+    <>
+      {isLoading && <Loading />}
+      <Routes>
         {isSuccess && (
-          <>
-            <Route index element={<HomePage tours={tours} />} />
-            <Route path="/offer" element={<OfferPage tours={tours} />}>
-              <Route path="/offer/type" element={<OfferType tours={tours} />} />
-              <Route
-                path="/offer/location"
-                element={<OfferLocation tours={tours} />}
-              />
-            </Route>
-            <Route path="/" element={<AuthPage />}>
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignUpPage />} />
-            </Route>
-            {tours.data.map((tour) => (
-              <Route
-                key={`tour${tour._id}`}
-                path={`/tour/${tour._id}`}
-                element={<TourPage tour={tour} />}
-              />
-            ))}
-            <Route path="/shoppingCart" element={<ShoppingCart />} />
-            <Route path="/confirmation" element={<Confirmation />} />
-            {currentUser !== null && (
-              <Route path="/" element={<UserProfile />}>
-                <Route path="/myAccount/user" element={<MyAccount />} />
-                <Route path="/myAccount/booking" element={<MyBooking />} />
-                <Route path="/myAccount/favorites" element={<MyFavorites />} />
+          <Route path="/" element={<Navigation />}>
+            <>
+              <Route index element={<HomePage tours={tours} />} />
+              <Route path="/offer" element={<OfferPage tours={tours} />}>
+                <Route
+                  path="/offer/type"
+                  element={<OfferType tours={tours} />}
+                />
+                <Route
+                  path="/offer/location"
+                  element={<OfferLocation tours={tours} />}
+                />
               </Route>
-            )}
-          </>
+              <Route path="/" element={<AuthPage />}>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+              </Route>
+              {tours.data.map((tour) => (
+                <Route
+                  key={`tour${tour._id}`}
+                  path={`/tour/${tour._id}`}
+                  element={<TourPage tour={tour} />}
+                />
+              ))}
+              <Route path="/shoppingCart" element={<ShoppingCart />} />
+              <Route path="/confirmation" element={<Confirmation />} />
+              {currentUser !== null && (
+                <Route path="/" element={<UserProfile />}>
+                  <Route path="/myAccount/user" element={<MyAccount />} />
+                  <Route path="/myAccount/booking" element={<MyBooking />} />
+                  <Route
+                    path="/myAccount/favorites"
+                    element={<MyFavorites />}
+                  />
+                </Route>
+              )}
+            </>
+          </Route>
         )}
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 };
 

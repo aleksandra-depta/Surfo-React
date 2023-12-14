@@ -20,13 +20,13 @@ import { ButtonWhite } from "../../styled/buttons";
 import {
   BookmarkIcon,
   Details,
+  IconStar,
   ImageCard,
   ImageDifficulty,
   Row,
   RowItem,
   SliderCardLarge,
 } from "./cardLarge.styles";
-import { IconWhite } from "../../styled/icons";
 
 const CardLarge = ({ tour }: { tour: Tour }) => {
   const { currentUser } = useAppSelector((store) => store.auth);
@@ -61,9 +61,9 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
             <TextMedium>{tour.island}, Canaries </TextMedium>
             <Row>
               <RowItem>
-                <IconWhite>
+                <IconStar>
                   <IonIcon size="small" name="star-outline" />
-                </IconWhite>
+                </IconStar>
                 <TextMedium>{tour.ratingAverage.toFixed(1)}</TextMedium>
               </RowItem>
               <RowItem>

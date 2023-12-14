@@ -22,12 +22,12 @@ const MyBooking = () => {
         <HeadingH2> My bookings </HeadingH2>
         <TextSmall>Here you can view all your booked tours.</TextSmall>
       </Headings>
-      {isSuccess && bookings.bookings.length === 0 ? (
+      {isSuccess && bookings.bookings?.length === 0 ? (
         <EmptyMessage message={"You do not have any booked tours yet!"} />
       ) : (
         <div>
           {isSuccess &&
-            bookings.bookings.map((booking) => (
+            bookings.bookings?.map((booking) => (
               <CardBooking booking={booking} />
             ))}
         </div>

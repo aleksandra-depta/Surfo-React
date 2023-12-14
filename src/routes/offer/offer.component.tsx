@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import type { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
 
@@ -17,8 +17,22 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
   const sectionSearchTab = useRef<HTMLDivElement>(null);
   const sectionCards = useRef<HTMLDivElement>(null);
 
-  const { selectedOptionType, selectedOptionLocation, showOffer } =
-    useAppSelector((store) => store.searchTab);
+  const {
+    selectedOptionType,
+    selectedOptionLocation,
+    showOffer,
+    scrollToOffer,
+  } = useAppSelector((store) => store.searchTab);
+
+  const scrollToElement = () => {
+    sectionCards.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (scrollToOffer) {
+      scrollToElement();
+    }
+  }, [scrollToOffer]);
 
   return (
     <>

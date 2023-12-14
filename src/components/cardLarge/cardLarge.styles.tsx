@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IconBookmark } from "../../styled/icons";
+import { IconBookmark, IconWhite } from "../../styled/icons";
 
 export const SliderCardLarge = styled.div`
   width: 41rem;
@@ -60,8 +60,7 @@ export const Row = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin-top: 6px;
-  padding-top: 6px;
+  padding-top: 1rem;
 
   &:before {
     content: "";
@@ -78,8 +77,15 @@ export const RowItem = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  position: relative;
 `;
 
 export const ImageDifficulty = styled.img`
   height: 8px;
+`;
+
+export const IconStar = styled(IconWhite)`
+  position: absolute;
+  right: -3.4rem;
+  bottom: -1.4rem;
 `;
