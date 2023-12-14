@@ -15,6 +15,7 @@ interface TypesState {
   showOffer: boolean;
   showTypeOffer: boolean;
   showLocationOffer: boolean;
+  scrollToOffer: boolean;
 }
 
 const initialState: TypesState = {
@@ -26,6 +27,7 @@ const initialState: TypesState = {
   showOffer: true,
   showTypeOffer: false,
   showLocationOffer: false,
+  scrollToOffer: false,
 };
 
 const searchTabSlice = createSlice({
@@ -67,6 +69,12 @@ const searchTabSlice = createSlice({
     hideLocation: (state) => {
       state.showLocationOffer = false;
     },
+    activeScrollToOffer: (state) => {
+      state.scrollToOffer = true;
+    },
+    inActiveScrollToOffer: (state) => {
+      state.scrollToOffer = false;
+    },
   },
 });
 
@@ -82,6 +90,8 @@ export const {
   hideType,
   showLocation,
   hideLocation,
+  activeScrollToOffer,
+  inActiveScrollToOffer,
 } = searchTabSlice.actions;
 
 export default searchTabSlice.reducer;

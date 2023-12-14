@@ -5,6 +5,7 @@ import {
   optionsType,
 } from "../../services/dataSelectTab";
 import {
+  activeScrollToOffer,
   hideAllOffer,
   hideLocation,
   hideType,
@@ -145,7 +146,14 @@ const SelectTab = ({
                 Let's Go
               </ButtonTab>
             ) : (
-              <ButtonTab to="/offer">Let's Go</ButtonTab>
+              <ButtonTab
+                to="/offer"
+                onClick={() => {
+                  dispatch(activeScrollToOffer());
+                }}
+              >
+                Let's Go
+              </ButtonTab>
             )}
           </Column>
         </Content>

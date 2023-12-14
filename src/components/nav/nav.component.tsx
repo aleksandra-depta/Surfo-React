@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { logout } from "../../features/authSlice";
 import { openMobileMenu } from "../../features/navSlice";
+import { inActiveScrollToOffer } from "../../features/searchTabSlice";
 import Cookies from "universal-cookie";
 import IonIcon from "@reacticons/ionicons";
 import MobileNav from "../navMobile/mobileNav.component";
@@ -28,6 +29,7 @@ import {
 
 import Logo from "../../img/logo.png";
 import BackgroundHeaderImgHalf from "../../img/hero-2000-half.png";
+import BackgroundHeaderImg from "../../img/hero-2000.png";
 
 const cookies = new Cookies();
 
@@ -40,6 +42,7 @@ const Navigation = () => {
 
   const [openNav, setOpenNav] = useState<boolean>(false);
   const [show, handleShow] = useState<boolean>(false);
+  const [home, setHome] = useState<boolean>(false);
 
   const handleSubmit = () => {
     cookies.remove("jwt", { path: "/" });
@@ -49,6 +52,14 @@ const Navigation = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0 });
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHome(true);
+    } else setHome(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -60,16 +71,31 @@ const Navigation = () => {
 
   return (
     <>
-      <BackgroundImage src={BackgroundHeaderImgHalf} />
+      {home ? (
+        <BackgroundImage src={BackgroundHeaderImg} />
+      ) : (
+        <BackgroundImage src={BackgroundHeaderImgHalf} />
+      )}
       <NavContainer>
         <Nav stickyNav={show}>
           <Container>
             <Content>
               <NavContent>
                 <Link to="/">
-                  <ImageLogo src={`${Logo}`} alt="Surfo logo" />
+                  <ImageLogo
+                    src={`${Logo}`}
+                    alt="Surfo logo"
+                    onClick={scrollToTop}
+                  />
                 </Link>
-                <LinkNav stickyNav={show} to="/offer" onClick={scrollToTop}>
+                <LinkNav
+                  stickyNav={show}
+                  to="/offer"
+                  onClick={() => {
+                    scrollToTop();
+                    dispatch(inActiveScrollToOffer());
+                  }}
+                >
                   offer
                 </LinkNav>
               </NavContent>

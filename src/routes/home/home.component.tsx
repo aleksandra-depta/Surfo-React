@@ -13,7 +13,6 @@ import Header from "../../components/header/header.component";
 import Newsletters from "../../components/newsletter/newsletter.component";
 
 import {
-  BackgroundImage,
   Cards,
   Content,
   HeaderSection,
@@ -24,12 +23,9 @@ import {
   SliderSection,
 } from "./home.styles";
 
-import BackgroundHeaderImg from "../../img/hero-2000.png";
-
 const HomePage = ({ tours }: { tours: Tours }) => {
   return (
     <>
-      <BackgroundImage src={BackgroundHeaderImg} />
       <HeaderSection>
         <Header />
       </HeaderSection>

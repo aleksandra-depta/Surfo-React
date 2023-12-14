@@ -23,7 +23,6 @@ export const IconBookmark = styled.div`
 export const IconStar = styled.div`
   color: ${(props) => props.theme.colors.secondary};
   font-size: 3rem;
-  padding-bottom: 6px;
 `;
 
 export const IconCounter = styled(Button)`

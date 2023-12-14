@@ -36,7 +36,7 @@ export const ImageTour = styled.img`
 export const Details = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
   padding: 3rem;
   position: relative;
 `;
@@ -62,7 +62,7 @@ export const RowStars = styled(Row)`
 export const Description = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1.2rem;
 `;
 
 export const PriceContainer = styled.div`
