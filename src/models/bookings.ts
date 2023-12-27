@@ -2,7 +2,7 @@ import { Tour } from "./tour";
 import { CurrentUser } from "./user";
 
 export type Bookings = {
-  bookings: Booking[];
+  data: Booking[];
 };
 
 export type Booking = {

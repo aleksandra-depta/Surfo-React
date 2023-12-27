@@ -124,8 +124,15 @@ export const toursApi = createApi({
       invalidatesTags: ["Post"],
     }),
     //booking
-    getBookingsOnUser: build.query<Bookings, string | null>({
-      query: (id) => `/users/${id}/booking`,
+    getBookingsOnUser: build.query<Bookings, any | null>({
+      query: (id) => ({
+        url: `/users/${id}/booking`,
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }),
 
       transformResponse: (response: { data: Bookings }, meta, arg) =>
         response.data,
