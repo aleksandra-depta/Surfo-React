@@ -40,8 +40,7 @@ To run this project, install it locally using npm:
 
 # Layout Photoshop
 
-![surfo - layout - Aleksandra Depta](https://user-images.githubusercontent.com/100097416/163623614-f91380dd-4513-4507-affc-7f6b4f23f79c.jpg)
-
+![layout - Canaries](https://github.com/aleksandra-depta/Surfo-React/assets/100097416/c64632d1-4859-4606-9601-03e1ba321411)
 
 
 
