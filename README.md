@@ -18,7 +18,7 @@ Back-end repository: https://github.com/aleksandra-depta/Surfo-api.git
 
 # Technologies:
 
-* JavaScript
+* TypeScript
 * React
 * Redux Toolkit
 * Styled-Components
