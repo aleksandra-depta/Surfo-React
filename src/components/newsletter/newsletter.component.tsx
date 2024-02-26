@@ -21,10 +21,10 @@ const Newsletters = () => {
 
   return (
     <Newsletter>
-      <ImageBackground src={Background} />
+      <ImageBackground src={Background} loading="lazy" />
       <Content>
         <Link to="/">
-          <img className="cta__logo" alt="Surfo" src={Logo} />
+          <img className="cta__logo" alt="Surfo" src={Logo} loading="lazy" />
         </Link>
         <HeadingH1>Join us</HeadingH1>
         <TextMedium>

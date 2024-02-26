@@ -54,7 +54,7 @@ const Comments = ({ tour }: { tour: Tour }) => {
     <>
       {currentUser !== null ? (
         <FormComment>
-          <ImageUser src={UserDefault} alt="user default" />
+          <ImageUser src={UserDefault} alt="user default" loading="lazy" />
           <ContentDetails>
             <TextareaComment
               cols={10}
@@ -96,6 +96,7 @@ const Comments = ({ tour }: { tour: Tour }) => {
                 <ImageUser
                   src={require(`../../img/u/${comment.user.photo}`)}
                   alt="user"
+                  loading="lazy"
                 />
                 <Content>
                   <UserName>{comment.user.name?.split(" ")[0]}</UserName>

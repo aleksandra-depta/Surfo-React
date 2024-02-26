@@ -63,7 +63,11 @@ const ShoppingCart = () => {
         </Nav>
         <Container>
           <LogoContainer>
-            <LogoCart src={require(`../../img/logo.png`)} alt="Surfo logo" />
+            <LogoCart
+              src={require(`../../img/logo.png`)}
+              alt="Surfo logo"
+              loading="lazy"
+            />
           </LogoContainer>
           <Headings>
             <HeadingH2> Shopping Cart </HeadingH2>

@@ -57,6 +57,7 @@ const Reviews = ({ tour }: { tour: Tour }) => {
                     <ImageReview
                       src={require(`../../img/sl/${review.image}`)}
                       alt="tour"
+                      loading="lazy"
                     />
                   </picture>
                   <TextContent>

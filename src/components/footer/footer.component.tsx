@@ -19,7 +19,7 @@ const Footer = () => {
               window.scrollTo({ top: 0, left: 0 });
             }}
           >
-            <ImageLogo alt="Surfo" src={`${Logo}`} />
+            <ImageLogo alt="Surfo" src={`${Logo}`} loading="lazy" />
           </Link>
           <Icons>
             {socialMediaIcons.map((el) => (

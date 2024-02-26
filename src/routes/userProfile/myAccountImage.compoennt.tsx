@@ -60,6 +60,7 @@ const MyAccountImage = () => {
             <ImageUser
               src={require(`../../img/${currentUser?.photo}`)}
               alt="User_photo"
+              loading="lazy"
             />
           </Column>
         </RowItem>

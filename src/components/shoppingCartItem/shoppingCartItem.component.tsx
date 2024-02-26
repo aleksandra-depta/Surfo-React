@@ -35,6 +35,7 @@ const ShoppingCartItem = ({ tour }: { tour: Tour }) => {
         <ImageItem
           src={require(`../../img/${tour.imageCover}`)}
           alt="Tour image"
+          loading="lazy"
         />
         <Details>
           <DescriptionContent>

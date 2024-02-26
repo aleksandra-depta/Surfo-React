@@ -19,7 +19,11 @@ const Confirmation = () => {
     <>
       <Container>
         <LogoContainer>
-          <LogoCart src={require(`../../img/logo.png`)} alt="Surfo logo" />
+          <LogoCart
+            src={require(`../../img/logo.png`)}
+            alt="Surfo logo"
+            loading="lazy"
+          />
         </LogoContainer>
         <HeadingH2> Your Booking Confirmation </HeadingH2>
         <TextSmall> Adventure with us! See you! </TextSmall>

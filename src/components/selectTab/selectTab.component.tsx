@@ -132,7 +132,7 @@ const SelectTab = ({
           </Column>
           <Column>
             <CenterContainer>
-              <LogoTab src={Logo} alt="logo" />
+              <LogoTab src={Logo} alt="logo" loading="lazy" />
             </CenterContainer>
             {window.location.pathname === "/offer" ? (
               <ButtonTab

@@ -27,6 +27,7 @@ const CardBooking = ({ booking }: { booking: Booking }) => {
           <ImageItem
             src={require(`../../img/${booking.tour.imageCover}`)}
             alt="Tour image"
+            loading="lazy"
           />
           <DescriptionContent>
             <TextMedium>{booking.tour.days} days</TextMedium>

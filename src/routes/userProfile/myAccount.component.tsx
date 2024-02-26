@@ -16,7 +16,11 @@ const MyAccount = () => {
   return (
     <Container>
       <LogoContainer>
-        <Logo src={require(`../../img/logo.png`)} alt="Surfo logo" />
+        <Logo
+          src={require(`../../img/logo.png`)}
+          alt="Surfo logo"
+          loading="lazy"
+        />
       </LogoContainer>
       <Headings>
         <HeadingH2> My account </HeadingH2>

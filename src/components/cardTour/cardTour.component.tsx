@@ -66,7 +66,11 @@ const CardTour = ({ tour }: { tour: Tour }) => {
 
   return (
     <CardContainer>
-      <ImageTour src={require(`../../img/${tour.imageCover}`)} alt="tour" />
+      <ImageTour
+        src={require(`../../img/${tour.imageCover}`)}
+        alt="tour"
+        loading="lazy"
+      />
       <Details>
         {currentUser && (
           <BookmarkIcon onClick={() => dispatch(controlBookmark(tour._id))}>

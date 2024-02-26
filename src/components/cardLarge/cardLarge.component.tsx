@@ -55,6 +55,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
           <ImageCard
             src={require(`../../img/${tour.cardLargeImgUr800[0]}`)}
             alt="tour"
+            loading="lazy"
           />
           <Details>
             <HeadingH3>{tour.name}</HeadingH3>
@@ -71,6 +72,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
                 <ImageDifficulty
                   src={require(`../../img/cardLarge_${tour.cardDifficultyImageUrl}`)}
                   alt="Difficulty"
+                  loading="lazy"
                 />
               </RowItem>
             </Row>
@@ -91,6 +93,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
             <ImageCard
               src={require(`../../img/${tour.cardLargeImgUr800[el]}`)}
               alt="tour image"
+              loading="lazy"
             />
             <Details>
               <HeadingH3>{tour.name}</HeadingH3>

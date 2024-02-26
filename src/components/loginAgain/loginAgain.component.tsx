@@ -21,7 +21,7 @@ const LoginAgain = () => {
   return (
     <Container>
       <Content>
-        <ImageLogo alt="Surfo" src={`${Logo}`} />
+        <ImageLogo alt="Surfo" src={`${Logo}`} loading="lazy" />
         <TextSmall>
           Your password has been successfully changed. Please log in again.
         </TextSmall>

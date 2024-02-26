@@ -20,7 +20,11 @@ const CardSmall = ({ tour }: { tour: Tour; slider?: boolean }) => {
 
   return (
     <Content>
-      <ImageCard src={require(`../../img/${tour.imageCover}`)} alt="tour" />
+      <ImageCard
+        src={require(`../../img/${tour.imageCover}`)}
+        alt="tour"
+        loading="lazy"
+      />
       {currentUser && (
         <BookmarkIcon onClick={() => dispatch(controlBookmark(tour._id))}>
           {bookmarks.find((el) => el._id === tour._id) ? (

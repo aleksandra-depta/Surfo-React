@@ -72,9 +72,9 @@ const Navigation = () => {
   return (
     <>
       {home ? (
-        <BackgroundImage src={BackgroundHeaderImg} />
+        <BackgroundImage src={BackgroundHeaderImg} loading="lazy" />
       ) : (
-        <BackgroundImage src={BackgroundHeaderImgHalf} />
+        <BackgroundImage src={BackgroundHeaderImgHalf} loading="lazy" />
       )}
       <NavContainer>
         <Nav stickyNav={show}>
@@ -85,6 +85,7 @@ const Navigation = () => {
                   <ImageLogo
                     src={`${Logo}`}
                     alt="Surfo logo"
+                    loading="lazy"
                     onClick={scrollToTop}
                   />
                 </Link>
@@ -113,6 +114,7 @@ const Navigation = () => {
                           <ImageUser
                             src={require(`../../img/${currentUser.photo}`)}
                             alt="User_photo"
+                            loading="lazy"
                           />
                           <LinkNav to="" stickyNav={show}>
                             {currentUser.name.split(" ")[0]}
@@ -163,6 +165,7 @@ const Navigation = () => {
                             <ImageUser
                               src={require(`../../img/${currentUser.photo}`)}
                               alt="User_photo"
+                              loading="lazy"
                             />
                             <LinkNav
                               stickyNav={show}

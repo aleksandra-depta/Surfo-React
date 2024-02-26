@@ -33,7 +33,7 @@ const MobileNav = () => {
 
   return (
     <Cointainer>
-      <ImageLogo alt="Surfo" src={`${Logo}`} />
+      <ImageLogo alt="Surfo" src={`${Logo}`} loading="lazy" />
 
       <IconClose onClick={() => goToPage()}>
         <IonIcon size="large" name="close-outline" />

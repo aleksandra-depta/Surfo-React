@@ -6,7 +6,7 @@ import Logo from "../../img/logo_Icon.png";
 const Page404 = () => {
   return (
     <Container>
-      <Image src={Logo} alt="Logo"></Image>
+      <Image src={Logo} alt="Logo" loading="lazy"></Image>
       <HeadingH3>Page not found</HeadingH3>
       <ButtonSecondary to="/">Go to homepage</ButtonSecondary>
     </Container>
