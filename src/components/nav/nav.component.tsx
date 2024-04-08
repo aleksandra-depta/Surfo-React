@@ -5,7 +5,6 @@ import { logout } from "../../features/authSlice";
 import { inActiveScrollToOffer } from "../../features/searchTabSlice";
 import Cookies from "universal-cookie";
 import IonIcon from "@reacticons/ionicons";
-import MobileNav from "../navMobile/mobileNav.component";
 
 import Container from "react-bootstrap/Container";
 import {

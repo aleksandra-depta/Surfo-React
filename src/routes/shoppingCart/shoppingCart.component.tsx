@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Tours } from "../../models/tours";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useAddBookingMutation } from "../../services/toursApi";
