@@ -1,19 +1,23 @@
 import styled from "styled-components";
 import { IconBookmark } from "../../styled/icons";
-import { ButtonPrimary } from "../../styled/buttons";
+import { ButtonBlack } from "../../styled/buttons";
 
 export const Content = styled.div`
   border-radius: 4px;
-  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   display: flex;
   flex-direction: column;
-  max-width: 400px;
   position: relative;
   overflow: hidden;
   margin: 5px;
+  transition: all 0.2s ease-in-out;
 
-  @media only screen and (max-width: 768px) {
-    max-width: 100%;
+  @media only screen and (min-width: 576px) {
+    height: 56rem;
+    max-width: 320px;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
   }
 `;
 
@@ -26,7 +30,11 @@ export const ContentDetails = styled.div`
 
 export const ImageCard = styled.img`
   width: 100%;
-  height: auto;
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+
+  @media only screen and (min-width: 992px) {
+    height: 40rem;
+  }
 `;
 
 export const BookmarkIcon = styled(IconBookmark)`
@@ -38,14 +46,18 @@ export const BookmarkIcon = styled(IconBookmark)`
 
 export const Details = styled.div`
   padding: 2.5rem 2.5rem 1.5rem 2.5rem;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.whiteText};
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: start;
-  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
 
-export const Button = styled(ButtonPrimary)`
+export const Button = styled(ButtonBlack)`
   margin-top: 1rem;
 `;

@@ -6,21 +6,21 @@ import HomePage from "./routes/home/home.component";
 import OfferPage from "./routes/offer/offer.component";
 import OfferType from "./routes/offer/offerType.component";
 import OfferLocation from "./routes/offer/offerLocation.component";
-import LoginPage from "./routes/auth/login.component";
-import SignUpPage from "./routes/auth/signUp.component";
+import LoginPage from "./routes/authLogin/authLogin.component";
+import SignUpPage from "./routes/authSignUp/authSignUp.component";
 import TourPage from "./routes/tour/tour.component";
-import MyAccount from "./routes/userProfile/myAccount.component";
-import MyFavorites from "./routes/userProfile/myFavorites.component";
-import MyBooking from "./routes/userProfile/myBooking.component";
 import ShoppingCart from "./routes/shoppingCart/shoppingCart.component";
 import Navigation from "./components/nav/nav.component";
 import AuthPage from "./routes/auth/auth.component";
 import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 import Page404 from "./routes/404/404.component";
+import Loading from "./components/loading/loading.component";
+import MyAccount from "./routes/myAccount/myAccount.component";
+import MyBooking from "./routes/myBooking/myBooking.component";
+import MyFavorites from "./routes/myFavorites/myFavorites.component";
 
 import Cookies from "universal-cookie";
-import Loading from "./components/loading/loading.component";
 
 const cookies = new Cookies();
 const token = cookies.get("jwt");
@@ -63,15 +63,24 @@ const App = () => {
                     element={<TourPage tour={tour} />}
                   />
                 ))}
-                <Route path="/shoppingCart" element={<ShoppingCart />} />
-                <Route path="/confirmation" element={<Confirmation />} />
+                <Route
+                  path="/shoppingCart"
+                  element={<ShoppingCart tours={tours} />}
+                />
+                <Route
+                  path="/confirmation"
+                  element={<Confirmation tours={tours} />}
+                />
                 {currentUser !== null && (
                   <Route path="/" element={<UserProfile />}>
                     <Route path="/myAccount/user" element={<MyAccount />} />
-                    <Route path="/myAccount/booking" element={<MyBooking />} />
+                    <Route
+                      path="/myAccount/booking"
+                      element={<MyBooking tours={tours} />}
+                    />
                     <Route
                       path="/myAccount/favorites"
-                      element={<MyFavorites />}
+                      element={<MyFavorites tours={tours} />}
                     />
                   </Route>
                 )}

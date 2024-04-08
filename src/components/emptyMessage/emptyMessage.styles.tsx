@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  padding-top: 8rem;
-  height: 46vh;
+  padding: 8rem 0;
   display: flex;
-  flex-direction: column;
-  gap: 6rem;
+  justify-content: space-between;
   align-items: center;
 `;

@@ -1,13 +1,142 @@
 .swiper-button-next,
 .swiper-button-prev {
   --swiper-theme-color: #ffffff;
+  --swiper-navigation-size: 22px;
+  background-color: rgb(0, 0, 0);
+  height: 50px;
+  width: 50px;
+  font-weight: 600;
+  border-radius: 100%;
+  position: absolute;
+  top: calc(58rem / 2);
+
+  @media only screen and (max-width: 992px) {
+    height: 40px;
+    width: 40px;
+    top: 50%;
+  }
 }
 
-.swiper-pagination-bullet {
-  --swiper-theme-color: #3a9696;
+.prevHomeCardsSmall,
+.nextHomeCardsSmall,
+.prevSliderMedium,
+.nextSliderMedium,
+.prevOffer,
+.nextOffer,
+.prevSliderReview,
+.nextSliderReview,
+.prevSliderReviewTour,
+.nextSliderReviewTour,
+.prevSliderLocation,
+.nextSliderLocation,
+.prevSliderSeeMore,
+.nextSliderSeeMore,
+.prevSliderType,
+.nextSliderType,
+.prevCart,
+.nextCart,
+.prevSliderLarge,
+.nextSliderLarge {
+  position: absolute;
+  color: #eee;
+  background-color: #161616;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  top: calc(40rem / 2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  @media only screen and (max-width: 576px) {
-    width: 6px;
-    height: 6px;
+  @media only screen and (max-width: 992px) {
+    top: 0;
+    height: 40px;
+    width: 40px;
   }
+}
+
+.prevCart,
+.nextCart,
+.prevOffer,
+.nextOffer,
+.prevSliderReviewTour,
+.nextSliderReviewTour {
+  @media only screen and (max-width: 992px) {
+    bottom: -8rem;
+    top: auto;
+  }
+}
+
+.prevHomeCardsSmall,
+.prevOffer,
+.prevSliderReview,
+.prevSliderReviewTour,
+.prevSliderLocation,
+.prevSliderSeeMore,
+.prevSliderType,
+.prevCart,
+.prevSliderLarge {
+  left: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+  }
+}
+
+.prevSliderMedium {
+  left: -8rem;
+}
+
+.prevSliderReview {
+  left: 0;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+  }
+}
+
+.nextHomeCardsSmall,
+.nextOffer,
+.nextSliderReview,
+.nextSliderReviewTour,
+.nextSliderLocation,
+.nextSliderSeeMore,
+.nextSliderType,
+.nextCart,
+.nextSliderLarge {
+  right: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
+  }
+}
+
+.nextSliderMedium {
+  right: -8rem;
+}
+
+.nextSliderReview {
+  right: 0;
+}
+
+.prevSliderLarge,
+.nextSliderLarge {
+  top: 50%;
+
+  @media only screen and (max-width: 992px) {
+    top: 0;
+    transform: translateY(0%);
+  }
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.nextSliderMedium,
+.prevSliderMedium {
+  top: 50%;
 }

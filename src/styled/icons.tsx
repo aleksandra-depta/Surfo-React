@@ -11,9 +11,10 @@ const Button = styled.button`
   }
 `;
 export const IconBookmark = styled.div`
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.darkText};
   cursor: pointer;
   transition: all 0.2s;
+  z-index: 100;
 
   &:hover {
     scale: 1.02;
@@ -26,7 +27,7 @@ export const IconStar = styled.div`
 `;
 
 export const IconCounter = styled(Button)`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.darkText};
   transition: all 0.2s;
   cursor: pointer;
   font-size: 2.3rem;
@@ -39,6 +40,7 @@ export const IconCounter = styled(Button)`
 export const IconSocialMedia = styled.div`
   color: ${(props) => props.theme.colors.greyShades};
   font-size: 1.6rem;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${(props) => props.theme.colors.darkText};
@@ -69,6 +71,8 @@ export const IconClose = styled.div`
 export const IconGrey = styled(Button)`
   color: ${(props) => props.theme.colors.greyShades};
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const IconWhite = styled(Button)`

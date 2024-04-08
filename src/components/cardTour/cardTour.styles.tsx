@@ -1,88 +1,38 @@
 import styled from "styled-components";
-import { IconBookmark } from "../../styled/icons";
-import { ButtonSecondary, ButtonSecondaryInactive } from "../../styled/buttons";
 
-export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-  background-color: ${(props) => props.theme.colors.white};
-
-  border-radius: 80px;
-  border: 30px solid ${(props) => props.theme.colors.white};
-
-  @media only screen and (max-width: 992px) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media only screen and (max-width: 768px) {
-    border-radius: 50px;
-    border: 15px solid ${(props) => props.theme.colors.white};
-  }
-`;
-
-export const ImageTour = styled.img`
+export const Container = styled.div`
   width: 100%;
-  height: 100%;
-  border-radius: 70px;
-  overflow: hidden;
+  color: ${(props) => props.theme.colors.white20};
+  position: relative;
+  padding-top: 15rem;
 
-  @media only screen and (max-width: 768px) {
-    border-radius: 40px;
+  &::before {
+    content: "";
+    background-color: ${(props) => props.theme.colors.darkText};
+    position: absolute;
+    left: calc(-1 * (100vw - 100%) / 2);
+    width: 100vw;
+    top: 0rem;
+    height: 100%;
+    z-index: -80;
   }
 `;
 
-export const Details = styled.div`
+export const Content = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding: 3rem;
-  position: relative;
-`;
-
-export const BookmarkIcon = styled(IconBookmark)`
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 1.8rem;
-`;
-
-export const Row = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   flex-wrap: wrap;
+
+  @media only screen and (max-width: 576px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 `;
 
-export const RowStars = styled(Row)`
-  gap: 8rem;
-`;
-
-export const Description = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-`;
-
-export const PriceContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
-  text-align: center;
-`;
-
-export const Price = styled.div`
+export const Column = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const ButtonInactive = styled(ButtonSecondaryInactive)`
-  border-radius: 2px;
-  min-width: 20rem;
-`;
-
-export const ButtonActive = styled(ButtonSecondary)`
-  border-radius: 2px;
-  min-width: 20rem;
+  gap: 2rem;
+  width: 25%;
+  padding-bottom: 15rem;
 `;

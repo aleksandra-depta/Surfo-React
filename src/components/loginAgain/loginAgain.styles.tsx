@@ -17,8 +17,8 @@ export const Content = styled.div`
   height: 50vh;
   width: 50vw;
   transform: translate(50%, 50%);
-  border: 20px solid ${(props) => props.theme.colors.primary};
-  border-radius: 80px;
+  border: 2px solid ${(props) => props.theme.colors.darkText};
+  border-radius: 4px;
   padding: 13rem;
   display: flex;
   flex-direction: column;

@@ -1,97 +1,100 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  margin-top: 6rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-  gap: 5rem;
+export const BackgroundImage = styled.img`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -100;
+  height: auto;
+  width: 100vw;
+`;
 
-  @media only screen and (max-width: 768px) {
-    gap: 2rem;
+export const NavContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
   }
 `;
 
-export const SectionContainer = styled.div`
-  text-align: center;
-  padding: 6rem 0;
+export const ShowContent = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    gap: 4rem;
+  }
 `;
 
-export const HeadingContainer = styled.div`
-  padding-top: 4rem;
+export const SeeMoreHeading = styled.div`
+  padding: 0 0 10rem 0;
+`;
+
+export const SliderContainer = styled.div`
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  width: 100%;
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    gap: 4rem;
+  }
+`;
+
+export const Slider = styled.div`
+  width: 70%;
+  position: relative;
+  margin-right: 12rem;
+
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+    /* padding-right: 14rem; */
+  }
+`;
+
+export const SliderFullWidth = styled.div`
+  position: relative;
+  margin: 0 10rem;
+
+  @media only screen and (max-width: 992px) {
+    margin: 0;
+  }
 `;
 
 export const Heading = styled(Link)<{ active: boolean }>`
-  color: ${(props) => props.theme.colors.darkText};
-  background-color: ${(props) => props.theme.colors.lightShades};
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1rem 3rem;
-  border-radius: 40px;
-  width: max-content;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primary20};
     color: ${(props) => props.theme.colors.darkText};
+    font-size: 4rem;
   }
 
   ${({ active }) =>
     active === true &&
     `
-  background: #d2e1e1da
+    font-size: 4rem;
   `}
 `;
 
 export const ClearLink = styled(Link)`
   display: flex;
   align-items: center;
+
   font-size: 2rem;
   font-weight: 600;
-  transition: all 0.1;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${(props) => props.theme.colors.darkText};
-    transform: scale(1.05);
+    font-size: 2.3rem;
   }
-`;
-
-export const IconArrow = styled.div`
-  cursor: pointer;
-  scale: 1.6;
-  transition: 0.1s all;
-  text-align: center;
-  margin-top: 20vh;
-
-  &:hover {
-    scale: 1.8;
-  }
-`;
-
-export const SelectContainer = styled.div`
-  height: 90vh;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: start;
-  margin-top: 16rem;
-
-  @media only screen and (max-width: 768px) {
-    height: max-content;
-  }
-`;
-
-export const OfferContainer = styled.div`
-  padding-top: 10rem;
-`;
-
-export const SeeMoreContainer = styled.div`
-  padding-top: 4rem;
-`;
-
-export const Content = styled.div`
-  margin-bottom: 10rem;
 `;

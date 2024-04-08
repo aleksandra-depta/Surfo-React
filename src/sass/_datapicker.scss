@@ -13,7 +13,8 @@
 
 .react-datepicker {
   font-size: 1.7rem;
-  border: none;
+  border: 7px solid $color-secondary;
+  border-radius: 4px;
   box-shadow: 0 0 6px rgba($color-dark-text, 0.4);
 }
 
@@ -27,7 +28,6 @@
   gap: 0.4rem;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: rgba($color-primary, 0.1);
   font-size: 1.2rem;
 }
 
@@ -40,11 +40,12 @@
 }
 
 .react-datepicker__day--selected:hover {
-  background-color: rgba($color-primary, 0.9);
+  background-color: rgba($color-secondary, 0.9);
 }
 
 .react-datepicker__day--selected {
-  background-color: $color-primary;
+  background-color: $color-secondary;
+  color: $color-dark-text;
 }
 
 .react-datepicker__day--keyboard-selected,
@@ -58,4 +59,9 @@
   border: none;
   outline: none;
   width: 70%;
+  color: $color-light-text;
+}
+
+button:focus {
+  outline: none;
 }

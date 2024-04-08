@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
-import Newsletters from "../../components/newsletter/newsletter.component";
 import { AuthContainer } from "./auth.styles";
+import Footer from "../../components/footer/footer.component";
 
 const AuthPage = () => {
   return (
-    <AuthContainer>
-      <Outlet />
-      <Newsletters />
-    </AuthContainer>
+    <>
+      <AuthContainer>
+        <Outlet />
+      </AuthContainer>
+      <Footer />
+    </>
   );
 };
 

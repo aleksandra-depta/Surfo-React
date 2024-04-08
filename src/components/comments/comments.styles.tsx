@@ -1,41 +1,42 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "../../styled/buttons";
 import { IconClose } from "../../styled/icons";
 import { HeadingH3 } from "../../styled/typography";
 
-export const FormComment = styled.form`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
-  background-color: ${(props) => props.theme.colors.primaryDark};
-  border-radius: 100px;
+export const Container = styled.div`
+  height: 50rem;
+  overflow-y: scroll;
 
-  @media only screen and (max-width: 768px) {
-    border-radius: 20px;
-    align-items: start;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    background-color: ${(props) => props.theme.colors.white20};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    background-color: ${(props) => props.theme.colors.darkText};
   }
 `;
 
-export const InfoContainer = styled.div`
+export const ContainerComment = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4rem;
-  background-color: ${(props) => props.theme.colors.primaryDark};
-  color: ${(props) => props.theme.colors.white};
-  padding: 5rem;
-  border-radius: 100px;
-
-  @media only screen and (max-width: 768px) {
-    border-radius: 10px;
-  }
+  flex-direction: column;
+  background-color: ${(props) => props.theme.colors.white20};
+  padding: 2rem;
+  width: 100%;
 `;
 
 export const List = styled.div`
-  margin: 5rem 0;
+  margin: 3rem 0;
+  padding-right: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  justify-content: start;
   gap: 4rem;
   width: 100%;
 `;
@@ -43,17 +44,13 @@ export const List = styled.div`
 export const CommentContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 4rem;
-  padding-left: 2rem;
-
-  @media only screen and (max-width: 768px) {
-    padding-left: 0;
-  }
+  gap: 2rem;
 `;
 
 export const ImageUser = styled.img`
   border-radius: 50%;
   width: 12rem;
+  padding-left: 1rem;
 `;
 
 export const Content = styled.div`
@@ -61,41 +58,6 @@ export const Content = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-`;
-
-export const ContentDetails = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 2rem;
-
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const ButtonComment = styled(ButtonPrimary)`
-  padding: 4rem;
-  width: 34rem;
-
-  @media only screen and (max-width: 768px) {
-    padding: 2rem;
-    border-radius: 10px;
-    width: 100%;
-  }
-`;
-
-export const TextareaComment = styled.textarea`
-  width: 100%;
-  min-height: 10rem;
-  font-size: 2rem;
-  padding: 2rem;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-
-  @media only screen and (max-width: 768px) {
-    min-height: 12rem;
-  }
 `;
 
 export const CloseIcon = styled(IconClose)`

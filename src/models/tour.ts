@@ -1,9 +1,9 @@
 export type Tour = {
   _id: string;
+  nr: number | string;
   amount: number;
-  cardDifficultyImageUrl: string;
   cardLargeDescription: string;
-  cardLargeImgUr800: string;
+  cardLargeImgSlider: string[];
   cardLarge: string;
   cardMedium: string;
   cardSmall: string;
@@ -12,6 +12,7 @@ export type Tour = {
   descriptionCheckPoints: [];
   food: string;
   imageCover: string;
+  imageMain: string;
   island: string;
   keywords: string[];
   languages: string[];

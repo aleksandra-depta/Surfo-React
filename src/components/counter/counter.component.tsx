@@ -1,10 +1,10 @@
 import { Tour } from "../../models/tour";
 import { useAppDispatch } from "../../hooks";
 import { calcTotals, decrease, increase } from "../../features/cartSlice";
-import IonIcon from "@reacticons/ionicons";
 
 import { IconCounter } from "../../styled/icons";
 import { Container, CounterInput } from "./counter.styles";
+import IonIcon from "@reacticons/ionicons";
 
 const Counter = ({ tour }: { tour: Tour }) => {
   const dispatch = useAppDispatch();

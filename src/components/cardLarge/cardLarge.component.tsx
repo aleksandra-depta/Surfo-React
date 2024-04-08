@@ -1,37 +1,32 @@
+import { useState } from "react";
 import type { Tour } from "../../models/tour";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { controlBookmark } from "../../features/bookmarksSlice";
 
-import IonIcon from "@reacticons/ionicons";
+import { HeadingH2, TextMedium, TextSmall } from "../../styled/typography";
+import { ButtonBlack } from "../../styled/buttons";
+import {
+  BookmarkIcon,
+  Details,
+  ImageCard,
+  SliderCardLarge,
+} from "./cardLarge.styles";
 
+import IonIcon from "@reacticons/ionicons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import {
-  HeadingH3,
-  HeadingH4,
-  TextMedium,
-  TextSmall,
-} from "../../styled/typography";
-import { ButtonWhite } from "../../styled/buttons";
-import {
-  BookmarkIcon,
-  Details,
-  IconStar,
-  ImageCard,
-  ImageDifficulty,
-  Row,
-  RowItem,
-  SliderCardLarge,
-} from "./cardLarge.styles";
-
 const CardLarge = ({ tour }: { tour: Tour }) => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const { bookmarks } = useAppSelector((store) => store.bookmark);
   const dispatch = useAppDispatch();
+
+  const [showDetails, setShowDetails] = useState(
+    window.innerWidth >= 992 ? false : true
+  );
 
   return (
     <SliderCardLarge>
@@ -44,65 +39,91 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
           )}
         </BookmarkIcon>
       )}
-      <Swiper
-        className="swiper-wrapper"
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation={true}
-      >
-        <SwiperSlide>
+      {window.innerWidth <= 992 ? (
+        <>
           <ImageCard
-            src={require(`../../img/${tour.cardLargeImgUr800[0]}`)}
+            src={require(`../../img/${tour.cardLargeImgSlider[0]}`)}
             alt="tour"
             loading="lazy"
           />
           <Details>
-            <HeadingH3>{tour.name}</HeadingH3>
             <TextMedium>{tour.island}, Canaries </TextMedium>
-            <Row>
-              <RowItem>
-                <IconStar>
-                  <IonIcon size="small" name="star-outline" />
-                </IconStar>
-                <TextMedium>{tour.ratingAverage.toFixed(1)}</TextMedium>
-              </RowItem>
-              <RowItem>
-                <TextMedium>Difficulty</TextMedium>
-                <ImageDifficulty
-                  src={require(`../../img/cardLarge_${tour.cardDifficultyImageUrl}`)}
-                  alt="Difficulty"
-                  loading="lazy"
-                />
-              </RowItem>
-            </Row>
+            <HeadingH2>{tour.name}</HeadingH2>
             <TextSmall>{tour.cardLargeDescription}</TextSmall>
-            <ButtonWhite
+            <ButtonBlack
               to={`/tour/${tour._id}`}
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0 });
               }}
             >
               Book Now
-            </ButtonWhite>
+            </ButtonBlack>
           </Details>
-        </SwiperSlide>
-
-        {[1, 2].map((el) => (
-          <SwiperSlide key={el}>
+        </>
+      ) : (
+        <Swiper
+          className="swiper-wrapper"
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation={true}
+        >
+          <SwiperSlide
+            onMouseOver={() => setShowDetails(true)}
+            onMouseOut={() => {
+              setShowDetails(window.innerWidth >= 992 ? false : true);
+            }}
+          >
             <ImageCard
-              src={require(`../../img/${tour.cardLargeImgUr800[el]}`)}
-              alt="tour image"
+              src={require(`../../img/${tour.cardLargeImgSlider[0]}`)}
+              alt="tour"
               loading="lazy"
             />
-            <Details>
-              <HeadingH3>{tour.name}</HeadingH3>
-              <HeadingH4> {tour.island}, Canaries </HeadingH4>
-              <ButtonWhite to={`/tour/${tour._id}`}>Book Now</ButtonWhite>
-            </Details>
+            {showDetails && (
+              <Details>
+                <TextMedium>{tour.island}, Canaries </TextMedium>
+                <HeadingH2>{tour.name}</HeadingH2>
+                <TextSmall>{tour.cardLargeDescription}</TextSmall>
+                <ButtonBlack
+                  to={`/tour/${tour._id}`}
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0 });
+                  }}
+                >
+                  Book Now
+                </ButtonBlack>
+              </Details>
+            )}
           </SwiperSlide>
-        ))}
-      </Swiper>
+          {[1, 2].map((el) => (
+            <SwiperSlide
+              key={el}
+              onMouseOver={() => setShowDetails(true)}
+              onMouseOut={() => setShowDetails(false)}
+            >
+              <ImageCard
+                src={require(`../../img/${tour.cardLargeImgSlider[el]}`)}
+                alt="tour image"
+                loading="lazy"
+              />
+              {showDetails && (
+                <Details>
+                  <HeadingH2>{tour.name}</HeadingH2>
+                  <TextMedium>{tour.island}, Canaries </TextMedium>
+                  <ButtonBlack
+                    to={`/tour/${tour._id}`}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0 });
+                    }}
+                  >
+                    Book Now
+                  </ButtonBlack>
+                </Details>
+              )}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </SliderCardLarge>
   );
 };

@@ -11,7 +11,8 @@ html {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -41,9 +42,7 @@ $color-primary: #3a9696;
 $color-secondary: #f9bd24;
 $color-secondary-light: #e9bf55;
 $color-white: #ffffff;
-
 $color-white-text: #eee;
-
 $color-dark-text: rgb(22, 22, 22);
 $color-light-text: #5b5a5a;
 

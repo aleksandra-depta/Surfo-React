@@ -6,12 +6,23 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Fjalla One", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fbfafa;
 }
 
 //breakpoints
-// 576px 768px 992px 1200px 1291px 1540px
+// 460px 576px 768px 992px 1050px 1200px 1291px 1540px
+
+// @media only screen and (max-width: 992px) {
+//   font-size: 14rem;
+// }
+
+.col,
+.row {
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+}

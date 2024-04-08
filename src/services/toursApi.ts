@@ -85,6 +85,11 @@ export const toursApi = createApi({
       invalidatesTags: ["User"],
     }),
     //review
+    getAllReviews: build.query<Reviews, void>({
+      query: () => `reviews`,
+      transformResponse: (response: { data: Reviews }, meta, arg) =>
+        response.data,
+    }),
     getReviews: build.query<Reviews, string>({
       query: (id) => `/tours/${id}/reviews`,
 
@@ -165,6 +170,7 @@ export const {
   useUpdatePasswordMutation,
   //Reviews
   useGetReviewsQuery,
+  useGetAllReviewsQuery,
   // Comments
   useGetCommentsQuery,
   useAddCommentMutation,

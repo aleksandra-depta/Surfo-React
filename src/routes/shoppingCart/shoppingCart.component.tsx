@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Tours } from "../../models/tours";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { useAddBookingMutation } from "../../services/toursApi";
 import { clearCart } from "../../features/cartSlice";
@@ -8,34 +9,38 @@ import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
 import LoginMessage from "../../components/loginMessage/loginMessage.component";
 import ShoppingCartItem from "../../components/shoppingCartItem/shoppingCartItem.component";
 import Footer from "../../components/footer/footer.component";
+import Newsletters from "../../components/newsletter/newsletter.component";
+import LocationSection from "../../components/locationsSection/locationsSection.component";
 
 import { IconGrey } from "../../styled/icons";
 import {
+  HeadingH1,
   HeadingH2,
-  TextLargePrimary,
+  TextMedium,
   TextSmall,
 } from "../../styled/typography";
 import {
-  Button,
+  CartContainer,
   Container,
-  LogoCart,
-  LogoContainer,
+  Content,
+  IconRemove,
+  PaymentButton,
+  PaymentContainer,
   ShopingCartContainer,
+  Slider,
+  SliderContainer,
   TotalsContainer,
 } from "./shoppingCart.styles";
-import {
-  Headings,
-  MainContainer,
-  Nav,
-  NavLinkMyAccount,
-} from "../userProfile/userProfile.styles";
 
-const ShoppingCart = () => {
+import { Col, Row } from "react-bootstrap";
+import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sliderCardsSmallSection.component";
+import HalfSliderSection from "../../components/halfSliderSection/halfSliderSection.component";
+
+const ShoppingCart = ({ tours }: { tours: Tours }) => {
   const { cart, totalPrice } = useAppSelector((store) => store.cart);
   const { currentUser } = useAppSelector((store) => store.auth);
-
+  const [scroll, setScroll] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-
   const [addBooking] = useAddBookingMutation();
 
   const handleSubmit = () => {
@@ -55,65 +60,59 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <MainContainer>
-        <Nav>
-          <NavLinkMyAccount to="">
-            <IonIcon size="large" name="cart-outline" />
-          </NavLinkMyAccount>
-        </Nav>
-        <Container>
-          <LogoContainer>
-            <LogoCart
-              src={require(`../../img/logo.png`)}
-              alt="Surfo logo"
-              loading="lazy"
-            />
-          </LogoContainer>
-          <Headings>
+      <Container>
+        <Content>
+          <div>
             <HeadingH2> Shopping Cart </HeadingH2>
-            <TextSmall>Adventure with us!</TextSmall>
-          </Headings>
+            <HeadingH2>Adventure with us!</HeadingH2>
+          </div>
           {cart.length === 0 ? (
-            <EmptyMessage message={"Your shopping cart is empty"} />
+            <>
+              <EmptyMessage message={"Your shopping cart is empty"} />
+            </>
           ) : (
             <>
-              <ShopingCartContainer>
-                {cart.map((tour) => (
-                  <ShoppingCartItem tour={tour} />
-                ))}
-              </ShopingCartContainer>
-              <TotalsContainer>
-                <IconGrey onClick={() => dispatch(clearCart())}>
-                  <IonIcon size="large" name="trash-outline" />
-                </IconGrey>
+              <CartContainer>
+                <ShopingCartContainer>
+                  {cart.map((tour) => (
+                    <ShoppingCartItem tour={tour} />
+                  ))}
+                  <IconRemove>
+                    <IconGrey onClick={() => dispatch(clearCart())}>
+                      <IonIcon size="large" name="close-outline" />
+                      <TextMedium>Remove all</TextMedium>
+                    </IconGrey>
+                  </IconRemove>
+                </ShopingCartContainer>
                 <TotalsContainer>
                   <HeadingH2> Totals: </HeadingH2>
-                  <TextLargePrimary>€{totalPrice}</TextLargePrimary>
+                  <HeadingH1>€{totalPrice}</HeadingH1>
                 </TotalsContainer>
-              </TotalsContainer>
+              </CartContainer>
 
               {currentUser ? (
-                <>
+                <PaymentContainer>
                   <HeadingH2> Payment details </HeadingH2>
                   <TextSmall>Complete your payment details</TextSmall>
                   <form>
                     <TextSmall> ... </TextSmall>
                   </form>
-                  <Button
+                  <PaymentButton
                     to="/confirmation"
                     type="submit"
                     onClick={async () => {
                       try {
                         await handleSubmit();
                         dispatch(clearCart());
+                        window.scrollTo({ top: 0, left: 0 });
                       } catch (err) {
                         console.log(err);
                       }
                     }}
                   >
                     Confirm payment
-                  </Button>
-                </>
+                  </PaymentButton>
+                </PaymentContainer>
               ) : (
                 <LoginMessage
                   message={
@@ -123,8 +122,11 @@ const ShoppingCart = () => {
               )}
             </>
           )}
-        </Container>
-      </MainContainer>
+          <HalfSliderSection tours={tours} />
+        </Content>
+      </Container>
+      <LocationSection />
+      <Newsletters />
       <Footer />
     </>
   );

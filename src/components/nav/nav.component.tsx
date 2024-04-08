@@ -10,26 +10,17 @@ import MobileNav from "../navMobile/mobileNav.component";
 
 import Container from "react-bootstrap/Container";
 import {
-  BackgroundImage,
   CartIcon,
-  Content,
   Icon,
   IconFav,
   ImageLogo,
-  ImageUser,
   LinkNav,
-  LinkNavMenu,
-  LinksUser,
+  LinkNavUser,
+  LinkNavUserName,
   Nav,
   NavContainer,
-  NavContent,
-  NavMenu,
-  NavMenuContent,
 } from "./nav.styles";
-
-import Logo from "../../img/logo.png";
-import BackgroundHeaderImgHalf from "../../img/hero-2000-half.png";
-import BackgroundHeaderImg from "../../img/hero-2000.png";
+import LogoWhite from "../../img/logoWhite.png";
 
 const cookies = new Cookies();
 
@@ -42,7 +33,6 @@ const Navigation = () => {
 
   const [openNav, setOpenNav] = useState<boolean>(false);
   const [show, handleShow] = useState<boolean>(false);
-  const [home, setHome] = useState<boolean>(false);
 
   const handleSubmit = () => {
     cookies.remove("jwt", { path: "/" });
@@ -52,14 +42,6 @@ const Navigation = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0 });
   };
-
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setHome(true);
-    } else setHome(false);
-  }, [location.pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -71,159 +53,79 @@ const Navigation = () => {
 
   return (
     <>
-      {home ? (
-        <BackgroundImage src={BackgroundHeaderImg} loading="lazy" />
-      ) : (
-        <BackgroundImage src={BackgroundHeaderImgHalf} loading="lazy" />
-      )}
-      <NavContainer>
-        <Nav stickyNav={show}>
-          <Container>
-            <Content>
-              <NavContent>
-                <Link to="/">
-                  <ImageLogo
-                    src={`${Logo}`}
-                    alt="Surfo logo"
-                    loading="lazy"
-                    onClick={scrollToTop}
-                  />
-                </Link>
-                <LinkNav
-                  stickyNav={show}
-                  to="/offer"
-                  onClick={() => {
-                    scrollToTop();
-                    dispatch(inActiveScrollToOffer());
-                  }}
-                >
-                  offer
+      <Nav stickyNav={show}>
+        <Container>
+          <NavContainer stickyNav={show}>
+            <Link to="/">
+              <ImageLogo
+                src={LogoWhite}
+                alt="Surfo logo"
+                loading="lazy"
+                onClick={scrollToTop}
+              />
+            </Link>
+            {currentUser && (
+              <LinkNav to="">
+                <LinkNavUser to="/myAccount/user" onClick={scrollToTop}>
+                  <span>Hi.</span>
+                  <LinkNavUserName stickyNav={show}>
+                    {currentUser.name.split(" ")[0]}
+                  </LinkNavUserName>
+                </LinkNavUser>
+              </LinkNav>
+            )}
+            <LinkNav
+              to="/offer"
+              onClick={() => {
+                scrollToTop();
+                dispatch(inActiveScrollToOffer());
+              }}
+            >
+              offer
+            </LinkNav>
+            {!currentUser && (
+              <>
+                <LinkNav to="/login" onClick={scrollToTop}>
+                  Log In
                 </LinkNav>
-              </NavContent>
-              <NavContent>
-                {currentUser ? (
-                  <NavContent>
-                    {mobileNav ? (
-                      <>
-                        <LinksUser
-                          to=""
-                          onClick={() => {
-                            dispatch(openMobileMenu());
-                          }}
-                        >
-                          <ImageUser
-                            src={require(`../../img/${currentUser.photo}`)}
-                            alt="User_photo"
-                            loading="lazy"
-                          />
-                          <LinkNav to="" stickyNav={show}>
-                            {currentUser.name.split(" ")[0]}
-                          </LinkNav>
-                        </LinksUser>
-                        <LinkNav
-                          to="/myAccount/favorites"
-                          stickyNav={show}
-                          onClick={scrollToTop}
-                        >
-                          {bookmarks.length === 0 ? (
-                            <Icon>
-                              <IonIcon size="large" name="bookmark-outline" />
-                            </Icon>
-                          ) : (
-                            <IconFav>
-                              <IonIcon size="large" name="bookmark" />
-                            </IconFav>
-                          )}
-                        </LinkNav>
-                      </>
-                    ) : (
-                      <>
-                        <NavMenu
-                          active={openNav}
-                          onMouseEnter={() => setOpenNav(true)}
-                          onMouseLeave={() => setOpenNav(false)}
-                        >
-                          {openNav && (
-                            <NavMenuContent>
-                              <LinkNavMenu
-                                to="/"
-                                onClick={() => {
-                                  handleSubmit();
-                                }}
-                              >
-                                Log out
-                              </LinkNavMenu>
-                            </NavMenuContent>
-                          )}
-                          <LinksUser
-                            onClick={() => {
-                              setOpenNav(true);
-                              scrollToTop();
-                            }}
-                            to="/myAccount/user"
-                          >
-                            <ImageUser
-                              src={require(`../../img/${currentUser.photo}`)}
-                              alt="User_photo"
-                              loading="lazy"
-                            />
-                            <LinkNav
-                              stickyNav={show}
-                              to="/myAccount/user"
-                              onClick={scrollToTop}
-                            >
-                              {currentUser.name.split(" ")[0]}
-                            </LinkNav>
-                          </LinksUser>
-                        </NavMenu>
-                        <LinkNav
-                          stickyNav={show}
-                          to="/myAccount/favorites"
-                          onClick={scrollToTop}
-                        >
-                          {bookmarks.length === 0 ? (
-                            <Icon>
-                              <IonIcon size="large" name="bookmark-outline" />
-                            </Icon>
-                          ) : (
-                            <IconFav>
-                              <IonIcon size="large" name="bookmark" />
-                            </IconFav>
-                          )}
-                        </LinkNav>
-                      </>
-                    )}
-                  </NavContent>
-                ) : (
-                  <NavContent>
-                    <LinkNav to="/login" stickyNav={show} onClick={scrollToTop}>
-                      Log In
-                    </LinkNav>
-                    <LinkNav
-                      to="/signup"
-                      stickyNav={show}
-                      onClick={scrollToTop}
-                    >
-                      Sign Up
-                    </LinkNav>
-                  </NavContent>
-                )}
-                <LinkNav
-                  to="/shoppingCart"
-                  stickyNav={show}
-                  onClick={scrollToTop}
-                >
+                <LinkNav to="/signup" onClick={scrollToTop}>
+                  Sign Up
+                </LinkNav>
+              </>
+            )}
+            {currentUser && (
+              <LinkNav to="/myAccount/favorites" onClick={scrollToTop}>
+                {bookmarks.length === 0 ? (
                   <Icon>
-                    <IonIcon size="large" name="cart-outline" />
+                    <IonIcon size="large" name="bookmark-outline" />
                   </Icon>
-                  {cart.length !== 0 && <CartIcon />}
-                </LinkNav>
-              </NavContent>
-            </Content>
-          </Container>
-        </Nav>
-        {mobileNavContent && <MobileNav />}
-      </NavContainer>
+                ) : (
+                  <IconFav>
+                    <IonIcon size="large" name="bookmark" />
+                  </IconFav>
+                )}
+              </LinkNav>
+            )}
+            <LinkNav to="/shoppingCart" onClick={scrollToTop}>
+              <Icon>
+                <IonIcon size="large" name="cart-outline" />
+              </Icon>
+              {cart.length !== 0 && <CartIcon />}
+            </LinkNav>
+            {currentUser && (
+              <LinkNav
+                to="/"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Log out
+              </LinkNav>
+            )}
+          </NavContainer>
+        </Container>
+      </Nav>
+      {mobileNavContent && <MobileNav />}
       <Outlet />
     </>
   );

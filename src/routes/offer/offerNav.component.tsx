@@ -6,9 +6,8 @@ import {
   showLocation,
   showType,
 } from "../../features/searchTabSlice";
+import { ClearLink, Heading, NavContent } from "./offer.styles";
 import IonIcon from "@reacticons/ionicons";
-
-import { ClearLink, Heading, HeadingContainer } from "./offer.styles";
 
 const OfferNav = ({
   refName,
@@ -27,7 +26,7 @@ const OfferNav = ({
   return (
     <>
       {!showOffer && (
-        <HeadingContainer>
+        <NavContent>
           {selectedOptionType && (
             <Heading
               to=""
@@ -62,7 +61,7 @@ const OfferNav = ({
             <IonIcon size="large" name="close-outline" />
             clear all
           </ClearLink>
-        </HeadingContainer>
+        </NavContent>
       )}
     </>
   );

@@ -4,11 +4,7 @@ import { removeFromCart } from "../../features/cartSlice";
 import Counter from "../counter/counter.component";
 import IonIcon from "@reacticons/ionicons";
 
-import {
-  HeadingH2,
-  TextLargePrimary,
-  TextMedium,
-} from "../../styled/typography";
+import { HeadingH2, TextMedium } from "../../styled/typography";
 import { IconGrey } from "../../styled/icons";
 import {
   DescriptionContent,
@@ -28,7 +24,7 @@ const ShoppingCartItem = ({ tour }: { tour: Tour }) => {
     <Content>
       <IconTrash onClick={() => dispatch(removeFromCart(tour._id))}>
         <IconGrey>
-          <IonIcon size="large" name="trash-outline" />
+          <IonIcon size="large" name="close-outline" />
         </IconGrey>
       </IconTrash>
       <LinkContent to={`/tour/${tour._id}`}>
@@ -49,7 +45,7 @@ const ShoppingCartItem = ({ tour }: { tour: Tour }) => {
           </DescriptionContent>
           <PriceContent>
             <Price>
-              <TextLargePrimary>€{tour.price}</TextLargePrimary>
+              <HeadingH2>€{tour.price}</HeadingH2>
               <TextMedium>/per person</TextMedium>
             </Price>
             <Counter tour={tour} />

@@ -12,8 +12,4 @@ export const IconArrow = styled.div`
   &:hover {
     scale: 1.8;
   }
-
-  @media only screen and (max-width: 992px) {
-    display: none;
-  }
 `;

@@ -9,6 +9,7 @@ export const HeadingH1 = styled.h1`
 export const HeadingH2 = styled.h2`
   font-size: 3rem;
   font-weight: 700;
+  text-transform: uppercase;
 `;
 
 export const HeadingH3 = styled.h3`
@@ -66,13 +67,25 @@ export const LinkGrey = styled(Link)`
   }
 `;
 
+//////////////////////////////
+
 export const LinkWhite = styled(Link)`
-  font-size: 2.6rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: ${(props) => props.theme.colors.whiteText};
 
   &:hover {
     color: ${(props) => props.theme.colors.whiteText};
     transform: translateY(-1px);
+  }
+`;
+
+export const TextWhite = styled.span`
+  font-size: 2rem;
+  color: ${(props) => props.theme.colors.whiteText};
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.1);
   }
 `;

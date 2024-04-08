@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import type { Tour } from "../../models/tour";
 import { controlBookmark } from "../../features/bookmarksSlice";
-import IonIcon from "@reacticons/ionicons";
 
+import IonIcon from "@reacticons/ionicons";
 import { HeadingH3, TextMedium } from "../../styled/typography";
 import {
   BookmarkIcon,
@@ -17,9 +18,15 @@ const CardSmall = ({ tour }: { tour: Tour; slider?: boolean }) => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const { bookmarks } = useAppSelector((store) => store.bookmark);
   const dispatch = useAppDispatch();
+  const [showDetails, setShowDetails] = useState(
+    window.innerWidth >= 992 ? false : true
+  );
 
   return (
-    <Content>
+    <Content
+      onMouseOver={() => setShowDetails(true)}
+      onMouseOut={() => setShowDetails(window.innerWidth >= 992 ? false : true)}
+    >
       <ImageCard
         src={require(`../../img/${tour.imageCover}`)}
         alt="tour"
@@ -34,23 +41,25 @@ const CardSmall = ({ tour }: { tour: Tour; slider?: boolean }) => {
           )}
         </BookmarkIcon>
       )}
-      <Details>
-        <HeadingH3>{tour.name}</HeadingH3>
-        <ContentDetails>
-          <TextMedium>
-            {tour.island}, Canaries <br />
-            {tour.days}-day trip
-          </TextMedium>
-          <Button
-            to={`/tour/${tour._id}`}
-            onClick={() => {
-              window.scrollTo({ top: 0, left: 0 });
-            }}
-          >
-            See more
-          </Button>
-        </ContentDetails>
-      </Details>
+      {showDetails && (
+        <Details>
+          <HeadingH3>{tour.name}</HeadingH3>
+          <ContentDetails>
+            <TextMedium>
+              {tour.island}, Canaries <br />
+              {tour.days}-day trip
+            </TextMedium>
+            <Button
+              to={`/tour/${tour._id}`}
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0 });
+              }}
+            >
+              See more
+            </Button>
+          </ContentDetails>
+        </Details>
+      )}
     </Content>
   );
 };

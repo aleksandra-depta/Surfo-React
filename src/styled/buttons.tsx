@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { DefaultTheme } from "styled-components/dist/types";
 
-export const ButtonPrimary = styled(Link)<{ props: DefaultTheme }>`
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.white};
+const Button = styled(Link)<{ props: DefaultTheme }>`
   font-size: 2.4rem;
   font-weight: 600;
-  border-radius: 5rem;
+  border-radius: 4px;
   border: none;
   text-decoration: none;
   cursor: pointer;
@@ -15,16 +13,15 @@ export const ButtonPrimary = styled(Link)<{ props: DefaultTheme }>`
   text-align: center;
   transition: all 0.2s;
   white-space: nowrap;
+  height: max-content;
 
   &:hover {
     transform: scale(102%);
-    background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
   }
 `;
 
-export const ButtonSecondary = styled(ButtonPrimary)`
+export const ButtonSecondary = styled(Button)`
   background-color: ${(props) => props.theme.colors.secondary};
 
   &:hover {
@@ -32,7 +29,7 @@ export const ButtonSecondary = styled(ButtonPrimary)`
   }
 `;
 
-export const ButtonSecondaryInactive = styled(ButtonPrimary)`
+export const ButtonSecondaryInactive = styled(Button)`
   background-color: ${(props) => props.theme.colors.whiteText};
   color: ${(props) => props.theme.colors.darkText};
 
@@ -43,60 +40,42 @@ export const ButtonSecondaryInactive = styled(ButtonPrimary)`
   }
 `;
 
-export const ButtonWhite = styled(ButtonPrimary)`
+export const ButtonSmallWhite = styled(Button)`
   background-color: ${(props) => props.theme.colors.whiteText};
   color: ${(props) => props.theme.colors.darkText};
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.whiteText};
-  }
-`;
-
-export const ButtonSmallPrimary = styled(Link)`
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.white};
   font-size: 1.8rem;
   font-weight: 400;
-  border-radius: 5rem;
-  text-decoration: none;
-  cursor: pointer;
   padding: 1rem 2rem;
-  text-align: center;
-  transition: all 0.2s;
-  white-space: nowrap;
-
-  &:hover {
-    transform: scale(102%);
-    color: ${(props) => props.theme.colors.white};
-  }
-`;
-
-export const ButtonSmallWhite = styled(ButtonSmallPrimary)`
-  background-color: ${(props) => props.theme.colors.whiteText};
-  color: ${(props) => props.theme.colors.darkText};
 
   &:hover {
     color: ${(props) => props.theme.colors.darkText};
   }
 `;
 
-export const ButtonWhiteBasic = styled.button`
-  border: 2px solid ${(props) => props.theme.colors.darkText};
+export const ButtonBlack = styled(Button)`
+  background-color: ${(props) => props.theme.colors.darkText};
+  color: ${(props) => props.theme.colors.whiteText};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.whiteText};
+  }
+`;
+
+export const ButtonRawWhite = styled(Button)`
   background-color: transparent;
-  padding: 20px 100px;
-  border-radius: 5px;
-  font-size: 1.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s;
   color: ${(props) => props.theme.colors.darkText};
-  text-decoration: none;
-  text-align: center;
+  border: 1px solid ${(props) => props.theme.colors.darkText};
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
   height: max-content;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.lightShades};
+    color: ${(props) => props.theme.colors.darkText};
   }
+`;
+
+export const ButtonRawWhiteSmall = styled(ButtonRawWhite)`
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
 `;

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { linksGroup, socialMediaIcons } from "../../services/dataFooter";
-import IonIcon from "@reacticons/ionicons";
-
-import { HeadingH3, LinkGrey, TextSmall } from "../../styled/typography";
-import { IconSocialMedia } from "../../styled/icons";
-import { Column, Content, Icons, ImageLogo, Row } from "./footer.styles";
 
 import Logo from "../../img/logo.png";
+import { HeadingH3, LinkGrey, TextSmall } from "../../styled/typography";
+import { IconSocialMedia } from "../../styled/icons";
+import { Column, Content, Icons, ImageLogo } from "./footer.styles";
+import IonIcon from "@reacticons/ionicons";
+import { Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
             ))}
           </Icons>
           <TextSmall>
-            Copyright &copy; 2023 by Surfo,
+            Copyright &copy; 2024 by Surfo,
             <br /> Aleksandra Depta <br /> Inc. All rights reserved.
           </TextSmall>
         </Column>

@@ -3,12 +3,13 @@ import { useAppSelector } from "../../hooks";
 import CardSmall from "../../components/cardSmall/cardSmall.component";
 
 import { HeadingH2 } from "../../styled/typography";
-import { Content, SectionContainer, SeeMoreContainer } from "./offer.styles";
+import { SeeMoreHeading, SliderFullWidth } from "./offer.styles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { Col } from "react-bootstrap";
 
 const OfferSeeMore = ({ tours }: { tours: Tours }) => {
   const { selectedOptionType, selectedOptionLocation, showOffer } =
@@ -17,28 +18,36 @@ const OfferSeeMore = ({ tours }: { tours: Tours }) => {
   return (
     <>
       {!showOffer && selectedOptionLocation && selectedOptionType && (
-        <SectionContainer>
-          <HeadingH2>See more</HeadingH2>
-          <SeeMoreContainer>
+        <Col>
+          <SeeMoreHeading>
+            <HeadingH2>See more</HeadingH2>
+          </SeeMoreHeading>
+          <SliderFullWidth>
             <Swiper
-              spaceBetween={30}
-              slidesPerView={3}
-              pagination={{
-                clickable: true,
+              spaceBetween={10}
+              slidesPerView={4}
+              modules={[Navigation]}
+              loop={true}
+              navigation={{
+                prevEl: ".prevSliderSeeMore",
+                nextEl: ".nextSliderSeeMore",
               }}
-              modules={[Pagination]}
               breakpoints={{
                 0: {
                   spaceBetween: 10,
                   slidesPerView: 1,
                 },
-                768: {
-                  spaceBetween: 20,
+                567: {
+                  spaceBetween: 10,
                   slidesPerView: 2,
                 },
                 992: {
-                  spaceBetween: 30,
+                  spaceBetween: 10,
                   slidesPerView: 3,
+                },
+                1050: {
+                  spaceBetween: 10,
+                  slidesPerView: 4,
                 },
               }}
             >
@@ -50,92 +59,116 @@ const OfferSeeMore = ({ tours }: { tours: Tours }) => {
                 )
                 .map((tour) => (
                   <SwiperSlide key={tour._id}>
-                    <Content>
-                      <CardSmall tour={tour} />
-                    </Content>
+                    <CardSmall tour={tour} />
                   </SwiperSlide>
                 ))}
             </Swiper>
-          </SeeMoreContainer>
-        </SectionContainer>
+            <div className="prevSliderSeeMore">
+              <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+            </div>
+            <div className="nextSliderSeeMore">
+              <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
+            </div>
+          </SliderFullWidth>
+        </Col>
       )}
       {!showOffer && selectedOptionLocation && selectedOptionType === "" && (
-        <SectionContainer>
-          <HeadingH2>See more</HeadingH2>
-          <SeeMoreContainer>
+        <Col>
+          <SeeMoreHeading>
+            <HeadingH2>See more</HeadingH2>
+          </SeeMoreHeading>
+          <SliderFullWidth>
             <Swiper
               spaceBetween={30}
-              slidesPerView={3}
-              pagination={{
-                clickable: true,
+              slidesPerView={4}
+              modules={[Navigation]}
+              loop={true}
+              navigation={{
+                prevEl: ".prevSliderSeeMore",
+                nextEl: ".nextSliderSeeMore",
               }}
-              modules={[Pagination]}
-              breakpoints={{
-                0: {
-                  spaceBetween: 10,
-                  slidesPerView: 1,
-                },
-                768: {
-                  spaceBetween: 20,
-                  slidesPerView: 2,
-                },
-                992: {
-                  spaceBetween: 30,
-                  slidesPerView: 3,
-                },
-              }}
+              breakpoints={
+                {
+                  // 0: {
+                  //   spaceBetween: 10,
+                  //   slidesPerView: 1,
+                  // },
+                  // 768: {
+                  //   spaceBetween: 20,
+                  //   slidesPerView: 2,
+                  // },
+                  // 992: {
+                  //   spaceBetween: 30,
+                  //   slidesPerView: 3,
+                  // },
+                }
+              }
             >
               {tours.data
                 .filter((item) => item.island !== selectedOptionLocation)
                 .map((tour) => (
                   <SwiperSlide key={tour._id}>
-                    <Content>
-                      <CardSmall tour={tour} />
-                    </Content>
+                    <CardSmall tour={tour} />
                   </SwiperSlide>
                 ))}
             </Swiper>
-          </SeeMoreContainer>
-        </SectionContainer>
+            <div className="prevSliderSeeMore">
+              <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+            </div>
+            <div className="nextSliderSeeMore">
+              <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
+            </div>
+          </SliderFullWidth>
+        </Col>
       )}
       {!showOffer && selectedOptionType && selectedOptionLocation === "" && (
-        <SectionContainer>
-          <HeadingH2>See more</HeadingH2>
-          <SeeMoreContainer>
+        <Col>
+          <SeeMoreHeading>
+            <HeadingH2>See more</HeadingH2>
+          </SeeMoreHeading>
+          <SliderFullWidth>
             <Swiper
               spaceBetween={30}
-              slidesPerView={3}
-              pagination={{
-                clickable: true,
+              slidesPerView={4}
+              modules={[Navigation]}
+              loop={true}
+              navigation={{
+                prevEl: ".prevSliderSeeMore",
+                nextEl: ".nextSliderSeeMore",
               }}
-              modules={[Pagination]}
-              breakpoints={{
-                0: {
-                  spaceBetween: 10,
-                  slidesPerView: 1,
-                },
-                768: {
-                  spaceBetween: 20,
-                  slidesPerView: 2,
-                },
-                992: {
-                  spaceBetween: 30,
-                  slidesPerView: 3,
-                },
-              }}
+              breakpoints={
+                {
+                  // 0: {
+                  //   spaceBetween: 10,
+                  //   slidesPerView: 1,
+                  // },
+                  // 768: {
+                  //   spaceBetween: 20,
+                  //   slidesPerView: 2,
+                  // },
+                  // 992: {
+                  //   spaceBetween: 30,
+                  //   slidesPerView: 3,
+                  // },
+                }
+              }
             >
               {tours.data
                 .filter((item) => item.type !== selectedOptionType)
                 .map((tour) => (
                   <SwiperSlide key={tour._id}>
-                    <Content>
-                      <CardSmall tour={tour} />
-                    </Content>
+                    <CardSmall tour={tour} />
                   </SwiperSlide>
                 ))}
             </Swiper>
-          </SeeMoreContainer>
-        </SectionContainer>
+            <div className="prevSliderSeeMore">
+              <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+            </div>
+            <div className="nextSliderSeeMore">
+              <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
+            </div>
+          </SliderFullWidth>
+        </Col>
       )}
     </>
   );

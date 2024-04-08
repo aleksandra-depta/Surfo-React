@@ -3,16 +3,19 @@ import { IconBookmark } from "../../styled/icons";
 
 export const Content = styled.div`
   border-radius: 4px;
-  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-
-  display: flex;
-  flex-direction: column;
   position: relative;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 export const ImageCard = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
+  border-radius: 3px;
 `;
 
 export const BookmarkIcon = styled(IconBookmark)`
@@ -23,17 +26,23 @@ export const BookmarkIcon = styled(IconBookmark)`
 `;
 
 export const Details = styled.div`
-  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: max-content;
+  padding: 3rem 2rem;
+  background-color: ${(props) => props.theme.colors.darkTextTransp};
+  color: ${(props) => props.theme.colors.whiteText};
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const Description = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const IconStarsContainer = styled.div`
@@ -43,7 +52,6 @@ export const IconStarsContainer = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  padding-bottom: 20px;
 `;

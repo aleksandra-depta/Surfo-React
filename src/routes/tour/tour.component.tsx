@@ -1,29 +1,21 @@
 import type { Tour } from "../../models/tour";
-import Reviews from "../../components/reviews/reviews.component";
-import Comments from "../../components/comments/comments.component";
-import Footer from "../../components/footer/footer.component";
+import HeaderTour from "../../components/headerTour/headerTour,component";
 import CardTour from "../../components/cardTour/cardTour.component";
-
-import { CardSection, Section } from "./tour.styles";
 import CardTourDescription from "../../components/cardTourDescription/cardTourDescription.component";
+import Newsletters from "../../components/newsletter/newsletter.component";
+import ReviewsTour from "../../components/reviewsTour/reviewsTour.component";
+import Footer from "../../components/footer/footer.component";
+import MapSection from "../../components/mapSection/mapSection.component";
 
 const TourPage = ({ tour }: { tour: Tour }) => {
   return (
     <>
-      <CardSection>
-        <CardTour tour={tour} />
-      </CardSection>
-
-      <Section>
-        <CardTourDescription tour={tour} />
-      </Section>
-
-      <Section>
-        <Reviews tour={tour} />
-      </Section>
-      <Section>
-        <Comments tour={tour} />
-      </Section>
+      <HeaderTour tour={tour} />
+      <CardTour tour={tour} />
+      <CardTourDescription tour={tour} />
+      <MapSection tour={tour} />
+      <ReviewsTour tour={tour} />
+      <Newsletters />
       <Footer />
     </>
   );

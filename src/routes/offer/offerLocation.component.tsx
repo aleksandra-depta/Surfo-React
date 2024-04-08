@@ -1,12 +1,12 @@
 import type { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
 import CardSmall from "../../components/cardSmall/cardSmall.component";
-import { Content, SectionContainer } from "./offer.styles";
+import { Slider } from "./offer.styles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 
 const OfferLocation = ({ tours }: { tours: Tours }) => {
   const { selectedOptionLocation, showOffer, showLocationOffer } =
@@ -15,26 +15,28 @@ const OfferLocation = ({ tours }: { tours: Tours }) => {
   return (
     <>
       {!showOffer && showLocationOffer && selectedOptionLocation && (
-        <SectionContainer>
+        <Slider>
           <Swiper
-            spaceBetween={30}
-            slidesPerView={4}
-            pagination={{
-              clickable: true,
+            spaceBetween={10}
+            slidesPerView={3}
+            modules={[Navigation]}
+            loop={true}
+            navigation={{
+              prevEl: ".prevSliderLocation",
+              nextEl: ".nextSliderLocation",
             }}
-            modules={[Pagination]}
             breakpoints={{
               0: {
                 spaceBetween: 10,
                 slidesPerView: 1,
               },
-              768: {
-                spaceBetween: 20,
+              420: {
+                spaceBetween: 10,
                 slidesPerView: 2,
               },
-              992: {
-                spaceBetween: 30,
-                slidesPerView: 4,
+              768: {
+                spaceBetween: 10,
+                slidesPerView: 3,
               },
             }}
           >
@@ -42,13 +44,17 @@ const OfferLocation = ({ tours }: { tours: Tours }) => {
               .filter((item) => item.island === selectedOptionLocation)
               .map((tour) => (
                 <SwiperSlide key={tour._id}>
-                  <Content>
-                    <CardSmall tour={tour} />
-                  </Content>
+                  <CardSmall tour={tour} />
                 </SwiperSlide>
               ))}
           </Swiper>
-        </SectionContainer>
+          <div className="prevSliderLocation">
+            <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+          </div>
+          <div className="nextSliderLocation">
+            <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
+          </div>
+        </Slider>
       )}
     </>
   );

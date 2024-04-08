@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input`
   border: none;
-  border-radius: 50rem;
+  /* border-radius: 50rem; */
   padding: 1.6rem;
   font-size: 2rem;
   display: flex;
