@@ -4,11 +4,12 @@ import { useSignUpMutation } from "../../services/toursApi";
 import IonIcon from "@reacticons/ionicons";
 
 import ErrorMessageInput from "../../components/input/errorMessage.component";
+import LoggedIn from "../authLoggedIn/authLoggedIn.component";
 
 import { LinkPrimary, TextSmall } from "../../styled/typography";
 import { IconForm } from "../../styled/icons";
 import { InputFrom, InputRow, Label } from "../../styled/inputs";
-import { ButtonBlack, ButtonSecondary } from "../../styled/buttons";
+import { ButtonBlack } from "../../styled/buttons";
 import {
   Content,
   Form,
@@ -17,7 +18,6 @@ import {
   Links,
   Row,
 } from "./authSignUp.styles";
-import LoggedIn from "../authLoggedIn/authLoggedIn.component";
 
 const SignUpPage = () => {
   const { currentUser } = useAppSelector((store) => store.auth);

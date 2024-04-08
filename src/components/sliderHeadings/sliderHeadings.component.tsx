@@ -1,6 +1,5 @@
-import { Col, Row } from "react-bootstrap";
-import { Tours } from "../../models/tours";
-import { Headings, Slider } from "./sliderHeadings.styles";
+import { Col } from "react-bootstrap";
+import { Headings } from "./sliderHeadings.styles";
 import { HeadingH2 } from "../../styled/typography";
 import { ButtonRawWhite } from "../../styled/buttons";
 

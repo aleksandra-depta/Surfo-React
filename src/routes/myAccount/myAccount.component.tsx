@@ -1,7 +1,7 @@
 import MyAccountUserName from "./myAccountUserName.compoennt";
 import MyAccountEmail from "./myAccountEmail.compoent";
 import MyAccountPassword from "./myAccountPassword.compoent";
-import MyAccountImage from "./myAccountImage.compoennt";
+// import MyAccountImage from "./myAccountImage.compoennt";
 
 import { HeadingH2, TextSmall } from "../../styled/typography";
 import { Content, Headings } from "./myAccount.styles";

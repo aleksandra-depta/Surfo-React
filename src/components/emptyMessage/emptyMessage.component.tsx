@@ -1,4 +1,4 @@
-import { ButtonBlack, ButtonRawWhite } from "../../styled/buttons";
+import { ButtonRawWhite } from "../../styled/buttons";
 import { HeadingH2 } from "../../styled/typography";
 import { Content } from "./emptyMessage.styles";
 

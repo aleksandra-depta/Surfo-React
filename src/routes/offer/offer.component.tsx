@@ -11,10 +11,9 @@ import Reviews from "../../components/reviewsSection/reviews.components";
 import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sliderCardsSmallSection.component";
 import Footer from "../../components/footer/footer.component";
 
-import BackgroundImg from "../../img/header.jpg";
 import { HeadingH2 } from "../../styled/typography";
 import { ShowContent, Slider, SliderContainer } from "./offer.styles";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 const OfferPage = ({ tours }: { tours: Tours }) => {
   const sectionSearchTab = useRef<HTMLDivElement>(null);

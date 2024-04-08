@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { logout } from "../../features/authSlice";
-import { openMobileMenu } from "../../features/navSlice";
 import { inActiveScrollToOffer } from "../../features/searchTabSlice";
 import Cookies from "universal-cookie";
 import IonIcon from "@reacticons/ionicons";
@@ -28,10 +27,8 @@ const Navigation = () => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const { cart } = useAppSelector((store) => store.cart);
   const { bookmarks } = useAppSelector((store) => store.bookmark);
-  const { mobileNav, mobileNavContent } = useAppSelector((store) => store.nav);
   const dispatch = useAppDispatch();
 
-  const [openNav, setOpenNav] = useState<boolean>(false);
   const [show, handleShow] = useState<boolean>(false);
 
   const handleSubmit = () => {
@@ -125,7 +122,6 @@ const Navigation = () => {
           </NavContainer>
         </Container>
       </Nav>
-      {mobileNavContent && <MobileNav />}
       <Outlet />
     </>
   );

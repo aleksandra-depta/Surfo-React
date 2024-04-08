@@ -5,7 +5,6 @@ import {
   optionsType,
 } from "../../services/dataSelectTab";
 import {
-  activeScrollToOffer,
   hideAllOffer,
   hideLocation,
   hideType,
@@ -30,7 +29,6 @@ import {
   SearchTabContainer,
 } from "./selectTab.styles";
 import IonIcon from "@reacticons/ionicons";
-import { Col, Row } from "react-bootstrap";
 
 const SelectTab = () => {
   const { selectedOptionType, selectedOptionLocation, startDate, endDate } =

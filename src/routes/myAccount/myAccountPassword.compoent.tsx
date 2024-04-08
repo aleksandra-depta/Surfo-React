@@ -5,11 +5,7 @@ import IonIcon from "@reacticons/ionicons";
 import ErrorMessageInput from "../../components/input/errorMessage.component";
 import LoginAgain from "../../components/loginAgain/loginAgain.component";
 
-import {
-  ButtonBlack,
-  ButtonSecondary,
-  ButtonSmallWhite,
-} from "../../styled/buttons";
+import { ButtonBlack, ButtonSmallWhite } from "../../styled/buttons";
 import { HeadingH2, TextMedium } from "../../styled/typography";
 import { IconForm, IconGrey } from "../../styled/icons";
 import { InputFrom, Label } from "../../styled/inputs";

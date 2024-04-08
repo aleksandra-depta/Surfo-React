@@ -6,7 +6,7 @@ import IonIcon from "@reacticons/ionicons";
 import ErrorMessageInput from "../../components/input/errorMessage.component";
 import InfoMessageInput from "../../components/input/infoMessage.component";
 
-import { ButtonBlack, ButtonSecondary } from "../../styled/buttons";
+import { ButtonBlack } from "../../styled/buttons";
 import { HeadingH3, LinkGrey, TextSmall } from "../../styled/typography";
 import { IconForm } from "../../styled/icons";
 import { InputFrom, InputRow, Label } from "../../styled/inputs";

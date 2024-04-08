@@ -27,19 +27,14 @@ import {
   PaymentButton,
   PaymentContainer,
   ShopingCartContainer,
-  Slider,
-  SliderContainer,
   TotalsContainer,
 } from "./shoppingCart.styles";
 
-import { Col, Row } from "react-bootstrap";
-import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sliderCardsSmallSection.component";
 import HalfSliderSection from "../../components/halfSliderSection/halfSliderSection.component";
 
 const ShoppingCart = ({ tours }: { tours: Tours }) => {
   const { cart, totalPrice } = useAppSelector((store) => store.cart);
   const { currentUser } = useAppSelector((store) => store.auth);
-  const [scroll, setScroll] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const [addBooking] = useAddBookingMutation();
 
