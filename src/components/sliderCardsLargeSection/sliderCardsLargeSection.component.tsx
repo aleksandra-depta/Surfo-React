@@ -27,7 +27,7 @@ const SliderCardsLargeSection = ({ tours }: { tours: Tours }) => {
             spaceBetween: 10,
             slidesPerView: 2,
           },
-          1100: {
+          1200: {
             spaceBetween: 30,
             slidesPerView: 3,
           },

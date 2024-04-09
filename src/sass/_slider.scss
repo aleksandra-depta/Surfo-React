@@ -10,7 +10,7 @@
   position: absolute;
   top: calc(58rem / 2);
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     height: 40px;
     width: 40px;
     top: 50%;
@@ -49,7 +49,7 @@
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     top: 0;
     height: 40px;
     width: 40px;
@@ -62,7 +62,7 @@
 .nextOffer,
 .prevSliderReviewTour,
 .nextSliderReviewTour {
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     bottom: -8rem;
     top: auto;
   }
@@ -79,7 +79,7 @@
 .prevSliderLarge {
   left: -8rem;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     left: auto;
     right: 7rem;
   }
@@ -88,7 +88,7 @@
 .prevSliderMedium {
   left: -8rem;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     left: auto;
     right: 7rem;
   }
@@ -97,7 +97,7 @@
 .prevSliderReview {
   left: 0;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     left: auto;
     right: 7rem;
   }
@@ -115,7 +115,7 @@
 .nextSliderMedium {
   right: -8rem;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     right: 0rem;
   }
 }
@@ -128,12 +128,12 @@
 .nextSliderLarge {
   top: 50%;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     top: 0;
     transform: translateY(0%);
   }
 
-  @media only screen and (min-width: 1100px) {
+  @media only screen and (min-width: 1200px) {
     display: none;
   }
 
@@ -160,7 +160,7 @@
 
 .nextSliderMedium,
 .prevSliderMedium {
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     bottom: -10rem;
     top: auto;
   }

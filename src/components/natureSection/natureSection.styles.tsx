@@ -13,6 +13,9 @@ export const Container = styled.div`
   @media only screen and (max-width: 992px) {
     max-height: 156rem;
   }
+  @media only screen and (max-width: 576px) {
+    height: 180vh;
+  }
 
   &::after {
     content: "";
@@ -26,6 +29,9 @@ export const Container = styled.div`
 
     @media only screen and (max-width: 992px) {
       max-height: 156rem;
+    }
+    @media only screen and (max-width: 576px) {
+      height: 180vh;
     }
   }
 
@@ -43,6 +49,9 @@ export const Container = styled.div`
 
     @media only screen and (max-width: 992px) {
       max-height: 156rem;
+    }
+    @media only screen and (max-width: 576px) {
+      height: 180vh;
     }
   }
 `;

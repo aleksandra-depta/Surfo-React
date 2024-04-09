@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Slider = styled.div`
   position: relative;
 
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     padding-right: 20rem;
     width: 76%;
   }
@@ -18,7 +18,7 @@ export const Slider = styled.div`
 
 export const SliderCardsSmall = styled(Slider)`
   margin: 0 8rem;
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     margin: 0;
   }
 `;

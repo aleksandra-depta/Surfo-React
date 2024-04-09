@@ -5,7 +5,7 @@ export const Headings = styled.div`
   justify-content: space-between;
   margin: 20rem 0 10rem 0;
 
-  @media only screen and (min-width: 1100px) {
+  @media only screen and (max-width: 1200px) {
     margin: 10rem 0;
   }
 `;

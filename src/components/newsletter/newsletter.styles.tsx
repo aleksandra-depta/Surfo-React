@@ -12,6 +12,10 @@ export const Newsletter = styled.div<{
   max-height: 140rem;
   width: 100%;
 
+  @media only screen and (max-width: 768px) {
+    margin-top: 20rem;
+  }
+
   &::before {
     content: "";
     background-image: url(${require(`../../img/bg02.jpg`)});
