@@ -11,7 +11,7 @@ export const Content = styled.div`
   margin: 5px;
   transition: all 0.2s ease-in-out;
 
-  @media only screen and (min-width: 576px) {
+  @media only screen and (min-width: 1200px) {
     height: 56rem;
     max-width: 320px;
   }
