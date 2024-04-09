@@ -10,7 +10,7 @@
   position: absolute;
   top: calc(58rem / 2);
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     height: 40px;
     width: 40px;
     top: 50%;
@@ -49,7 +49,7 @@
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     top: 0;
     height: 40px;
     width: 40px;
@@ -62,7 +62,7 @@
 .nextOffer,
 .prevSliderReviewTour,
 .nextSliderReviewTour {
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     bottom: -8rem;
     top: auto;
   }
@@ -79,7 +79,7 @@
 .prevSliderLarge {
   left: -8rem;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     left: auto;
     right: 7rem;
   }
@@ -87,12 +87,17 @@
 
 .prevSliderMedium {
   left: -8rem;
+
+  @media only screen and (max-width: 1100px) {
+    left: auto;
+    right: 7rem;
+  }
 }
 
 .prevSliderReview {
   left: 0;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     left: auto;
     right: 7rem;
   }
@@ -106,16 +111,13 @@
 .nextSliderSeeMore,
 .nextSliderType,
 .nextCart,
-.nextSliderLarge {
-  right: -8rem;
-
-  @media only screen and (max-width: 992px) {
-    right: 0rem;
-  }
-}
-
+.nextSliderLarge,
 .nextSliderMedium {
   right: -8rem;
+
+  @media only screen and (max-width: 1100px) {
+    right: 0rem;
+  }
 }
 
 .nextSliderReview {
@@ -126,17 +128,40 @@
 .nextSliderLarge {
   top: 50%;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1100px) {
     top: 0;
     transform: translateY(0%);
   }
 
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1100px) {
     display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    bottom: -10rem;
+    top: auto;
   }
 }
 
 .nextSliderMedium,
 .prevSliderMedium {
   top: 50%;
+}
+
+.prevHomeCardsSmall,
+.nextHomeCardsSmall,
+.nextSliderMedium,
+.prevSliderMedium {
+  @media only screen and (max-width: 768px) {
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextSliderMedium,
+.prevSliderMedium {
+  @media only screen and (max-width: 1100px) {
+    bottom: -10rem;
+    top: auto;
+  }
 }

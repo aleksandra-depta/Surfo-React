@@ -21,7 +21,9 @@ const CardMedium = ({ tour }: { tour: Tour; slider?: boolean }) => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const { bookmarks } = useAppSelector((store) => store.bookmark);
   const dispatch = useAppDispatch();
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(
+    window.innerWidth >= 1100 ? false : true
+  );
 
   return (
     <Content

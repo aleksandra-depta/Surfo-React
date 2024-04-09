@@ -5,11 +5,14 @@ export const Container = styled.div`
   height: 120vh;
   width: 100%;
   max-height: 120rem;
-  padding-bottom: 20vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10rem;
   position: relative;
+
+  @media only screen and (max-width: 992px) {
+    max-height: 156rem;
+  }
 
   &::after {
     content: "";
@@ -17,9 +20,13 @@ export const Container = styled.div`
     top: 0rem;
     left: 13rem;
     height: 120vh;
-    max-height: 120rem;
+    max-height: 130rem;
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
+
+    @media only screen and (max-width: 992px) {
+      max-height: 156rem;
+    }
   }
 
   &::before {
@@ -34,8 +41,8 @@ export const Container = styled.div`
     max-height: 120rem;
     z-index: -80;
 
-    @media only screen and (max-width: 1050) {
-      max-height: fit-content;
+    @media only screen and (max-width: 992px) {
+      max-height: 156rem;
     }
   }
 `;
@@ -45,7 +52,7 @@ export const Heading = styled.h1`
   font-size: 20rem;
   color: ${(props) => props.theme.colors.whiteText};
   text-align: center;
-  padding-top: 10vh;
+  padding-top: 15rem;
 
   @media only screen and (max-width: 992px) {
     font-size: 14rem;
@@ -77,8 +84,8 @@ export const Description = styled.div`
   padding-left: 20rem;
   position: relative;
 
-  @media only screen and (max-width: 576px) {
-    padding-left: 16rem;
+  @media only screen and (max-width: 768px) {
+    gap: 1rem;
   }
 
   &::after {
@@ -103,18 +110,15 @@ export const Cards = styled.div`
   margin-top: 5rem;
   margin: 0 3rem;
   position: relative;
+  margin-right: 10rem;
 
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 992px) {
     margin: 5rem 0;
     margin-left: auto;
-    margin-right: 5rem;
     max-width: 50rem;
   }
-
   @media only screen and (max-width: 576px) {
-    margin-left: 13.2rem;
-    margin-right: auto;
-    margin-top: 5rem;
-    width: 30rem;
+    width: 50rem;
+    margin-right: 2rem;
   }
 `;

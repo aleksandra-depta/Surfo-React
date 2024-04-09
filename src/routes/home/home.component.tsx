@@ -36,7 +36,7 @@ const HomePage = ({ tours }: { tours: Tours }) => {
           <SliderCardsSmallSection
             tours={tours}
             slideNum={
-              window.innerWidth <= 1050
+              window.innerWidth <= 1100
                 ? window.innerWidth <= 992
                   ? window.innerWidth <= 567
                     ? 1

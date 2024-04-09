@@ -32,5 +32,6 @@ export const Content = styled.div`
 `;
 
 export const Icon = styled.img`
-  max-width: 20rem;
+  max-width: 18rem;
+  width: 100%;
 `;

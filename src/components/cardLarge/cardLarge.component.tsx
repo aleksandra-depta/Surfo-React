@@ -25,7 +25,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
   const dispatch = useAppDispatch();
 
   const [showDetails, setShowDetails] = useState(
-    window.innerWidth >= 992 ? false : true
+    window.innerWidth >= 1100 ? false : true
   );
 
   return (
@@ -39,7 +39,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
           )}
         </BookmarkIcon>
       )}
-      {window.innerWidth <= 992 ? (
+      {window.innerWidth <= 1100 ? (
         <>
           <ImageCard
             src={require(`../../img/${tour.cardLargeImgSlider[0]}`)}
