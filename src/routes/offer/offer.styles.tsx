@@ -13,6 +13,7 @@ export const BackgroundImage = styled.img`
 export const NavContent = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 20rem;
 
   @media only screen and (max-width: 992px) {
     flex-direction: row;

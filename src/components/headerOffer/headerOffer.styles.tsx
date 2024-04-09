@@ -6,7 +6,6 @@ export const HeaderContainer = styled.div`
   color: ${(props) => props.theme.colors.whiteText};
   position: relative;
   padding-left: 13rem;
-  margin-bottom: 20rem;
 
   &::after {
     content: "";

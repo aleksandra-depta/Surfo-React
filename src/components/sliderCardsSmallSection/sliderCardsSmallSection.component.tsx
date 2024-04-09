@@ -20,7 +20,7 @@ const SliderCardsSmallSection = ({
   return (
     <>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={slideNum}
         modules={[Navigation]}
         loop={true}
