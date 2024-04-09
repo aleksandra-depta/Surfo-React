@@ -10,7 +10,7 @@ const SliderCardsLargeSection = ({ tours }: { tours: Tours }) => {
   return (
     <>
       <Swiper
-        spaceBetween={10}
+        spaceBetween={30}
         slidesPerView={3}
         loop={true}
         modules={[Navigation]}
@@ -20,11 +20,10 @@ const SliderCardsLargeSection = ({ tours }: { tours: Tours }) => {
         }}
         breakpoints={{
           0: {
-            spaceBetween: 10,
             slidesPerView: 1,
           },
           576: {
-            spaceBetween: 10,
+            spaceBetween: 20,
             slidesPerView: 2,
           },
           1200: {
