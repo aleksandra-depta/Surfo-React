@@ -51,7 +51,12 @@ export const Slider = styled.div`
   position: relative;
   margin-right: 12rem;
 
+  @media only screen and (max-width: 1200px) {
+    margin-right: 0;
+  }
+
   @media only screen and (max-width: 992px) {
+    margin-right: 10rem;
     width: 100%;
   }
 `;
@@ -60,7 +65,7 @@ export const SliderFullWidth = styled.div`
   position: relative;
   margin: 0 10rem;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     margin: 0;
   }
 `;

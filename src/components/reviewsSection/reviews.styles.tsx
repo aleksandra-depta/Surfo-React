@@ -26,7 +26,7 @@ export const Slider = styled.div`
   padding-left: 10rem;
   padding-right: 10rem;
 
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1200px) {
     padding-right: 16rem;
     padding-left: 0;
   }

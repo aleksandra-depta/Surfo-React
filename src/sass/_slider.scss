@@ -61,7 +61,13 @@
 .prevOffer,
 .nextOffer,
 .prevSliderReviewTour,
-.nextSliderReviewTour {
+.nextSliderReviewTour,
+.prevSliderLocation,
+.nextSliderLocation,
+.prevSliderSeeMore,
+.nextSliderSeeMore,
+.prevSliderType,
+.nextSliderType {
   @media only screen and (max-width: 1200px) {
     bottom: -8rem;
     top: auto;
