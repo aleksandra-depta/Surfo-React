@@ -38,7 +38,7 @@ const HomePage = ({ tours }: { tours: Tours }) => {
             slideNum={
               window.innerWidth <= 1200
                 ? window.innerWidth <= 992
-                  ? window.innerWidth <= 567
+                  ? window.innerWidth <= 768
                     ? 1
                     : 2
                   : 3

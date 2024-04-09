@@ -45,7 +45,7 @@ export const ImageCard = styled.img`
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
   overflow: hidden;
 
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1200px) {
     height: 58rem;
   }
 `;
