@@ -10,6 +10,10 @@ export const Container = styled.div`
   gap: 10rem;
   position: relative;
 
+  @media only screen and (max-width: 1200px) {
+    margin-top: 10rem;
+  }
+
   @media only screen and (max-width: 992px) {
     max-height: 156rem;
   }

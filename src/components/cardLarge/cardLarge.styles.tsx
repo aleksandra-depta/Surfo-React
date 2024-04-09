@@ -6,7 +6,7 @@ export const SliderCardLarge = styled.div`
   position: relative;
   transition: all 0.2s ease-in-out;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1200px) {
     width: 41rem;
     height: 70rem;
   }
