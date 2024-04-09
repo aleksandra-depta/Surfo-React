@@ -19,7 +19,6 @@ const SliderCardsMediumSection = ({ tours }: { tours: Tours }) => {
         }}
         breakpoints={{
           0: {
-            spaceBetween: 10,
             slidesPerView: 1,
           },
           992: {
