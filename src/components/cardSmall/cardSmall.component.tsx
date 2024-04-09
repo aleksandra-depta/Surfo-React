@@ -19,13 +19,15 @@ const CardSmall = ({ tour }: { tour: Tour; slider?: boolean }) => {
   const { bookmarks } = useAppSelector((store) => store.bookmark);
   const dispatch = useAppDispatch();
   const [showDetails, setShowDetails] = useState(
-    window.innerWidth >= 992 ? false : true
+    window.innerWidth >= 1200 ? false : true
   );
 
   return (
     <Content
       onMouseOver={() => setShowDetails(true)}
-      onMouseOut={() => setShowDetails(window.innerWidth >= 992 ? false : true)}
+      onMouseOut={() =>
+        setShowDetails(window.innerWidth >= 1200 ? false : true)
+      }
     >
       <ImageCard
         src={require(`../../img/${tour.imageCover}`)}

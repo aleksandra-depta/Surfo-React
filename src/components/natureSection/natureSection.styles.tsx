@@ -85,7 +85,7 @@ export const Content = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     flex-direction: column;
   }
 `;
@@ -97,7 +97,7 @@ export const Description = styled.div`
   padding-left: 20rem;
   position: relative;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     gap: 1rem;
   }
 
