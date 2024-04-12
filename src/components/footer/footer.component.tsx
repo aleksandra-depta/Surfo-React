@@ -6,7 +6,6 @@ import { HeadingH3, LinkGrey, TextSmall } from "../../styled/typography";
 import { IconSocialMedia } from "../../styled/icons";
 import { Column, Content, Icons, ImageLogo } from "./footer.styles";
 import IonIcon from "@reacticons/ionicons";
-import { Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -41,7 +40,6 @@ const Footer = () => {
           <br /> Aleksandra Depta <br /> Inc. All rights reserved.
         </TextSmall>
       </Column>
-
       <Column>
         <HeadingH3>Contact us</HeadingH3>
         <TextSmall>
