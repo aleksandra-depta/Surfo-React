@@ -8,11 +8,10 @@ export const Content = styled.div`
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  margin: 5px;
   transition: all 0.2s ease-in-out;
 
   @media only screen and (min-width: 1200px) {
-    height: 56rem;
+    height: 58rem;
     max-width: 320px;
   }
 
@@ -31,10 +30,6 @@ export const ContentDetails = styled.div`
 export const ImageCard = styled.img`
   width: 100%;
   box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
-
-  @media only screen and (min-width: 992px) {
-    height: 40rem;
-  }
 `;
 
 export const BookmarkIcon = styled(IconBookmark)`

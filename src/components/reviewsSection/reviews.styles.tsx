@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const ReviewSection = styled.div`
   position: relative;
-  height: 100vh;
+  height: max-content;
   width: 100%;
   margin-top: 10rem;
+  padding-bottom: 10rem;
 
   &::before {
     content: "";
@@ -13,22 +14,22 @@ export const ReviewSection = styled.div`
     background-position: center center;
     position: absolute;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 100vh;
+    right: calc(-1 * (100vw - 100%) / 2);
+    top: 0;
+    bottom: 0;
     z-index: -80;
   }
 `;
 
 export const Slider = styled.div`
   position: relative;
-  width: 100%;
   padding-bottom: 2rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  margin: 0 10rem;
 
   @media only screen and (max-width: 1200px) {
-    padding-right: 16rem;
-    padding-left: 0;
+    margin: 0;
+    margin-right: 0rem;
+    padding-right: 20rem;
   }
 `;
 

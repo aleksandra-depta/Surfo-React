@@ -5,10 +5,9 @@ export const Content = styled.div<{ user: boolean }>`
   flex-direction: column;
   gap: 3rem;
   text-align: start;
-  height: 100%;
+  height: max-content;
   width: 50%;
   white-space: nowrap;
-  padding-top: 10vh;
 
   ${({ user }) =>
     !user &&

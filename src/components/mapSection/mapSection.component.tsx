@@ -4,6 +4,7 @@ import {
   Description,
   Link,
   MapContainer,
+  MapContent,
   MapDescription,
 } from "./mapSection.styles";
 
@@ -23,7 +24,9 @@ const MapSection = ({ tour }: { tour: Tour }) => {
           <b>{tour.startAndEndPoint}</b>
         </Link>
       </MapDescription>
-      <Map tour={tour} />
+      <MapContent>
+        <Map tour={tour} />
+      </MapContent>
     </MapContainer>
   );
 };

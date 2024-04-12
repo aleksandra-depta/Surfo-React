@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { ButtonBlack } from "../../styled/buttons";
 
 export const Container = styled.div`
-  /* margin-left: 13rem; */
-  min-height: 100vh;
+  height: max-content;
   position: relative;
 
   &::before {
@@ -20,9 +19,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   margin-left: 13rem;
-  padding: 12rem 0 5rem 5rem;
+  padding: 4rem 0 10rem 5rem;
   background-color: ${(props) => props.theme.colors.white20};
-  min-height: 100vh;
+  height: max-content;
 
   @media only screen and (max-width: 576px) {
     padding: 4rem 2rem 10rem 2rem;
@@ -91,4 +90,8 @@ export const PaymentContainer = styled.div`
 
 export const PaymentButton = styled(ButtonBlack)`
   margin-top: 8rem;
+`;
+
+export const LoginMessageContainer = styled.div`
+  padding-bottom: 10rem;
 `;

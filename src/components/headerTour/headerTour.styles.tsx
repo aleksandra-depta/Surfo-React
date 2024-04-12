@@ -3,25 +3,23 @@ import { ButtonSecondary, ButtonSecondaryInactive } from "../../styled/buttons";
 import { IconBookmark } from "../../styled/icons";
 
 export const Header = styled.div<{ bg: number | string }>`
-  height: 100vh;
-  max-height: 140rem;
+  height: max-content;
+  min-height: 100vh;
   position: relative;
   text-align: end;
-  padding-top: 20vh;
+  padding-top: 30vh;
   display: flex;
   flex-direction: column;
   align-items: end;
-
-  @media only screen and (max-width: 768px) {
-  }
+  padding-bottom: 10rem;
 
   &::after {
     content: "";
     position: absolute;
     overflow: hidden;
     top: 0rem;
+    bottom: 0;
     left: 13rem;
-    height: 100vh;
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
   }
@@ -34,9 +32,9 @@ export const Header = styled.div<{ bg: number | string }>`
     background-position: center center;
     position: absolute;
     top: 0;
+    bottom: 0;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 100vh;
+    right: calc(-1 * (100vw - 100%) / 2);
     max-height: 140rem;
     z-index: -80;
   }
@@ -100,6 +98,10 @@ export const ButtonInactive = styled(ButtonSecondaryInactive)`
 export const ButtonActive = styled(ButtonSecondary)`
   border-radius: 2px;
   min-width: 20rem;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.darkText};
+  }
 
   @media only screen and (max-width: 460px) {
     width: 100%;

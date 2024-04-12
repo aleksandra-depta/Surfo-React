@@ -20,7 +20,7 @@ export const HeadingContainer = styled.div`
     content: "";
     background-image: url(${require(`../../img/headerHome.jpg`)});
     background-size: cover;
-    background-position: center center;
+    background-position: 30% 0%;
     position: absolute;
     top: 0;
     left: calc(-1 * (100vw - 100%) / 2);

@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   height: 100vh;
-  max-height: 140rem;
   color: ${(props) => props.theme.colors.whiteText};
   position: relative;
   padding-left: 13rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
 
   &::after {
     content: "";
@@ -24,10 +27,9 @@ export const HeaderContainer = styled.div`
     background-position: center center;
     position: absolute;
     top: 0;
+    bottom: 0;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 100vh;
-    max-height: 140rem;
+    right: calc(-1 * (100vw - 100%) / 2);
     z-index: -80;
   }
 `;
@@ -36,8 +38,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 24rem 0;
   gap: 8rem;
+  width: 100%;
 `;
 
 export const Headings = styled.div`

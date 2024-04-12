@@ -23,7 +23,7 @@ export const Content = styled.div`
   gap: 2rem;
   color: ${(props) => props.theme.colors.darkText};
   background-color: ${(props) => props.theme.colors.whiteText};
-  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.greyLightShades};
+  box-shadow: 0 1rem 2rem ${(props) => props.theme.colors.darkTextTransp};
 `;
 
 export const UserDetails = styled.div`

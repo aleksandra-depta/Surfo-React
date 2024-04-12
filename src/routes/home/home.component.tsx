@@ -49,7 +49,6 @@ const HomePage = ({ tours }: { tours: Tours }) => {
           />
         </SliderCardsSmall>
       </Col>
-
       <Newsletters />
       <Footer />
     </>

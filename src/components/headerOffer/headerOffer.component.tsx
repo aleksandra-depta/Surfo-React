@@ -8,7 +8,7 @@ import {
   SelectTabContainer,
 } from "./headerOffer.styles";
 
-const Header = () => {
+const Header = ({ refName }: { refName: React.RefObject<HTMLDivElement> }) => {
   return (
     <HeaderContainer>
       <Content>
@@ -18,7 +18,7 @@ const Header = () => {
           <HeadingH3>Book unique adventure</HeadingH3>
         </Headings>
         <SelectTabContainer>
-          <SelectTab />
+          <SelectTab refName={refName} />
         </SelectTabContainer>
       </Content>
     </HeaderContainer>

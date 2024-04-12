@@ -17,26 +17,7 @@
   }
 }
 
-.prevHomeCardsSmall,
-.nextHomeCardsSmall,
-.prevSliderMedium,
-.nextSliderMedium,
-.prevOffer,
-.nextOffer,
-.prevSliderReview,
-.nextSliderReview,
-.prevSliderReviewTour,
-.nextSliderReviewTour,
-.prevSliderLocation,
-.nextSliderLocation,
-.prevSliderSeeMore,
-.nextSliderSeeMore,
-.prevSliderType,
-.nextSliderType,
-.prevCart,
-.nextCart,
-.prevSliderLarge,
-.nextSliderLarge {
+.buttonMain {
   position: absolute;
   color: #eee;
   background-color: #161616;
@@ -56,32 +37,33 @@
   }
 }
 
-.prevCart,
-.nextCart,
-.prevOffer,
-.nextOffer,
-.prevSliderReviewTour,
-.nextSliderReviewTour,
-.prevSliderLocation,
-.nextSliderLocation,
-.prevSliderSeeMore,
-.nextSliderSeeMore,
-.prevSliderType,
-.nextSliderType {
+// Slider Home Cards Large
+.prevSliderLarge,
+.nextSliderLarge {
+  @extend .buttonMain;
+  top: 50%;
+
   @media only screen and (max-width: 1200px) {
-    bottom: -8rem;
+    top: 0;
+    transform: translateY(0%);
+  }
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
     top: auto;
   }
 }
 
-.prevHomeCardsSmall,
-.prevOffer,
-.prevSliderReview,
-.prevSliderReviewTour,
-.prevSliderLocation,
-.prevSliderSeeMore,
-.prevSliderType,
-.prevCart,
+.nextSliderLarge {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+  }
+}
+
 .prevSliderLarge {
   left: -8rem;
 
@@ -91,18 +73,22 @@
   }
 }
 
-.prevSliderMedium {
-  left: -8rem;
+// Slider Home Cards Small & See More
+.prevHomeCardsSmall,
+.nextHomeCardsSmall,
+.prevSliderSeeMore,
+.nextSliderSeeMore {
+  @extend .buttonMain;
 
-  @media only screen and (max-width: 1200px) {
-    left: auto;
-    right: 7rem;
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
+    top: auto;
   }
 }
 
-.prevSliderReview {
-  left: 0;
-
+.prevHomeCardsSmall,
+.prevSliderSeeMore {
+  left: -8rem;
   @media only screen and (max-width: 1200px) {
     left: auto;
     right: 7rem;
@@ -110,15 +96,7 @@
 }
 
 .nextHomeCardsSmall,
-.nextOffer,
-.nextSliderReview,
-.nextSliderReviewTour,
-.nextSliderLocation,
-.nextSliderSeeMore,
-.nextSliderType,
-.nextCart,
-.nextSliderLarge,
-.nextSliderMedium {
+.nextSliderSeeMorev {
   right: -8rem;
 
   @media only screen and (max-width: 1200px) {
@@ -126,47 +104,205 @@
   }
 }
 
-.nextSliderReview {
-  right: 0;
+// Slider Home Cards Medium
+.prevSliderMedium,
+.nextSliderMedium {
+  @extend .buttonMain;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
+    top: auto;
+  }
 }
 
-.prevSliderLarge,
-.nextSliderLarge {
-  top: 50%;
+.prevSliderMedium {
+  left: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextSliderMedium {
+  right: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+// Slider Offer
+.prevOffer,
+.nextOffer,
+.prevSliderType,
+.nextSliderType,
+.prevSliderLocation,
+.nextSliderLocation,
+.prevConfirmation,
+.nextConfirmation {
+  @extend .buttonMain;
 
   @media only screen and (max-width: 1200px) {
+    top: 50%;
+  }
+}
+
+.prevOffer,
+.prevSliderType,
+.prevSliderLocation,
+.prevConfirmation {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextOffer,
+.nextSliderType,
+.nextSliderLocation,
+.nextConfirmation {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+// Slider Reviews
+.prevSliderReview,
+.nextSliderReview {
+  @extend .buttonMain;
+
+  @media only screen and (max-width: 1200px) {
+    top: 35%;
+  }
+}
+
+.prevSliderReview {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+    top: 0rem;
+    bottom: auto;
+  }
+}
+
+.nextSliderReview {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+    top: 0rem;
+    bottom: auto;
+  }
+}
+
+// Slider Reviews on Tour
+.prevSliderReviewTour,
+.nextSliderReviewTour {
+  @extend .buttonMain;
+}
+
+.prevSliderReviewTour {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+    top: 0rem;
+    bottom: auto;
+  }
+}
+
+.nextSliderReviewTour {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+    top: 0rem;
+    bottom: auto;
+  }
+}
+
+// Slider Cart
+.prevCart,
+.nextCart {
+  @extend .buttonMain;
+  top: calc(45rem / 2);
+
+  @media only screen and (max-width: 992px) {
     top: 0;
     transform: translateY(0%);
   }
+}
+.prevCart {
+  left: -8rem;
 
-  @media only screen and (min-width: 1200px) {
-    display: none;
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+    top: 0rem;
+    bottom: auto;
   }
+  @media only screen and (max-width: 576px) {
+    top: auto;
+    bottom: -10rem;
+  }
+}
 
-  @media only screen and (max-width: 768px) {
+.nextCart {
+  right: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
+    top: 0rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 576px) {
+    top: auto;
+    bottom: -10rem;
+  }
+}
+
+// Slider Fav
+
+.prevSliderFav,
+.nextSliderFav {
+  @extend .buttonMain;
+  top: calc(45rem / 2);
+}
+
+.prevSliderFav {
+  left: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
     bottom: -10rem;
     top: auto;
   }
 }
 
-.nextSliderMedium,
-.prevSliderMedium {
-  top: 50%;
-}
+.nextSliderFav {
+  right: -8rem;
 
-.prevHomeCardsSmall,
-.nextHomeCardsSmall,
-.nextSliderMedium,
-.prevSliderMedium {
-  @media only screen and (max-width: 768px) {
-    bottom: -10rem;
-    top: auto;
-  }
-}
-
-.nextSliderMedium,
-.prevSliderMedium {
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
     bottom: -10rem;
     top: auto;
   }

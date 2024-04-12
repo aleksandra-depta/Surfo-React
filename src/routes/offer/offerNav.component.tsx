@@ -9,11 +9,7 @@ import {
 import { ClearLink, Heading, NavContent } from "./offer.styles";
 import IonIcon from "@reacticons/ionicons";
 
-const OfferNav = ({
-  refName,
-}: {
-  refName: React.RefObject<HTMLDivElement>;
-}) => {
+const OfferNav = () => {
   const {
     selectedOptionType,
     selectedOptionLocation,
@@ -60,6 +56,15 @@ const OfferNav = ({
           >
             <IonIcon size="large" name="close-outline" />
             clear all
+          </ClearLink>
+          <ClearLink
+            to=""
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+          >
+            <IonIcon size="large" name="arrow-up" />
+            search
           </ClearLink>
         </NavContent>
       )}

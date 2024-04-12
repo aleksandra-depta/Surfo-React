@@ -3,7 +3,7 @@ import { IconClose } from "../../styled/icons";
 import { HeadingH3 } from "../../styled/typography";
 
 export const Container = styled.div`
-  height: 50rem;
+  height: 45rem;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -29,6 +29,10 @@ export const ContainerComment = styled.div`
   background-color: ${(props) => props.theme.colors.white20};
   padding: 2rem;
   width: 100%;
+
+  @media only screen and (max-width: 992px) {
+    padding: 0;
+  }
 `;
 
 export const List = styled.div`

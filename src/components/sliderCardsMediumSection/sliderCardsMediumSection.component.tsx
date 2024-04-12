@@ -21,7 +21,7 @@ const SliderCardsMediumSection = ({ tours }: { tours: Tours }) => {
           0: {
             slidesPerView: 1,
           },
-          992: {
+          768: {
             spaceBetween: 30,
             slidesPerView: 2,
           },

@@ -12,8 +12,15 @@ import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sl
 import Footer from "../../components/footer/footer.component";
 
 import { HeadingH2 } from "../../styled/typography";
-import { ShowContent, Slider, SliderContainer } from "./offer.styles";
+import {
+  ClearLink,
+  OfferSlider,
+  ShowContent,
+  Slider,
+  SliderContainer,
+} from "./offer.styles";
 import { Col } from "react-bootstrap";
+import IonIcon from "@reacticons/ionicons";
 
 const OfferPage = ({ tours }: { tours: Tours }) => {
   const sectionSearchTab = useRef<HTMLDivElement>(null);
@@ -23,10 +30,10 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
 
   return (
     <>
-      <Header />
-      <>
+      <Header refName={sectionSearchTab} />
+      <OfferSlider ref={sectionSearchTab}>
         <ShowContent>
-          <OfferNav refName={sectionSearchTab} />
+          <OfferNav />
           <OfferType tours={tours} />
           <OfferLocation tours={tours} />
         </ShowContent>
@@ -38,6 +45,15 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
               <Col>
                 <HeadingH2>Check our offer</HeadingH2>
                 <HeadingH2>& TRAVEL WITH SURFO</HeadingH2>
+                <ClearLink
+                  to=""
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  <IonIcon size="large" name="arrow-up" />
+                  search
+                </ClearLink>
               </Col>
               <Slider>
                 <SliderCardsSmallSection
@@ -55,7 +71,7 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
               </Slider>
             </SliderContainer>
           )}
-      </>
+      </OfferSlider>
       <Reviews />
       <Footer />
     </>

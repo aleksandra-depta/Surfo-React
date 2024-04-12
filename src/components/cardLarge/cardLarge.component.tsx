@@ -42,7 +42,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
       {window.innerWidth <= 1200 ? (
         <>
           <ImageCard
-            src={require(`../../img/${tour.cardLargeImgSlider[0]}`)}
+            src={require(`../../img/${tour.cardLargeImgSlider[1]}`)}
             alt="tour"
             loading="lazy"
           />
@@ -75,7 +75,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
             }}
           >
             <ImageCard
-              src={require(`../../img/${tour.cardLargeImgSlider[0]}`)}
+              src={require(`../../img/${tour.cardLargeImgSlider[1]}`)}
               alt="tour"
               loading="lazy"
             />
@@ -95,7 +95,7 @@ const CardLarge = ({ tour }: { tour: Tour }) => {
               </Details>
             )}
           </SwiperSlide>
-          {[1, 2].map((el) => (
+          {[0, 2].map((el) => (
             <SwiperSlide
               key={el}
               onMouseOver={() => setShowDetails(true)}

@@ -2,41 +2,28 @@ import styled from "styled-components";
 import { TextWhite } from "../../styled/typography";
 
 export const Container = styled.div`
-  height: 120vh;
+  height: max-content;
+  /* max-height: 120rem; */
   width: 100%;
-  max-height: 120rem;
   display: flex;
   flex-direction: column;
   gap: 10rem;
   position: relative;
+  padding-bottom: 20rem;
 
   @media only screen and (max-width: 1200px) {
     margin-top: 10rem;
-  }
-
-  @media only screen and (max-width: 992px) {
-    max-height: 156rem;
-  }
-  @media only screen and (max-width: 576px) {
-    height: 180vh;
+    padding-bottom: 10rem;
   }
 
   &::after {
     content: "";
     position: absolute;
     top: 0rem;
+    bottom: 0;
     left: 13rem;
-    height: 120vh;
-    max-height: 130rem;
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
-
-    @media only screen and (max-width: 992px) {
-      max-height: 156rem;
-    }
-    @media only screen and (max-width: 576px) {
-      height: 180vh;
-    }
   }
 
   &::before {
@@ -46,17 +33,10 @@ export const Container = styled.div`
     background-position: center end;
     position: absolute;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 120vh;
-    max-height: 120rem;
+    right: calc(-1 * (100vw - 100%) / 2);
+    top: 0;
+    bottom: 0;
     z-index: -80;
-
-    @media only screen and (max-width: 992px) {
-      max-height: 156rem;
-    }
-    @media only screen and (max-width: 576px) {
-      height: 180vh;
-    }
   }
 `;
 
@@ -70,11 +50,9 @@ export const Heading = styled.h1`
   @media only screen and (max-width: 992px) {
     font-size: 14rem;
   }
-
   @media only screen and (max-width: 768px) {
     font-size: 8rem;
   }
-
   @media only screen and (max-width: 576px) {
     font-size: 6rem;
   }
@@ -87,6 +65,7 @@ export const Content = styled.div`
 
   @media only screen and (max-width: 992px) {
     flex-direction: column;
+    padding-bottom: 10rem;
   }
 `;
 
@@ -98,7 +77,8 @@ export const Description = styled.div`
   position: relative;
 
   @media only screen and (max-width: 992px) {
-    gap: 1rem;
+    gap: 3rem;
+    margin-bottom: 5rem;
   }
 
   &::after {
@@ -126,12 +106,16 @@ export const Cards = styled.div`
   margin-right: 10rem;
 
   @media only screen and (max-width: 992px) {
-    margin: 5rem 0;
+    padding-bottom: 2rem;
     margin-left: auto;
-    max-width: 50rem;
+    margin-right: 0;
+    width: 50vw;
   }
-  @media only screen and (max-width: 576px) {
-    width: 50rem;
-    margin-right: 2rem;
+  @media only screen and (max-width: 768px) {
+    width: 40rem;
+  }
+
+  @media only screen and (max-width: 460px) {
+    width: 30rem;
   }
 `;

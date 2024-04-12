@@ -24,6 +24,7 @@ import {
   Container,
   Content,
   IconRemove,
+  LoginMessageContainer,
   PaymentButton,
   PaymentContainer,
   ShopingCartContainer,
@@ -109,11 +110,13 @@ const ShoppingCart = ({ tours }: { tours: Tours }) => {
                   </PaymentButton>
                 </PaymentContainer>
               ) : (
-                <LoginMessage
-                  message={
-                    "Log in or sign up to complete your reservation and payment"
-                  }
-                />
+                <LoginMessageContainer>
+                  <LoginMessage
+                    message={
+                      "Log in or sign up to complete your reservation and payment"
+                    }
+                  />
+                </LoginMessageContainer>
               )}
             </>
           )}

@@ -2,13 +2,19 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Content = styled.div<{ user: boolean }>`
-  padding: 5rem;
+  padding: 2rem 5rem 5rem 5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   text-align: center;
-  height: 80%;
+  height: max-content;
   width: 50%;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 15rem;
+    padding: 2rem;
+  }
 
   ${({ user }) =>
     !user &&

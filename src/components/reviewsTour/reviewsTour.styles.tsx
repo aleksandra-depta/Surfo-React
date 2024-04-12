@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ReviewSection = styled.div`
   position: relative;
-  height: 100vh;
   width: 100%;
 
   @media only screen and (max-width: 992px) {
@@ -19,11 +18,19 @@ export const ReviewSectionTour = styled(ReviewSection)`
 
 export const SliderTour = styled.div`
   position: relative;
-  width: 50%;
+  width: 44%;
+  margin: 0 10rem;
+  padding-bottom: 5rem;
+
+  @media only screen and (max-width: 1200px) {
+    margin: 0;
+    margin-right: 2rem;
+    padding-right: 16rem;
+    width: 60%;
+  }
 
   @media only screen and (max-width: 992px) {
     width: 100%;
-    margin-bottom: 4rem;
   }
 `;
 
@@ -37,10 +44,9 @@ export const Headings = styled.div`
 export const Content = styled.div`
   display: flex;
   width: 100%;
-  gap: 16rem;
+  height: max-content;
 
   @media only screen and (max-width: 992px) {
     flex-direction: column;
-    gap: 8rem;
   }
 `;

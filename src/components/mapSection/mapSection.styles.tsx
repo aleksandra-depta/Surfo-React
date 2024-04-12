@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { TextWhite } from "../../styled/typography";
 
 export const MapContainer = styled.div`
-  height: 100vh;
+  height: max-content;
   display: flex;
-  align-items: end;
   justify-content: center;
   width: 100%;
-  padding-bottom: 20vh;
+  padding: 20rem 0;
   position: relative;
 
   @media only screen and (max-width: 992px) {
@@ -15,8 +14,7 @@ export const MapContainer = styled.div`
     align-items: start;
     justify-content: start;
     gap: 5rem;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding: 10rem 0;
   }
 
   &::before {
@@ -25,9 +23,9 @@ export const MapContainer = styled.div`
     background-size: cover;
     position: absolute;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 100vh;
+    right: calc(-1 * (100vw - 100%) / 2);
     top: 0;
+    bottom: 0;
     z-index: -80;
   }
 
@@ -48,12 +46,8 @@ export const MapDescription = styled.div`
   gap: 1.4rem;
   width: 40vw;
   margin-left: 13rem;
-  padding-left: 9rem;
+  padding-left: 7rem;
   position: relative;
-
-  @media only screen and (max-width: 992px) {
-    padding-left: 4rem;
-  }
 
   &::after {
     content: "";
@@ -77,4 +71,16 @@ export const Link = styled(TextWhite)`
   transition: all 0.2s ease-out;
   width: 30rem;
   padding-bottom: 2rem;
+`;
+
+export const MapContent = styled.div`
+  width: 100%;
+
+  @media only screen and (max-width: 992px) {
+    padding-left: 20rem;
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding-left: 0rem;
+  }
 `;
