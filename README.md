@@ -5,7 +5,6 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Layout Photoshop](#layout-photoshop)
 
 # General info:
 
@@ -37,10 +36,6 @@ To run this project, install it locally using npm:
 
     $ npm install
     $ npm start
-
-# Layout Photoshop
-
-![layout - Canaries](https://github.com/aleksandra-depta/Surfo-React/assets/100097416/c64632d1-4859-4606-9601-03e1ba321411)
 
 
 
