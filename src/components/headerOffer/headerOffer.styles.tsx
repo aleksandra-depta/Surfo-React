@@ -6,8 +6,8 @@ export const HeaderContainer = styled.div`
   position: relative;
   padding-left: 13rem;
   display: flex;
-  align-items: center;
   justify-content: end;
+  padding-top: 26vh;
 
   @media only screen and (max-width: 576px) {
     padding: 0;
