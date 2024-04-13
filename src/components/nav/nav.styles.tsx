@@ -48,8 +48,8 @@ export const ImageLogo = styled.img`
 
 export const LinkNav = styled(Link)`
   margin-right: 1rem;
-  font-weight: 400;
-  font-size: 2.2rem;
+  font-weight: 500;
+  font-size: 2.4rem;
   letter-spacing: 0.1rem;
   color: ${(props) => props.theme.colors.white};
   position: relative;
