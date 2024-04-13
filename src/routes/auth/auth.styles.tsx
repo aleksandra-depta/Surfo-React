@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const AuthContainer = styled.div`
-  height: max-content;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: end;

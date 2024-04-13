@@ -105,11 +105,14 @@ export const Cards = styled.div`
   position: relative;
   margin-right: 10rem;
 
+  @media only screen and (max-width: 1200px) {
+    width: 50vw;
+  }
+
   @media only screen and (max-width: 992px) {
     padding-bottom: 2rem;
     margin-left: auto;
     margin-right: 0;
-    width: 50vw;
   }
   @media only screen and (max-width: 768px) {
     width: 40rem;
