@@ -24,8 +24,6 @@ export const SliderTour = styled.div`
 
   @media only screen and (max-width: 1200px) {
     margin: 0;
-    margin-right: 2rem;
-    padding-right: 16rem;
     width: 60%;
   }
 

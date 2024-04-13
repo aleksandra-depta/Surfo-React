@@ -32,6 +32,9 @@
 
   @media only screen and (max-width: 1200px) {
     top: 0;
+  }
+
+  @media only screen and (max-width: 992px) {
     height: 40px;
     width: 40px;
   }
@@ -197,7 +200,7 @@
   @media only screen and (max-width: 1200px) {
     left: auto;
     right: 7rem;
-    top: 0rem;
+    top: -8rem;
     bottom: auto;
   }
 }
@@ -207,7 +210,7 @@
 
   @media only screen and (max-width: 1200px) {
     right: 0rem;
-    top: 0rem;
+    top: -8rem;
     bottom: auto;
   }
 }
@@ -222,10 +225,14 @@
   left: -8rem;
 
   @media only screen and (max-width: 1200px) {
+    right: auto;
+    left: 0rem;
+    top: -8rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 992px) {
     left: auto;
     right: 7rem;
-    top: 0rem;
-    bottom: auto;
   }
 }
 
@@ -233,9 +240,14 @@
   right: -8rem;
 
   @media only screen and (max-width: 1200px) {
-    right: 0rem;
-    top: 0rem;
+    right: auto;
+    left: 7rem;
+    top: -8rem;
     bottom: auto;
+  }
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 0;
   }
 }
 
