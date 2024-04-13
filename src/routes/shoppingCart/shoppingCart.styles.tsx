@@ -101,9 +101,13 @@ export const CartContainer = styled.div`
 
 export const PaymentContainer = styled.div`
   padding-bottom: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const PaymentButton = styled(ButtonBlack)`
+  width: max-content;
   margin-top: 8rem;
 `;
 

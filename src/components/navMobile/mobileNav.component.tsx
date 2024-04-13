@@ -63,15 +63,27 @@ const MobileNav = () => {
         <LinkItem to="/shoppingCart" onClick={() => goToPage()}>
           Shopping Cart
         </LinkItem>
-        <LinkItem
-          to="/"
-          onClick={() => {
-            handleSubmit();
-            goToPage();
-          }}
-        >
-          Log out
-        </LinkItem>
+
+        {currentUser ? (
+          <LinkItem
+            to="/"
+            onClick={() => {
+              handleSubmit();
+              goToPage();
+            }}
+          >
+            Log out
+          </LinkItem>
+        ) : (
+          <>
+            <LinkItem to="/login" onClick={() => goToPage()}>
+              Login
+            </LinkItem>
+            <LinkItem to="/signup" onClick={() => goToPage()}>
+              Sign Up
+            </LinkItem>
+          </>
+        )}
       </Content>
     </Cointainer>
   );
