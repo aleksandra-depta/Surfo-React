@@ -10,7 +10,7 @@ export const Content = styled.div<{ user: boolean }>`
   height: max-content;
   width: 50%;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     width: 100%;
     margin-left: 15rem;
     padding: 2rem;

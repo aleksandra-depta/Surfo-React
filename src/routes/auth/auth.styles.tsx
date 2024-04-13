@@ -5,9 +5,9 @@ export const AuthContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
-  align-items: center;
+  align-items: start;
   position: relative;
-  padding: 1rem 0;
+  padding: 10rem 0 1rem 0;
 
   &::after {
     content: "";
