@@ -4,7 +4,10 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   min-height: 100vh;
   position: relative;
-  padding-top: 12rem;
+
+  @media only screen and (max-width: 576px) {
+    padding-top: 12rem;
+  }
 
   &::before {
     content: "";

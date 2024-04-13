@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { logout } from "../../features/authSlice";
 import { closeMobileMenu } from "../../features/navSlice";
 import Cookies from "universal-cookie";
@@ -16,6 +16,7 @@ import Logo from "../../img/logo.png";
 const cookies = new Cookies();
 
 const MobileNav = () => {
+  const { currentUser } = useAppSelector((store) => store.auth);
   const dispatch = useAppDispatch();
 
   const handleSubmit = () => {
@@ -46,14 +47,21 @@ const MobileNav = () => {
         <LinkItem to="/offer" onClick={() => goToPage()}>
           Our offer
         </LinkItem>
-        <LinkItem to="/myAccount/user" onClick={() => goToPage()}>
-          My Account
-        </LinkItem>
-        <LinkItem to="/myAccount/booking" onClick={() => goToPage()}>
-          My Booking
-        </LinkItem>
-        <LinkItem to="/myAccount/favorites" onClick={() => goToPage()}>
-          My Favorites
+        {currentUser && (
+          <>
+            <LinkItem to="/myAccount/user" onClick={() => goToPage()}>
+              My Account
+            </LinkItem>
+            <LinkItem to="/myAccount/booking" onClick={() => goToPage()}>
+              My Booking
+            </LinkItem>
+            <LinkItem to="/myAccount/favorites" onClick={() => goToPage()}>
+              My Favorites
+            </LinkItem>
+          </>
+        )}
+        <LinkItem to="/shoppingCart" onClick={() => goToPage()}>
+          Shopping Cart
         </LinkItem>
         <LinkItem
           to="/"

@@ -20,7 +20,7 @@ export const Content = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
-  padding: 4rem 4rem 4rem 0rem;
+  padding: 4rem 4rem 4rem 2rem;
   position: relative;
   font-size: 3rem;
   font-weight: 700;
@@ -37,7 +37,7 @@ export const LinkItem = styled(Link)`
   }
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primaryHalf};
+    background-color: ${(props) => props.theme.colors.secondary};
     color: ${(props) => props.theme.colors.white};
   }
 `;
@@ -45,7 +45,7 @@ export const LinkItem = styled(Link)`
 export const ImageLogo = styled.img`
   width: 12rem;
   margin-bottom: 2rem;
-  margin-left: 2rem;
+  margin-left: 4rem;
 `;
 
 export const IconClose = styled.div`
