@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   min-height: 100vh;
   position: relative;
+  padding-top: 12rem;
 
   &::before {
     content: "";
@@ -15,6 +16,13 @@ export const MainContainer = styled.div`
     width: 50vw;
     min-height: 100vh;
     background-color: ${(props) => props.theme.colors.darkText};
+
+    @media only screen and (max-width: 576px) {
+      bottom: auto;
+      min-height: 12rem;
+      height: 12rem;
+      width: 100vw;
+    }
   }
 `;
 
@@ -25,7 +33,8 @@ export const Container = styled.div`
   padding: 3.5rem 0 5rem 5rem;
 
   @media only screen and (max-width: 576px) {
-    padding: 4rem 2rem 10rem 2rem;
+    padding: 4rem 2rem 2rem 2rem;
+    margin-left: 0;
   }
 `;
 

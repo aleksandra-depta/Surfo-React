@@ -15,6 +15,10 @@ export const Content = styled.div<{ user: boolean }>`
     margin-left: 15rem;
     padding: 2rem;
   }
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+    margin: 0;
+  }
 
   ${({ user }) =>
     !user &&

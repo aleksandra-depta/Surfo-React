@@ -257,6 +257,10 @@
   @extend .buttonMain;
   top: calc(45rem / 2);
 
+  @media only screen and (max-width: 1200px) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
   @media only screen and (max-width: 992px) {
     top: 0;
     transform: translateY(0%);
@@ -292,11 +296,15 @@
 }
 
 // Slider Fav
-
 .prevSliderFav,
 .nextSliderFav {
   @extend .buttonMain;
   top: calc(45rem / 2);
+
+  @media only screen and (max-width: 1200px) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .prevSliderFav {

@@ -3,14 +3,13 @@ import { ButtonSecondary, ButtonSecondaryInactive } from "../../styled/buttons";
 import { IconBookmark } from "../../styled/icons";
 
 export const Header = styled.div<{ bg: number | string }>`
-  height: max-content;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   text-align: end;
-  padding-top: 30vh;
   display: flex;
   flex-direction: column;
   align-items: end;
+  justify-content: center;
   padding-bottom: 10rem;
 
   &::after {

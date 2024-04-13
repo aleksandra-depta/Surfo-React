@@ -10,7 +10,7 @@ export const Cointainer = styled.div`
   z-index: 10000;
   top: 0;
   left: 0;
-  padding: 4rem 2rem;
+  padding-top: 4rem;
 `;
 
 export const Content = styled.div`
@@ -20,10 +20,11 @@ export const Content = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
-  font-size: 3.4rem;
-  font-weight: 600;
-  padding: 4rem 4rem 4rem 6rem;
+  padding: 4rem 4rem 4rem 0rem;
   position: relative;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
 
   &::after {
     content: "";
@@ -42,12 +43,14 @@ export const LinkItem = styled(Link)`
 `;
 
 export const ImageLogo = styled.img`
-  width: 20rem;
+  width: 12rem;
   margin-bottom: 2rem;
+  margin-left: 2rem;
 `;
 
 export const IconClose = styled.div`
   position: absolute;
   top: 4rem;
   right: 4rem;
+  font-size: 2.4rem;
 `;

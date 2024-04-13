@@ -39,11 +39,11 @@ const MyFavorites = ({ tours }: { tours: Tours }) => {
                 spaceBetween: 10,
                 slidesPerView: 1,
               },
-              576: {
+              768: {
                 spaceBetween: 20,
                 slidesPerView: 2,
               },
-              768: {
+              1200: {
                 spaceBetween: 30,
                 slidesPerView: 3,
               },

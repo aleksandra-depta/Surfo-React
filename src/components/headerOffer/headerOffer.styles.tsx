@@ -5,10 +5,13 @@ export const HeaderContainer = styled.div`
   color: ${(props) => props.theme.colors.whiteText};
   position: relative;
   padding-left: 13rem;
-
   display: flex;
   align-items: center;
   justify-content: end;
+
+  @media only screen and (max-width: 576px) {
+    padding: 0;
+  }
 
   &::after {
     content: "";
@@ -18,6 +21,10 @@ export const HeaderContainer = styled.div`
     left: 13rem;
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
+
+    @media only screen and (max-width: 576px) {
+      display: none;
+    }
   }
 
   &::before {

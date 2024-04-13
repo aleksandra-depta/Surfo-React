@@ -6,7 +6,7 @@ interface TypesState {
 }
 
 const initialState: TypesState = {
-  mobileNav: window.innerWidth <= 760 ? true : false,
+  mobileNav: window.innerWidth <= 576 ? true : false,
   mobileNavContent: false,
 };
 

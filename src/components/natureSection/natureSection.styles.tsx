@@ -27,7 +27,6 @@ export const Container = styled.div`
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
   }
-
   &::before {
     content: "";
     background-image: url(${require(`../../img/bg01.jpg`)});

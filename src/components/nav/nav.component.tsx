@@ -19,6 +19,8 @@ import {
   NavContainer,
 } from "./nav.styles";
 import LogoWhite from "../../img/logoWhite.png";
+import { openMobileMenu } from "../../features/navSlice";
+import MobileNav from "../navMobile/mobileNav.component";
 
 const cookies = new Cookies();
 
@@ -26,6 +28,7 @@ const Navigation = () => {
   const { currentUser } = useAppSelector((store) => store.auth);
   const { cart } = useAppSelector((store) => store.cart);
   const { bookmarks } = useAppSelector((store) => store.bookmark);
+  const { mobileNavContent } = useAppSelector((store) => store.nav);
   const dispatch = useAppDispatch();
 
   const [show, handleShow] = useState<boolean>(false);
@@ -70,57 +73,66 @@ const Navigation = () => {
                 </LinkNavUser>
               </LinkNav>
             )}
-            <LinkNav
-              to="/offer"
-              onClick={() => {
-                scrollToTop();
-                dispatch(inActiveScrollToOffer());
-              }}
-            >
-              offer
-            </LinkNav>
-            {!currentUser && (
+            {window.innerWidth >= 576 ? (
               <>
-                <LinkNav to="/login" onClick={scrollToTop}>
-                  Log In
+                <LinkNav
+                  to="/offer"
+                  onClick={() => {
+                    scrollToTop();
+                    dispatch(inActiveScrollToOffer());
+                  }}
+                >
+                  offer
                 </LinkNav>
-                <LinkNav to="/signup" onClick={scrollToTop}>
-                  Sign Up
-                </LinkNav>
-              </>
-            )}
-            {currentUser && (
-              <LinkNav to="/myAccount/favorites" onClick={scrollToTop}>
-                {bookmarks.length === 0 ? (
-                  <Icon>
-                    <IonIcon size="large" name="bookmark-outline" />
-                  </Icon>
-                ) : (
-                  <IconFav>
-                    <IonIcon size="large" name="bookmark" />
-                  </IconFav>
+                {!currentUser && (
+                  <>
+                    <LinkNav to="/login" onClick={scrollToTop}>
+                      Log In
+                    </LinkNav>
+                    <LinkNav to="/signup" onClick={scrollToTop}>
+                      Sign Up
+                    </LinkNav>
+                  </>
                 )}
-              </LinkNav>
-            )}
-            <LinkNav to="/shoppingCart" onClick={scrollToTop}>
-              <Icon>
-                <IonIcon size="large" name="cart-outline" />
-              </Icon>
-              {cart.length !== 0 && <CartIcon />}
-            </LinkNav>
-            {currentUser && (
-              <LinkNav
-                to="/"
-                onClick={() => {
-                  handleSubmit();
-                }}
-              >
-                Log out
+                {currentUser && (
+                  <LinkNav to="/myAccount/favorites" onClick={scrollToTop}>
+                    {bookmarks.length === 0 ? (
+                      <Icon>
+                        <IonIcon size="large" name="bookmark-outline" />
+                      </Icon>
+                    ) : (
+                      <IconFav>
+                        <IonIcon size="large" name="bookmark" />
+                      </IconFav>
+                    )}
+                  </LinkNav>
+                )}
+                <LinkNav to="/shoppingCart" onClick={scrollToTop}>
+                  <Icon>
+                    <IonIcon size="large" name="cart-outline" />
+                  </Icon>
+                  {cart.length !== 0 && <CartIcon />}
+                </LinkNav>
+                {currentUser && (
+                  <LinkNav
+                    to="/"
+                    onClick={() => {
+                      handleSubmit();
+                    }}
+                  >
+                    Log out
+                  </LinkNav>
+                )}
+              </>
+            ) : (
+              <LinkNav to="/" onClick={() => dispatch(openMobileMenu())}>
+                <IonIcon size="large" name="menu" />
               </LinkNav>
             )}
           </NavContainer>
         </Container>
       </Nav>
+      {mobileNavContent && <MobileNav />}
       <Outlet />
     </>
   );

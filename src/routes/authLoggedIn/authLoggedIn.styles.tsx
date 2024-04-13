@@ -6,7 +6,6 @@ export const Content = styled.div<{ user: boolean }>`
   gap: 3rem;
   text-align: start;
   height: max-content;
-  width: 50%;
   white-space: nowrap;
 
   ${({ user }) =>

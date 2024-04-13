@@ -5,8 +5,14 @@ export const AuthContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
+  align-items: start;
+  padding-top: 4rem;
   position: relative;
-  padding: 4rem 0;
+
+  @media only screen and (max-width: 576px) {
+    padding: 14rem 0 5rem 0;
+    align-items: start;
+  }
 
   &::after {
     content: "";
@@ -16,6 +22,10 @@ export const AuthContainer = styled.div`
     left: 13rem;
     width: 1px;
     background-color: ${(props) => props.theme.colors.white20};
+
+    @media only screen and (max-width: 576px) {
+      display: none;
+    }
   }
 
   &::before {

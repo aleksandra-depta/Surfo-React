@@ -26,6 +26,11 @@ export const NavContainer = styled.div<{ stickyNav?: boolean }>`
   gap: 7.5rem;
   align-items: center;
 
+  @media only screen and (max-width: 576px) {
+    flex-direction: row;
+    gap: 6rem;
+  }
+
   ${({ stickyNav }) =>
     stickyNav &&
     `
@@ -49,7 +54,7 @@ export const ImageLogo = styled.img`
 export const LinkNav = styled(Link)`
   margin-right: 1rem;
   font-weight: 500;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   letter-spacing: 0.1rem;
   color: ${(props) => props.theme.colors.white};
   position: relative;
