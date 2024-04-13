@@ -26,7 +26,7 @@ const HalfSliderSection = ({ tours }: { tours: Tours }) => {
         <Slider>
           <SliderCardsSmallSection
             tours={tours}
-            slideNum={window.innerWidth <= 768 ? 1 : 2}
+            slideNum={window.innerWidth <= 1200 ? 1 : 2}
             prev={"prevCart"}
             next={"nextCart"}
           />

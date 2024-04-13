@@ -77,11 +77,26 @@ export const TotalsContainer = styled.div`
   align-items: center;
   gap: 4rem;
   border-radius: 4px;
+
+  @media only screen and (max-width: 992px) {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: max-content;
+  }
 `;
 
 export const CartContainer = styled.div`
   display: flex;
   gap: 8rem;
+
+  @media only screen and (max-width: 992px) {
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    width: 100%;
+  }
 `;
 
 export const PaymentContainer = styled.div`

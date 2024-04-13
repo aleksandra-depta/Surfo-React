@@ -29,7 +29,9 @@ export const ContainerComment = styled.div`
   background-color: ${(props) => props.theme.colors.white20};
   padding: 2rem;
   width: 100%;
-
+  @media only screen and (max-width: 1200px) {
+    padding-top: 0;
+  }
   @media only screen and (max-width: 992px) {
     padding: 0;
   }

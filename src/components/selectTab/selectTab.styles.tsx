@@ -81,7 +81,7 @@ export const DateContent = styled.div`
   display: flex;
   width: 40rem;
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1050px) {
     flex-direction: column;
     width: 30rem;
     flex-direction: row;

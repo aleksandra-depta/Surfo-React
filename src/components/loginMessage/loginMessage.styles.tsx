@@ -7,4 +7,8 @@ export const InfoContainer = styled.div`
   gap: 10rem;
   background-color: ${(props) => props.theme.colors.white20};
   color: ${(props) => props.theme.colors.darkText};
+
+  @media only screen and (max-width: 1200px) {
+    gap: 2rem;
+  }
 `;

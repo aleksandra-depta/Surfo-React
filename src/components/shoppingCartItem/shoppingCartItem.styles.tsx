@@ -40,7 +40,7 @@ export const IconTrash = styled.button`
   height: max-content;
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 0;
 `;
 
 export const LinkContent = styled(Link)`

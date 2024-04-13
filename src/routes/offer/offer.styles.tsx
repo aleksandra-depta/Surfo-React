@@ -92,6 +92,9 @@ export const Slider = styled.div`
 
 export const SeeMoreHeading = styled.div`
   padding: 0 0 10rem 0;
+  @media only screen and (max-width: 1200px) {
+    padding: 0 0 5rem 0;
+  }
 `;
 
 export const SliderFullWidth = styled.div`

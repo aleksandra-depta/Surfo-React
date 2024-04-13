@@ -6,7 +6,7 @@ export const Headings = styled.div`
   margin: 20rem 0 10rem 0;
 
   @media only screen and (max-width: 1200px) {
-    margin: 10rem 0;
+    margin: 10rem 0 5rem 0;
   }
 `;
 
