@@ -9,7 +9,7 @@ import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sl
 import Newsletters from "../../components/newsletter/newsletter.component";
 import Footer from "../../components/footer/footer.component";
 
-import { Slider, SliderCardsSmall } from "./home.styles";
+import { NesletterContainer, Slider, SliderCardsSmall } from "./home.styles";
 import { Col } from "react-bootstrap";
 
 const HomePage = ({ tours }: { tours: Tours }) => {
@@ -49,7 +49,9 @@ const HomePage = ({ tours }: { tours: Tours }) => {
           />
         </SliderCardsSmall>
       </Col>
-      <Newsletters />
+      <NesletterContainer>
+        <Newsletters />
+      </NesletterContainer>
       <Footer />
     </>
   );

@@ -55,6 +55,10 @@ export const LinkNav = styled(Link)`
   position: relative;
   transition: all 0.2s ease-out;
 
+  @media only screen and (max-width: 1200px) {
+    font-size: 2rem;
+  }
+
   &:hover {
     color: ${(props) => props.theme.colors.white};
     transform: scale(1.1);

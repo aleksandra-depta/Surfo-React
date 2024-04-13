@@ -59,8 +59,8 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
                 <SliderCardsSmallSection
                   tours={tours}
                   slideNum={
-                    window.innerWidth <= 768
-                      ? window.innerWidth <= 460
+                    window.innerWidth <= 1200
+                      ? window.innerWidth <= 768
                         ? 1
                         : 2
                       : 3

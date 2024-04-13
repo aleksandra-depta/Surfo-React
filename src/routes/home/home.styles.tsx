@@ -19,3 +19,9 @@ export const SliderCardsSmall = styled(Slider)`
     margin: 0;
   }
 `;
+
+export const NesletterContainer = styled.div`
+  @media only screen and (max-width: 1200px) {
+    margin-top: 10rem;
+  }
+`;
