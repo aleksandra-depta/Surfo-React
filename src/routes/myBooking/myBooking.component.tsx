@@ -1,17 +1,13 @@
-import { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
-import {
-  useGetBookingsOnUserQuery,
-  useGetToursQuery,
-} from "../../services/toursApi";
+import { useGetBookingsOnUserQuery } from "../../services/toursApi";
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
 import CardBooking from "../../components/cardBooking/cardBooking.component";
 import HalfSliderSection from "../../components/halfSliderSection/halfSliderSection.component";
+import Loading from "../../components/loading/loading.component";
 
 import { HeadingH2, TextSmall } from "../../styled/typography";
 import { CardsContainer } from "./myBooking.styles";
 import { Col } from "react-bootstrap";
-import Loading from "../../components/loading/loading.component";
 
 const MyBooking = () => {
   const { currentUser } = useAppSelector((store) => store.auth);

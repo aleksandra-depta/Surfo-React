@@ -52,7 +52,6 @@ export const Heading = styled(HeadingH1)`
   @media only screen and (max-width: 992px) {
     font-size: 14rem;
   }
-
   @media only screen and (max-width: 768px) {
     font-size: 8rem;
   }

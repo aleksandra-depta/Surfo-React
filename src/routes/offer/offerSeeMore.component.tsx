@@ -1,6 +1,7 @@
-import type { Tours } from "../../models/tours";
+import { useGetToursQuery } from "../../services/toursApi";
 import { useAppSelector } from "../../hooks";
 import CardSmall from "../../components/cardSmall/cardSmall.component";
+import Loading from "../../components/loading/loading.component";
 
 import { HeadingH2 } from "../../styled/typography";
 import { SeeMoreHeading, SliderFullWidth } from "./offer.styles";
@@ -10,8 +11,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Col } from "react-bootstrap";
-import { useGetToursQuery } from "../../services/toursApi";
-import Loading from "../../components/loading/loading.component";
 
 const OfferSeeMore = () => {
   const { data: tours, isSuccess, isLoading } = useGetToursQuery();

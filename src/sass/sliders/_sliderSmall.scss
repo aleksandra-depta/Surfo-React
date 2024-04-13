@@ -1,0 +1,30 @@
+// Slider Home Cards Small & See More
+.prevHomeCardsSmall,
+.nextHomeCardsSmall,
+.prevSliderSeeMore,
+.nextSliderSeeMore {
+  @extend .buttonMain;
+
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.prevHomeCardsSmall,
+.prevSliderSeeMore {
+  left: -8rem;
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+  }
+}
+
+.nextHomeCardsSmall,
+.nextSliderSeeMore {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+  }
+}

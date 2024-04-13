@@ -1,0 +1,35 @@
+//Slider Reviews on Tour
+.prevSliderReviewTour,
+.nextSliderReviewTour {
+  @extend .buttonMain;
+}
+
+.prevSliderReviewTour {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: auto;
+    left: 0rem;
+    top: -8rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+  }
+}
+
+.nextSliderReviewTour {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: auto;
+    left: 7rem;
+    top: -8rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 0;
+  }
+}

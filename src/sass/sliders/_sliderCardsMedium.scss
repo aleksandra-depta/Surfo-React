@@ -1,0 +1,33 @@
+// Slider Home Cards Medium
+.prevSliderMedium,
+.nextSliderMedium {
+  @extend .buttonMain;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.prevSliderMedium {
+  left: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextSliderMedium {
+  right: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}

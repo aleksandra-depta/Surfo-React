@@ -1,4 +1,3 @@
-import { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
 import CardSmall from "../../components/cardSmall/cardSmall.component";
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";

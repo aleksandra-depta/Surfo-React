@@ -1,0 +1,22 @@
+.buttonMain {
+  position: absolute;
+  color: #eee;
+  background-color: #161616;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  top: calc(40rem / 2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: 1200px) {
+    top: 0;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 40px;
+    width: 40px;
+  }
+}

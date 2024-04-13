@@ -40,7 +40,6 @@ const SelectTab = ({
   const { selectedOptionType, selectedOptionLocation, startDate, endDate } =
     useAppSelector((store) => store.searchTab);
   const dispatch = useAppDispatch();
-
   const executeScroll = () => refName.current?.scrollIntoView();
 
   return (

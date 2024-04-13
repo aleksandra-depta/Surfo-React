@@ -1,11 +1,11 @@
 import { useGetToursQuery } from "../../services/toursApi";
 import Loading from "../loading/loading.component";
+import CardLarge from "../cardLarge/cardLarge.component";
 import { Row } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import CardLarge from "../cardLarge/cardLarge.component";
 
 const SliderCardsLargeSection = () => {
   const { data: tours, isSuccess, isLoading } = useGetToursQuery();

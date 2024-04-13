@@ -79,7 +79,6 @@ export const MapContent = styled.div`
   @media only screen and (max-width: 992px) {
     padding-left: 20rem;
   }
-
   @media only screen and (max-width: 576px) {
     padding-left: 0rem;
   }

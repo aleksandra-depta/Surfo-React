@@ -1,14 +1,13 @@
-import type { Tours } from "../../models/tours";
+import { useGetToursQuery } from "../../services/toursApi";
 import { useAppSelector } from "../../hooks";
 import CardSmall from "../../components/cardSmall/cardSmall.component";
-import { Slider } from "./offer.styles";
+import Loading from "../../components/loading/loading.component";
 
+import { Slider } from "./offer.styles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import Loading from "../../components/loading/loading.component";
-import { useGetToursQuery } from "../../services/toursApi";
 
 const OfferLocation = () => {
   const { data: tours, isSuccess, isLoading } = useGetToursQuery();

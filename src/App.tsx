@@ -15,7 +15,6 @@ import AuthPage from "./routes/auth/auth.component";
 import UserProfile from "./routes/userProfile/userProfile.component";
 import Confirmation from "./routes/confirmation/confirmation.component";
 import Page404 from "./routes/404/404.component";
-import Loading from "./components/loading/loading.component";
 import MyAccount from "./routes/myAccount/myAccount.component";
 import MyBooking from "./routes/myBooking/myBooking.component";
 import MyFavorites from "./routes/myFavorites/myFavorites.component";
@@ -27,9 +26,7 @@ const token = cookies.get("jwt");
 
 const App = () => {
   const { data: tours, isSuccess, isLoading } = useGetToursQuery();
-
   useAuthQuery(token);
-
   const { currentUser } = useAppSelector((store) => store.auth);
 
   return (

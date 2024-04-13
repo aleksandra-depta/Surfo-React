@@ -1,6 +1,5 @@
 import { useAppDispatch } from "../../hooks";
 import { logout } from "../../features/authSlice";
-
 import Logo from "../../img/logo.png";
 import { ButtonBlack } from "../../styled/buttons";
 import { TextSmall } from "../../styled/typography";

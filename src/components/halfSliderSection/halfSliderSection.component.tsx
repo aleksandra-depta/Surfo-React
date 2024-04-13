@@ -1,6 +1,4 @@
-import { Tours } from "../../models/tours";
 import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sliderCardsSmallSection.component";
-
 import { HeadingH2 } from "../../styled/typography";
 import { OfferLink, Slider, SliderContainer } from "./halfSliderSection.styles";
 import { Col } from "react-bootstrap";

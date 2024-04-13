@@ -1,4 +1,3 @@
-import { Tours } from "../../models/tours";
 import SliderCardsMediumSection from "../sliderCardsMediumSection/sliderCardsMediumSection.component";
 import {
   Cards,

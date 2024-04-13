@@ -1,0 +1,43 @@
+// Slider Cart
+.prevCart,
+.nextCart {
+  @extend .buttonMain;
+  top: calc(45rem / 2);
+
+  @media only screen and (max-width: 1200px) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media only screen and (max-width: 992px) {
+    top: 0;
+    transform: translateY(0%);
+  }
+}
+.prevCart {
+  left: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    left: auto;
+    right: 7rem;
+    top: 0rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 576px) {
+    top: auto;
+    bottom: -10rem;
+  }
+}
+
+.nextCart {
+  right: -8rem;
+
+  @media only screen and (max-width: 992px) {
+    right: 0rem;
+    top: 0rem;
+    bottom: auto;
+  }
+  @media only screen and (max-width: 576px) {
+    top: auto;
+    bottom: -10rem;
+  }
+}

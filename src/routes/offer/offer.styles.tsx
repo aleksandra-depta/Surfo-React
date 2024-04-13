@@ -83,7 +83,6 @@ export const Slider = styled.div`
     margin-bottom: 20rem;
     margin-right: 0rem;
   }
-
   @media only screen and (max-width: 992px) {
     padding-top: 5rem;
     width: 100%;

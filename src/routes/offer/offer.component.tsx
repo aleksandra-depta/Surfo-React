@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import type { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
 
 import Header from "../../components/headerOffer/headerOffer.component";
@@ -24,7 +23,6 @@ import IonIcon from "@reacticons/ionicons";
 
 const OfferPage = () => {
   const sectionSearchTab = useRef<HTMLDivElement>(null);
-
   const { selectedOptionType, selectedOptionLocation, showOffer } =
     useAppSelector((store) => store.searchTab);
 

@@ -22,7 +22,6 @@ export const Slider = styled.div`
     width: 100%;
     padding-right: 20rem;
   }
-
   @media only screen and (max-width: 576px) {
     padding-right: 0rem;
   }
@@ -31,7 +30,6 @@ export const Slider = styled.div`
 export const OfferLink = styled(Link)`
   display: flex;
   align-items: center;
-
   font-size: 2rem;
   font-weight: 600;
   transition: all 0.2s ease-in-out;

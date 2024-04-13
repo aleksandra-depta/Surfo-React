@@ -9,11 +9,9 @@ export const SearchTabContainer = styled.div`
     width: 50%;
     flex-direction: column;
   }
-
   @media only screen and (max-width: 992px) {
     width: 70%;
   }
-
   @media only screen and (max-width: 768px) {
     width: 90%;
   }
@@ -35,7 +33,6 @@ export const InputTabSelect = styled(InputTab)`
   @media only screen and (max-width: 1050px) {
     border-bottom: 1px solid ${(props) => props.theme.colors.greyShades};
   }
-
   @media only screen and (min-width: 1050px) {
     border-right: 1px solid ${(props) => props.theme.colors.greyShades};
   }

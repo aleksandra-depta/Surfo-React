@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAppSelector } from "../../hooks";
 import { useLoginMutation } from "../../services/toursApi";
-import IonIcon from "@reacticons/ionicons";
 
+import LoggedIn from "../authLoggedIn/authLoggedIn.component";
 import ErrorMessageInput from "../../components/input/errorMessage.component";
 import InfoMessageInput from "../../components/input/infoMessage.component";
 
@@ -18,7 +18,7 @@ import {
   Links,
   Row,
 } from "./authLogin.styles";
-import LoggedIn from "../authLoggedIn/authLoggedIn.component";
+import IonIcon from "@reacticons/ionicons";
 
 const LoginPage = () => {
   const { currentUser } = useAppSelector((store) => store.auth);

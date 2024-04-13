@@ -1,10 +1,10 @@
 import { useGetToursQuery } from "../../services/toursApi";
+import Loading from "../loading/loading.component";
 import CardMedium from "../cardMedium/cardMedium.component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import Loading from "../loading/loading.component";
 
 const SliderCardsMediumSection = () => {
   const { data: tours, isSuccess, isLoading } = useGetToursQuery();

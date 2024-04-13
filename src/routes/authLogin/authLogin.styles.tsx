@@ -15,7 +15,6 @@ export const Content = styled.div<{ user: boolean }>`
     margin-left: 15rem;
     padding: 2rem;
   }
-
   @media only screen and (max-width: 576px) {
     width: 100%;
     margin: 0;
@@ -63,6 +62,7 @@ export const LinkActive = styled(Link)`
     scale: 102%;
   }
 `;
+
 export const LinkInactive = styled(LinkActive)`
   font-size: 2.3rem;
   color: ${(props) => props.theme.colors.greyShades};

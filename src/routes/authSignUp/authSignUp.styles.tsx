@@ -62,6 +62,7 @@ export const LinkActive = styled(Link)`
     scale: 102%;
   }
 `;
+
 export const LinkInactive = styled(LinkActive)`
   font-size: 2.3rem;
   color: ${(props) => props.theme.colors.greyShades};

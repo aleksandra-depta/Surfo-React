@@ -1,0 +1,30 @@
+// Slider Reviews
+.prevSliderReview,
+.nextSliderReview {
+  @extend .buttonMain;
+
+  @media only screen and (max-width: 1200px) {
+    top: 35%;
+  }
+}
+
+.prevSliderReview {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+    top: -8rem;
+    bottom: auto;
+  }
+}
+
+.nextSliderReview {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+    top: -8rem;
+    bottom: auto;
+  }
+}

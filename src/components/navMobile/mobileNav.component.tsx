@@ -35,11 +35,9 @@ const MobileNav = () => {
   return (
     <Cointainer>
       <ImageLogo alt="Surfo" src={`${Logo}`} loading="lazy" />
-
       <IconClose onClick={() => goToPage()}>
         <IonIcon size="large" name="close-outline" />
       </IconClose>
-
       <Content>
         <LinkItem to="/" onClick={() => goToPage()}>
           Home Page
@@ -63,7 +61,6 @@ const MobileNav = () => {
         <LinkItem to="/shoppingCart" onClick={() => goToPage()}>
           Shopping Cart
         </LinkItem>
-
         {currentUser ? (
           <LinkItem
             to="/"

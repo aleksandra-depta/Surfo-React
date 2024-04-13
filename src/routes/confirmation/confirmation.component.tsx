@@ -1,5 +1,3 @@
-import { Tours } from "../../models/tours";
-
 import LocationSection from "../../components/locationsSection/locationsSection.component";
 import SliderCardsSmallSection from "../../components/sliderCardsSmallSection/sliderCardsSmallSection.component";
 import Footer from "../../components/footer/footer.component";

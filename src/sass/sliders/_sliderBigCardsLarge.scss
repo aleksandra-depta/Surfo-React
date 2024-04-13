@@ -1,0 +1,35 @@
+// Slider Home Cards Large
+.prevSliderLarge,
+.nextSliderLarge {
+  @extend .buttonMain;
+  top: 50%;
+
+  @media only screen and (max-width: 1200px) {
+    top: 0;
+    transform: translateY(0%);
+  }
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
+  @media only screen and (max-width: 460px) {
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextSliderLarge {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+  }
+}
+
+.prevSliderLarge {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+  }
+}

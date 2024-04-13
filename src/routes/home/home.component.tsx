@@ -1,5 +1,3 @@
-import type { Tours } from "../../models/tours";
-
 import HeaderHome from "../../components/headerHome/headerHome.components";
 import IconsSection from "../../components/iconsSection/iconsSection.components";
 import NatureSection from "../../components/natureSection/natureSection.component";

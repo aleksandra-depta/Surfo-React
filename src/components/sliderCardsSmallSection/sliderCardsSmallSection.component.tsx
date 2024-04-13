@@ -1,12 +1,11 @@
-import { Tours } from "../../models/tours";
+import { useGetToursQuery } from "../../services/toursApi";
 import CardSmall from "../cardSmall/cardSmall.component";
+import Loading from "../loading/loading.component";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { useGetToursQuery } from "../../services/toursApi";
-import Loading from "../loading/loading.component";
 
 const SliderCardsSmallSection = ({
   slideNum,

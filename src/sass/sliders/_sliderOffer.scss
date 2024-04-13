@@ -1,0 +1,42 @@
+// Slider Offer
+.prevOffer,
+.nextOffer,
+.prevSliderType,
+.nextSliderType,
+.prevSliderLocation,
+.nextSliderLocation,
+.prevConfirmation,
+.nextConfirmation {
+  @extend .buttonMain;
+
+  @media only screen and (max-width: 1200px) {
+    top: 50%;
+  }
+}
+
+.prevOffer,
+.prevSliderType,
+.prevSliderLocation,
+.prevConfirmation {
+  left: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    left: auto;
+    right: 7rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}
+
+.nextOffer,
+.nextSliderType,
+.nextSliderLocation,
+.nextConfirmation {
+  right: -8rem;
+
+  @media only screen and (max-width: 1200px) {
+    right: 0rem;
+    bottom: -10rem;
+    top: auto;
+  }
+}

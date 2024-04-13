@@ -14,7 +14,6 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 4rem;
   }
-
   @media only screen and (max-width: 576px) {
     grid-template-columns: 1fr 1fr;
     padding-left: 6rem;

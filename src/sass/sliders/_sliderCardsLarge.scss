@@ -1,0 +1,18 @@
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-theme-color: #ffffff;
+  --swiper-navigation-size: 22px;
+  background-color: rgb(0, 0, 0);
+  height: 50px;
+  width: 50px;
+  font-weight: 600;
+  border-radius: 100%;
+  position: absolute;
+  top: calc(58rem / 2);
+
+  @media only screen and (max-width: 1200px) {
+    height: 40px;
+    width: 40px;
+    top: 50%;
+  }
+}

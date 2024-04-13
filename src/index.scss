@@ -2,7 +2,17 @@
 @import "./sass/datapicker";
 @import "./sass/map";
 @import "./sass/searchTab";
-@import "./sass/slider";
+
+@import "./sass/sliders/sliderCardsLarge";
+@import "./sass/sliders/sliderMain";
+@import "./sass/sliders/sliderReviewTour";
+@import "./sass/sliders/sliderBigCardsLarge";
+@import "./sass/sliders/sliderCardsMedium";
+@import "./sass/sliders/sliderCart";
+@import "./sass/sliders/sliderFav";
+@import "./sass/sliders/sliderOffer";
+@import "./sass/sliders/sliderReview";
+@import "./sass/sliders/sliderSmall";
 
 body {
   margin: 0;
@@ -12,9 +22,6 @@ body {
   background-color: #fbfafa;
 }
 
-//breakpoints
-// 380px 460px 576px 768px 992px 1050px  1200px 1291px 1540px
-
 .col,
 .row {
   padding-left: 0;
@@ -22,3 +29,6 @@ body {
   margin-left: 0;
   margin-right: 0;
 }
+
+//breakpoints
+// 380px 460px 576px 768px 992px 1050px  1200px 1291px 1540px
