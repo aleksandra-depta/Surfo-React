@@ -106,17 +106,9 @@ export const Cards = styled.div`
   margin-right: 10rem;
 
   @media only screen and (max-width: 992px) {
-    width: 50vw;
     padding-bottom: 2rem;
     margin-left: auto;
     margin-right: 0;
-  }
-  @media only screen and (max-width: 768px) {
     width: 100%;
-    margin-left: 17rem;
-  }
-
-  @media only screen and (max-width: 460px) {
-    /* width: 30rem; */
   }
 `;
