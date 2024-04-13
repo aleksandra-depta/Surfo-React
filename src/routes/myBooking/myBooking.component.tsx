@@ -1,6 +1,9 @@
 import { Tours } from "../../models/tours";
 import { useAppSelector } from "../../hooks";
-import { useGetBookingsOnUserQuery } from "../../services/toursApi";
+import {
+  useGetBookingsOnUserQuery,
+  useGetToursQuery,
+} from "../../services/toursApi";
 import EmptyMessage from "../../components/emptyMessage/emptyMessage.component";
 import CardBooking from "../../components/cardBooking/cardBooking.component";
 import HalfSliderSection from "../../components/halfSliderSection/halfSliderSection.component";
@@ -8,12 +11,15 @@ import HalfSliderSection from "../../components/halfSliderSection/halfSliderSect
 import { HeadingH2, TextSmall } from "../../styled/typography";
 import { CardsContainer } from "./myBooking.styles";
 import { Col } from "react-bootstrap";
+import Loading from "../../components/loading/loading.component";
 
-const MyBooking = ({ tours }: { tours: Tours }) => {
+const MyBooking = () => {
   const { currentUser } = useAppSelector((store) => store.auth);
-  const { data: bookings, isSuccess } = useGetBookingsOnUserQuery(
-    currentUser === null ? null : currentUser._id
-  );
+  const {
+    data: bookings,
+    isSuccess,
+    isLoading,
+  } = useGetBookingsOnUserQuery(currentUser === null ? null : currentUser._id);
 
   return (
     <>
@@ -21,6 +27,7 @@ const MyBooking = ({ tours }: { tours: Tours }) => {
         <HeadingH2> My bookings </HeadingH2>
         <TextSmall>Here you can view all your booked tours.</TextSmall>
       </Col>
+      {isLoading && <Loading />}
       {isSuccess &&
         (bookings.data.filter((el) => el.user?._id === currentUser?._id)
           .length === 0 ? (
@@ -34,7 +41,7 @@ const MyBooking = ({ tours }: { tours: Tours }) => {
               ))}
           </CardsContainer>
         ))}
-      <HalfSliderSection tours={tours} />
+      <HalfSliderSection />
     </>
   );
 };

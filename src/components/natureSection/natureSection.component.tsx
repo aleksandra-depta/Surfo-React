@@ -9,7 +9,7 @@ import {
   Link,
 } from "./natureSection.styles";
 
-const NatureSection = ({ tours }: { tours: Tours }) => {
+const NatureSection = () => {
   return (
     <Container>
       <Heading>nature</Heading>
@@ -22,7 +22,7 @@ const NatureSection = ({ tours }: { tours: Tours }) => {
           <Link>memories</Link>
         </Description>
         <Cards>
-          <SliderCardsMediumSection tours={tours} />
+          <SliderCardsMediumSection />
         </Cards>
       </Content>
     </Container>

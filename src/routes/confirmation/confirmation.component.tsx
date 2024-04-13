@@ -20,7 +20,7 @@ import {
 } from "./confirmation.styles";
 import { Col, Row } from "react-bootstrap";
 
-const Confirmation = ({ tours }: { tours: Tours }) => {
+const Confirmation = () => {
   const bookingCode = Math.floor(Math.random() * 1000000) + 10000;
   return (
     <>
@@ -49,7 +49,6 @@ const Confirmation = ({ tours }: { tours: Tours }) => {
         </Col>
         <Slider>
           <SliderCardsSmallSection
-            tours={tours}
             slideNum={3}
             prev={"prevConfirmation"}
             next={"nextConfirmation"}

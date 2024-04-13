@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
-const MyFavorites = ({ tours }: { tours: Tours }) => {
+const MyFavorites = () => {
   const { bookmarks } = useAppSelector((store) => store.bookmark);
 
   return (
@@ -65,7 +65,7 @@ const MyFavorites = ({ tours }: { tours: Tours }) => {
           </div>
         </Slider>
       )}
-      <HalfSliderSection tours={tours} />
+      <HalfSliderSection />
     </>
   );
 };

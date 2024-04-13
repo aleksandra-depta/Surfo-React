@@ -6,7 +6,7 @@ import { OfferLink, Slider, SliderContainer } from "./halfSliderSection.styles";
 import { Col } from "react-bootstrap";
 import IonIcon from "@reacticons/ionicons";
 
-const HalfSliderSection = ({ tours }: { tours: Tours }) => {
+const HalfSliderSection = () => {
   return (
     <>
       <SliderContainer>
@@ -25,7 +25,6 @@ const HalfSliderSection = ({ tours }: { tours: Tours }) => {
         </Col>
         <Slider>
           <SliderCardsSmallSection
-            tours={tours}
             slideNum={window.innerWidth <= 1200 ? 1 : 2}
             prev={"prevCart"}
             next={"nextCart"}

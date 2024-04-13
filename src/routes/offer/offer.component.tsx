@@ -22,7 +22,7 @@ import {
 import { Col } from "react-bootstrap";
 import IonIcon from "@reacticons/ionicons";
 
-const OfferPage = ({ tours }: { tours: Tours }) => {
+const OfferPage = () => {
   const sectionSearchTab = useRef<HTMLDivElement>(null);
 
   const { selectedOptionType, selectedOptionLocation, showOffer } =
@@ -34,10 +34,10 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
       <OfferSlider ref={sectionSearchTab}>
         <ShowContent>
           <OfferNav />
-          <OfferType tours={tours} />
-          <OfferLocation tours={tours} />
+          <OfferType />
+          <OfferLocation />
         </ShowContent>
-        <OfferSeeMore tours={tours} />
+        <OfferSeeMore />
         {showOffer &&
           selectedOptionType === "" &&
           selectedOptionLocation === "" && (
@@ -57,7 +57,6 @@ const OfferPage = ({ tours }: { tours: Tours }) => {
               </Col>
               <Slider>
                 <SliderCardsSmallSection
-                  tours={tours}
                   slideNum={
                     window.innerWidth <= 1200
                       ? window.innerWidth <= 768

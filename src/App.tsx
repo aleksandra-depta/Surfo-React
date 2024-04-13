@@ -34,28 +34,20 @@ const App = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Routes>
-          {isSuccess && (
-            <Route path="/" element={<Navigation />}>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <>
+            <Route index element={<HomePage />} />
+            <Route path="/offer" element={<OfferPage />}>
+              <Route path="/offer/type" element={<OfferType />} />
+              <Route path="/offer/location" element={<OfferLocation />} />
+            </Route>
+            <Route path="/" element={<AuthPage />}>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+            </Route>
+            {isSuccess && (
               <>
-                <Route index element={<HomePage tours={tours} />} />
-                <Route path="/offer" element={<OfferPage tours={tours} />}>
-                  <Route
-                    path="/offer/type"
-                    element={<OfferType tours={tours} />}
-                  />
-                  <Route
-                    path="/offer/location"
-                    element={<OfferLocation tours={tours} />}
-                  />
-                </Route>
-                <Route path="/" element={<AuthPage />}>
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/signup" element={<SignUpPage />} />
-                </Route>
                 {tours.data.map((tour) => (
                   <Route
                     key={`tour${tour._id}`}
@@ -63,33 +55,21 @@ const App = () => {
                     element={<TourPage tour={tour} />}
                   />
                 ))}
-                <Route
-                  path="/shoppingCart"
-                  element={<ShoppingCart tours={tours} />}
-                />
-                <Route
-                  path="/confirmation"
-                  element={<Confirmation tours={tours} />}
-                />
-                {currentUser !== null && (
-                  <Route path="/" element={<UserProfile />}>
-                    <Route path="/myAccount/user" element={<MyAccount />} />
-                    <Route
-                      path="/myAccount/booking"
-                      element={<MyBooking tours={tours} />}
-                    />
-                    <Route
-                      path="/myAccount/favorites"
-                      element={<MyFavorites tours={tours} />}
-                    />
-                  </Route>
-                )}
               </>
-            </Route>
-          )}
-          <Route path="/*" element={<Page404 />} />
-        </Routes>
-      )}
+            )}
+            <Route path="/shoppingCart" element={<ShoppingCart />} />
+            <Route path="/confirmation" element={<Confirmation />} />
+            {currentUser !== null && (
+              <Route path="/" element={<UserProfile />}>
+                <Route path="/myAccount/user" element={<MyAccount />} />
+                <Route path="/myAccount/booking" element={<MyBooking />} />
+                <Route path="/myAccount/favorites" element={<MyFavorites />} />
+              </Route>
+            )}
+          </>
+        </Route>
+        <Route path="/*" element={<Page404 />} />
+      </Routes>
     </>
   );
 };

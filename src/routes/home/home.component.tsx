@@ -12,7 +12,7 @@ import Footer from "../../components/footer/footer.component";
 import { NesletterContainer, Slider, SliderCardsSmall } from "./home.styles";
 import { Col } from "react-bootstrap";
 
-const HomePage = ({ tours }: { tours: Tours }) => {
+const HomePage = () => {
   return (
     <>
       <HeaderHome />
@@ -23,10 +23,10 @@ const HomePage = ({ tours }: { tours: Tours }) => {
           headingBottom="TRAVEL WITH SURFO AROUND CANARIES"
         />
         <Slider>
-          <SliderCardsLargeSection tours={tours} />
+          <SliderCardsLargeSection />
         </Slider>
       </Col>
-      <NatureSection tours={tours} />
+      <NatureSection />
       <Col>
         <SliderHeadings
           headingTop="Places you can not missed"
@@ -34,7 +34,6 @@ const HomePage = ({ tours }: { tours: Tours }) => {
         />
         <SliderCardsSmall>
           <SliderCardsSmallSection
-            tours={tours}
             slideNum={
               window.innerWidth <= 1200 ? (window.innerWidth <= 768 ? 1 : 2) : 4
             }
