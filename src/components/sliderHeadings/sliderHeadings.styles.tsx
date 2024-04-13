@@ -8,6 +8,9 @@ export const Headings = styled.div`
   @media only screen and (max-width: 1200px) {
     margin: 10rem 0 5rem 0;
   }
+  @media only screen and (max-width: 576px) {
+    gap: 1rem;
+  }
 `;
 
 export const Slider = styled.div`

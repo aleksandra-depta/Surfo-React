@@ -37,7 +37,7 @@ export const Heading = styled.h1`
   font-size: 20rem;
   position: absolute;
   right: 0;
-  top: 30rem;
+  top: 23vh;
 
   @media only screen and (max-width: 992px) {
     font-size: 14rem;

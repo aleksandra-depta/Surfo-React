@@ -15,6 +15,9 @@ export const Newsletter = styled.div<{
   @media only screen and (max-width: 768px) {
     margin-top: 10rem;
   }
+  @media only screen and (max-width: 460px) {
+    margin-top: 15rem;
+  }
 
   &::before {
     content: "";

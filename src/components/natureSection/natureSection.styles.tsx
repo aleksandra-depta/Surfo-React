@@ -3,7 +3,6 @@ import { TextWhite } from "../../styled/typography";
 
 export const Container = styled.div`
   height: max-content;
-  /* max-height: 120rem; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,6 +13,9 @@ export const Container = styled.div`
   @media only screen and (max-width: 1200px) {
     margin-top: 10rem;
     padding-bottom: 10rem;
+  }
+  @media only screen and (max-width: 460px) {
+    margin-top: 15rem;
   }
 
   &::after {
