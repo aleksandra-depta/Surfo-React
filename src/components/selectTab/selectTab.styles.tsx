@@ -28,7 +28,7 @@ export const InputTab = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 9rem;
+  height: 7rem;
 `;
 
 export const InputTabSelect = styled(InputTab)`
@@ -81,7 +81,7 @@ export const DateContent = styled.div`
   display: flex;
   width: 40rem;
 
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 1200px) {
     flex-direction: column;
     width: 30rem;
     flex-direction: row;
@@ -93,12 +93,14 @@ export const DateContent = styled.div`
 `;
 
 export const ButtonTab = styled(ButtonSecondary)`
-  height: 100%;
+  height: 7rem;
+  width: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0;
   color: ${(props) => props.theme.colors.whiteText};
+  padding: 0;
 
   @media only screen and (max-width: 1050px) {
     width: 100%;

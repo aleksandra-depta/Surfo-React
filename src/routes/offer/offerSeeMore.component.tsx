@@ -38,15 +38,11 @@ const OfferSeeMore = ({ tours }: { tours: Tours }) => {
                   slidesPerView: 1,
                 },
                 768: {
-                  spaceBetween: 10,
+                  spaceBetween: 20,
                   slidesPerView: 2,
                 },
-                992: {
-                  spaceBetween: 10,
-                  slidesPerView: 3,
-                },
                 1200: {
-                  spaceBetween: 10,
+                  spaceBetween: 30,
                   slidesPerView: 4,
                 },
               }}

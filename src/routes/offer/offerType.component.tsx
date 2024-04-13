@@ -31,11 +31,11 @@ const OfferType = ({ tours }: { tours: Tours }) => {
                 spaceBetween: 10,
                 slidesPerView: 1,
               },
-              420: {
+              768: {
                 spaceBetween: 10,
                 slidesPerView: 2,
               },
-              768: {
+              1200: {
                 spaceBetween: 10,
                 slidesPerView: 3,
               },
