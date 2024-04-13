@@ -25,7 +25,7 @@ const cookies = new Cookies();
 const token = cookies.get("jwt");
 
 const App = () => {
-  const { data: tours, isSuccess, isLoading } = useGetToursQuery();
+  const { data: tours, isSuccess } = useGetToursQuery();
   useAuthQuery(token);
   const { currentUser } = useAppSelector((store) => store.auth);
 
