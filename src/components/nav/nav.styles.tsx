@@ -14,7 +14,7 @@ export const Nav = styled.div<{ stickyNav?: boolean }>`
     position: fixed;
     left: 0;
     right: 0;
-    padding: 1rem 0rem;
+    padding: 2rem 0rem;
     background-color: rgb(12, 12, 12);
     box-shadow: 0 1px 3px #0c0c0c;
   `};
@@ -24,7 +24,7 @@ export const NavContainer = styled.div<{ stickyNav?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 7.5rem;
-  align-items: center;
+  align-items: end;
 
   @media only screen and (max-width: 576px) {
     flex-direction: row;
@@ -53,12 +53,12 @@ export const ImageLogo = styled.img`
 
 export const LinkNav = styled(Link)`
   margin-right: 1rem;
-  font-weight: 500;
-  font-size: 2.3rem;
-  letter-spacing: 0.1rem;
+  font-weight: 400;
+  font-size: 2rem;
   color: ${(props) => props.theme.colors.white};
   position: relative;
   transition: all 0.2s ease-out;
+  text-transform: uppercase;
 
   &:hover {
     color: ${(props) => props.theme.colors.white};
@@ -87,7 +87,7 @@ export const LinkNavUserName = styled.span<{ stickyNav?: boolean }>`
 `;
 
 export const Icon = styled.div`
-  font-size: 2rem;
+  font-size: 1.3rem;
 `;
 
 export const IconFav = styled(Icon)`
@@ -100,6 +100,6 @@ export const CartIcon = styled.div`
   border-radius: 100%;
   background-color: ${(props) => props.theme.colors.secondary};
   position: absolute;
-  right: 4px;
-  bottom: -2px;
+  right: -10px;
+  bottom: -6px;
 `;
