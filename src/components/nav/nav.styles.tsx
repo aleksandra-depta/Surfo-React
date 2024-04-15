@@ -1,6 +1,23 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export const Content = styled.div<{ stickyNav?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  gap: 7.5rem;
+
+  @media only screen and (max-width: 576px) {
+    flex-direction: row;
+    gap: 6rem;
+  }
+
+  ${({ stickyNav }) =>
+    stickyNav &&
+    `
+    flex-direction: row;
+  `};
+`;
+
 export const Nav = styled.div<{ stickyNav?: boolean }>`
   z-index: 10000;
   padding: 4rem 0rem;
@@ -28,7 +45,7 @@ export const NavContainer = styled.div<{ stickyNav?: boolean }>`
 
   @media only screen and (max-width: 576px) {
     flex-direction: row;
-    gap: 6rem;
+    gap: 0;
   }
 
   ${({ stickyNav }) =>
@@ -38,41 +55,54 @@ export const NavContainer = styled.div<{ stickyNav?: boolean }>`
     align-items: center;
 
     @media only screen and (max-width: 992px) {
-      gap: 2rem;
-      justify-content: space-between;
       white-space: nowrap;
-      padding-right: 2rem;
-  
+      gap: 3rem;
   }
   `};
 `;
 
 export const ImageLogo = styled.img`
-  height: 2.3rem;
+  height: 2rem;
+`;
+
+export const LinkContainer = styled.div<{ stickyNav?: boolean }>`
+  width: 13rem;
+  text-align: center;
+
+  @media only screen and (max-width: 576px) {
+    width: max-content;
+  }
+
+  ${({ stickyNav }) =>
+    stickyNav &&
+    `
+   width: max-content
+  }
+  `};
 `;
 
 export const LinkNav = styled(Link)`
   margin-right: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 2rem;
   color: ${(props) => props.theme.colors.white};
   position: relative;
   transition: all 0.2s ease-out;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 2rem;
+  width: 100%;
+
+  @media only screen and (max-width: 576px) {
+    width: max-content;
+    padding: 0 3rem;
+  }
 
   &:hover {
     color: ${(props) => props.theme.colors.white};
     transform: scale(1.1);
-  }
-`;
-
-export const LinkNavUser = styled(LinkNav)`
-  display: flex;
-  gap: 1rem;
-
-  &:hover {
-    color: ${(props) => props.theme.colors.white};
-    transform: scale(1);
   }
 `;
 
@@ -87,7 +117,7 @@ export const LinkNavUserName = styled.span<{ stickyNav?: boolean }>`
 `;
 
 export const Icon = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.8rem;
 `;
 
 export const IconFav = styled(Icon)`

@@ -14,6 +14,7 @@ declare module "styled-components" {
       white: string;
       white20: string;
       whiteText: string;
+      whiteTextTransp: string;
       darkText: string;
       darkTextTransp: string;
       lightText: string;

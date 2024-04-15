@@ -5,6 +5,10 @@ export const Container = styled.div`
   height: max-content;
   position: relative;
 
+  @media only screen and (max-width: 576px) {
+    padding-top: 12rem;
+  }
+
   &::before {
     content: "";
     z-index: -70;
@@ -14,6 +18,13 @@ export const Container = styled.div`
     left: calc(-1 * (100vw - 100%) / 2);
     width: 50vw;
     background-color: ${(props) => props.theme.colors.darkText};
+
+    @media only screen and (max-width: 576px) {
+      bottom: auto;
+      min-height: 12rem;
+      height: 12rem;
+      width: 100vw;
+    }
   }
 `;
 
@@ -25,6 +36,7 @@ export const Content = styled.div`
 
   @media only screen and (max-width: 576px) {
     padding: 4rem 2rem 10rem 2rem;
+    margin-left: 0;
   }
 `;
 

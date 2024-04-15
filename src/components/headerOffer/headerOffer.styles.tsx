@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   padding-top: 26vh;
 
   @media only screen and (max-width: 576px) {
-    padding: 0;
+    padding-left: 0;
   }
 
   &::after {
@@ -60,4 +60,9 @@ export const SelectTabContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+export const Icon = styled.div`
+  height: 100%;
+  font-size: 2rem;
 `;

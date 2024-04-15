@@ -148,7 +148,7 @@ type IoniconsBase =
   | "color-filter"
   | "color-palette"
   | "color-wand"
-  | "compass"
+  | "contact"
   | "construct"
   | "contract"
   | "contrast"

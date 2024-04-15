@@ -10,6 +10,7 @@ export const COLORS = {
   white: "#ffffff",
   white20: "#fbfafa",
   whiteText: "#eee",
+  whiteTextTransp: "#eeeeee82",
   darkText: "#161616",
   darkTextTransp: "#16161624",
   lightText: "#5b5a5a",
