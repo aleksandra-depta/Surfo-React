@@ -11,6 +11,7 @@ export const Cointainer = styled.div`
   top: 0;
   left: 0;
   padding-top: 4rem;
+  overflow: scroll;
 `;
 
 export const Content = styled.div`
