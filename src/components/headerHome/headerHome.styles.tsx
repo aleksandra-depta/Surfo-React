@@ -7,13 +7,15 @@ export const HeadingContainer = styled.div`
   position: relative;
 
   &::after {
-    content: "";
-    position: absolute;
-    top: -15rem;
-    bottom: 0;
-    left: 13rem;
-    width: 1px;
-    background-color: ${(props) => props.theme.colors.white20};
+    @media only screen and (min-width: 576px) {
+      content: "";
+      position: absolute;
+      top: -15rem;
+      bottom: 0;
+      left: 13rem;
+      width: 1px;
+      background-color: ${(props) => props.theme.colors.white20};
+    }
   }
 
   &::before {
@@ -45,10 +47,6 @@ export const Heading = styled.h1`
 
   @media only screen and (max-width: 768px) {
     font-size: 8rem;
-  }
-
-  @media only screen and (max-width: 576px) {
-    font-size: 6rem;
   }
 
   &::before {

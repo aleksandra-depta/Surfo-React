@@ -30,13 +30,15 @@ export const MapContainer = styled.div`
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    top: 0rem;
-    left: 13rem;
-    height: 140vh;
-    width: 1px;
-    background-color: ${(props) => props.theme.colors.white20};
+    @media only screen and (min-width: 576px) {
+      content: "";
+      position: absolute;
+      top: 0rem;
+      left: 13rem;
+      height: 140vh;
+      width: 1px;
+      background-color: ${(props) => props.theme.colors.white20};
+    }
   }
 `;
 
@@ -48,6 +50,11 @@ export const MapDescription = styled.div`
   margin-left: 13rem;
   padding-left: 7rem;
   position: relative;
+
+  @media only screen and (max-width: 576px) {
+    margin-left: 0;
+    padding-left: 5rem;
+  }
 
   &::after {
     content: "";

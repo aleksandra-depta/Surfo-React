@@ -118,6 +118,7 @@ export const LinkNavUserName = styled.span<{ stickyNav?: boolean }>`
 
 export const Icon = styled.div`
   font-size: 1.8rem;
+  position: relative;
 `;
 
 export const IconFav = styled(Icon)`
@@ -131,5 +132,5 @@ export const CartIcon = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
   position: absolute;
   right: -10px;
-  bottom: -6px;
+  bottom: 0;
 `;

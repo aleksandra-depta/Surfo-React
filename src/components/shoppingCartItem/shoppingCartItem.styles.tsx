@@ -32,6 +32,9 @@ export const ImageItem = styled.img`
   max-width: 20rem;
   max-height: auto;
   margin: 20px;
+  @media only screen and (max-width: 460px) {
+    margin-left: 0;
+  }
 `;
 
 export const IconTrash = styled.button`
@@ -59,6 +62,12 @@ export const PriceContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  @media only screen and (max-width: 460px) {
+    flex-direction: column;
+    gap: 0;
+    align-items: start;
+  }
 `;
 
 export const Price = styled.div`

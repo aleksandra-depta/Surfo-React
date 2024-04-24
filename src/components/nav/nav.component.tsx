@@ -222,8 +222,8 @@ const Navigation = () => {
                     <LinkNav to="/shoppingCart" onClick={scrollToTop}>
                       <Icon>
                         <IonIcon size="large" name="cart-outline" />
+                        {cart.length !== 0 && <CartIcon />}
                       </Icon>
-                      {cart.length !== 0 && <CartIcon />}
                     </LinkNav>
                   </LinkContainer>
                   {currentUser && (

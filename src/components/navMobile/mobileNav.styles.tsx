@@ -38,8 +38,9 @@ export const LinkItem = styled(Link)`
   }
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.secondary};
-    color: ${(props) => props.theme.colors.white};
+    @media only screen and (min-width: 1200px) {
+      color: ${(props) => props.theme.colors.white};
+    }
   }
 `;
 

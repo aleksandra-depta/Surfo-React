@@ -8,6 +8,7 @@ import {
   FormContainer,
   FormNewsletter,
   Heading,
+  InfoContent,
   Newsletter,
 } from "./newsletter.styles";
 
@@ -35,7 +36,7 @@ const Newsletters = () => {
               Sign me up
             </ButtonBlack>
           </FormNewsletter>
-          {infoMessage && <InfoMessageInput />}
+          <InfoContent>{infoMessage && <InfoMessageInput />}</InfoContent>
         </FormContainer>
       </Content>
     </Newsletter>

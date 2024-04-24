@@ -19,13 +19,15 @@ export const Container = styled.div`
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    top: 0rem;
-    bottom: 0;
-    left: 13rem;
-    width: 1px;
-    background-color: ${(props) => props.theme.colors.white20};
+    @media only screen and (min-width: 576px) {
+      content: "";
+      position: absolute;
+      top: 0rem;
+      bottom: 0;
+      left: 13rem;
+      width: 1px;
+      background-color: ${(props) => props.theme.colors.white20};
+    }
   }
   &::before {
     content: "";
@@ -50,12 +52,6 @@ export const Heading = styled.h1`
 
   @media only screen and (max-width: 992px) {
     font-size: 14rem;
-  }
-  @media only screen and (max-width: 768px) {
-    font-size: 8rem;
-  }
-  @media only screen and (max-width: 576px) {
-    font-size: 6rem;
   }
 `;
 
@@ -82,6 +78,10 @@ export const Description = styled.div`
     margin-bottom: 5rem;
   }
 
+  @media only screen and (max-width: 576px) {
+    padding-left: 5rem;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -90,6 +90,10 @@ export const Description = styled.div`
     left: 13rem;
     width: 2.5px;
     background-color: ${(props) => props.theme.colors.white20};
+
+    @media only screen and (max-width: 576px) {
+      left: 0;
+    }
   }
 `;
 

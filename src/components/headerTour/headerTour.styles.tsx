@@ -13,14 +13,16 @@ export const Header = styled.div<{ bg: number | string }>`
   padding-bottom: 10rem;
 
   &::after {
-    content: "";
-    position: absolute;
-    overflow: hidden;
-    top: 0rem;
-    bottom: 0;
-    left: 13rem;
-    width: 1px;
-    background-color: ${(props) => props.theme.colors.white20};
+    @media only screen and (min-width: 576px) {
+      content: "";
+      position: absolute;
+      overflow: hidden;
+      top: 0rem;
+      bottom: 0;
+      left: 13rem;
+      width: 1px;
+      background-color: ${(props) => props.theme.colors.white20};
+    }
   }
 
   &::before {

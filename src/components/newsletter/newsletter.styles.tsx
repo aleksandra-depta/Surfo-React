@@ -9,7 +9,6 @@ export const Newsletter = styled.div<{
   color: ${(props) => props.theme.colors.whiteText};
   position: relative;
   height: 100vh;
-  max-height: 140rem;
   width: 100%;
 
   &::before {
@@ -19,21 +18,22 @@ export const Newsletter = styled.div<{
     background-position: center center;
     position: absolute;
     top: 0;
+    bottom: 0;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
-    height: 100vh;
-    max-height: 140rem;
+    right: calc(-1 * (100vw - 100%) / 2);
     z-index: -80;
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 13rem;
-    width: 1px;
-    background-color: ${(props) => props.theme.colors.white20};
+    @media only screen and (min-width: 576px) {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 13rem;
+      width: 1px;
+      background-color: ${(props) => props.theme.colors.white20};
+    }
   }
 `;
 
@@ -52,20 +52,17 @@ export const Heading = styled(HeadingH1)`
   @media only screen and (max-width: 992px) {
     font-size: 14rem;
   }
-  @media only screen and (max-width: 768px) {
-    font-size: 8rem;
-  }
 `;
 
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 10rem 20rem 20rem 20rem;
+  padding: 10rem 20rem 10rem 20rem;
   position: relative;
 
   @media only screen and (max-width: 576px) {
-    padding: 10rem 10rem 10rem 16rem;
+    padding: 10rem 10rem 10rem 5rem;
   }
 
   &::after {
@@ -77,15 +74,19 @@ export const FormContainer = styled.div`
     transform: translateX(-25%);
     width: 2.5px;
     background-color: ${(props) => props.theme.colors.white20};
+
+    @media only screen and (max-width: 576px) {
+      left: 0;
+    }
   }
 
   &::before {
     content: "";
     position: absolute;
     top: 0;
-    bottom: 0rem;
+    bottom: 0;
     left: calc(-1 * (100vw - 100%) / 2);
-    width: 100vw;
+    right: calc(-1 * (100vw - 100%) / 2);
     background-color: rgba(20, 20, 20, 0.36);
     z-index: -10;
   }
@@ -101,4 +102,8 @@ export const FormNewsletter = styled.form`
     flex-direction: column;
     gap: 1rem;
   }
+`;
+
+export const InfoContent = styled.div`
+  height: 2rem;
 `;

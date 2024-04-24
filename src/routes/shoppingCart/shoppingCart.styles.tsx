@@ -120,6 +120,7 @@ export const PaymentContainer = styled.div`
 export const PaymentButton = styled(ButtonBlack)`
   width: max-content;
   margin-top: 8rem;
+  font-size: 5rem;
 `;
 
 export const LoginMessageContainer = styled.div`

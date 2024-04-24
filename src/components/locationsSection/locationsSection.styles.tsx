@@ -18,6 +18,7 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     padding-left: 6rem;
     padding-right: 6rem;
+    margin-top: 10rem;
   }
 
   &::before {
